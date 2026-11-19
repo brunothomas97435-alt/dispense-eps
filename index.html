@@ -215,9 +215,10 @@ a.tile:hover{border-color:rgb(255 255 255 / .25);border-top-color:var(--tone)}
 
 /* Appel de séance */
 .ahead{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);padding-top:7px;padding-bottom:7px}
-.a-ctrl{display:flex;align-items:center;gap:14px}
+.a-ctrl{display:flex;align-items:center;gap:10px}
+.ahead .a-ctrl span{font-size:12px;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .a-ctrl > *{flex:none}
-.c-p{width:108px}.c-t{width:74px}.c-i{width:112px}.c-c{width:72px}
+.c-p{width:108px}.c-d{width:104px}.c-t{width:64px}.c-i{width:104px}.c-c{width:72px}
 .seg3{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
 .pb{flex:1;height:34px;border:0;border-right:1px solid var(--line);background:var(--surface);font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--muted);padding:0}
 .pb:last-child{border-right:0}
@@ -228,12 +229,24 @@ a.tile:hover{border-color:rgb(255 255 255 / .25);border-top-color:var(--tone)}
 .tb[aria-pressed="true"]{background:color-mix(in srgb,var(--warn) 16%,var(--surface));border-color:var(--warn);color:var(--ink)}
 .tb[aria-pressed="true"]::before{content:"⚠ "}
 .inv{display:flex;align-items:flex-end;gap:4px;height:34px}
-.ib{width:25px;height:34px;border:0;padding:0 0 5px;background:none;display:flex;align-items:flex-end;justify-content:center;border-radius:6px}
+.ib{width:23px;height:34px;border:0;padding:0 0 5px;background:none;display:flex;align-items:flex-end;justify-content:center;border-radius:6px}
 .ib i{display:block;width:15px;border-radius:3px;background:var(--line)}
 .ib.on i{background:var(--accent)}
 .ib:not(:disabled):hover i{box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 45%,transparent)}
 .cmp{display:flex;gap:6px}
 .cb{width:33px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:8px;font-weight:700;font-size:18px;line-height:1;color:var(--muted);padding:0}
+.db{height:34px;border:1px dashed var(--line);background:var(--surface);border-radius:8px;font-size:13px;font-weight:700;color:var(--muted);padding:0 8px;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.db:not(:disabled):hover{border-color:var(--ink-2);color:var(--ink)}
+.db.on{border-style:solid;border-color:color-mix(in srgb,var(--c) 45%,var(--surface));background:color-mix(in srgb,var(--c) 12%,var(--surface));color:var(--ink)}
+.db.on i{width:10px;height:10px;border-radius:2px;background:var(--c);flex:none}
+.db.on.n-partielle i{background:repeating-linear-gradient(135deg,var(--c-partial) 0 2px,transparent 2px 4px);box-shadow:inset 0 0 0 1px var(--c-partial)}
+.db.on.n-ponctuelle i{border-radius:50%}
+.db .w{color:var(--warn);font-size:12px}
+.db:disabled{opacity:.3;cursor:not-allowed}
+.qopts{display:flex;flex-wrap:wrap;gap:8px}
+.qopt{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:8px}
+.qopt:hover{border-color:var(--ink-2)}
+.qopt[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
 .cb.plus[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
 .cb.moins[aria-pressed="true"]{background:var(--crit);border-color:var(--crit);color:#fff}
 .ib:disabled,.tb:disabled,.cb:disabled{opacity:.3;cursor:not-allowed}
@@ -1155,7 +1168,7 @@ function viewAppel() {
         <div class="appel-break">${chip(nAbs, nAbs > 1 ? 'absents' : 'absent', 'abs')}${chip(nRet, nRet > 1 ? 'retards' : 'retard', 'ret')}${chip(nOub, nOub > 1 ? 'oublis de tenue' : 'oubli de tenue', 'oub')}${chip(nInap, nInap > 1 ? 'inaptes' : 'inapte', '')}</div>
         <div class="appel-actions">${se ? `<span class="ok-t">${ICON.check}Appel enregistré</span>` : '<button class="btn sm primary" data-act="valider-appel">Valider l’appel</button>'}<button class="btn sm" data-act="copy-appel">Copier le bilan</button><button class="btn sm" data-act="fiche-classe">Fiche des dispenses</button></div>
       </div>
-      ${c.eleves.length ? '<div class="arow ahead" aria-hidden="true"><span></span><span>Élève</span><div class="a-ctrl"><span class="c-p">Présence</span><span class="c-t">Tenue</span><span class="c-i">Investissement</span><span class="c-c">Comport.</span></div><span></span></div>' + rows.map(rowAppel).join('') : `<div class="empty-sm pad">Aucun élève dans cette classe. <button class="link strong" data-act="sel-classe-go" data-id="${c.id}">Ajouter la liste</button></div>`}
+      ${c.eleves.length ? '<div class="arow ahead" aria-hidden="true"><span></span><span>Élève</span><div class="a-ctrl"><span class="c-p">Présence</span><span class="c-d">Dispense</span><span class="c-t">Tenue</span><span class="c-i">Investissement</span><span class="c-c">Comport.</span></div><span></span></div>' + rows.map(rowAppel).join('') : `<div class="empty-sm pad">Aucun élève dans cette classe. <button class="link strong" data-act="sel-classe-go" data-id="${c.id}">Ajouter la liste</button></div>`}
     </section>
     <p class="hint" style="margin:8px 2px 0">Tout le monde est présent par défaut : marque seulement les absences, retards, oublis et remarques. Investissement de 1 (faible) à 4 (très bon) ; touche à nouveau pour effacer.</p>
     <section class="card" style="margin-top:16px"><div class="card-h"><h2>Frise des dispenses</h2>${friseLegend()}</div>${friseClasse(c)}</section>
@@ -1171,11 +1184,12 @@ function rowAppel(r, i) {
   return `<div class="arow ${b ? 'is-inapte n-' + b.nature : ''} ${abs ? 'is-abs' : ''}">
     <span class="lane-n">${pad(i + 1)}</span>
     <div class="a-name"><button class="link strong" data-act="eleve" data-id="${id}">${esc(r.e.nom)}</button> <span>${esc(r.e.prenom)}</span>
-      ${b ? `<div class="a-inap" data-tip="${esc(tipInap)}" tabindex="0">${pill(b.nature)}<span class="muted sm">${esc(finTxt(b))}${(b.roles || []).length ? ' · ' + esc(b.roles.join(', ').toLowerCase()) : ''}</span></div>` : ''}
+      ${b ? `<div class="a-inap" data-tip="${esc(tipInap)}" tabindex="0"><span class="muted sm">${esc(cap(finTxt(b)))}${(b.roles || []).length ? ' · ' + esc(b.roles.join(', ').toLowerCase()) : ''}</span>${b.justifRecu ? '' : `<span class="flag">${ICON.warn}${esc(JUSTIF_S[b.justificatif] || 'justificatif')} à récupérer</span>`}</div>` : ''}
       ${en.n ? `<div class="a-note sm">« ${esc(trunc(en.n, 90))} »</div>` : ''}
     </div>
     <div class="a-ctrl">
       <div class="seg3 c-p" role="group" aria-label="Présence">${pb('', 'P', 'Présent')}${pb('A', 'A', 'Absent')}${pb('R', 'R', 'En retard')}</div>
+      ${b ? `<button type="button" id="ap-${id}-d" class="db on c-d n-${b.nature}" data-act="edit-disp" data-id="${b.id}" aria-label="${esc(NATURES[b.nature].label)}, modifier la dispense"><i aria-hidden="true"></i>${NATURES[b.nature].short}${b.justifRecu ? '' : '<span class="w" aria-hidden="true">⚠</span>'}</button>` : `<button type="button" id="ap-${id}-d" class="db c-d" data-act="ap-d" data-id="${id}" aria-label="Ajouter une dispense pour ${esc(nomComplet(r.e))}" ${dis}>+ Dispense</button>`}
       <button type="button" id="ap-${id}-t" class="tb c-t" aria-pressed="${!!en.t}" aria-label="Oubli de tenue" data-act="ap-t" data-id="${id}" ${dis}>Oubli</button>
       <div class="inv c-i" role="group" aria-label="Investissement">${inv}</div>
       <div class="cmp c-c" role="group" aria-label="Comportement"><button type="button" id="ap-${id}-cp" class="cb plus" aria-pressed="${en.c === 1}" aria-label="Comportement positif" data-act="ap-c" data-id="${id}" data-v="1" ${dis}>+</button><button type="button" id="ap-${id}-cm" class="cb moins" aria-pressed="${en.c === -1}" aria-label="Comportement à reprendre" data-act="ap-c" data-id="${id}" data-v="-1" ${dis}>−</button></div>
@@ -1193,7 +1207,7 @@ function openNoteSeance(eid, cid, day) {
       <div class="field"><label class="label" for="ns-note">Note de séance</label><textarea id="ns-note" rows="3" data-autofocus placeholder="Comportement, investissement, matériel oublié…">${esc(en.n || '')}</textarea></div>
       <div class="chips">${NOTE_CHIPS.map(t => `<button type="button" class="chip" data-t="${esc(t)}">${esc(t)}</button>`).join('')}</div>
       <hr class="sep" style="margin-top:16px">
-      <div class="row-gap">${act ? `<button type="button" class="btn sm" data-act="edit-disp" data-id="${act.id}">Voir la dispense en cours</button>` : '<button type="button" class="btn sm" id="ns-ponct">+ Dispense ponctuelle ce jour</button>'}<button type="button" class="btn sm ghost" data-act="eleve" data-id="${eid}">Fiche de l’élève</button></div>
+      <div class="row-gap">${act ? `<button type="button" class="btn sm" data-act="edit-disp" data-id="${act.id}">Voir la dispense en cours</button>` : '<button type="button" class="btn sm" id="ns-ponct">+ Dispense</button>'}<button type="button" class="btn sm ghost" data-act="eleve" data-id="${eid}">Fiche de l’élève</button></div>
     </div>
     <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="button" class="btn primary" id="ns-save">Enregistrer la note</button></div>`,
     onMount(box, m) {
@@ -1201,7 +1215,7 @@ function openNoteSeance(eid, cid, day) {
       box.querySelectorAll('[data-t]').forEach(b => { b.onclick = () => { const t = b.dataset.t; ta.value = ta.value.trim() ? ta.value.trim() + ' ; ' + t : t; ta.focus(); }; });
       box.querySelector('#ns-save').onclick = () => { setEntry(cid, day, eid, { n: ta.value.trim() }); closeModal(m); };
       const pq = box.querySelector('#ns-ponct');
-      if (pq) pq.onclick = () => { closeModal(m); quickPonct(eid, day); };
+      if (pq) pq.onclick = () => { closeModal(m); openQuickDispense(eid, day); };
     },
   });
 }
@@ -1796,15 +1810,15 @@ function openEleveForm(eid) {
 }
 
 /* ============ Formulaire de dispense ============ */
-function openDispForm({ id = null, eleveId = null } = {}) {
+function openDispForm({ id = null, eleveId = null, preset = null } = {}) {
   if (!S.classes.length) { toast('Crée d’abord une classe.'); go('classes'); return; }
   const T = todayIso();
   const existing = id ? Store.docs().get(id) : null;
   if (id && !existing) return;
-  const f = existing ? clone(existing) : {
+  const f = existing ? clone(existing) : Object.assign({
     kind: 'dispense', eleveId: eleveId || '', nature: 'partielle', debut: T, fin: addDays(T, 13), anneeEntiere: false,
     justificatif: 'certificat', justifRecu: false, dateRecu: '', limitations: [], apsa: [], presence: 'present', roles: [], evaluation: 'adaptee', notes: '',
-  };
+  }, preset || {});
   ['limitations', 'apsa', 'roles'].forEach(k => { if (!Array.isArray(f[k])) f[k] = []; });
   let classeId = f.eleveId && S.eleves.has(f.eleveId) ? S.eleves.get(f.eleveId).c.id
     : (S.classes.some(c => c.id === UI.appelClasse) && UI.route === 'appel' ? UI.appelClasse
@@ -1948,6 +1962,66 @@ function openDispForm({ id = null, eleveId = null } = {}) {
   };
   m = openModal({ wide: true, label: existing ? 'Modifier la dispense' : 'Nouvelle dispense', html: '', onMount: box => draw(box) });
   const af = m.wrap.querySelector('[data-autofocus]'); if (af) af.focus();
+}
+function openQuickDispense(eid, day) {
+  const x = S.eleves.get(eid); if (!x) return;
+  const NAT_DEF = { parents: 'ponctuelle', certificat: 'partielle', infirmerie: 'ponctuelle', medecin_scolaire: 'partielle', autre: 'ponctuelle' };
+  const q = { justificatif: 'parents', justifRecu: true, nature: 'ponctuelle', natureTouched: false, fin: addDays(day, 13), anneeEntiere: false, roles: ['Observateur'], notes: '' };
+  const JQ = [['parents', 'Mot des parents'], ['certificat', 'Certificat médical'], ['infirmerie', 'Infirmerie'], ['medecin_scolaire', 'Médecin scolaire'], ['autre', 'Autre']];
+  const NQ = [['ponctuelle', 'Ponctuelle · ce jour'], ['partielle', 'Inaptitude partielle'], ['totale', 'Inaptitude totale']];
+  const RQ = ['Observateur', 'Arbitre', 'Juge', 'Chronométreur', 'Aide matériel', 'Coach / conseiller', 'Secrétaire / scores'];
+  const finQ = () => (q.nature === 'ponctuelle' ? day : q.anneeEntiere ? S.settings.fin : q.fin);
+  const body = () => `<div class="modal-head"><div><div class="eyebrow">${esc(x.c.nom)} · ${esc(fmtJ(day))}</div><h3>Dispense : ${esc(nomComplet(x.e))}</h3></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">
+      <div class="field"><span class="label" id="qd-j">Justificatif</span><div class="qopts" role="group" aria-labelledby="qd-j">${JQ.map(([k, l]) => `<button type="button" class="qopt" data-j="${k}" aria-pressed="${q.justificatif === k}">${l}</button>`).join('')}</div>
+        <label class="check"><input type="checkbox" id="qd-recu" ${q.justifRecu ? 'checked' : ''}> Remis aujourd’hui (décocher s’il est à fournir)</label></div>
+      <div class="field"><span class="label" id="qd-n">Type de dispense</span><div class="qopts" role="group" aria-labelledby="qd-n">${NQ.map(([k, l]) => `<button type="button" class="qopt" data-n="${k}" aria-pressed="${q.nature === k}"><i class="sw n-${k}" aria-hidden="true"></i>${l}</button>`).join('')}</div></div>
+      ${q.nature === 'ponctuelle' ? '' : `<div class="field"><span class="label">Jusqu’au</span>
+        <div class="quick-d" style="margin:0" role="group" aria-label="Durée rapide"><button type="button" class="chip" data-dur="7">1 semaine</button><button type="button" class="chip" data-dur="14">2 semaines</button><button type="button" class="chip" data-mois="1">1 mois</button><button type="button" class="chip" data-mois="3">3 mois</button><button type="button" class="chip" data-annee aria-pressed="${q.anneeEntiere}">Fin de l’année</button></div>
+        <input type="date" id="qd-fin" value="${esc(finQ())}" ${q.anneeEntiere ? 'disabled' : ''} aria-label="Date de fin" style="max-width:220px"></div>`}
+      <div class="summary" id="qd-sum"></div>
+      <div class="field"><span class="label">Rôle pendant la séance</span><div class="chips" data-group="roles">${chips(RQ, q.roles)}</div></div>
+      <div class="field"><label class="label" for="qd-notes">Précisions</label><textarea id="qd-notes" rows="2" placeholder="Ex. : cheville douloureuse, peut marcher ; pas de course.">${esc(q.notes)}</textarea></div>
+      <p class="form-err" id="qd-err" role="alert"></p>
+    </div>
+    <div class="modal-foot spread"><button type="button" class="btn ghost" id="qd-more">Plus d’options…</button><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="button" class="btn primary" id="qd-save" data-autofocus>Enregistrer</button></div></div>`;
+  const preset = () => {
+    const fin = finQ();
+    return { eleveId: eid, nature: q.nature, debut: day, fin, anneeEntiere: q.nature !== 'ponctuelle' && q.anneeEntiere, justificatif: q.justificatif, justifRecu: q.justifRecu, dateRecu: q.justifRecu ? todayIso() : '', presence: 'present', roles: q.roles.slice(), evaluation: q.nature === 'totale' ? 'non_evalue' : q.nature === 'partielle' ? 'adaptee' : 'normale', notes: q.notes.trim() };
+  };
+  const summary = box => {
+    const el = box.querySelector('#qd-sum'), fin = finQ();
+    if (!isIso(fin) || fin < day) { el.innerHTML = `<div class="sum-warn">${ICON.warn}<span>La date de fin doit être après le ${esc(fmtJ(day))}.</span></div>`; return; }
+    const n = diffDays(day, fin) + 1, se = seances(x.c, day, fin);
+    el.innerHTML = `<strong>${q.nature === 'ponctuelle' ? 'Ce jour seulement' : `Du ${fmtJ(day)} au ${fmtJ(fin)}`}</strong> · ${plural(n, 'jour')}${se == null ? '' : ' · ' + plural(se, 'séance') + ' d’EPS'}${q.justifRecu ? '' : `<div class="sum-warn">${ICON.warn}<span>${esc(JUSTIF_S[q.justificatif])} à récupérer : il apparaîtra dans « À traiter ».</span></div>`}`;
+  };
+  const mount = (box, m) => {
+    box.innerHTML = body();
+    box.querySelectorAll('[data-j]').forEach(b => { b.onclick = () => { q.justificatif = b.dataset.j; if (!q.natureTouched) q.nature = NAT_DEF[q.justificatif]; mount(box, m); }; });
+    box.querySelectorAll('[data-n]').forEach(b => { b.onclick = () => { q.nature = b.dataset.n; q.natureTouched = true; mount(box, m); }; });
+    box.querySelector('#qd-recu').onchange = ev => { q.justifRecu = ev.target.checked; summary(box); };
+    const finEl = box.querySelector('#qd-fin');
+    const setFin = v => { q.anneeEntiere = false; q.fin = v; if (finEl) { finEl.disabled = false; finEl.value = v; } const a = box.querySelector('[data-annee]'); if (a) a.setAttribute('aria-pressed', 'false'); summary(box); };
+    if (finEl) finEl.oninput = () => { q.fin = finEl.value; summary(box); };
+    box.querySelectorAll('[data-dur]').forEach(b => { b.onclick = () => setFin(addDays(day, Number(b.dataset.dur) - 1)); });
+    box.querySelectorAll('[data-mois]').forEach(b => { b.onclick = () => setFin(addMonths(day, Number(b.dataset.mois))); });
+    const an = box.querySelector('[data-annee]');
+    if (an) an.onclick = () => { q.anneeEntiere = !q.anneeEntiere; an.setAttribute('aria-pressed', String(q.anneeEntiere)); if (finEl) { finEl.disabled = q.anneeEntiere; finEl.value = finQ(); } summary(box); };
+    box.querySelectorAll('.chips[data-group=roles] .chip').forEach(ch => { ch.onclick = () => { const v = ch.dataset.val, i = q.roles.indexOf(v); if (i >= 0) q.roles.splice(i, 1); else q.roles.push(v); ch.setAttribute('aria-pressed', String(i < 0)); }; });
+    const notes = box.querySelector('#qd-notes');
+    notes.oninput = () => { q.notes = notes.value; };
+    box.querySelector('#qd-more').onclick = () => { closeModal(m); openDispForm({ eleveId: eid, preset: preset() }); };
+    box.querySelector('#qd-save').onclick = () => {
+      const pr = preset();
+      if (!isIso(pr.fin) || pr.fin < pr.debut) { box.querySelector('#qd-err').textContent = 'Vérifie la date de fin.'; return; }
+      const now = new Date().toISOString(), id = newId('d_');
+      putDoc(id, Object.assign({ kind: 'dispense', limitations: [], apsa: [], creeLe: now, majLe: now }, pr));
+      closeModal(m);
+      toast(`${NATURES[pr.nature].label} enregistrée pour ${x.e.prenom || x.e.nom}.`, [{ label: 'Annuler', run: () => delDoc(id) }, { label: 'Détails', run: () => openDispForm({ id }) }]);
+    };
+    summary(box);
+  };
+  openModal({ label: 'Nouvelle dispense', html: '', onMount: (box, m) => mount(box, m) });
 }
 function quickPonct(eid, day) {
   const x = S.eleves.get(eid); if (!x) return;
@@ -2111,6 +2185,7 @@ function appelText(c, day) {
       const d = best(r.list);
       const bits = [NATURES[d.nature].label.toLowerCase() + ' ' + finTxt(d), PRESENCE_C[d.presence] || ''];
       if ((d.roles || []).length) bits.push('rôle : ' + d.roles.join(', ').toLowerCase());
+      if (!d.justifRecu) bits.push((JUSTIF_S[d.justificatif] || 'justificatif').toLowerCase() + ' à récupérer');
       lines.push(`- ${nomComplet(r.e)} : ${bits.filter(Boolean).join(' ; ')}`);
     });
   }
@@ -2188,6 +2263,7 @@ const ACT = {
   'ap-i': ds => { const { cid, day } = appelCtx(), v = Number(ds.v); setEntry(cid, day, ds.id, { i: entryOf(seanceOf(cid, day), ds.id).i === v ? 0 : v }); },
   'ap-c': ds => { const { cid, day } = appelCtx(), v = Number(ds.v); setEntry(cid, day, ds.id, { c: entryOf(seanceOf(cid, day), ds.id).c === v ? 0 : v }); },
   'ap-note': ds => { const { cid, day } = appelCtx(); openNoteSeance(ds.id, cid, day); },
+  'ap-d': ds => { const { day } = appelCtx(); openQuickDispense(ds.id, day); },
   'valider-appel': () => { const { cid, day } = appelCtx(); if (validerAppel(cid, day)) toast('Appel enregistré : les élèves non marqués sont comptés présents.'); },
   'pick-bilan': ds => { UI.bilanClasse = ds.id; render(); },
   'sort-bilan': ds => { const so = UI.bilanSort; if (so.k === ds.k) so.dir = -so.dir; else { so.k = ds.k; so.dir = ds.k === 'nom' ? 1 : -1; } render(); },
