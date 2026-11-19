@@ -198,7 +198,7 @@ a.tile:hover{border-color:rgb(255 255 255 / .25);border-top-color:var(--tone)}
 .appel-count .big{font-family:var(--font-display);font-weight:700;font-size:46px;line-height:1;font-variant-numeric:tabular-nums}
 .appel-break{display:flex;gap:8px;flex-wrap:wrap}
 .appel-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.arow{--c:transparent;display:grid;grid-template-columns:34px minmax(150px,1fr) 118px minmax(0,2.2fr) auto;gap:12px;align-items:center;padding:9px 18px;border-bottom:1px solid var(--line-2)}
+.arow{--c:transparent;display:grid;grid-template-columns:34px minmax(0,1fr) auto 40px;gap:12px;align-items:center;padding:8px 18px;border-bottom:1px solid var(--line-2)}
 .arow:last-child{border-bottom:0}
 .arow.is-inapte{background:color-mix(in srgb,var(--c) 5%,var(--surface));box-shadow:inset 4px 0 0 var(--c)}
 .lane-n{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -212,6 +212,61 @@ a.tile:hover{border-color:rgb(255 255 255 / .25);border-top-color:var(--tone)}
 .flag{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;color:var(--warn)}
 .flag svg{width:12px;height:12px}
 .flag.crit{color:var(--crit)}
+
+/* Appel de séance */
+.ahead{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);padding-top:7px;padding-bottom:7px}
+.a-ctrl{display:flex;align-items:center;gap:14px}
+.a-ctrl > *{flex:none}
+.c-p{width:108px}.c-t{width:74px}.c-i{width:112px}.c-c{width:72px}
+.seg3{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.pb{flex:1;height:34px;border:0;border-right:1px solid var(--line);background:var(--surface);font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--muted);padding:0}
+.pb:last-child{border-right:0}
+.pb.v-P[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.pb.v-A[aria-pressed="true"]{background:var(--crit);color:#fff}
+.pb.v-R[aria-pressed="true"]{background:var(--warn);color:#fff}
+.tb{height:34px;border:1px solid var(--line);background:var(--surface);border-radius:8px;font-size:13px;font-weight:700;color:var(--muted);padding:0 8px}
+.tb[aria-pressed="true"]{background:color-mix(in srgb,var(--warn) 16%,var(--surface));border-color:var(--warn);color:var(--ink)}
+.tb[aria-pressed="true"]::before{content:"⚠ "}
+.inv{display:flex;align-items:flex-end;gap:4px;height:34px}
+.ib{width:25px;height:34px;border:0;padding:0 0 5px;background:none;display:flex;align-items:flex-end;justify-content:center;border-radius:6px}
+.ib i{display:block;width:15px;border-radius:3px;background:var(--line)}
+.ib.on i{background:var(--accent)}
+.ib:not(:disabled):hover i{box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 45%,transparent)}
+.cmp{display:flex;gap:6px}
+.cb{width:33px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:8px;font-weight:700;font-size:18px;line-height:1;color:var(--muted);padding:0}
+.cb.plus[aria-pressed="true"]{background:var(--good);border-color:var(--good);color:#fff}
+.cb.moins[aria-pressed="true"]{background:var(--crit);border-color:var(--crit);color:#fff}
+.ib:disabled,.tb:disabled,.cb:disabled{opacity:.3;cursor:not-allowed}
+.nb.has{color:var(--accent);border-color:var(--accent)}
+.arow.is-abs .a-name{opacity:.5}
+.a-inap{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:3px;width:fit-content}
+.a-note{color:var(--ink-2);font-style:italic;margin-top:2px}
+.cpick .done{font-style:normal;color:var(--good);font-weight:700;font-size:14px}
+.cpick[aria-pressed="true"] .done{color:var(--band-accent)}
+.tag.ok{color:var(--good)}
+.sumchip{display:inline-flex;gap:5px;align-items:baseline;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:var(--surface)}
+.sumchip b{font-family:var(--font-display);font-size:17px;color:var(--ink)}
+.sumchip.abs{border-color:var(--crit)}
+.sumchip.ret,.sumchip.oub{border-color:var(--warn)}
+
+/* Bilan */
+.btable-wrap{overflow-x:auto}
+table.btable{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.btable th{font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;background:var(--surface-2);border-bottom:1px solid var(--line);padding:0;white-space:nowrap}
+.btable th.n,.btable td.n{text-align:right}
+.thb{background:none;border:0;padding:9px 10px;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;width:100%;text-align:inherit;cursor:pointer}
+.btable th:first-child{width:34px}
+.btable td{padding:8px 10px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+.btable tr:last-child td{border-bottom:0}
+.btable td.hot{background:color-mix(in srgb,var(--warn) 14%,transparent);font-weight:700}
+.btable td.lane-n{font-size:15px}
+.invbar{display:inline-block;width:52px;height:6px;border-radius:3px;background:var(--line-2);vertical-align:middle;margin-right:6px;overflow:hidden}
+.invbar i{display:block;height:100%;background:var(--accent)}
+.bnote{max-width:260px;color:var(--ink-2);font-size:13px}
+.suivi-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.suivi-stats > div{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:2px}
+.stat.s{font-size:26px}
+.recent{display:grid;gap:4px;font-size:13px;color:var(--ink-2);margin-bottom:14px}
 
 /* Liste des dispenses */
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
@@ -397,8 +452,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--focus);outline-o
   .scoreboard{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tile-n{font-size:44px}
   .arow{grid-template-columns:28px minmax(0,1fr) auto;padding:10px 12px}
-  .a-details,.a-act{grid-column:2 / -1}
-  .a-act{justify-self:start}
+  .a-ctrl{grid-column:2 / -1;grid-row:2;flex-wrap:wrap;gap:10px}
+  .nb{grid-column:3;grid-row:1}
+  .ahead{display:none}
+  .suivi-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .appel-h{grid-template-columns:1fr}
   .appel-count,.appel-actions{justify-content:flex-start}
   .alert{grid-template-columns:1fr}
@@ -467,6 +524,7 @@ body{-webkit-tap-highlight-color:transparent}
     <a href="#tableau" data-route="tableau">Tableau de bord</a>
     <a href="#appel" data-route="appel">Appel du jour</a>
     <a href="#dispenses" data-route="dispenses">Dispenses</a>
+    <a href="#bilan" data-route="bilan">Bilan</a>
     <a href="#classes" data-route="classes">Classes &amp; élèves</a>
     <a href="#donnees" data-route="donnees">Réglages &amp; données</a>
   </nav>
@@ -533,8 +591,10 @@ const ROLES = ['Arbitre', 'Juge', 'Chronométreur', 'Observateur', 'Coach / cons
 const PRESENCE = { present: 'Présent en cours, avec un rôle adapté', dispense_presence: 'Dispensé de présence (vie scolaire, CDI)', a_definir: 'À définir' };
 const PRESENCE_C = { present: 'Présent en cours', dispense_presence: 'Dispensé de présence', a_definir: 'Présence à définir' };
 const EVAL = { normale: 'Évaluation normale', adaptee: 'Évaluation adaptée', non_evalue: 'Non évalué sur la période' };
+const INV = [null, 'Faible', 'Moyen', 'Bon', 'Très bon'];
+const NOTE_CHIPS = ['Bavardages', 'Refus de pratiquer', 'Téléphone', 'Retard au vestiaire', 'Manque de respect', 'Très bon état d’esprit', 'Aide ses camarades', 'Progrès visibles', 'Bon arbitrage'];
 const JOURS_EPS = [[1, 'Lu'], [2, 'Ma'], [3, 'Me'], [4, 'Je'], [5, 'Ve'], [6, 'Sa']];
-const ROUTES = ['tableau', 'appel', 'dispenses', 'classes', 'donnees'];
+const ROUTES = ['tableau', 'appel', 'dispenses', 'bilan', 'classes', 'donnees'];
 const LS_KEY = 'dispenses-eps-v1';
 const LS_DEMO_OFF = 'dispenses-eps-demo-off';
 
@@ -545,6 +605,9 @@ const DEFAULT_SETTINGS = {
   fin: '2027-07-09',
   seuil: 90,
   finProche: 7,
+  seuilAbsences: 3,
+  seuilOublis: 3,
+  seuilComportement: 3,
   periodes: [
     { nom: 'Trimestre 1', debut: '2026-08-18', fin: '2026-12-18' },
     { nom: 'Trimestre 2', debut: '2027-02-01', fin: '2027-04-09' },
@@ -566,7 +629,7 @@ const ICON = {
 };
 
 /* ============ État ============ */
-const S = { settings: clone(DEFAULT_SETTINGS), classes: [], dispenses: [], eleves: new Map(), byEleve: new Map() };
+const S = { settings: clone(DEFAULT_SETTINGS), classes: [], dispenses: [], eleves: new Map(), byEleve: new Map(), seances: new Map(), seancesByClasse: new Map(), seancesByEleve: new Map(), acks: {} };
 const MEMO = new Map();
 const UI = {
   route: 'tableau',
@@ -578,6 +641,9 @@ const UI = {
   importTxt: '',
   settingsDraft: null,
   settingsBase: null,
+  bilanClasse: null,
+  bilanPer: null,
+  bilanSort: { k: 'nom', dir: 1 },
 };
 
 /* ============ Stockage ============ */
@@ -747,12 +813,16 @@ function rebuild() {
   if (!isIso(S.settings.fin)) S.settings.fin = DEFAULT_SETTINGS.fin;
   S.settings.seuil = Number(S.settings.seuil) > 0 ? Number(S.settings.seuil) : 90;
   S.settings.finProche = Number(S.settings.finProche) >= 0 ? Number(S.settings.finProche) : 7;
+  ['seuilAbsences', 'seuilOublis', 'seuilComportement'].forEach(k => { S.settings[k] = Number(S.settings[k]) > 0 ? Number(S.settings[k]) : DEFAULT_SETTINGS[k]; });
   S.classes = [];
-  const disp = [];
+  const disp = [], ses = [];
+  let acks = {};
   for (const [id, b] of docs) {
     if (!b || typeof b !== 'object') continue;
     if (id.startsWith('c_')) S.classes.push(Object.assign({}, b, { id, eleves: Array.isArray(b.eleves) ? b.eleves.slice() : [], jours: Array.isArray(b.jours) ? b.jours.slice() : [] }));
     else if (id.startsWith('d_')) disp.push(Object.assign({}, b, { id }));
+    else if (id.startsWith('s_') && isIso(b.date)) ses.push(Object.assign({}, b, { id }));
+    else if (id === 'acks' && b.v && typeof b.v === 'object') acks = b.v;
   }
   S.classes.sort(cmpClasse);
   S.eleves = new Map();
@@ -761,6 +831,19 @@ function rebuild() {
   S.byEleve = new Map();
   for (const d of S.dispenses) { if (!S.byEleve.has(d.eleveId)) S.byEleve.set(d.eleveId, []); S.byEleve.get(d.eleveId).push(d); }
   for (const l of S.byEleve.values()) l.sort((a, b) => (a.debut < b.debut ? -1 : a.debut > b.debut ? 1 : 0));
+  S.acks = acks;
+  S.seances = new Map(); S.seancesByClasse = new Map(); S.seancesByEleve = new Map();
+  for (const x of ses) {
+    S.seances.set(x.id, x);
+    if (!S.seancesByClasse.has(x.classeId)) S.seancesByClasse.set(x.classeId, []);
+    S.seancesByClasse.get(x.classeId).push(x.date);
+    for (const [eid, en] of Object.entries(x.el || {})) {
+      if (!S.eleves.has(eid) || !en || typeof en !== 'object') continue;
+      if (!S.seancesByEleve.has(eid)) S.seancesByEleve.set(eid, []);
+      S.seancesByEleve.get(eid).push({ date: x.date, classeId: x.classeId, en });
+    }
+  }
+  for (const l of S.seancesByEleve.values()) l.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
   MEMO.clear();
 }
 function finOf(d) { return d.anneeEntiere ? S.settings.fin : (isIso(d.fin) ? d.fin : d.debut); }
@@ -807,6 +890,53 @@ function seancesEleve(eid) {
   return mergeIntervals(S.byEleve.get(eid) || []).reduce((n, [a, b]) => n + seances(x.c, a, b), 0);
 }
 
+const seanceId = (cid, date) => `s_${cid}_${date}`;
+function seanceOf(cid, date) { return S.seances.get(seanceId(cid, date)) || null; }
+function entryOf(se, eid) { return (se && se.el && se.el[eid]) || {}; }
+function setEntry(cid, date, eid, patch) {
+  const id = seanceId(cid, date), cur = S.seances.get(id);
+  const body = { kind: 'seance', classeId: cid, date, faite: true, el: cur ? clone(cur.el || {}) : {} };
+  const en = Object.assign({}, body.el[eid] || {}, patch);
+  Object.keys(en).forEach(k => { if (en[k] === '' || en[k] === 0 || en[k] === false || en[k] == null) delete en[k]; });
+  if (Object.keys(en).length) body.el[eid] = en; else delete body.el[eid];
+  body.majLe = new Date().toISOString();
+  putDoc(id, body);
+}
+function validerAppel(cid, date) {
+  if (seanceOf(cid, date)) return false;
+  putDoc(seanceId(cid, date), { kind: 'seance', classeId: cid, date, faite: true, el: {}, majLe: new Date().toISOString() });
+  return true;
+}
+function appelCtx() { const day = isIso(UI.appelDate) ? UI.appelDate : todayIso(); return { cid: currentAppelClasse(day).id, day }; }
+function periodRange(key) {
+  const st = S.settings;
+  if (key != null && key !== 'annee') { const p = st.periodes[Number(key)]; if (p && isIso(p.debut) && isIso(p.fin)) return [p.debut, p.fin, p.nom]; }
+  return [st.debut, st.fin, 'l’année'];
+}
+function currentPeriodKey(T) { const i = S.settings.periodes.findIndex(p => p.debut <= T && T <= p.fin); return i >= 0 ? String(i) : 'annee'; }
+function seancesClasse(cid, a, b) { return (S.seancesByClasse.get(cid) || []).filter(d => d >= a && d <= b).length; }
+function statsEleve(eid, a, b) {
+  const k = `st|${eid}|${a}|${b}`;
+  if (MEMO.has(k)) return MEMO.get(k);
+  const st = { abs: 0, ret: 0, oub: 0, invSum: 0, invN: 0, plus: 0, moins: 0, notes: [], inv: null };
+  for (const r of S.seancesByEleve.get(eid) || []) {
+    if (r.date < a || r.date > b) continue;
+    const en = r.en;
+    if (en.p === 'A') st.abs++; else if (en.p === 'R') st.ret++;
+    if (en.t) st.oub++;
+    if (en.i >= 1 && en.i <= 4) { st.invSum += en.i; st.invN++; }
+    if (en.c === 1) st.plus++; else if (en.c === -1) st.moins++;
+    if (en.n) st.notes.push({ date: r.date, n: en.n });
+  }
+  if (st.invN) st.inv = st.invSum / st.invN;
+  MEMO.set(k, st);
+  return st;
+}
+function cumulRange(eid, a, b) {
+  return mergeIntervals((S.byEleve.get(eid) || []).filter(d => d.nature !== 'ponctuelle')).reduce((n, [x, y]) => { const u = maxIso(x, a), v = minIso(y, b); return u <= v ? n + diffDays(u, v) + 1 : n; }, 0);
+}
+const invFmt = v => v.toFixed(1).replace('.', ',');
+
 function computeAlerts(T) {
   const st = S.settings, out = [];
   for (const [eid, list] of S.byEleve) {
@@ -827,6 +957,15 @@ function computeAlerts(T) {
         out.push({ sev: 'info', kind: 'reprise', eid, did: d.id, sort: 3, text: `Inaptitude terminée le ${fmtJ(f)} : sans nouveau certificat, l’élève reprend la pratique.` });
       }
     }
+  }
+  const [pa, pb, pnom] = periodRange(currentPeriodKey(T));
+  const perTxt = pnom === 'l’année' ? 'l’année' : pnom.toLowerCase();
+  for (const eid of S.seancesByEleve.keys()) {
+    const sx = statsEleve(eid, pa, pb);
+    [['abs', sx.abs, st.seuilAbsences, plural(sx.abs, 'absence')], ['oub', sx.oub, st.seuilOublis, plural(sx.oub, 'oubli') + ' de tenue'], ['comp', sx.moins, st.seuilComportement, plural(sx.moins, 'remarque') + ' de comportement']].forEach(([k, v, seuil, lab]) => {
+      const key = `${eid}|${k}|${pa}`;
+      if (v >= seuil && v > (S.acks[key] || 0)) out.push({ sev: 'info', kind: 'suivi', eid, key, v, sort: 2.5, text: `${esc(lab)} sur ${esc(perTxt)} : pense à prévenir la famille ou le professeur principal.` });
+    });
   }
   out.sort((a, b) => a.sort - b.sort);
   return out;
@@ -954,7 +1093,7 @@ function viewTableau() {
   const noJours = S.classes.every(c => !c.jours.length);
   const todayHtml = groups.length ? groups.map(g => `
     <div class="cl-today">
-      <div class="cl-today-h"><button class="link" data-act="go-appel" data-id="${g.c.id}">${esc(g.c.nom)}</button>${g.eps ? '<span class="tag">Cours aujourd’hui</span>' : ''}<span class="muted sm">${g.list.length ? plural(g.list.length, 'inapte') : 'tous aptes'}</span></div>
+      <div class="cl-today-h"><button class="link" data-act="go-appel" data-id="${g.c.id}">${esc(g.c.nom)}</button>${g.eps ? (seanceOf(g.c.id, T) ? '<span class="tag ok">Appel fait</span>' : `<button class="btn sm" data-act="go-appel" data-id="${g.c.id}">Faire l’appel</button>`) : ''}<span class="muted sm">${g.list.length ? plural(g.list.length, 'inapte') : 'tous aptes'}</span></div>
       ${g.list.map(x => `<div class="mini-row"><button class="link" data-act="eleve" data-id="${x.e.id}">${esc(nomComplet(x.e))}</button>${pill(x.d.nature)}<span class="muted sm">${esc(finTxt(x.d))}</span></div>`).join('')}
     </div>`).join('') : `<div class="empty-sm">Aucun élève inapte aujourd’hui${vac ? ' (vacances)' : ''}.</div>`;
   return hero + `<div class="wrap"><div class="dash-grid">
@@ -972,6 +1111,7 @@ function alertItem(a) {
   else if (a.kind === 'justif') act = `<button class="btn sm" data-act="justif-ok" data-id="${a.did}">Marquer reçu</button>`;
   else if (a.kind === 'fin') act = `<button class="btn sm ghost" data-act="edit-disp" data-id="${a.did}">Prolonger</button>`;
   else if (a.kind === 'reprise') act = `<button class="btn sm ghost" data-act="ack-reprise" data-id="${a.did}">Vu</button>`;
+  else if (a.kind === 'suivi') act = `<button class="btn sm ghost" data-act="ack-suivi" data-key="${esc(a.key)}" data-v="${a.v}">Vu</button>`;
   return `<div class="alert sev-${a.sev}"><span class="sev">${ICON[a.sev]}<span>${lab}</span></span>
     <div><div><button class="link strong" data-act="eleve" data-id="${a.eid}">${esc(nomComplet(x.e))}</button> <span class="muted sm">${esc(x.c.nom)}</span></div><div class="alert-text">${a.text}</div></div>
     <div class="alert-act">${act}</div></div>`;
@@ -990,26 +1130,19 @@ function viewAppel() {
   const day = isIso(UI.appelDate) ? UI.appelDate : T;
   const wd = parse(day).getDay(), vac = vacOf(day);
   const c = currentAppelClasse(day);
-  const rows = c.eleves.map(e => ({ e, list: activesOn(e.id, day) }));
-  const inap = rows.filter(r => r.list.length);
-  const by = n => inap.filter(r => best(r.list).nature === n).length;
+  const se = seanceOf(c.id, day);
+  const rows = c.eleves.map(e => ({ e, list: activesOn(e.id, day), en: entryOf(se, e.id) }));
+  const cnt = f => rows.filter(f).length;
+  const nAbs = cnt(r => r.en.p === 'A'), nRet = cnt(r => r.en.p === 'R'), nOub = cnt(r => r.en.t), nInap = cnt(r => r.list.length);
   const picker = S.classes.map(k => {
     const n = k.eleves.filter(e => activeOn(e.id, day)).length;
-    const eps = k.jours.includes(wd) && !vac;
-    return `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-appel" data-id="${k.id}"><span>${esc(k.nom)}</span>${eps ? '<i class="eps-dot" aria-hidden="true"></i><span class="sr">cours d’EPS ce jour</span>' : ''}${n ? `<b>${n}</b><span class="sr">inaptes</span>` : ''}</button>`;
-  }).join('');
-  const rowsHtml = rows.map((r, i) => {
-    const b = r.list.length ? best(r.list) : null;
-    return `<div class="arow ${b ? 'is-inapte n-' + b.nature : ''}">
-      <span class="lane-n">${pad(i + 1)}</span>
-      <div class="a-name"><button class="link strong" data-act="eleve" data-id="${r.e.id}">${esc(r.e.nom)}</button> <span>${esc(r.e.prenom)}</span></div>
-      <div class="a-status">${pill(b && b.nature)}</div>
-      <div class="a-details">${r.list.map(dispSummary).join('')}</div>
-      <div class="a-act">${b ? `<button class="btn sm ghost" data-act="edit-disp" data-id="${b.id}">Modifier</button>` : `<button class="btn sm ghost" data-act="quick-ponct" data-id="${r.e.id}" data-day="${day}">+ Ponctuelle</button>`}</div>
-    </div>`;
+    const eps = k.jours.includes(wd) && !vac, done = !!seanceOf(k.id, day);
+    return `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-appel" data-id="${k.id}"><span>${esc(k.nom)}</span>${done ? '<i class="done" aria-hidden="true">✓</i><span class="sr">appel fait</span>' : eps ? '<i class="eps-dot" aria-hidden="true"></i><span class="sr">cours d’EPS ce jour</span>' : ''}${n ? `<b>${n}</b><span class="sr">inaptes</span>` : ''}</button>`;
   }).join('');
   const sub = [cap(fmtLong(day))];
   if (vac) sub.push(vac.nom); else if (c.jours.includes(wd)) sub.push('cours d’EPS');
+  const chip = (n, l, cls) => `<span class="sumchip ${n ? cls : ''}"><b>${n}</b>${l}</span>`;
+  const pres = c.eleves.length - nAbs;
   return `<div class="wrap">
     <div class="appel-top">
       <div class="cpicker" role="group" aria-label="Classe">${picker}</div>
@@ -1018,14 +1151,59 @@ function viewAppel() {
     <section class="card pad0">
       <div class="appel-h">
         <div><h2>${esc(c.nom)}</h2><div class="muted">${esc(sub.join(' · '))}</div></div>
-        <div class="appel-count"><span class="big">${inap.length}</span><span>inapte${inap.length > 1 ? 's' : ''} sur ${c.eleves.length}</span></div>
-        <div class="appel-break">${by('totale') ? pill('totale') + ' ×' + by('totale') : ''} ${by('partielle') ? pill('partielle') + ' ×' + by('partielle') : ''} ${by('ponctuelle') ? pill('ponctuelle') + ' ×' + by('ponctuelle') : ''}</div>
-        <div class="appel-actions"><button class="btn sm" data-act="copy-appel">Copier la liste</button><button class="btn sm" data-act="fiche-classe">Fiche à imprimer</button></div>
+        <div class="appel-count"><span class="big">${pres}</span><span>présent${pres > 1 ? 's' : ''} sur ${c.eleves.length}</span></div>
+        <div class="appel-break">${chip(nAbs, nAbs > 1 ? 'absents' : 'absent', 'abs')}${chip(nRet, nRet > 1 ? 'retards' : 'retard', 'ret')}${chip(nOub, nOub > 1 ? 'oublis de tenue' : 'oubli de tenue', 'oub')}${chip(nInap, nInap > 1 ? 'inaptes' : 'inapte', '')}</div>
+        <div class="appel-actions">${se ? `<span class="ok-t">${ICON.check}Appel enregistré</span>` : '<button class="btn sm primary" data-act="valider-appel">Valider l’appel</button>'}<button class="btn sm" data-act="copy-appel">Copier le bilan</button><button class="btn sm" data-act="fiche-classe">Fiche des dispenses</button></div>
       </div>
-      ${c.eleves.length ? rowsHtml : `<div class="empty-sm pad">Aucun élève dans cette classe. <button class="link strong" data-act="sel-classe-go" data-id="${c.id}">Ajouter la liste</button></div>`}
+      ${c.eleves.length ? '<div class="arow ahead" aria-hidden="true"><span></span><span>Élève</span><div class="a-ctrl"><span class="c-p">Présence</span><span class="c-t">Tenue</span><span class="c-i">Investissement</span><span class="c-c">Comport.</span></div><span></span></div>' + rows.map(rowAppel).join('') : `<div class="empty-sm pad">Aucun élève dans cette classe. <button class="link strong" data-act="sel-classe-go" data-id="${c.id}">Ajouter la liste</button></div>`}
     </section>
-    <section class="card"><div class="card-h"><h2>Frise de l’année</h2>${friseLegend()}</div>${friseClasse(c)}</section>
+    <p class="hint" style="margin:8px 2px 0">Tout le monde est présent par défaut : marque seulement les absences, retards, oublis et remarques. Investissement de 1 (faible) à 4 (très bon) ; touche à nouveau pour effacer.</p>
+    <section class="card" style="margin-top:16px"><div class="card-h"><h2>Frise des dispenses</h2>${friseLegend()}</div>${friseClasse(c)}</section>
   </div>`;
+}
+function rowAppel(r, i) {
+  const id = r.e.id, en = r.en, abs = en.p === 'A';
+  const b = r.list.length ? best(r.list) : null;
+  const dis = abs ? 'disabled' : '';
+  const pb = (v, l, aria) => `<button type="button" id="ap-${id}-p${v || 'P'}" class="pb v-${v || 'P'}" aria-pressed="${(en.p || '') === v}" aria-label="${aria}" data-act="ap-p" data-id="${id}" data-v="${v}">${l}</button>`;
+  const inv = [1, 2, 3, 4].map(k => `<button type="button" id="ap-${id}-i${k}" class="ib ${(en.i || 0) >= k ? 'on' : ''}" aria-pressed="${en.i === k}" aria-label="Investissement ${k} sur 4, ${INV[k].toLowerCase()}" data-act="ap-i" data-id="${id}" data-v="${k}" ${dis}><i style="height:${5 + k * 5}px"></i></button>`).join('');
+  const tipInap = b ? `${NATURES[b.nature].label}, ${finTxt(b)}${(b.limitations || []).length ? '\n' + b.limitations.join(', ') : ''}${(b.apsa || []).length ? '\nPas de : ' + b.apsa.join(', ') : ''}${b.notes ? '\n' + b.notes : ''}` : '';
+  return `<div class="arow ${b ? 'is-inapte n-' + b.nature : ''} ${abs ? 'is-abs' : ''}">
+    <span class="lane-n">${pad(i + 1)}</span>
+    <div class="a-name"><button class="link strong" data-act="eleve" data-id="${id}">${esc(r.e.nom)}</button> <span>${esc(r.e.prenom)}</span>
+      ${b ? `<div class="a-inap" data-tip="${esc(tipInap)}" tabindex="0">${pill(b.nature)}<span class="muted sm">${esc(finTxt(b))}${(b.roles || []).length ? ' · ' + esc(b.roles.join(', ').toLowerCase()) : ''}</span></div>` : ''}
+      ${en.n ? `<div class="a-note sm">« ${esc(trunc(en.n, 90))} »</div>` : ''}
+    </div>
+    <div class="a-ctrl">
+      <div class="seg3 c-p" role="group" aria-label="Présence">${pb('', 'P', 'Présent')}${pb('A', 'A', 'Absent')}${pb('R', 'R', 'En retard')}</div>
+      <button type="button" id="ap-${id}-t" class="tb c-t" aria-pressed="${!!en.t}" aria-label="Oubli de tenue" data-act="ap-t" data-id="${id}" ${dis}>Oubli</button>
+      <div class="inv c-i" role="group" aria-label="Investissement">${inv}</div>
+      <div class="cmp c-c" role="group" aria-label="Comportement"><button type="button" id="ap-${id}-cp" class="cb plus" aria-pressed="${en.c === 1}" aria-label="Comportement positif" data-act="ap-c" data-id="${id}" data-v="1" ${dis}>+</button><button type="button" id="ap-${id}-cm" class="cb moins" aria-pressed="${en.c === -1}" aria-label="Comportement à reprendre" data-act="ap-c" data-id="${id}" data-v="-1" ${dis}>−</button></div>
+    </div>
+    <button type="button" id="ap-${id}-n" class="icon-btn nb ${en.n ? 'has' : ''}" data-act="ap-note" data-id="${id}" aria-label="Note et dispense pour ${esc(nomComplet(r.e))}">✎</button>
+  </div>`;
+}
+function openNoteSeance(eid, cid, day) {
+  const x = S.eleves.get(eid); if (!x) return;
+  const en = entryOf(seanceOf(cid, day), eid), act = activeOn(eid, day);
+  openModal({
+    label: 'Note de séance',
+    html: `<div class="modal-head"><div><div class="eyebrow">${esc(x.c.nom)} · ${esc(fmtJ(day))}</div><h3>${esc(nomComplet(x.e))}</h3></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">
+      <div class="field"><label class="label" for="ns-note">Note de séance</label><textarea id="ns-note" rows="3" data-autofocus placeholder="Comportement, investissement, matériel oublié…">${esc(en.n || '')}</textarea></div>
+      <div class="chips">${NOTE_CHIPS.map(t => `<button type="button" class="chip" data-t="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+      <hr class="sep" style="margin-top:16px">
+      <div class="row-gap">${act ? `<button type="button" class="btn sm" data-act="edit-disp" data-id="${act.id}">Voir la dispense en cours</button>` : '<button type="button" class="btn sm" id="ns-ponct">+ Dispense ponctuelle ce jour</button>'}<button type="button" class="btn sm ghost" data-act="eleve" data-id="${eid}">Fiche de l’élève</button></div>
+    </div>
+    <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="button" class="btn primary" id="ns-save">Enregistrer la note</button></div>`,
+    onMount(box, m) {
+      const ta = box.querySelector('#ns-note');
+      box.querySelectorAll('[data-t]').forEach(b => { b.onclick = () => { const t = b.dataset.t; ta.value = ta.value.trim() ? ta.value.trim() + ' ; ' + t : t; ta.focus(); }; });
+      box.querySelector('#ns-save').onclick = () => { setEntry(cid, day, eid, { n: ta.value.trim() }); closeModal(m); };
+      const pq = box.querySelector('#ns-ponct');
+      if (pq) pq.onclick = () => { closeModal(m); quickPonct(eid, day); };
+    },
+  });
 }
 function friseClasse(c) {
   const rows = c.eleves.filter(e => (S.byEleve.get(e.id) || []).length).map(e => ({ id: e.id, label: nomComplet(e), list: S.byEleve.get(e.id) }));
@@ -1105,6 +1283,69 @@ function drowHTML(d, T, flagged) {
     <div class="num sm">${plural(n, 'jour')}${se == null ? '' : `<br><span class="muted">${plural(se, 'séance')}</span>`}</div>
     <div>${d.justifRecu ? `<span class="ok-t">${ICON.check}${esc(JUSTIF_S[d.justificatif] || 'Justificatif')} reçu</span>` : `<span class="warn-t">${ICON.warn}${esc(JUSTIF_S[d.justificatif] || 'Justificatif')} à récupérer</span>`}</div>
     <div><span class="st ${s}">${stTxt}</span>${flagged ? ` <span class="flag crit" title="Alerte en cours">${ICON.crit}<span class="sr">alerte</span></span>` : ''}</div>
+  </div>`;
+}
+
+/* ============ Vue : bilan ============ */
+const BILAN_HEAD = ['Classe', 'Nom', 'Prénom', 'Séances', 'Présences', 'Absences', 'Retards', 'Oublis de tenue', 'Investissement moyen (/4)', 'Séances notées', 'Comportement +', 'Comportement −', 'Jours d’inaptitude', 'Notes'];
+function bilanCtx() { const c = S.classes.find(x => x.id === UI.bilanClasse) || S.classes[0]; const [a, b, pnom] = periodRange(UI.bilanPer); return { c, a, b, pnom }; }
+function bilanRows(c, a, b) {
+  const nSe = seancesClasse(c.id, a, b);
+  const rows = c.eleves.map(e => ({ e, st: statsEleve(e.id, a, b), inap: cumulRange(e.id, a, b) }));
+  const k = UI.bilanSort.k, d = UI.bilanSort.dir;
+  const val = r => (k === 'abs' ? r.st.abs : k === 'pres' ? nSe - r.st.abs : k === 'ret' ? r.st.ret : k === 'oub' ? r.st.oub : k === 'inv' ? (r.st.inv == null ? -1 : r.st.inv) : k === 'plus' ? r.st.plus : k === 'moins' ? r.st.moins : k === 'inap' ? r.inap : 0);
+  rows.sort((x, y) => (k === 'nom' ? cmpEleve(x.e, y.e) * d : ((val(x) - val(y)) * d) || cmpEleve(x.e, y.e)));
+  return rows;
+}
+function bilanCSVRows(c, a, b) {
+  const nSe = seancesClasse(c.id, a, b);
+  return bilanRows(c, a, b).map(r => [c.nom, r.e.nom, r.e.prenom, nSe, Math.max(0, nSe - r.st.abs), r.st.abs, r.st.ret, r.st.oub, r.st.inv == null ? '' : invFmt(r.st.inv), r.st.invN, r.st.plus, r.st.moins, r.inap, r.st.notes.map(x => fmtNum(x.date) + ' : ' + x.n).join(' | ')]);
+}
+function csvFrom(head, rows) {
+  const cell = v => { v = v == null ? '' : String(v); return /[;"\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  return '﻿' + [head].concat(rows).map(r => r.map(cell).join(';')).join('\r\n');
+}
+function tsvFrom(head, rows) { return [head].concat(rows).map(r => r.map(v => String(v == null ? '' : v).replace(/[\t\r\n]+/g, ' ')).join('\t')).join('\n'); }
+function viewBilan() {
+  if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
+  const T = todayIso(), st = S.settings;
+  const c = S.classes.find(x => x.id === UI.bilanClasse) || S.classes.find(x => x.id === UI.appelClasse) || S.classes[0];
+  UI.bilanClasse = c.id;
+  if (UI.bilanPer == null) UI.bilanPer = currentPeriodKey(T);
+  const [a, b, pnom] = periodRange(UI.bilanPer);
+  const nSe = seancesClasse(c.id, a, b);
+  const rows = bilanRows(c, a, b);
+  const picker = S.classes.map(k => `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-bilan" data-id="${k.id}"><span>${esc(k.nom)}</span></button>`).join('');
+  const perOpts = [['annee', 'Année entière']].concat(st.periodes.map((p, i) => [String(i), p.nom])).map(([v, l]) => `<option value="${v}" ${String(UI.bilanPer) === v ? 'selected' : ''}>${esc(l)}</option>`).join('');
+  const so = UI.bilanSort;
+  const th = (k, l, cls) => `<th class="${cls || ''}" aria-sort="${so.k === k ? (so.dir > 0 ? 'ascending' : 'descending') : 'none'}"><button type="button" class="thb" data-act="sort-bilan" data-k="${k}">${l}${so.k === k ? (so.dir > 0 ? ' ↑' : ' ↓') : ''}</button></th>`;
+  const hot = (v, s) => (v >= s ? ' hot' : '');
+  const body = rows.map((r, i) => {
+    const last = r.st.notes[r.st.notes.length - 1];
+    return `<tr>
+    <td class="lane-n">${pad(i + 1)}</td>
+    <td><button class="link strong" data-act="eleve" data-id="${r.e.id}">${esc(r.e.nom)}</button> ${esc(r.e.prenom)}</td>
+    <td class="n">${nSe ? `${Math.max(0, nSe - r.st.abs)}/${nSe}` : '—'}</td>
+    <td class="n${hot(r.st.abs, st.seuilAbsences)}">${r.st.abs || ''}</td>
+    <td class="n">${r.st.ret || ''}</td>
+    <td class="n${hot(r.st.oub, st.seuilOublis)}">${r.st.oub || ''}</td>
+    <td>${r.st.inv == null ? '<span class="muted">—</span>' : `<span class="invbar" aria-hidden="true"><i style="width:${(r.st.inv / 4) * 100}%"></i></span>${invFmt(r.st.inv)}<span class="muted sm"> (${r.st.invN})</span>`}</td>
+    <td class="n">${r.st.plus ? '+' + r.st.plus : ''}</td>
+    <td class="n${hot(r.st.moins, st.seuilComportement)}">${r.st.moins ? '−' + r.st.moins : ''}</td>
+    <td class="n">${r.inap ? r.inap + ' j' : ''}</td>
+    <td class="bnote">${last ? esc(trunc(last.n, 70)) + `<span class="muted sm"> · ${fmt(last.date)}</span>` : ''}</td>
+  </tr>`;
+  }).join('');
+  return `<div class="wrap">
+    <div class="appel-top"><div class="cpicker" role="group" aria-label="Classe">${picker}</div>
+      <div class="row-gap"><label class="sr" for="bilan-per">Période</label><select id="bilan-per" data-ch="bilan-per" style="width:auto">${perOpts}</select><button class="btn" data-act="copy-bilan">Copier pour un tableur</button><button class="btn" data-act="export-bilan">Exporter (.csv)</button></div></div>
+    <section class="card pad0">
+      <div class="appel-h"><div><h2>Bilan ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div>
+        <div class="appel-count"><span class="big">${nSe}</span><span>séance${nSe > 1 ? 's' : ''} enregistrée${nSe > 1 ? 's' : ''}</span></div></div>
+      ${c.eleves.length ? `<div class="btable-wrap"><table class="btable"><thead><tr><th><span class="sr">N°</span></th>${th('nom', 'Élève')}${th('pres', 'Présence', 'n')}${th('abs', 'Abs.', 'n')}${th('ret', 'Ret.', 'n')}${th('oub', 'Oublis', 'n')}${th('inv', 'Investissement')}${th('plus', 'Comp. +', 'n')}${th('moins', 'Comp. −', 'n')}${th('inap', 'Inaptitude', 'n')}<th>Dernière note</th></tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty-sm pad">Aucun élève dans cette classe.</div>'}
+      ${nSe ? '' : '<div class="list-foot">Aucune séance enregistrée sur cette période : fais l’appel depuis l’onglet Appel du jour pour alimenter le bilan.</div>'}
+    </section>
+    <p class="hint" style="margin:8px 2px 0">Les cases surlignées atteignent les seuils d’alerte (Réglages &amp; données). Investissement : moyenne sur 4, avec entre parenthèses le nombre de séances notées. Touche un titre de colonne pour trier.</p>
   </div>`;
 }
 
@@ -1236,6 +1477,14 @@ function viewDonnees() {
           <div class="field"><label class="label" for="s-proche">Alerte de fin (jours avant)</label><input type="number" min="0" max="60" id="s-proche" data-in="set-f" data-k="finProche" value="${esc(D.finProche)}"></div>
         </div>
         <hr class="sep">
+        <span class="label">Alertes de suivi des séances, par période</span>
+        <div class="grid-3" style="margin-top:8px">
+          <div class="field"><label class="sm" for="s-sa">Absences</label><input type="number" min="1" max="60" id="s-sa" data-in="set-f" data-k="seuilAbsences" value="${esc(D.seuilAbsences)}"></div>
+          <div class="field"><label class="sm" for="s-so">Oublis de tenue</label><input type="number" min="1" max="60" id="s-so" data-in="set-f" data-k="seuilOublis" value="${esc(D.seuilOublis)}"></div>
+          <div class="field"><label class="sm" for="s-sc">Remarques de comportement</label><input type="number" min="1" max="60" id="s-sc" data-in="set-f" data-k="seuilComportement" value="${esc(D.seuilComportement)}"></div>
+        </div>
+        <p class="hint" style="margin:-6px 0 14px">Une alerte apparaît sur le tableau de bord quand un élève atteint ce nombre sur la période en cours.</p>
+        <hr class="sep">
         ${plist('periodes', 'Périodes (trimestres ou semestres)', '+ Une période')}
         ${plist('vacances', 'Vacances', '+ Des vacances')}
         <div class="set-actions">
@@ -1274,7 +1523,7 @@ function viewDonnees() {
       <section class="card danger-zone">
         <div class="card-h"><h2>Nouvelle année</h2></div>
         <div class="row-gap" style="flex-direction:column;align-items:stretch">
-          <button class="btn ghost danger-t" data-act="wipe-disp">Effacer toutes les dispenses (garder les classes)</button>
+          <button class="btn ghost danger-t" data-act="wipe-disp">Effacer dispenses et suivi des séances (garder les classes)</button>
           <button class="btn ghost danger-t" data-act="wipe-all">Tout effacer</button>
         </div>
       </section>
@@ -1307,6 +1556,7 @@ function render() {
   let html = '';
   if (UI.route === 'appel') html = viewAppel();
   else if (UI.route === 'dispenses') html = viewDispenses();
+  else if (UI.route === 'bilan') html = viewBilan();
   else if (UI.route === 'classes') html = viewClasses();
   else if (UI.route === 'donnees') html = viewDonnees();
   else html = viewTableau();
@@ -1467,6 +1717,7 @@ function eleveSheet(eid) {
       ${e.suiviMedecin ? `<span class="muted sm">le ${fmtNum(e.suiviMedecin)}</span>` : ''}
       ${over && !e.suiviMedecin ? `<p>Plus de ${seuil} jours d’inaptitude cette année : le médecin scolaire doit assurer un suivi particulier.</p>` : ''}
     </div>
+    ${suiviEleveHTML(eid)}
     ${list.length ? `<div class="card-h" style="margin-bottom:6px"><span class="label">Frise de l’année</span>${friseLegend()}</div>` + frise([{ id: eid, label: nomComplet(e), list }], { compact: true }) : ''}
     <div class="sheet-list">${cards || '<div class="empty-sm">Aucune dispense cette année.</div>'}</div>
   </div>
@@ -1474,6 +1725,21 @@ function eleveSheet(eid) {
     <div class="row-gap"><button type="button" class="btn sm ghost" data-act="edit-eleve" data-id="${eid}">Modifier l’élève</button><button type="button" class="btn sm ghost danger-t" data-act="del-eleve" data-id="${eid}">Retirer</button></div>
     <div class="row-gap"><button type="button" class="btn sm" data-act="quick-ponct" data-id="${eid}">+ Ponctuelle aujourd’hui</button><button type="button" class="btn sm primary" data-act="new-disp" data-eleve="${eid}">+ Nouvelle dispense</button></div>
   </div>`;
+}
+function suiviEleveHTML(eid) {
+  const st0 = S.settings, sx = statsEleve(eid, st0.debut, st0.fin);
+  const recent = (S.seancesByEleve.get(eid) || []).slice(-6).reverse();
+  if (!recent.length) return '';
+  const desc = en => [en.p === 'A' ? 'absent' : en.p === 'R' ? 'en retard' : '', en.t ? 'oubli de tenue' : '', en.i ? `investissement ${en.i}/4` : '', en.c === 1 ? 'comportement +' : en.c === -1 ? 'comportement à reprendre' : ''].filter(Boolean).join(', ');
+  return `<div class="card-h" style="margin:2px 0 6px"><span class="label">Suivi des séances · année</span></div>
+  <div class="suivi-stats">
+    <div><span class="stat s">${sx.abs}</span><span class="muted sm">absence${sx.abs > 1 ? 's' : ''}</span></div>
+    <div><span class="stat s">${sx.ret}</span><span class="muted sm">retard${sx.ret > 1 ? 's' : ''}</span></div>
+    <div><span class="stat s">${sx.oub}</span><span class="muted sm">oubli${sx.oub > 1 ? 's' : ''} de tenue</span></div>
+    <div><span class="stat s">${sx.inv == null ? '—' : invFmt(sx.inv)}</span><span class="muted sm">investissement /4</span></div>
+    <div><span class="stat s">+${sx.plus} / −${sx.moins}</span><span class="muted sm">comportement</span></div>
+  </div>
+  <div class="recent">${recent.map(r => `<div><span class="strong">${esc(fmtJ(r.date))}</span> · ${esc(desc(r.en) || 'note')}${r.en.n ? ` · « ${esc(r.en.n)} »` : ''}</div>`).join('')}</div>`;
 }
 function getClasse(id) {
   const c = S.classes.find(k => k.id === id);
@@ -1829,16 +2095,27 @@ function exportJSON() {
   });
 }
 function appelText(c, day) {
+  const se = seanceOf(c.id, day);
   const lines = [`${c.nom} · ${cap(fmtLong(day))}`];
+  const sel = f => c.eleves.filter(e => f(entryOf(se, e.id)));
+  const names = (l, withNote) => l.map(e => nomComplet(e) + (withNote && entryOf(se, e.id).n ? ` (${entryOf(se, e.id).n})` : '')).join(', ');
+  const abs = sel(en => en.p === 'A'), ret = sel(en => en.p === 'R'), oub = sel(en => en.t), moins = sel(en => en.c === -1), plus = sel(en => en.c === 1);
+  lines.push(`Présents : ${c.eleves.length - abs.length} sur ${c.eleves.length}${se ? '' : ' (appel non validé)'}`);
+  if (abs.length) lines.push(`Absents (${abs.length}) : ${names(abs)}`);
+  if (ret.length) lines.push(`Retards (${ret.length}) : ${names(ret)}`);
+  if (oub.length) lines.push(`Oublis de tenue (${oub.length}) : ${names(oub)}`);
   const inap = c.eleves.map(e => ({ e, list: activesOn(e.id, day) })).filter(r => r.list.length);
-  lines.push(`Inaptes : ${inap.length} sur ${c.eleves.length}`);
-  inap.forEach(r => {
-    const d = best(r.list);
-    const bits = [NATURES[d.nature].label.toLowerCase() + ' ' + finTxt(d), PRESENCE_C[d.presence] || ''];
-    if ((d.roles || []).length) bits.push('rôle : ' + d.roles.join(', ').toLowerCase());
-    if ((d.limitations || []).length) bits.push('limites : ' + d.limitations.join(', ').toLowerCase());
-    lines.push(`- ${nomComplet(r.e)} : ${bits.filter(Boolean).join(' ; ')}`);
-  });
+  if (inap.length) {
+    lines.push(`Inaptes (${inap.length}) :`);
+    inap.forEach(r => {
+      const d = best(r.list);
+      const bits = [NATURES[d.nature].label.toLowerCase() + ' ' + finTxt(d), PRESENCE_C[d.presence] || ''];
+      if ((d.roles || []).length) bits.push('rôle : ' + d.roles.join(', ').toLowerCase());
+      lines.push(`- ${nomComplet(r.e)} : ${bits.filter(Boolean).join(' ; ')}`);
+    });
+  }
+  if (moins.length) lines.push(`Comportement à reprendre : ${names(moins, true)}`);
+  if (plus.length) lines.push(`Comportement positif : ${names(plus, true)}`);
   return lines.join('\n');
 }
 function ficheClasse(c, day) {
@@ -1853,14 +2130,15 @@ async function handleImportFile(input) {
   let obj;
   try { obj = JSON.parse(await file.text()); } catch (e) { toast('Ce fichier n’est pas une sauvegarde lisible.'); return; }
   if (!obj || obj.app !== 'dispenses-eps' || !obj.docs || typeof obj.docs !== 'object') { toast('Ce fichier n’est pas une sauvegarde de cette application.'); return; }
-  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || /^[cd]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
+  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cds]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
   const nc = entries.filter(([id]) => id.startsWith('c_')).length;
   const ne = entries.filter(([id]) => id.startsWith('c_')).reduce((n, [, b]) => n + (Array.isArray(b.eleves) ? b.eleves.length : 0), 0);
   const nd = entries.filter(([id]) => id.startsWith('d_')).length;
+  const ns = entries.filter(([id]) => id.startsWith('s_')).length;
   openModal({
     label: 'Restaurer une sauvegarde',
     html: `<div class="modal-head"><h3>Restaurer une sauvegarde</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
-    <div class="modal-body"><div class="note"><p>Sauvegarde${obj.exporte ? ' du ' + esc(fmtNum(String(obj.exporte).slice(0, 10))) : ''} : ${plural(nc, 'classe')}, ${plural(ne, 'élève')}, ${plural(nd, 'dispense')}.</p><p><strong>Remplacer</strong> efface tes données actuelles. <strong>Ajouter</strong> garde tes données et complète avec la sauvegarde.</p></div></div>
+    <div class="modal-body"><div class="note"><p>Sauvegarde${obj.exporte ? ' du ' + esc(fmtNum(String(obj.exporte).slice(0, 10))) : ''} : ${plural(nc, 'classe')}, ${plural(ne, 'élève')}, ${plural(nd, 'dispense')}, ${plural(ns, 'séance')}.</p><p><strong>Remplacer</strong> efface tes données actuelles. <strong>Ajouter</strong> garde tes données et complète avec la sauvegarde.</p></div></div>
     <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="button" class="btn" id="im-merge">Ajouter</button><button type="button" class="btn danger" id="im-replace">Remplacer</button></div>`,
     onMount(box, m) {
       const apply = replace => {
@@ -1905,6 +2183,17 @@ document.addEventListener('scroll', () => { tip.hidden = true; }, true);
 /* ============ Actions ============ */
 const ACT = {
   'close-modal': (ds, el) => closeModal(modalOf(el)),
+  'ap-p': ds => { const { cid, day } = appelCtx(); setEntry(cid, day, ds.id, ds.v === 'A' ? { p: 'A', t: 0, i: 0, c: 0 } : { p: ds.v }); },
+  'ap-t': ds => { const { cid, day } = appelCtx(); setEntry(cid, day, ds.id, { t: entryOf(seanceOf(cid, day), ds.id).t ? 0 : 1 }); },
+  'ap-i': ds => { const { cid, day } = appelCtx(), v = Number(ds.v); setEntry(cid, day, ds.id, { i: entryOf(seanceOf(cid, day), ds.id).i === v ? 0 : v }); },
+  'ap-c': ds => { const { cid, day } = appelCtx(), v = Number(ds.v); setEntry(cid, day, ds.id, { c: entryOf(seanceOf(cid, day), ds.id).c === v ? 0 : v }); },
+  'ap-note': ds => { const { cid, day } = appelCtx(); openNoteSeance(ds.id, cid, day); },
+  'valider-appel': () => { const { cid, day } = appelCtx(); if (validerAppel(cid, day)) toast('Appel enregistré : les élèves non marqués sont comptés présents.'); },
+  'pick-bilan': ds => { UI.bilanClasse = ds.id; render(); },
+  'sort-bilan': ds => { const so = UI.bilanSort; if (so.k === ds.k) so.dir = -so.dir; else { so.k = ds.k; so.dir = ds.k === 'nom' ? 1 : -1; } render(); },
+  'export-bilan': () => { const x = bilanCtx(); const rows = bilanCSVRows(x.c, x.a, x.b); download(`bilan-eps-${slug(x.c.nom)}-${slug(x.pnom)}.csv`, csvFrom(BILAN_HEAD, rows), tsvFrom(BILAN_HEAD, rows)); },
+  'copy-bilan': async () => { const x = bilanCtx(); const txt = tsvFrom(BILAN_HEAD, bilanCSVRows(x.c, x.a, x.b)); try { await navigator.clipboard.writeText(txt); toast('Bilan copié : colle-le dans un tableur.'); } catch (e) { openTextModal('Bilan pour un tableur', txt); } },
+  'ack-suivi': ds => { putDoc('acks', { kind: 'acks', v: Object.assign({}, S.acks, { [ds.key]: Number(ds.v) }) }); },
   'eleve': ds => openEleve(ds.id),
   'go-appel': ds => { UI.appelClasse = ds.id; UI.appelDate = null; go('appel'); },
   'new-disp': ds => openDispForm({ eleveId: ds.eleve || null }),
@@ -1928,8 +2217,8 @@ const ACT = {
   'copy-appel': async () => {
     const day = isIso(UI.appelDate) ? UI.appelDate : todayIso(), c = currentAppelClasse(day);
     const txt = appelText(c, day);
-    try { await navigator.clipboard.writeText(txt); toast('Liste copiée : colle-la dans un message ou le cahier d’appel.'); }
-    catch (e) { openTextModal('Liste des inaptes', txt); }
+    try { await navigator.clipboard.writeText(txt); toast('Bilan de la séance copié : colle-le dans un message ou dans Pronote.'); }
+    catch (e) { openTextModal('Bilan de la séance', txt); }
   },
   'fiche-classe': () => {
     const day = isIso(UI.appelDate) ? UI.appelDate : todayIso(), c = currentAppelClasse(day);
@@ -1950,10 +2239,11 @@ const ACT = {
   'del-classe': async () => {
     const c = S.classes.find(k => k.id === UI.classeSel); if (!c) return;
     const dids = S.dispenses.filter(d => S.eleves.get(d.eleveId).c.id === c.id).map(d => d.id);
-    const ok = await confirmDialog({ title: `Supprimer ${c.nom} ?`, html: `${esc(plural(c.eleves.length, 'élève'))} et ${esc(plural(dids.length, 'dispense'))} seront supprimés avec la classe.`, ok: 'Supprimer la classe', danger: true });
+    const sids = [...Store.docs().keys()].filter(k => k.startsWith('s_' + c.id + '_'));
+    const ok = await confirmDialog({ title: `Supprimer ${c.nom} ?`, html: `${esc(plural(c.eleves.length, 'élève'))}, ${esc(plural(dids.length, 'dispense'))} et ${esc(plural(sids.length, 'séance'))} seront supprimés avec la classe.`, ok: 'Supprimer la classe', danger: true });
     if (!ok) return;
-    const before = snapshotIds([c.id].concat(dids));
-    dids.forEach(id => delDoc(id, true)); delDoc(c.id, true);
+    const before = snapshotIds([c.id].concat(dids, sids));
+    dids.concat(sids).forEach(id => delDoc(id, true)); delDoc(c.id, true);
     UI.classeSel = null; refresh();
     toast(`${c.nom} supprimée.`, [{ label: 'Annuler', run: () => restoreSnap(before) }]);
   },
@@ -2002,12 +2292,13 @@ const ACT = {
   'hide-install': () => { UI.hideInstall = true; renderBanner(); },
   'hide-backup': () => { UI.hideBackup = true; renderBanner(); },
   'wipe-disp': async () => {
-    const ids = S.dispenses.map(d => d.id);
-    if (!ids.length) { toast('Aucune dispense à effacer.'); return; }
-    if (!(await confirmDialog({ title: 'Effacer toutes les dispenses ?', html: `${esc(plural(ids.length, 'dispense'))} seront effacées. Les classes et les élèves sont conservés. Télécharge une sauvegarde avant si tu veux garder une trace.`, ok: 'Effacer les dispenses', danger: true, type: 'EFFACER' }))) return;
+    const ids = [...Store.docs().keys()].filter(k => k.startsWith('d_') || k.startsWith('s_') || k === 'acks');
+    if (!ids.length) { toast('Rien à effacer.'); return; }
+    const nd = ids.filter(k => k.startsWith('d_')).length, ns = ids.filter(k => k.startsWith('s_')).length;
+    if (!(await confirmDialog({ title: 'Effacer dispenses et suivi des séances ?', html: `${esc(plural(nd, 'dispense'))} et ${esc(plural(ns, 'séance'))} seront effacées. Les classes et les élèves sont conservés. Télécharge une sauvegarde avant si tu veux garder une trace.`, ok: 'Effacer', danger: true, type: 'EFFACER' }))) return;
     ids.forEach(id => delDoc(id, true));
     S.classes.forEach(c => { if (c.eleves.some(e => e.suiviMedecin)) { const k = getClasse(c.id); k.eleves.forEach(e => { e.suiviMedecin = ''; }); saveClasse(k, true); } });
-    refresh(); toast('Dispenses effacées.');
+    refresh(); toast('Dispenses et suivi des séances effacés.');
   },
   'wipe-all': async () => {
     if (!(await confirmDialog({ title: 'Tout effacer ?', html: 'Classes, élèves, dispenses et réglages seront effacés. Télécharge une sauvegarde avant si tu veux garder une trace.', ok: 'Tout effacer', danger: true, type: 'EFFACER' }))) return;
@@ -2021,11 +2312,12 @@ const ACT = {
     const err = [];
     if (!isIso(D.debut) || !isIso(D.fin) || D.fin <= D.debut) err.push('les dates de l’année');
     if (!(Number(D.seuil) > 0)) err.push('le seuil');
+    if (!['seuilAbsences', 'seuilOublis', 'seuilComportement'].every(k => Number(D[k]) > 0)) err.push('les seuils d’alerte');
     const bad = l => l.some(p => !isIso(p.debut) || !isIso(p.fin) || p.fin < p.debut);
     if (bad(D.periodes)) err.push('les périodes');
     if (bad(D.vacances)) err.push('les vacances');
     if (err.length) { toast('Vérifie ' + err.join(', ') + '.'); return; }
-    const body = clone(D); body.kind = 'reglages'; body.seuil = Number(body.seuil); body.finProche = Number(body.finProche) || 0;
+    const body = clone(D); body.kind = 'reglages'; body.seuil = Number(body.seuil); body.finProche = Number(body.finProche) || 0; ['seuilAbsences', 'seuilOublis', 'seuilComportement'].forEach(k => { body[k] = Number(body[k]); });
     UI.settingsDraft = null;
     putDoc('reglages', body);
     toast('Réglages enregistrés.');
@@ -2055,6 +2347,7 @@ const CH = {
   'f-statut': el => { UI.filtres.statut = el.value; render(); },
   'f-alerte': el => { UI.filtres.alerte = el.checked; render(); },
   'appel-date': el => { UI.appelDate = isIso(el.value) ? el.value : null; render(); },
+  'bilan-per': el => { UI.bilanPer = el.value; render(); },
   'add-sexe': el => { UI.addEleve.sexe = el.value; },
   'niveau-classe': el => { const c = getClasse(UI.classeSel); if (c) { c.niveau = el.value; saveClasse(c); } },
   'import-file': el => handleImportFile(el),
@@ -2137,6 +2430,36 @@ function buildDemo() {
   D(7, 3, { nature: 'ponctuelle', debut: o(0), justificatif: 'parents', evaluation: 'normale', roles: ['Arbitre'] });
   D(1, 18, { nature: 'partielle', debut: o(-70), fin: o(-60), limitations: ['Membres inférieurs'], apsa: ['Football'] });
   D(3, 10, { nature: 'partielle', debut: o(5), fin: o(19), limitations: ['Course prolongée'], apsa: ['Demi-fond'], roles: ['Chronométreur'] });
+  const inV = d => st.vacances.some(v => v.debut <= d && d <= v.fin);
+  classes.forEach(c => {
+    for (let k = 45; k >= 1; k--) {
+      const day = addDays(T, -k);
+      if (day < st.debut || !c.jours.includes(parse(day).getDay()) || inV(day)) continue;
+      const el = {};
+      c.eleves.forEach(e => {
+        const en = {}, r = rnd();
+        if (r < 0.03) en.p = 'A'; else if (r < 0.06) en.p = 'R';
+        if (en.p !== 'A') {
+          if (rnd() < 0.035) en.t = 1;
+          const q = rnd();
+          if (q < 0.7) en.i = q < 0.05 ? 1 : q < 0.2 ? 2 : q < 0.5 ? 3 : 4;
+          const cc = rnd();
+          if (cc < 0.05) { en.c = 1; if (rnd() < 0.6) en.n = pick(['Très bon état d’esprit', 'Aide ses camarades', 'Bon arbitrage', 'Progrès visibles']); }
+          else if (cc < 0.08) { en.c = -1; if (rnd() < 0.7) en.n = pick(['Bavardages', 'Refus de pratiquer', 'Téléphone', 'Retard au vestiaire']); }
+        }
+        if (Object.keys(en).length) el[e.id] = en;
+      });
+      docs.set(`s_${c.id}_${day}`, { kind: 'seance', classeId: c.id, date: day, faite: true, el, majLe: '' });
+    }
+  });
+  const oc = classes[2], target = oc.eleves[7].id;
+  let nOub = 0;
+  for (const [id, se] of docs) {
+    if (!id.startsWith(`s_${oc.id}_`) || nOub >= 3) continue;
+    const en = Object.assign({}, se.el[target], { t: 1, i: 2 });
+    delete en.p;
+    se.el[target] = en; nOub++;
+  }
   classes.forEach(c => docs.set(c.id, { kind: 'classe', nom: c.nom, niveau: c.niveau, jours: c.jours, eleves: c.eleves }));
   return docs;
 }
