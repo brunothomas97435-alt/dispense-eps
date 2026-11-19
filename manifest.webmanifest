@@ -1,0 +1,17 @@
+{
+  "name": "Dispenses EPS",
+  "short_name": "Dispenses EPS",
+  "description": "Suivi des dispenses et inaptitudes en EPS, utilisable hors connexion",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f232b",
+  "theme_color": "#0f232b",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
