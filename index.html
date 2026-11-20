@@ -565,6 +565,57 @@ body.locked #view,body.locked #banner,body.locked #modal-root,body.locked .tabs{
 @media (max-width:760px){.resp{grid-template-columns:1fr 1fr}}
 
 
+/* Espace de classe */
+.ctiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.ctile{--cc:var(--accent);display:grid;gap:4px;text-align:left;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--cc);border-radius:12px;padding:14px 16px 12px;box-shadow:var(--shadow);min-height:150px;align-content:start;color:var(--ink)}
+.ctile:hover{border-color:var(--ink-2);border-top-color:var(--cc)}
+.ctile-name{font-family:var(--font-display);font-weight:700;font-size:34px;line-height:1;letter-spacing:.01em}
+.ctile-meta{font-size:13px;color:var(--muted)}
+.ctile-next{font-size:14px;font-weight:700;margin-top:6px}
+.ctile-next.now{color:var(--accent)}
+.ctile-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;margin-top:4px}
+.ctile-foot .ok-t svg{width:13px;height:13px}
+.cls-bar{--cc:var(--accent);background:var(--surface);border-bottom:1px solid var(--line);box-shadow:inset 0 5px 0 var(--cc)}
+.wrap.cls-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:18px;padding-bottom:8px}
+.cls-title{flex:1;min-width:200px;display:grid;gap:3px}
+.cls-title h1{font-family:var(--font-display);font-weight:700;font-size:38px;line-height:1;letter-spacing:.01em;text-transform:uppercase}
+.wrap.ctabs-wrap{padding-top:0;padding-bottom:0;display:flex;align-items:flex-end;gap:6px}
+.ctabs-wrap .ctabs{flex:1;min-width:0}
+.ctab-actions{display:flex;flex:none;border-left:1px solid var(--line-2);padding-left:6px;margin-bottom:2px}
+.ctabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-bottom:-1px}
+.ctabs::-webkit-scrollbar{display:none}
+.ctab{flex:none;border:1px solid transparent;border-bottom:0;background:none;padding:10px 14px 9px;border-radius:10px 10px 0 0;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ctab:hover{color:var(--ink);background:var(--surface-2)}
+.ctab[aria-selected="true"]{background:var(--bg);color:var(--ink);border-color:var(--line);box-shadow:inset 0 3px 0 var(--cc)}
+.ctab.add{color:var(--accent)}
+.ctab.gear{font-family:var(--font-body);font-size:13px;font-weight:700;text-transform:none;letter-spacing:0}
+.in-class .cpicker{display:none}
+.in-class .classes-layout{grid-template-columns:1fr}
+.in-class .cl-side{display:none}
+.j-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.j-grid .card + .card{margin-top:0}
+.jrow{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:2px 12px;width:100%;text-align:left;border:0;border-top:1px solid var(--line-2);background:none;padding:9px 4px;align-items:center;color:var(--ink)}
+.jrow:hover{background:var(--surface-2)}
+.jrow-d{font-weight:700;font-size:14px;grid-row:span 2;line-height:1.3}
+.jrow-q{font-size:12px;font-weight:700;color:var(--accent)}
+.jrow-t{font-size:14px;grid-column:2}
+.jrow-s{grid-column:3;grid-row:1 / span 2;font-size:12px}
+.jrow-s svg{width:12px;height:12px}
+.tlist{display:grid;gap:6px}
+.trow{display:grid;grid-template-columns:150px minmax(0,1fr) 36px 36px 36px;gap:6px;align-items:center}
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.swatch{width:34px;height:34px;border-radius:50%;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.swatch[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
+.gk{width:42px;height:34px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:18px;font-weight:700;color:var(--good)}
+.gk[aria-pressed="true"]{background:color-mix(in srgb,var(--good) 14%,var(--surface));border-color:var(--good)}
+.gp{min-width:54px;height:34px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-weight:700;font-size:13px;color:var(--muted)}
+.gp.p-a{background:color-mix(in srgb,var(--good) 20%,var(--surface));border-color:var(--good);color:var(--ink)}
+.gp.p-ec{background:color-mix(in srgb,var(--warn) 18%,var(--surface));border-color:var(--warn);color:var(--ink)}
+.gp.p-na{background:color-mix(in srgb,var(--crit) 16%,var(--surface));border-color:var(--crit);color:var(--ink)}
+.grcell.wide{width:190px;text-align:left}
+@media (max-width:860px){.j-grid{grid-template-columns:1fr}.trow{grid-template-columns:1fr 36px 36px 36px}.trow .tty{grid-column:1 / -1}.cls-title h1{font-size:30px}}
+
+
 /* Bandeaux, info-bulles, notifications */
 .banner{border-bottom:1px solid var(--line)}
 .banner.demo{background:color-mix(in srgb,var(--c-ponct) 10%,var(--surface))}
@@ -670,13 +721,9 @@ body{-webkit-tap-highlight-color:transparent}
   </div>
   <nav class="tabs" id="tabs" aria-label="Sections">
     <a href="#tableau" data-route="tableau">Tableau de bord</a>
-    <a href="#appel" data-route="appel">Appel</a>
-    <a href="#journal" data-route="journal">Journal</a>
-    <a href="#notes" data-route="notes">Notes</a>
-    <a href="#bilan" data-route="bilan">Bilan</a>
-    <a href="#dispenses" data-route="dispenses">Dispenses</a>
-    <a href="#outils" data-route="outils">Outils</a>
     <a href="#classes" data-route="classes">Classes</a>
+    <a href="#journal" data-route="journal">Semaine</a>
+    <a href="#dispenses" data-route="dispenses">Dispenses</a>
     <a href="#donnees" data-route="donnees">Réglages</a>
   </nav>
 </header>
@@ -746,7 +793,8 @@ const EVAL = { normale: 'Évaluation normale', adaptee: 'Évaluation adaptée', 
 const INV = [null, 'Faible', 'Moyen', 'Bon', 'Très bon'];
 const NOTE_CHIPS = ['Bavardages', 'Refus de pratiquer', 'Téléphone', 'Retard au vestiaire', 'Manque de respect', 'Très bon état d’esprit', 'Aide ses camarades', 'Progrès visibles', 'Bon arbitrage'];
 const JOURS_EPS = [[1, 'Lu'], [2, 'Ma'], [3, 'Me'], [4, 'Je'], [5, 'Ve'], [6, 'Sa']];
-const ROUTES = ['tableau', 'appel', 'journal', 'notes', 'bilan', 'dispenses', 'outils', 'classes', 'donnees'];
+const ROUTES = ['tableau', 'classes', 'classe', 'journal', 'dispenses', 'donnees'];
+const CLASS_ROUTES = ['appel', 'notes', 'bilan', 'outils'];
 const LS_KEY = 'dispenses-eps-v1';
 const LS_DEMO_OFF = 'dispenses-eps-demo-off';
 
@@ -994,7 +1042,7 @@ function rebuild() {
   let acks = {};
   for (const [id, b] of docs) {
     if (!b || typeof b !== 'object') continue;
-    if (id.startsWith('c_')) S.classes.push(Object.assign({}, b, { id, eleves: Array.isArray(b.eleves) ? b.eleves.slice() : [], creneaux: normCreneaux(b), jours: [...new Set(normCreneaux(b).map(k => k.j))] }));
+    if (id.startsWith('c_')) S.classes.push(Object.assign({}, b, { id, eleves: Array.isArray(b.eleves) ? b.eleves.slice() : [], onglets: normOnglets(b), couleur: b.couleur || '', creneaux: normCreneaux(b), jours: [...new Set(normCreneaux(b).map(k => k.j))] }));
     else if (id.startsWith('d_')) disp.push(Object.assign({}, b, { id }));
     else if (id.startsWith('s_') && isIso(b.date)) ses.push(Object.assign({}, b, { id }));
     else if (id === 'acks' && b.v && typeof b.v === 'object') acks = b.v;
@@ -1399,8 +1447,8 @@ function friseClasse(c) {
 }
 
 /* ============ Vue : dispenses ============ */
-function filteredDispenses(T) {
-  const F = UI.filtres;
+function filteredDispenses(T, F) {
+  F = F || UI.filtres;
   const alerts = computeAlerts(T);
   const aD = new Set(alerts.map(a => a.did).filter(Boolean));
   const aE = new Set(alerts.filter(a => a.kind === 'medecin').map(a => a.eid));
@@ -1428,16 +1476,16 @@ function filteredDispenses(T) {
   });
   return { list, aD, aE };
 }
-function viewDispenses() {
-  const T = todayIso(), F = UI.filtres;
+function viewDispenses(cid) {
+  const T = todayIso(), F = cid ? Object.assign({}, UI.filtres, { classe: cid }) : UI.filtres;
   if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
-  const { list, aD, aE } = filteredDispenses(T);
+  const { list, aD, aE } = filteredDispenses(T, F);
   const opt = (v, l, cur) => `<option value="${esc(v)}" ${v === cur ? 'selected' : ''}>${esc(l)}</option>`;
   const rows = list.map(d => drowHTML(d, T, aD.has(d.id) || aE.has(d.eleveId))).join('');
   return `<div class="wrap">
     <div class="toolbar">
       <input type="search" id="f-q" data-in="f-q" placeholder="Rechercher un élève ou une classe…" value="${esc(F.q)}" aria-label="Rechercher">
-      <select id="f-classe" data-ch="f-classe" aria-label="Classe">${opt('', 'Toutes les classes', F.classe)}${S.classes.map(c => opt(c.id, c.nom, F.classe)).join('')}</select>
+      ${cid ? '' : `<select id="f-classe" data-ch="f-classe" aria-label="Classe">${opt('', 'Toutes les classes', F.classe)}${S.classes.map(c => opt(c.id, c.nom, F.classe)).join('')}</select>`}
       <select id="f-nature" data-ch="f-nature" aria-label="Nature">${opt('', 'Toutes les natures', F.nature)}${Object.entries(NATURES).map(([k, v]) => opt(k, v.label, F.nature)).join('')}</select>
       <select id="f-statut" data-ch="f-statut" aria-label="Période">${opt('actives', 'En cours et à venir', F.statut)}${opt('encours', 'En cours', F.statut)}${opt('avenir', 'À venir', F.statut)}${opt('terminees', 'Terminées', F.statut)}${opt('toutes', 'Toutes', F.statut)}</select>
       <label class="check"><input type="checkbox" id="f-alerte" data-ch="f-alerte" ${F.alerte ? 'checked' : ''}> Avec alerte</label>
@@ -1765,7 +1813,8 @@ function render() {
   else if (UI.route === 'journal') html = viewJournal();
   else if (UI.route === 'notes') html = viewNotes();
   else if (UI.route === 'outils') html = viewOutils();
-  else if (UI.route === 'classes') html = viewClasses();
+  else if (UI.route === 'classes') html = viewClassesGrid();
+  else if (UI.route === 'classe') html = viewClasse();
   else if (UI.route === 'donnees') html = viewDonnees();
   else html = viewTableau();
   view.innerHTML = html;
@@ -1776,7 +1825,7 @@ function render() {
   refreshModals();
 }
 function renderChrome() {
-  document.querySelectorAll('#tabs a').forEach(a => { if (a.dataset.route === UI.route) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  document.querySelectorAll('#tabs a').forEach(a => { if (a.dataset.route === UI.route || (UI.route === 'classe' && a.dataset.route === 'classes')) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
   $('#brand-sub').textContent = `${S.settings.etab || 'Mon établissement'} · ${S.settings.annee || ''}`;
   const lb = $('#lock-btn'); if (lb) lb.hidden = !pinGet();
   renderBanner();
@@ -1811,10 +1860,11 @@ function renderSaveState() {
   el.innerHTML = (cls === 'ok' ? ICON.check : '') + `<span>${esc(t)}</span>`;
 }
 function go(route) {
+  if (CLASS_ROUTES.includes(route)) { openClass({ appel: UI.appelClasse, notes: UI.nClasse, bilan: UI.bilanClasse, outils: UI.oClasse }[route] || UI.cls, route); return; }
   if (location.hash === '#' + route) { UI.route = route; render(); }
   else location.hash = route;
 }
-function routeFromHash() { const h = (location.hash || '').replace('#', ''); UI.route = ROUTES.includes(h) ? h : 'tableau'; }
+function routeFromHash() { const h = (location.hash || '').replace('#', ''); if (CLASS_ROUTES.includes(h)) { UI.route = 'classe'; UI.pendingType = h; } else UI.route = ROUTES.includes(h) ? h : 'tableau'; }
 
 /* ============ Fenêtres ============ */
 const modalRoot = $('#modal-root');
@@ -1954,11 +2004,13 @@ function suiviEleveHTML(eid) {
 }
 function getClasse(id) {
   const c = S.classes.find(k => k.id === id);
-  return c ? Object.assign({}, c, { eleves: c.eleves.map(e => Object.assign({}, e)), jours: c.jours.slice(), creneaux: c.creneaux.map(k => Object.assign({}, k)) }) : null;
+  return c ? Object.assign({}, c, { eleves: c.eleves.map(e => Object.assign({}, e)), jours: c.jours.slice(), creneaux: c.creneaux.map(k => Object.assign({}, k)), onglets: copyTabs(c.onglets || []), couleur: c.couleur || '' }) : null;
 }
 function saveClasse(c, silent) {
   putDoc(c.id, {
     kind: 'classe', nom: c.nom, niveau: c.niveau || '', jours: [...new Set((c.creneaux || []).map(k => k.j))].sort((a, b) => a - b), creneaux: (c.creneaux || []).map(k => ({ j: Number(k.j), h1: k.h1 || '', h2: k.h2 || '', sem: k.sem || '', lieu: k.lieu || '' })),
+    onglets: (c.onglets || []).map(t => { const o = { id: t.id, type: t.type, nom: t.nom }; if (t.type === 'grille') o.colonnes = (t.colonnes || []).map(k => ({ id: k.id, titre: k.titre, type: k.type })); return o; }),
+    couleur: c.couleur || '',
     eleves: (c.eleves || []).map(e => ({ id: e.id, nom: e.nom || '', prenom: e.prenom || '', sexe: e.sexe || '', suiviMedecin: e.suiviMedecin || '' })),
   }, silent);
 }
@@ -2018,7 +2070,7 @@ function openDispForm({ id = null, eleveId = null, preset = null } = {}) {
   }, preset || {});
   ['limitations', 'apsa', 'roles'].forEach(k => { if (!Array.isArray(f[k])) f[k] = []; });
   let classeId = f.eleveId && S.eleves.has(f.eleveId) ? S.eleves.get(f.eleveId).c.id
-    : (S.classes.some(c => c.id === UI.appelClasse) && UI.route === 'appel' ? UI.appelClasse
+    : (S.classes.some(c => c.id === UI.appelClasse) && (UI.route === 'appel' || UI.route === 'classe') ? UI.appelClasse
       : (S.classes.some(c => c.id === UI.classeSel) && UI.route === 'classes' ? UI.classeSel : S.classes[0].id));
   let m = null;
   const finVal = () => (f.nature === 'ponctuelle' ? f.debut : f.anneeEntiere ? S.settings.fin : f.fin);
@@ -2302,7 +2354,7 @@ function openClasseForm(cid) {
         let niv = box.querySelector('#cf-niv').value;
         if (!niv) { const g = /^([3-6])/.exec(nom); niv = g ? g[1] + 'e' : (c ? c.niveau : ''); }
         if (c) { const k = getClasse(cid); k.nom = nom; k.niveau = niv; saveClasse(k); }
-        else { const id = newId('c_'); UI.classeSel = id; putDoc(id, { kind: 'classe', nom, niveau: niv, jours: [], eleves: [] }); go('classes'); }
+        else { const id = newId('c_'); UI.classeSel = id; putDoc(id, { kind: 'classe', nom, niveau: niv, jours: [], eleves: [] }); openClass(id, 'eleves'); }
         closeModal(m);
       };
     },
@@ -2402,7 +2454,7 @@ async function handleImportFile(input) {
   let obj;
   try { obj = JSON.parse(await file.text()); } catch (e) { toast('Ce fichier n’est pas une sauvegarde lisible.'); return; }
   if (!obj || obj.app !== 'dispenses-eps' || !obj.docs || typeof obj.docs !== 'object') { toast('Ce fichier n’est pas une sauvegarde de cette application.'); return; }
-  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cdsjqvgp]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
+  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cdsjqvgpt]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
   const nc = entries.filter(([id]) => id.startsWith('c_')).length;
   const ne = entries.filter(([id]) => id.startsWith('c_')).reduce((n, [, b]) => n + (Array.isArray(b.eleves) ? b.eleves.length : 0), 0);
   const nd = entries.filter(([id]) => id.startsWith('d_')).length;
@@ -2468,7 +2520,7 @@ const ACT = {
   'copy-bilan': async () => { const x = bilanCtx(); const txt = tsvFrom(BILAN_HEAD, bilanCSVRows(x.c, x.a, x.b)); try { await navigator.clipboard.writeText(txt); toast('Bilan copié : colle-le dans un tableur.'); } catch (e) { openTextModal('Bilan pour un tableur', txt); } },
   'ack-suivi': ds => { putDoc('acks', { kind: 'acks', v: Object.assign({}, S.acks, { [ds.key]: Number(ds.v) }) }); },
   'eleve': ds => openEleve(ds.id),
-  'go-appel': ds => { UI.appelClasse = ds.id; UI.appelDate = null; go('appel'); },
+  'go-appel': ds => { UI.appelDate = null; openClass(ds.id, 'appel'); },
   'new-disp': ds => openDispForm({ eleveId: ds.eleve || null }),
   'edit-disp': ds => openDispForm({ id: ds.id }),
   'medecin-ok': ds => setSuiviMedecin(ds.id, true),
@@ -2506,18 +2558,19 @@ const ACT = {
     });
   },
   'sel-classe': ds => { UI.classeSel = ds.id; UI.importTxt = ''; render(); },
-  'sel-classe-go': ds => { UI.classeSel = ds.id; go('classes'); },
+  'sel-classe-go': ds => openClass(ds.id, 'eleves'),
   'add-classe': () => { if (Store.demo) exitDemo(); openClasseForm(null); },
   'rename-classe': () => openClasseForm(UI.classeSel),
   'del-classe': async () => {
     const c = S.classes.find(k => k.id === UI.classeSel); if (!c) return;
     const dids = S.dispenses.filter(d => S.eleves.get(d.eleveId).c.id === c.id).map(d => d.id);
-    const sids = [...Store.docs()].filter(([k, b]) => k.startsWith('s_' + c.id + '_') || k.startsWith('j_' + c.id + '_') || (/^[qvg]_/.test(k) && b && b.classeId === c.id) || (k.startsWith('p_') && c.eleves.some(e => 'p_' + e.id === k))).map(([k]) => k);
+    const sids = [...Store.docs()].filter(([k, b]) => k.startsWith('s_' + c.id + '_') || k.startsWith('j_' + c.id + '_') || (/^[qvgt]_/.test(k) && b && b.classeId === c.id) || (k.startsWith('p_') && c.eleves.some(e => 'p_' + e.id === k))).map(([k]) => k);
     const ok = await confirmDialog({ title: `Supprimer ${c.nom} ?`, html: `${esc(plural(c.eleves.length, 'élève'))}, ${esc(plural(dids.length, 'dispense'))} et ${esc(plural(sids.length, 'élément'))} de suivi (appels, journal, notes, profils) seront supprimés avec la classe.`, ok: 'Supprimer la classe', danger: true });
     if (!ok) return;
     const before = snapshotIds([c.id].concat(dids, sids));
     dids.concat(sids).forEach(id => delDoc(id, true)); delDoc(c.id, true);
-    UI.classeSel = null; refresh();
+    UI.classeSel = null; UI.cls = null; refresh();
+    if (UI.route === 'classe') go('classes');
     toast(`${c.nom} supprimée.`, [{ label: 'Annuler', run: () => restoreSnap(before) }]);
   },
   'toggle-jour': ds => {
@@ -2551,7 +2604,7 @@ const ACT = {
     toast(`${plural(fresh.length, 'élève ajouté', 'élèves ajoutés')} à ${c.nom}.`);
   },
   'export-csv': () => {
-    const list = UI.route === 'dispenses' ? filteredDispenses(todayIso()).list : sortedAll();
+    const list = UI.route === 'dispenses' ? filteredDispenses(todayIso()).list : UI.route === 'classe' ? filteredDispenses(todayIso(), Object.assign({}, UI.filtres, { classe: UI.cls })).list : sortedAll();
     if (!list.length) { toast('Aucune dispense à exporter.'); return; }
     download(`dispenses-eps-${todayIso()}.csv`, toCSV(list), toTSV(list));
   },
@@ -2566,7 +2619,7 @@ const ACT = {
   'hide-install': () => { UI.hideInstall = true; renderBanner(); },
   'hide-backup': () => { UI.hideBackup = true; renderBanner(); },
   'wipe-disp': async () => {
-    const ids = [...Store.docs().keys()].filter(k => /^[dsjqvg]_/.test(k) || k === 'acks');
+    const ids = [...Store.docs().keys()].filter(k => /^[dsjqvgt]_/.test(k) || k === 'acks');
     if (!ids.length) { toast('Rien à effacer.'); return; }
     const nd = ids.filter(k => k.startsWith('d_')).length, ns = ids.filter(k => k.startsWith('s_')).length;
     if (!(await confirmDialog({ title: 'Effacer les données de l’année ?', html: `Dispenses (${nd}), appels (${ns}), cahier journal, séquences, notes et équipes seront effacés. Les classes, les élèves et leurs profils sont conservés. Télécharge une sauvegarde avant si tu veux garder une trace.`, ok: 'Effacer', danger: true, type: 'EFFACER' }))) return;
@@ -2782,9 +2835,9 @@ function slotCard(c, k, day) {
     ${k.lieu ? `<span class="slot-l muted">${esc(k.lieu)}</span>` : ''}
   </button>`;
 }
-function sequencesHTML(T) {
+function sequencesHTML(T, onlyCid) {
   if (!S.sequences.length) return '<div class="empty-sm">Aucune séquence. Crée un cycle d’APSA par classe pour numéroter les séances et suivre la progression.</div>';
-  return `<div class="seqs">${S.classes.map(c => {
+  return `<div class="seqs">${S.classes.filter(c => !onlyCid || c.id === onlyCid).map(c => {
     const l = S.sequences.filter(q => q.classeId === c.id);
     if (!l.length) return '';
     return `<div class="seq-cl"><h3>${esc(c.nom)}</h3>${l.map(q => {
@@ -2961,7 +3014,7 @@ function typeShort(v) {
   if (v.type === 'perf') return 'perf.' + (UNIT_SHORT[v.unite] ? ' ' + UNIT_SHORT[v.unite] : '');
   return '/' + fmtN(Number(v.max) > 0 ? v.max : 20);
 }
-function evalsOf(cid, a, b) { return S.evals.filter(v => v.classeId === cid && v.date >= a && v.date <= b); }
+function evalsOf(cid, a, b, tab) { const c = tab ? S.classes.find(k => k.id === cid) : null; return S.evals.filter(v => v.classeId === cid && v.date >= a && v.date <= b && (!tab || evalTabId(v, c) === tab.id)); }
 function evalsFor(eid, cid, a, b) { return S.evals.filter(v => v.date >= a && v.date <= b && (v.classeId === cid || (v.notes || {})[eid] != null)); }
 function moyenne(e, list) {
   let s = 0, w = 0;
@@ -2996,27 +3049,27 @@ function colStat(v, c) {
   const avg = raws.reduce((s, x) => s + x, 0) / raws.length;
   return v.unite === 'temps' ? fmtTemps(avg) : fmtN(Math.round(avg * 10) / 10);
 }
-function notesCtx() { const c = S.classes.find(x => x.id === UI.nClasse) || S.classes[0]; const [a, b, pnom] = periodRange(UI.nPer); return { c, a, b, pnom }; }
-function notesTable(c, a, b) {
-  const evs = evalsOf(c.id, a, b);
+function notesCtx() { const c = S.classes.find(x => x.id === UI.nClasse) || S.classes[0]; const [a, b, pnom] = periodRange(UI.nPer); const tab = UI.route === 'classe' ? classTabs(c).find(x => x.id === UI.ctab && x.type === 'notes') || null : null; return { c, a, b, pnom, tab }; }
+function notesTable(c, a, b, tab) {
+  const evs = evalsOf(c.id, a, b, tab);
   const head = ['Nom', 'Prénom'].concat(evs.map(v => `${v.titre || 'Évaluation'} (${fmtNum(v.date)})`), ['Moyenne /20']);
-  const rows = c.eleves.map(e => [e.nom, e.prenom].concat(evs.map(v => { const raw = (v.notes || {})[e.id], t = valueTxt(v, raw), n = v.type === 'perf' ? note20(v, e, raw) : null; return n != null ? `${t} (${fmtN(n)}/20)` : t; }), [(m => (m == null ? '' : invFmt(m)))(moyenne(e, evalsFor(e.id, c.id, a, b)))]));
+  const rows = c.eleves.map(e => [e.nom, e.prenom].concat(evs.map(v => { const raw = (v.notes || {})[e.id], t = valueTxt(v, raw), n = v.type === 'perf' ? note20(v, e, raw) : null; return n != null ? `${t} (${fmtN(n)}/20)` : t; }), [(m => (m == null ? '' : invFmt(m)))(moyenne(e, tab ? evs : evalsFor(e.id, c.id, a, b)))]));
   return { head, rows };
 }
-function viewNotes() {
+function viewNotes(tab) {
   if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
   const T = todayIso(), st = S.settings;
   const c = S.classes.find(x => x.id === UI.nClasse) || currentAppelClasse(T);
   UI.nClasse = c.id;
   if (UI.nPer == null) UI.nPer = currentPeriodKey(T);
   const [a, b, pnom] = periodRange(UI.nPer);
-  const evs = evalsOf(c.id, a, b);
+  const evs = evalsOf(c.id, a, b, tab);
   const picker = S.classes.map(k => `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-notes" data-id="${k.id}"><span>${esc(k.nom)}</span></button>`).join('');
   const perOpts = [['annee', 'Année entière']].concat(st.periodes.map((p, i) => [String(i), p.nom])).map(([v, l]) => `<option value="${v}" ${String(UI.nPer) === v ? 'selected' : ''}>${esc(l)}</option>`).join('');
   const head = evs.map(v => `<th><button type="button" class="gh-b" data-act="edit-eval" data-id="${v.id}"><span class="gh-t">${esc(v.titre || 'Évaluation')}</span><span class="gh-s">${fmt(v.date)} · ${esc(typeShort(v))}${Number(v.coef) !== 1 ? ' · coef ' + fmtN(v.coef) : ''}${v.horsMoy ? ' · hors moyenne' : ''}</span></button></th>`).join('');
   const moys = [];
   const body = c.eleves.map((e, i) => {
-    const m = moyenne(e, evalsFor(e.id, c.id, a, b));
+    const m = moyenne(e, tab ? evs : evalsFor(e.id, c.id, a, b));
     if (m != null) moys.push(m);
     return `<tr><td class="lane-n">${pad(i + 1)}</td><td class="sticky"><button class="link strong" data-act="eleve" data-id="${e.id}">${esc(e.nom)}</button> ${esc(e.prenom)}</td>${evs.map(v => gCell(v, e)).join('')}<td class="gmoy">${m == null ? '<span class="muted">—</span>' : invFmt(m)}</td></tr>`;
   }).join('');
@@ -3024,21 +3077,21 @@ function viewNotes() {
   const cm = moys.length ? invFmt(moys.reduce((s, x) => s + x, 0) / moys.length) : '—';
   return `<div class="wrap">
     <div class="appel-top"><div class="cpicker" role="group" aria-label="Classe">${picker}</div>
-      <div class="row-gap"><label class="sr" for="notes-per">Période</label><select id="notes-per" data-ch="notes-per" style="width:auto">${perOpts}</select><button class="btn" data-act="notes-copy">Copier pour un tableur</button><button class="btn" data-act="notes-csv">Exporter (.csv)</button><button class="btn primary" data-act="new-eval">+ Évaluation</button></div></div>
+      <div class="row-gap"><label class="sr" for="notes-per">Période</label><select id="notes-per" data-ch="notes-per" style="width:auto">${perOpts}</select><button class="btn" data-act="notes-copy">Copier pour un tableur</button><button class="btn" data-act="notes-csv">Exporter (.csv)</button><button class="btn primary" data-act="new-eval" data-tab="${tab ? tab.id : ''}">+ Évaluation</button></div></div>
     <section class="card pad0">
-      <div class="appel-h"><div><h2>Notes ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div><div class="appel-count"><span class="big">${evs.length}</span><span>évaluation${evs.length > 1 ? 's' : ''}</span></div></div>
-      ${!c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : !evs.length ? '<div class="empty-sm pad">Aucune évaluation sur cette période. <button class="link strong" data-act="new-eval">Créer une évaluation</button></div>' : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${head}<th class="gmoy">Moy. /20</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${foot}<td class="gmoy">${cm}</td></tr></tfoot></table></div>`}
+      <div class="appel-h"><div><h2>${esc(tab ? tab.nom : 'Notes')} · ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div><div class="appel-count"><span class="big">${evs.length}</span><span>évaluation${evs.length > 1 ? 's' : ''}</span></div></div>
+      ${!c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : !evs.length ? `<div class="empty-sm pad">Aucune évaluation sur cette période. <button class="link strong" data-act="new-eval" data-tab="${tab ? tab.id : ''}">Créer une évaluation</button></div>` : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${head}<th class="gmoy">Moy. /20</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${foot}<td class="gmoy">${cm}</td></tr></tfoot></table></div>`}
     </section>
     <p class="hint" style="margin:8px 2px 0">Saisis un nombre, ou <b>abs</b>, <b>disp</b>, <b>nn</b> (non noté) ; la touche Entrée passe à l’élève suivant. Pour un temps : 3:25 ou 205 (secondes). Niveaux de compétence : MI, MF, MS, TBM comptent 5, 10, 15 et 20 points dans la moyenne. Touche le titre d’une évaluation pour la modifier.</p>
   </div>`;
 }
-function openEval(id) {
+function openEval(id, tabId) {
   const T = todayIso();
   const ex = id ? Store.docs().get(id) : null;
   if (id && !ex) return;
   const cid0 = ex ? ex.classeId : (S.classes.some(k => k.id === UI.nClasse) ? UI.nClasse : S.classes[0].id);
   const q = sequenceOn(cid0, T);
-  const f = ex ? clone(ex) : { kind: 'eval', classeId: cid0, titre: '', date: T, apsa: q ? q.apsa || '' : '', type: 'note', max: 20, coef: 1, unite: 'temps', horsMoy: false, notes: {} };
+  const f = ex ? clone(ex) : { kind: 'eval', classeId: cid0, titre: '', date: T, apsa: q ? q.apsa || '' : '', type: 'note', max: 20, coef: 1, unite: 'temps', horsMoy: false, notes: {}, ongletId: tabId || '' };
   f.bareme = Object.assign({ mode: 'aucun', u: [null, null], f: [null, null], g: [null, null] }, f.bareme || {});
   ['u', 'f', 'g'].forEach(k => { if (!Array.isArray(f.bareme[k])) f.bareme[k] = [null, null]; });
   const locked = !!ex && Object.keys(ex.notes || {}).length > 0;
@@ -3109,12 +3162,13 @@ function openEval(id) {
         }
       }
       const cur = ex ? Store.docs().get(id) : null;
-      const body = { kind: 'eval', classeId: f.classeId, titre: f.titre || f.apsa || 'Évaluation', date: f.date, apsa: f.apsa, type: f.type, max: f.type === 'note' ? max : 20, coef, unite: f.type === 'perf' ? f.unite : '', bareme, horsMoy: !!f.horsMoy, notes: cur && cur.notes ? clone(cur.notes) : {}, majLe: new Date().toISOString() };
+      const body = { kind: 'eval', classeId: f.classeId, titre: f.titre || f.apsa || 'Évaluation', date: f.date, apsa: f.apsa, type: f.type, max: f.type === 'note' ? max : 20, coef, unite: f.type === 'perf' ? f.unite : '', bareme, horsMoy: !!f.horsMoy, notes: cur && cur.notes ? clone(cur.notes) : {}, ongletId: f.ongletId || '', majLe: new Date().toISOString() };
       putDoc(id || newId('v_'), body);
       closeModal(m);
       UI.nClasse = body.classeId;
       if (UI.nPer !== 'annee') UI.nPer = currentPeriodKey(body.date);
-      if (UI.route !== 'notes') go('notes'); else render();
+      if (UI.route === 'classe' && UI.cls === body.classeId) { const tt = classTabs(S.classes.find(k => k.id === body.classeId)).find(x => x.id === body.ongletId && x.type === 'notes'); if (tt) UI.ctab = tt.id; render(); }
+      else openClass(body.classeId, 'notes', body.ongletId, true);
       toast(ex ? 'Évaluation modifiée.' : 'Évaluation créée : saisis les résultats dans la colonne.');
     };
   };
@@ -3431,10 +3485,10 @@ Object.assign(ACT, {
   'open-jseance': ds => openJSeance(ds.c, ds.d),
   'go-classes': () => go('classes'),
   'pick-notes': ds => { UI.nClasse = ds.id; render(); },
-  'new-eval': () => { if (!S.classes.length) return; openEval(null); },
+  'new-eval': ds => { if (!S.classes.length) return; openEval(null, ds.tab || (UI.route === 'classe' ? UI.ctab : '')); },
   'edit-eval': ds => openEval(ds.id),
-  'notes-csv': () => { const x = notesCtx(), t = notesTable(x.c, x.a, x.b); download(`notes-eps-${slug(x.c.nom)}-${slug(x.pnom)}.csv`, csvFrom(t.head, t.rows), tsvFrom(t.head, t.rows)); },
-  'notes-copy': async () => { const x = notesCtx(), t = notesTable(x.c, x.a, x.b), txt = tsvFrom(t.head, t.rows); try { await navigator.clipboard.writeText(txt); toast('Notes copiées : colle-les dans un tableur.'); } catch (e) { openTextModal('Notes pour un tableur', txt); } },
+  'notes-csv': () => { const x = notesCtx(), t = notesTable(x.c, x.a, x.b, x.tab); download(`notes-eps-${slug(x.c.nom)}-${slug(x.tab ? x.tab.nom : 'notes')}-${slug(x.pnom)}.csv`, csvFrom(t.head, t.rows), tsvFrom(t.head, t.rows)); },
+  'notes-copy': async () => { const x = notesCtx(), t = notesTable(x.c, x.a, x.b, x.tab), txt = tsvFrom(t.head, t.rows); try { await navigator.clipboard.writeText(txt); toast('Notes copiées : colle-les dans un tableur.'); } catch (e) { openTextModal('Notes pour un tableur', txt); } },
   'pick-outils': ds => { UI.oClasse = ds.id; render(); },
   'draw': () => {
     const c = outilsClasse(), T = todayIso();
@@ -3534,6 +3588,14 @@ document.addEventListener('keydown', e => {
     return;
   }
   const t = e.target;
+  if (e.key === 'Enter' && t && t.classList && t.classList.contains('grcell') && t.tagName === 'INPUT') {
+    e.preventDefault();
+    const k = t.dataset.k, eid = t.dataset.e, c = S.classes.find(x => x.id === UI.cls), ids = c ? c.eleves.map(x => x.id) : [];
+    const next = ids[ids.indexOf(eid) + (e.shiftKey ? -1 : 1)];
+    CH['gr-cell'](t);
+    if (next) { const n = document.getElementById(`gr-${k}-${next}`); if (n) { n.focus(); if (n.select) n.select(); } }
+    return;
+  }
   if (e.key === 'Enter' && t && t.classList && t.classList.contains('gcell') && t.tagName === 'INPUT') {
     e.preventDefault();
     const ev = t.dataset.ev, eid = t.dataset.e;
@@ -3542,6 +3604,328 @@ document.addEventListener('keydown', e => {
     CH['g-cell'](t);
     if (next) { const n = document.getElementById(`g-${ev}-${next}`); if (n) { n.focus(); if (n.select) n.select(); } }
   }
+});
+
+/* ============ Espace de classe et onglets ============ */
+const TAB_TYPES = { appel: 'Appel', notes: 'Notes', grille: 'Grille d’observation', dispenses: 'Dispenses', journal: 'Journal', bilan: 'Bilan', eleves: 'Élèves', outils: 'Outils' };
+const TAB_SINGLE = ['appel', 'dispenses', 'journal', 'bilan', 'eleves', 'outils'];
+const DEFAULT_TABS = [['appel', 'Appel'], ['notes', 'Notes'], ['dispenses', 'Dispenses'], ['journal', 'Journal'], ['bilan', 'Bilan'], ['eleves', 'Élèves'], ['outils', 'Outils']];
+const TAB_HINT = { notes: 'Un carnet de notes à part, par exemple un par APSA ou par cycle.', grille: 'Des colonnes libres : cases à cocher, acquis / en cours / non acquis, nombres, textes ou dates.', appel: 'Présence, tenue, investissement, comportement et dispenses du jour.', dispenses: 'Les dispenses et inaptitudes de la classe.', journal: 'Fiches de séance et séquences de la classe.', bilan: 'Synthèse par élève sur une période.', eleves: 'Liste, trombinoscope, créneaux et import des élèves.', outils: 'Tirage au sort, équipes, chronomètre et minuteur.' };
+const COL_TYPES = { coche: 'Case à cocher', pastille: 'Acquis / en cours / non acquis', nombre: 'Nombre', texte: 'Texte', date: 'Date' };
+const PASTILLES = { a: ['A', 'Acquis'], ec: ['EC', 'En cours'], na: ['NA', 'Non acquis'] };
+const CLASS_COLORS = ['#0a6767', '#2f6fd6', '#b5362a', '#b07a0c', '#7a4fc4', '#2e8b57', '#c2410c', '#0e7490', '#a3366f', '#4d5b66'];
+Object.assign(UI, { cls: null, ctab: null, lastTab: {}, pendingType: null });
+try { UI.lastTab = JSON.parse(localStorage.getItem('dispenses-eps-tabs') || '{}') || {}; } catch (e) { UI.lastTab = {}; }
+
+const safeId = x => String(x || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 60);
+function normOnglets(b) {
+  const raw = Array.isArray(b.onglets) && b.onglets.length ? b.onglets : DEFAULT_TABS.map(([type, nom]) => ({ id: type, type, nom }));
+  const out = [], seen = new Set();
+  raw.forEach((t, i) => {
+    if (!t || !TAB_TYPES[t.type]) return;
+    let id = safeId(t.id) || t.type + i;
+    if (seen.has(id)) id = id + 'x' + i;
+    seen.add(id);
+    const o = { id, type: t.type, nom: String(t.nom || TAB_TYPES[t.type]).slice(0, 40) };
+    if (t.type === 'grille') o.colonnes = (Array.isArray(t.colonnes) ? t.colonnes : []).filter(k => k && COL_TYPES[k.type] && safeId(k.id)).map(k => ({ id: safeId(k.id), titre: String(k.titre || 'Colonne').slice(0, 60), type: k.type }));
+    out.push(o);
+  });
+  if (!out.some(t => t.type === 'eleves')) out.push({ id: 'eleves', type: 'eleves', nom: 'Élèves' });
+  return out;
+}
+function classTabs(c) { return c && c.onglets && c.onglets.length ? c.onglets : normOnglets({}); }
+function copyTabs(tabs) { return tabs.map(t => Object.assign({}, t, t.colonnes ? { colonnes: t.colonnes.map(k => Object.assign({}, k)) } : {})); }
+function classColor(c) {
+  if (c && /^#[0-9a-f]{6}$/i.test(c.couleur || '')) return c.couleur;
+  const i = Math.max(0, S.classes.findIndex(k => k.id === (c && c.id)));
+  return CLASS_COLORS[i % CLASS_COLORS.length];
+}
+function syncClassUI(cid) { UI.appelClasse = cid; UI.nClasse = cid; UI.bilanClasse = cid; UI.oClasse = cid; UI.classeSel = cid; }
+function rememberTab(cid, tid) { UI.lastTab[cid] = tid; try { localStorage.setItem('dispenses-eps-tabs', JSON.stringify(UI.lastTab)); } catch (e) { /* rien */ } }
+function openClass(cid, type, tabId, quiet) {
+  const c = S.classes.find(k => k.id === cid) || S.classes[0];
+  if (!c) { go('classes'); return; }
+  UI.cls = c.id; syncClassUI(c.id);
+  const tabs = classTabs(c);
+  const t = (tabId && tabs.find(x => x.id === tabId)) || (type && tabs.find(x => x.type === type)) || tabs.find(x => x.id === UI.lastTab[c.id]) || tabs[0];
+  if (type && t.type !== type && !quiet) toast(`Pas d’onglet « ${TAB_TYPES[type]} » dans cette classe : ajoute-le avec « + Onglet ».`);
+  UI.ctab = t.id;
+  if (location.hash === '#classe') { UI.route = 'classe'; render(); window.scrollTo(0, 0); } else location.hash = 'classe';
+}
+function nextCourse(c, T) { for (let i = 0; i < 28; i++) { const d = addDays(T, i), k = creneauxOn(c, d)[0]; if (k) return { d, k }; } return null; }
+function evalTabId(v, c) {
+  const tabs = classTabs(c);
+  if (v.ongletId && tabs.some(t => t.id === v.ongletId && t.type === 'notes')) return v.ongletId;
+  const t = tabs.find(x => x.id === 'notes' && x.type === 'notes') || tabs.find(x => x.type === 'notes');
+  return t ? t.id : '';
+}
+function viewClassesGrid() {
+  if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
+  const T = todayIso();
+  const tiles = S.classes.map(c => {
+    const nx = nextCourse(c, T), q = sequenceOn(c.id, T);
+    const ni = c.eleves.filter(e => activeOn(e.id, T)).length, done = !!seanceOf(c.id, T);
+    const when = nx ? (nx.d === T ? `Aujourd’hui ${hTxt(nx.k)}` : `${cap(fmtJ(nx.d))} ${hTxt(nx.k)}`) : (c.creneaux.length ? 'Pas de cours dans les 4 semaines' : 'Créneaux à renseigner');
+    return `<button class="ctile" style="--cc:${classColor(c)}" data-act="open-class" data-id="${c.id}">
+      <span class="ctile-name">${esc(c.nom)}</span>
+      <span class="ctile-meta">${plural(c.eleves.length, 'élève')}${q ? ' · ' + esc(q.apsa || q.titre || '') : ''}</span>
+      <span class="ctile-next ${nx && nx.d === T ? 'now' : ''}">${esc(when.trim())}${nx && nx.k.lieu ? ' · ' + esc(nx.k.lieu) : ''}</span>
+      <span class="ctile-foot">${ni ? `<span class="badge">${ni}</span> inapte${ni > 1 ? 's' : ''} aujourd’hui` : '<span class="muted">Aucun inapte aujourd’hui</span>'}${done ? `<span class="ok-t">${ICON.check}appel fait</span>` : ''}</span>
+    </button>`;
+  }).join('');
+  return `<div class="wrap"><div class="appel-top"><h2>Mes classes</h2><div class="row-gap"><button class="btn" data-act="add-classe">+ Une classe</button><button class="btn primary" data-act="gen">Générer des classes</button></div></div><div class="ctiles">${tiles}</div></div>`;
+}
+function viewClasse() {
+  if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
+  const c = S.classes.find(k => k.id === UI.cls) || S.classes[0];
+  UI.cls = c.id; syncClassUI(c.id);
+  const tabs = classTabs(c);
+  let t = null;
+  if (UI.pendingType) { t = tabs.find(x => x.type === UI.pendingType) || null; UI.pendingType = null; }
+  t = t || tabs.find(x => x.id === UI.ctab) || tabs.find(x => x.id === UI.lastTab[c.id]) || tabs[0];
+  UI.ctab = t.id;
+  if (UI.lastTab[c.id] !== t.id) rememberTab(c.id, t.id);
+  const T = todayIso(), nx = nextCourse(c, T), q = sequenceOn(c.id, T), num = q ? seanceNum(q, T) : null;
+  const meta = [plural(c.eleves.length, 'élève'), nx && (nx.d === T ? 'cours aujourd’hui ' + hTxt(nx.k) : 'prochain cours ' + fmtJ(nx.d) + ' ' + hTxt(nx.k)), q && (q.apsa || q.titre) + (num && num.n ? ` · séance ${num.n}/${num.total}` : '')].filter(Boolean).join(' · ');
+  let inner = '';
+  if (t.type === 'appel') inner = viewAppel();
+  else if (t.type === 'notes') inner = viewNotes(t);
+  else if (t.type === 'grille') inner = viewGrille(c, t);
+  else if (t.type === 'dispenses') inner = viewDispenses(c.id);
+  else if (t.type === 'journal') inner = viewJournalClasse(c);
+  else if (t.type === 'bilan') inner = viewBilan();
+  else if (t.type === 'outils') inner = viewOutils();
+  else inner = viewClasses();
+  return `<div class="cls-bar" style="--cc:${classColor(c)}">
+    <div class="wrap cls-top">
+      <button class="btn sm ghost" data-act="go-grid">‹ Classes</button>
+      <div class="cls-title"><h1>${esc(c.nom)}</h1><span class="muted sm">${esc(meta)}</span></div>
+      <label class="sr" for="cls-switch">Changer de classe</label><select id="cls-switch" data-ch="cls-switch" style="width:auto">${S.classes.map(k => `<option value="${k.id}" ${k.id === c.id ? 'selected' : ''}>${esc(k.nom)}</option>`).join('')}</select>
+    </div>
+    <div class="wrap ctabs-wrap"><div class="ctabs" role="tablist" aria-label="Onglets de la classe">${tabs.map(x => `<button class="ctab" role="tab" aria-selected="${x.id === t.id}" data-act="ctab" data-id="${x.id}">${esc(x.nom)}</button>`).join('')}</div><div class="ctab-actions"><button class="ctab add" data-act="tab-add">+ Onglet</button><button class="ctab gear" data-act="tab-manage">Personnaliser</button></div></div>
+  </div>
+  <div class="in-class">${inner}</div>`;
+}
+function viewJournalClasse(c) {
+  const T = todayIso(), up = [], past = [];
+  for (let i = 0; i < 70 && up.length < 6; i++) { const d = addDays(T, i), k = creneauxOn(c, d)[0]; if (k) up.push({ d, k }); }
+  for (let i = 1; i < 100 && past.length < 8; i++) { const d = addDays(T, -i), k = creneauxOn(c, d)[0]; if (k) past.push({ d, k }); }
+  const row = x => {
+    const j = S.journal.get(journalId(c.id, x.d)), q = sequenceOn(c.id, x.d), num = q ? seanceNum(q, x.d) : null, done = !!seanceOf(c.id, x.d);
+    return `<button class="jrow" data-act="open-jseance" data-c="${c.id}" data-d="${x.d}"><span class="jrow-d">${esc(cap(fmtJ(x.d)))}<br><span class="muted sm">${esc(hTxt(x.k))}</span></span><span class="jrow-q">${q ? esc(q.apsa || q.titre || '') + (num && num.n ? ` · séance ${num.n}/${num.total}` : '') : ''}</span><span class="jrow-t ${j && j.titre ? '' : 'muted'}">${esc(j && j.titre ? j.titre : x.d >= T ? 'Préparer la séance' : 'Aucune fiche')}</span><span class="jrow-s">${done ? `<span class="ok-t">${ICON.check}appel</span>` : ''}</span></button>`;
+  };
+  return `<div class="wrap"><div class="j-grid">
+    <section class="card"><div class="card-h"><h2>Prochaines séances</h2></div>${up.length ? up.map(row).join('') : `<div class="empty-sm">${c.creneaux.length ? 'Aucune séance dans les prochaines semaines.' : 'Ajoute les créneaux de la classe dans l’onglet Élèves.'}</div>`}</section>
+    <section class="card"><div class="card-h"><h2>Séances passées</h2></div>${past.length ? past.map(row).join('') : '<div class="empty-sm">Aucune séance passée.</div>'}</section>
+  </div>
+  <section class="card" style="margin-top:16px"><div class="card-h"><h2>Séquences</h2><button class="btn sm primary" data-act="new-seq-c">+ Séquence</button></div>${S.sequences.some(q => q.classeId === c.id) ? sequencesHTML(T, c.id) : '<div class="empty-sm">Aucune séquence pour cette classe.</div>'}</section></div>`;
+}
+
+/* ---- Grille d'observation ---- */
+function grilleVals(t) { const d = Store.docs().get('t_' + t.id); return (d && d.valeurs) || {}; }
+function curGrille() {
+  const c = S.classes.find(k => k.id === UI.cls);
+  const t = c && classTabs(c).find(x => x.id === UI.ctab && x.type === 'grille');
+  return c && t ? { c, t } : null;
+}
+function viewGrille(c, t) {
+  const cols = t.colonnes || [], vals = grilleVals(t);
+  const cell = (col, e) => {
+    const v = (vals[col.id] || {})[e.id], id = `gr-${col.id}-${e.id}`, lab = `${esc(nomComplet(e))}, ${esc(col.titre)}`;
+    if (col.type === 'coche') return `<td class="gc"><button type="button" class="gk" id="${id}" aria-pressed="${!!v}" aria-label="${lab}" data-act="gr-toggle" data-k="${col.id}" data-e="${e.id}">${v ? '✓' : ''}</button></td>`;
+    if (col.type === 'pastille') return `<td class="gc"><button type="button" class="gp p-${PASTILLES[v] ? v : 'x'}" id="${id}" aria-label="${lab} : ${PASTILLES[v] ? PASTILLES[v][1] : 'non renseigné'}" data-act="gr-cycle" data-k="${col.id}" data-e="${e.id}">${PASTILLES[v] ? PASTILLES[v][0] : '·'}</button></td>`;
+    const shown = col.type === 'nombre' && v != null ? fmtN(v) : (v || '');
+    return `<td class="gc"><input type="${col.type === 'date' ? 'date' : 'text'}" class="gcell grcell ${col.type === 'texte' ? 'wide' : ''}" id="${id}" value="${esc(shown)}" ${col.type === 'nombre' ? 'inputmode="decimal"' : ''} data-ch="gr-cell" data-k="${col.id}" data-e="${e.id}" aria-label="${lab}" autocomplete="off"></td>`;
+  };
+  const foot = col => {
+    const l = c.eleves.map(e => (vals[col.id] || {})[e.id]).filter(v => v != null && v !== '' && v !== false);
+    if (col.type === 'coche') return `${l.length}/${c.eleves.length}`;
+    if (col.type === 'pastille') return Object.entries(PASTILLES).map(([k, [s]]) => { const n = l.filter(v => v === k).length; return n ? `${s} ${n}` : ''; }).filter(Boolean).join(' · ') || '—';
+    if (col.type === 'nombre') { const ns = l.map(Number).filter(x => isFinite(x)); return ns.length ? 'moy. ' + fmtN(Math.round((ns.reduce((s, x) => s + x, 0) / ns.length) * 10) / 10) : '—'; }
+    return l.length ? plural(l.length, 'saisie') : '—';
+  };
+  return `<div class="wrap">
+    <div class="appel-top"><p class="muted sm" style="margin:0">Colonnes libres : cases à cocher, acquis / en cours / non acquis, nombres, textes ou dates. Touche le titre d’une colonne pour la modifier.</p><div class="row-gap">${cols.length ? '<button class="btn" data-act="gr-csv">Exporter (.csv)</button>' : ''}<button class="btn primary" data-act="col-add">+ Colonne</button></div></div>
+    <section class="card pad0"><div class="appel-h"><div><h2>${esc(t.nom)} · ${esc(c.nom)}</h2><div class="muted">${plural(cols.length, 'colonne')}</div></div></div>
+    ${!cols.length ? '<div class="empty-sm pad">Aucune colonne. Exemples : licence AS, rôle d’arbitre, palier du test navette, autorisation de sortie. <button class="link strong" data-act="col-add">Ajouter une colonne</button></div>' : !c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${cols.map(col => `<th><button type="button" class="gh-b" data-act="col-edit" data-k="${col.id}"><span class="gh-t">${esc(col.titre)}</span><span class="gh-s">${esc(COL_TYPES[col.type])}</span></button></th>`).join('')}</tr></thead><tbody>${c.eleves.map((e, i) => `<tr><td class="lane-n">${pad(i + 1)}</td><td class="sticky"><button class="link strong" data-act="eleve" data-id="${e.id}">${esc(e.nom)}</button> ${esc(e.prenom)}</td>${cols.map(col => cell(col, e)).join('')}</tr>`).join('')}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${cols.map(col => `<td class="gstat">${foot(col)}</td>`).join('')}</tr></tfoot></table></div>`}
+    </section>
+    ${cols.some(k => k.type === 'pastille') ? '<p class="hint" style="margin:8px 2px 0">Pastilles : touche pour passer de vide à A (acquis), EC (en cours) puis NA (non acquis).</p>' : ''}
+  </div>`;
+}
+function setGrille(c, t, colId, eid, val) {
+  const id = 't_' + t.id, cur = clone(Store.docs().get(id) || { kind: 'grille', classeId: c.id, ongletId: t.id, valeurs: {} });
+  cur.valeurs = cur.valeurs || {};
+  cur.valeurs[colId] = cur.valeurs[colId] || {};
+  if (val === '' || val == null || val === false) delete cur.valeurs[colId][eid]; else cur.valeurs[colId][eid] = val;
+  cur.majLe = new Date().toISOString();
+  putDoc(id, cur);
+}
+function freshTabs(cid) { const c = S.classes.find(k => k.id === cid); return copyTabs(classTabs(c)); }
+function saveTabs(cid, tabs, silent) { const k = getClasse(cid); if (!k) return; k.onglets = tabs; saveClasse(k, silent); }
+function openColonne(colId) {
+  const g = curGrille(); if (!g) return;
+  const cid = g.c.id, tid = g.t.id;
+  const col = colId ? (g.t.colonnes || []).find(x => x.id === colId) : null;
+  const used = !!col && Object.keys(grilleVals(g.t)[col.id] || {}).length > 0;
+  openModal({
+    label: col ? 'Modifier la colonne' : 'Nouvelle colonne',
+    html: `<form novalidate><div class="modal-head"><h3>${col ? 'Modifier la colonne' : 'Nouvelle colonne'}</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body"><div class="field"><label class="label" for="co-t">Titre</label><input type="text" id="co-t" maxlength="60" value="${esc(col ? col.titre : '')}" placeholder="Ex. : Licence AS, Rôle d’arbitre, Palier test navette" data-autofocus></div>
+    <div class="field"><label class="label" for="co-ty">Type</label><select id="co-ty" ${used ? 'disabled' : ''}>${Object.entries(COL_TYPES).map(([k, l]) => `<option value="${k}" ${(col ? col.type : 'coche') === k ? 'selected' : ''}>${l}</option>`).join('')}</select>${used ? '<p class="hint">Type verrouillé : des valeurs sont déjà saisies.</p>' : ''}</div><p class="form-err" id="co-err" role="alert"></p></div>
+    <div class="modal-foot spread"><div>${col ? '<button type="button" class="btn ghost danger-t" id="co-del">Supprimer</button>' : ''}</div><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></div></form>`,
+    onMount(box, m) {
+      box.querySelector('form').onsubmit = ev => {
+        ev.preventDefault();
+        const titre = box.querySelector('#co-t').value.trim();
+        if (!titre) { box.querySelector('#co-err').textContent = 'Donne un titre à la colonne.'; return; }
+        const tabs = freshTabs(cid), tt = tabs.find(x => x.id === tid);
+        if (!tt) { closeModal(m); return; }
+        tt.colonnes = tt.colonnes || [];
+        if (col) { const x = tt.colonnes.find(y => y.id === col.id); if (x) { x.titre = titre; if (!used) x.type = box.querySelector('#co-ty').value; } }
+        else tt.colonnes.push({ id: newId('k'), titre, type: box.querySelector('#co-ty').value });
+        closeModal(m); saveTabs(cid, tabs);
+      };
+      const del = box.querySelector('#co-del');
+      if (del) del.onclick = async () => {
+        if (!(await confirmDialog({ title: `Supprimer « ${col.titre} » ?`, html: 'Les valeurs saisies dans cette colonne seront supprimées.', ok: 'Supprimer', danger: true }))) return;
+        const before = snapshotIds([cid, 't_' + tid]);
+        closeModal(m);
+        const tabs = freshTabs(cid), tt = tabs.find(x => x.id === tid);
+        if (tt) { tt.colonnes = (tt.colonnes || []).filter(y => y.id !== col.id); saveTabs(cid, tabs, true); }
+        const d = Store.docs().get('t_' + tid);
+        if (d && d.valeurs && d.valeurs[col.id]) { const n = clone(d); delete n.valeurs[col.id]; putDoc('t_' + tid, n, true); }
+        refresh();
+        toast('Colonne supprimée.', [{ label: 'Annuler', run: () => restoreSnap(before) }]);
+      };
+    },
+  });
+}
+
+/* ---- Ajout et gestion des onglets ---- */
+function newTab(type, nom, cols) {
+  const t = { id: TAB_SINGLE.includes(type) ? type : newId('t'), type, nom };
+  if (type === 'grille') t.colonnes = (cols || []).map(k => ({ id: newId('k'), titre: k.titre, type: k.type }));
+  return t;
+}
+function hasTab(tabs, t) { return TAB_SINGLE.includes(t.type) ? tabs.some(x => x.type === t.type) : tabs.some(x => x.type === t.type && x.nom === t.nom); }
+function openTabAdd() {
+  const c = S.classes.find(k => k.id === UI.cls); if (!c) return;
+  const tabs = classTabs(c), q = sequenceOn(c.id, todayIso());
+  const opts = Object.entries(TAB_TYPES).map(([k, l]) => { const dis = TAB_SINGLE.includes(k) && tabs.some(x => x.type === k); return `<option value="${k}" ${dis ? 'disabled' : ''}>${l}${dis ? ' (déjà présent)' : ''}</option>`; }).join('');
+  openModal({
+    label: 'Nouvel onglet',
+    html: `<form novalidate><div class="modal-head"><div><div class="eyebrow">${esc(c.nom)}</div><h3>Nouvel onglet</h3></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body"><div class="grid-2"><div class="field"><label class="label" for="ta-ty">Type</label><select id="ta-ty">${opts}</select></div><div class="field"><label class="label" for="ta-n">Nom</label><input type="text" id="ta-n" maxlength="40" data-autofocus></div></div>
+    <p class="hint" id="ta-h" style="margin:-6px 0 12px"></p>
+    <label class="check"><input type="checkbox" id="ta-all"> Ajouter aussi cet onglet aux autres classes</label></div>
+    <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Ajouter</button></div></form>`,
+    onMount(box, m) {
+      const sel = box.querySelector('#ta-ty'), nm = box.querySelector('#ta-n'), h = box.querySelector('#ta-h');
+      sel.value = 'notes';
+      const sugg = () => { const ty = sel.value; nm.placeholder = ty === 'notes' ? (q && q.apsa ? q.apsa : 'Notes') : ty === 'grille' ? 'Observation' : TAB_TYPES[ty]; h.textContent = TAB_HINT[ty] || ''; };
+      sel.onchange = sugg; sugg();
+      box.querySelector('form').onsubmit = ev => {
+        ev.preventDefault();
+        const ty = sel.value, nom = (nm.value.trim() || nm.placeholder).slice(0, 40);
+        const t = newTab(ty, nom);
+        const mine = freshTabs(c.id); mine.push(t); saveTabs(c.id, mine, true);
+        let n = 0;
+        if (box.querySelector('#ta-all').checked) S.classes.forEach(k => { if (k.id === c.id) return; const tk = freshTabs(k.id); if (hasTab(tk, t)) return; tk.push(newTab(ty, nom)); saveTabs(k.id, tk, true); n++; });
+        UI.ctab = t.id; rememberTab(c.id, t.id);
+        closeModal(m); refresh();
+        toast(`Onglet « ${nom} » ajouté${n ? ` ici et dans ${plural(n, 'autre classe', 'autres classes')}` : ''}.`);
+      };
+    },
+  });
+}
+function openTabsManager() {
+  const c0 = S.classes.find(k => k.id === UI.cls); if (!c0) return;
+  const tabs = copyTabs(classTabs(c0)), removed = [];
+  let color = classColor(c0), m = null;
+  const body = () => `<div class="modal-head"><div><div class="eyebrow">${esc(c0.nom)}</div><h3>Personnaliser la classe</h3></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">
+      <div class="field"><span class="label">Onglets</span><div class="tlist">${tabs.map((t, i) => `<div class="trow"><span class="tty muted sm">${esc(TAB_TYPES[t.type])}</span><input type="text" id="tn-${i}" value="${esc(t.nom)}" maxlength="40" aria-label="Nom de l’onglet ${i + 1}"><button type="button" class="icon-btn" data-up="${i}" ${i === 0 ? 'disabled' : ''} aria-label="Monter">↑</button><button type="button" class="icon-btn" data-down="${i}" ${i === tabs.length - 1 ? 'disabled' : ''} aria-label="Descendre">↓</button>${t.type === 'eleves' ? '<span></span>' : `<button type="button" class="icon-btn" data-rm="${i}" aria-label="Retirer l’onglet ${esc(t.nom)}">×</button>`}</div>`).join('')}</div>
+        <p class="hint">L’onglet Élèves reste toujours présent. Pour ajouter un onglet, utilise « + Onglet ».</p></div>
+      <div class="field"><span class="label">Couleur de la classe</span><div class="swatches">${CLASS_COLORS.map(col => `<button type="button" class="swatch" style="background:${col}" data-col="${col}" aria-pressed="${col === color}" aria-label="Couleur ${CLASS_COLORS.indexOf(col) + 1}"></button>`).join('')}</div></div>
+      <hr class="sep">
+      <button type="button" class="btn sm" id="tm-copy">Copier ces onglets dans les autres classes</button>
+      <p class="hint" style="margin-top:6px">Ajoute aux autres classes les onglets qui leur manquent (même type et même nom), sans toucher à leurs données.</p>
+    </div>
+    <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="button" class="btn primary" id="tm-save">Enregistrer</button></div>`;
+  const readNames = box => tabs.forEach((t, i) => { const el = box.querySelector('#tn-' + i); if (el) t.nom = el.value.trim().slice(0, 40) || TAB_TYPES[t.type]; });
+  const mount = box => {
+    box.innerHTML = body();
+    box.querySelectorAll('[data-up]').forEach(b => { b.onclick = () => { readNames(box); const i = Number(b.dataset.up); [tabs[i - 1], tabs[i]] = [tabs[i], tabs[i - 1]]; mount(box); }; });
+    box.querySelectorAll('[data-down]').forEach(b => { b.onclick = () => { readNames(box); const i = Number(b.dataset.down); [tabs[i + 1], tabs[i]] = [tabs[i], tabs[i + 1]]; mount(box); }; });
+    box.querySelectorAll('[data-rm]').forEach(b => { b.onclick = () => { readNames(box); removed.push(tabs.splice(Number(b.dataset.rm), 1)[0]); mount(box); }; });
+    box.querySelectorAll('[data-col]').forEach(b => { b.onclick = () => { readNames(box); color = b.dataset.col; mount(box); }; });
+    box.querySelector('#tm-copy').onclick = () => {
+      readNames(box);
+      let n = 0;
+      S.classes.forEach(k => {
+        if (k.id === c0.id) return;
+        const tk = freshTabs(k.id);
+        let ch = false;
+        tabs.forEach(t => { if (hasTab(tk, t)) return; tk.push(newTab(t.type, t.nom, t.colonnes)); ch = true; n++; });
+        if (ch) saveTabs(k.id, tk, true);
+      });
+      refresh();
+      toast(n ? `${plural(n, 'onglet ajouté', 'onglets ajoutés')} dans les autres classes.` : 'Les autres classes ont déjà ces onglets.');
+    };
+    box.querySelector('#tm-save').onclick = async () => {
+      readNames(box);
+      const lostNotes = removed.filter(t => t.type === 'notes').map(t => t.id);
+      const evIds = S.evals.filter(v => v.classeId === c0.id && lostNotes.includes(evalTabId(v, c0))).map(v => v.id);
+      const grIds = removed.filter(t => t.type === 'grille').map(t => 't_' + t.id).filter(id => Store.docs().has(id));
+      if (evIds.length || grIds.length) {
+        const bits = [evIds.length ? plural(evIds.length, 'évaluation') + ' et leurs notes' : '', grIds.length ? 'les valeurs des grilles retirées' : ''].filter(Boolean).join(', ');
+        if (!(await confirmDialog({ title: 'Retirer ces onglets ?', html: `${esc(cap(bits))} seront supprimées.`, ok: 'Retirer', danger: true }))) return;
+      }
+      const before = snapshotIds([c0.id].concat(evIds, grIds));
+      const k = getClasse(c0.id); k.onglets = tabs; k.couleur = color; saveClasse(k, true);
+      evIds.concat(grIds).forEach(id => delDoc(id, true));
+      if (!tabs.some(t => t.id === UI.ctab)) UI.ctab = tabs[0].id;
+      closeModal(m); refresh();
+      toast('Classe mise à jour.', removed.length ? [{ label: 'Annuler', run: () => restoreSnap(before) }] : []);
+    };
+  };
+  m = openModal({ wide: true, label: 'Personnaliser la classe', html: '', onMount: box => mount(box) });
+}
+
+Object.assign(ACT, {
+  'open-class': ds => openClass(ds.id),
+  'go-grid': () => go('classes'),
+  'ctab': ds => { UI.ctab = ds.id; rememberTab(UI.cls, ds.id); render(); },
+  'tab-add': () => openTabAdd(),
+  'tab-manage': () => openTabsManager(),
+  'new-seq-c': () => openSequence(null, UI.cls),
+  'col-add': () => openColonne(null),
+  'col-edit': ds => openColonne(ds.k),
+  'gr-toggle': ds => { const g = curGrille(); if (!g) return; const v = (grilleVals(g.t)[ds.k] || {})[ds.e]; setGrille(g.c, g.t, ds.k, ds.e, !v); },
+  'gr-cycle': ds => { const g = curGrille(); if (!g) return; const order = ['', 'a', 'ec', 'na'], v = (grilleVals(g.t)[ds.k] || {})[ds.e] || ''; setGrille(g.c, g.t, ds.k, ds.e, order[(order.indexOf(v) + 1) % order.length]); },
+  'gr-csv': () => {
+    const g = curGrille(); if (!g) return;
+    const cols = g.t.colonnes || [], vals = grilleVals(g.t);
+    const head = ['Nom', 'Prénom'].concat(cols.map(k => k.titre));
+    const rows = g.c.eleves.map(e => [e.nom, e.prenom].concat(cols.map(k => { const v = (vals[k.id] || {})[e.id]; return k.type === 'coche' ? (v ? 'oui' : '') : k.type === 'pastille' ? (PASTILLES[v] ? PASTILLES[v][1] : '') : k.type === 'nombre' && v != null ? fmtN(v) : k.type === 'date' ? fmtNum(v) : (v || ''); })));
+    download(`${slug(g.t.nom)}-${slug(g.c.nom)}.csv`, csvFrom(head, rows), tsvFrom(head, rows));
+  },
+});
+Object.assign(CH, {
+  'cls-switch': el => { const c = S.classes.find(k => k.id === UI.cls), cur = c && classTabs(c).find(x => x.id === UI.ctab); openClass(el.value, cur ? cur.type : null, null, true); },
+  'gr-cell': el => {
+    const g = curGrille(); if (!g) return;
+    const col = (g.t.colonnes || []).find(k => k.id === el.dataset.k); if (!col) return;
+    let v = el.value.trim();
+    if (col.type === 'nombre') {
+      if (v === '') v = null;
+      else { const x = Number(v.replace(',', '.')); if (!isFinite(x)) { el.classList.add('bad'); toast('Nombre non reconnu.'); return; } v = x; }
+    }
+    el.classList.remove('bad');
+    const cur = (grilleVals(g.t)[col.id] || {})[el.dataset.e];
+    if ((cur == null ? '' : cur) === (v == null ? '' : v)) return;
+    setGrille(g.c, g.t, col.id, el.dataset.e, v);
+  },
 });
 
 /* ============ Exemple fictif ============ */
@@ -3671,7 +4055,12 @@ function buildDemo() {
   docs.set('p_' + cA.eleves[2].id, { kind: 'profil', dispositifs: ['PAP'], resp: [], infos: 'Consignes courtes et reformulées ; le placer près de l’enseignant pendant les explications.', annotations: [{ id: 'a1', date: clip(o(-12)), texte: 'Échange avec la famille : bons progrès en endurance.' }] });
   docs.set('p_' + cA.eleves[9].id, { kind: 'profil', dispositifs: ['Section sportive', 'AS'], resp: [], infos: '', annotations: [] });
   docs.set('p_' + cB.eleves[1].id, { kind: 'profil', dispositifs: ['Délégué'], resp: [], infos: '', annotations: [] });
-  classes.forEach(c => docs.set(c.id, { kind: 'classe', nom: c.nom, niveau: c.niveau, jours: c.jours, creneaux: c.creneaux, eleves: c.eleves }));
+  classes[0].onglets = [{ id: 'appel', type: 'appel', nom: 'Appel' }, { id: 'tvit', type: 'notes', nom: 'Vitesse' }, { id: 'notes', type: 'notes', nom: 'Demi-fond' }, { id: 'tobs', type: 'grille', nom: 'Observation', colonnes: [{ id: 'k1', titre: 'Licence AS', type: 'coche' }, { id: 'k2', titre: 'Rôle de chronométreur', type: 'pastille' }, { id: 'k3', titre: 'Palier test navette', type: 'nombre' }] }, { id: 'dispenses', type: 'dispenses', nom: 'Dispenses' }, { id: 'journal', type: 'journal', nom: 'Journal' }, { id: 'bilan', type: 'bilan', nom: 'Bilan' }, { id: 'eleves', type: 'eleves', nom: 'Élèves' }, { id: 'outils', type: 'outils', nom: 'Outils' }];
+  ev1.ongletId = 'tvit'; ev2.ongletId = 'notes'; ev3.ongletId = 'notes';
+  const gv = { k1: {}, k2: {}, k3: {} };
+  cA.eleves.forEach(e => { if (rnd() < 0.3) gv.k1[e.id] = true; const r = rnd(); if (r < 0.75) gv.k2[e.id] = r < 0.15 ? 'na' : r < 0.4 ? 'ec' : 'a'; gv.k3[e.id] = Math.round((4 + rnd() * 6) * 2) / 2; });
+  docs.set('t_tobs', { kind: 'grille', classeId: cA.id, ongletId: 'tobs', valeurs: gv });
+  classes.forEach(c => docs.set(c.id, { kind: 'classe', nom: c.nom, niveau: c.niveau, jours: c.jours, creneaux: c.creneaux, onglets: c.onglets, eleves: c.eleves }));
   return docs;
 }
 
