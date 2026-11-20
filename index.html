@@ -326,7 +326,7 @@ table.btable{width:100%;border-collapse:collapse;font-size:14px;font-variant-num
 .import-prev{font-size:13px;color:var(--ink-2);margin:8px 0 10px}
 
 /* Formulaires */
-input[type=text],input[type=search],input[type=date],input[type=number],select,textarea{width:100%;min-height:38px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+input[type=text],input[type=search],input[type=date],input[type=number],input[type=time],input[type=tel],input[type=email],input[type=password],select,textarea{width:100%;min-height:38px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
 textarea{resize:vertical;line-height:1.4}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--focus);outline-offset:0;border-color:var(--focus)}
 .field{display:grid;gap:6px;margin-bottom:14px;align-content:start}
@@ -430,6 +430,141 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--focus);outline-o
 .gchip{font-family:var(--font-display);font-weight:600;font-size:15px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;background:var(--surface-2)}
 .gchip.exists{text-decoration:line-through;color:var(--muted)}
 
+/* Cahier journal */
+.wk-lab{font-family:var(--font-display);font-weight:600;font-size:19px;letter-spacing:.02em}
+.abtag{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--surface);border-radius:6px;padding:2px 8px}
+.edt{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr))}
+.edt-col{border-right:1px solid var(--line-2);padding:10px 8px;display:flex;flex-direction:column;gap:8px;min-height:180px;min-width:0}
+.edt-col:last-child{border-right:0}
+.edt-col.today{background:color-mix(in srgb,var(--accent) 6%,var(--surface))}
+.edt-day{display:flex;align-items:baseline;gap:5px;font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-size:14px;padding:0 4px 6px;border-bottom:1px solid var(--line-2)}
+.edt-day b{font-size:24px;color:var(--ink)}
+.edt-col.today .edt-day b{color:var(--accent)}
+.edt-vac,.edt-empty{color:var(--muted);font-size:13px;padding:6px 4px}
+.edt-vac{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--muted) 18%,transparent) 0 1px,transparent 1px 6px);border-radius:8px;padding:10px}
+.slot{display:grid;gap:2px;text-align:left;border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--surface);border-radius:8px;padding:8px 10px;width:100%;min-width:0}
+.slot:hover{border-color:var(--ink-2);border-left-color:var(--accent)}
+.slot-h{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.slot-h .ok-t svg{width:12px;height:12px}
+.slot-c{font-family:var(--font-display);font-weight:700;font-size:19px;line-height:1.1}
+.slot-q{font-size:12px;font-weight:700;color:var(--accent)}
+.slot-t{font-size:13px;overflow-wrap:anywhere}
+.slot-l{font-size:12px}
+.seqs{display:grid;gap:14px}
+.seq-cl h3{font-size:17px;margin-bottom:6px}
+.seq{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-bottom:6px}
+.seq.cur{border-left:4px solid var(--accent)}
+.seq-t{font-weight:700}
+.seq-m{font-size:13px;color:var(--muted)}
+.prog{height:5px;background:var(--line-2);border-radius:3px;overflow:hidden;margin-top:5px;max-width:240px}
+.prog i{display:block;height:100%;background:var(--accent)}
+/* Créneaux et semaines A/B */
+.cr-field{flex:1 1 560px}
+.crlist{display:grid;gap:6px}
+.crrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.crrow select{width:118px}
+.crrow input[type=time]{width:112px}
+.crrow select[data-k=sem]{width:150px}
+.crrow input[type=text]{flex:1 1 140px;width:auto}
+.abweeks{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 8px}
+.abw{display:inline-flex;flex-direction:column;align-items:center;min-width:46px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:3px 4px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.abw b{font-family:var(--font-display);font-size:16px;color:var(--ink);line-height:1.1}
+.abw.vB{background:var(--accent-soft)}
+.abw.vac{opacity:.4}
+.abw.anc{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.abw.cur{outline:2px solid var(--ink);outline-offset:1px}
+/* Cahier de notes */
+.gwrap{overflow:auto;max-height:72vh}
+table.gtable{border-collapse:separate;border-spacing:0;font-size:14px;font-variant-numeric:tabular-nums;min-width:100%}
+.gtable th,.gtable td{border-bottom:1px solid var(--line-2);padding:4px 6px;background:var(--surface);white-space:nowrap}
+.gtable thead th{position:sticky;top:0;z-index:2;background:var(--surface-2);border-bottom:1px solid var(--line);vertical-align:bottom;text-align:left}
+.gtable .sticky{position:sticky;left:0;z-index:1;min-width:170px;max-width:240px;overflow:hidden;text-overflow:ellipsis}
+.gtable thead .sticky{z-index:3}
+.gtable tfoot td{background:var(--surface-2);font-weight:700;border-top:1px solid var(--line);position:sticky;bottom:0;font-size:13px}
+.gtable tfoot .sticky{z-index:2}
+.gh-b{display:grid;gap:1px;text-align:left;background:none;border:0;padding:4px 2px;font:inherit;color:inherit;min-width:92px;max-width:160px;cursor:pointer;white-space:normal}
+.gh-t{font-family:var(--font-display);font-weight:700;font-size:15px;line-height:1.1;color:var(--ink)}
+.gh-s{font-size:11px;color:var(--muted);font-weight:400;letter-spacing:0;text-transform:none}
+.gh-b:hover .gh-t{color:var(--accent)}
+.gc{position:relative}
+.gcell{width:86px;min-height:34px;text-align:center;padding:4px 6px}
+select.gcell{text-align-last:center;padding:4px 2px}
+.gcell.bad{border-color:var(--crit);outline:2px solid var(--crit)}
+.gcell::placeholder{color:var(--warn);font-size:12px}
+.g20{position:absolute;right:9px;bottom:5px;font-size:10px;color:var(--muted);pointer-events:none}
+.niv-MI{background:color-mix(in srgb,var(--crit) 14%,var(--surface))}
+.niv-MF{background:color-mix(in srgb,var(--warn) 14%,var(--surface))}
+.niv-MS{background:color-mix(in srgb,var(--good) 12%,var(--surface))}
+.niv-TBM{background:color-mix(in srgb,var(--good) 26%,var(--surface))}
+.gmoy{font-family:var(--font-display);font-weight:700;font-size:17px;text-align:right;padding-right:12px!important}
+.gstat{text-align:center;color:var(--ink-2)}
+.bm-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:8px}
+.bm-row .strong{width:70px}
+.bm-row input{width:90px;margin-left:6px}
+.seg button:disabled{opacity:.4;cursor:not-allowed}
+/* Outils */
+.tools-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;align-items:start}
+.tools-grid > div > .card + .card{margin-top:16px}
+.draw-name{font-family:var(--font-display);font-weight:700;font-size:clamp(32px,5.4vw,56px);text-transform:uppercase;line-height:1.05;text-align:center;padding:22px 12px;margin:4px 0 14px;border-radius:12px;background:var(--band);color:var(--band-ink);min-height:118px;display:grid;place-items:center;letter-spacing:.02em;overflow-wrap:anywhere}
+.draw-name.rolling{color:var(--band-muted)}
+.draw-name.final{animation:pop .5s ease-out}
+@keyframes pop{0%{transform:scale(.92)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+.big-time{font-family:var(--font-display);font-weight:700;font-size:clamp(52px,8vw,84px);line-height:1;font-variant-numeric:tabular-nums;text-align:center;padding:8px 0 14px;letter-spacing:.02em}
+.big-time.done{color:var(--crit)}
+.laps{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:2px;font-variant-numeric:tabular-nums;font-size:14px;max-height:220px;overflow:auto}
+.laps li{display:grid;grid-template-columns:1fr auto auto;gap:14px;border-bottom:1px solid var(--line-2);padding:4px 2px}
+.presets{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px}
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:14px}
+.team{border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px;background:var(--surface)}
+.team.target{border-style:dashed;border-color:var(--accent);cursor:pointer;background:color-mix(in srgb,var(--accent) 6%,var(--surface))}
+.team-h{display:flex;align-items:center;gap:6px;margin-bottom:2px}
+.team-h b{font-family:var(--font-display);font-size:19px;flex:1}
+.chas{width:14px;height:14px;border-radius:4px;border:1px solid rgb(0 0 0 / .25);flex:none;display:inline-block}
+.tm{text-align:left;border:1px solid transparent;background:var(--surface-2);border-radius:6px;padding:5px 8px;font-size:14px}
+.tm.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.saved-g{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line-2);padding:6px 0;font-size:14px}
+/* Fiche élève enrichie */
+.av{display:inline-grid;place-items:center;border-radius:50%;object-fit:cover;flex:none;background:var(--accent-soft);color:var(--accent);font-family:var(--font-display);font-weight:700;vertical-align:middle}
+.av-s{width:28px;height:28px;font-size:12px;margin-right:6px}
+.av-m{width:56px;height:56px;font-size:21px}
+.av-l{width:84px;height:84px;font-size:30px}
+.sheet-head{display:flex;align-items:center;gap:12px}
+.stabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:0 20px 10px}
+.stab{background:none;border:0;border-bottom:3px solid transparent;padding:8px 10px;font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.stab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.prof-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.resp{display:grid;grid-template-columns:130px 1fr 150px 1fr;gap:6px;margin-bottom:6px}
+.annots{display:grid;gap:6px;margin-top:8px}
+.annot{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line-2);border-radius:8px;padding:6px 8px;font-size:14px}
+.annot > span:first-child{flex:none;padding-top:1px}
+.annot .icon-btn{margin-left:auto}
+.dtags{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle;flex-wrap:wrap}
+.dtag{font-size:10.5px;font-weight:700;letter-spacing:.03em;border:1px solid var(--line);border-radius:4px;padding:0 4px;color:var(--ink-2);background:var(--surface-2);line-height:1.5}
+.trombi{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px}
+.tcard{display:grid;justify-items:center;gap:4px;text-align:center;border:1px solid var(--line-2);border-radius:10px;background:var(--surface);padding:10px 6px;font-size:13px}
+.tcard:hover{border-color:var(--ink-2)}
+/* Code d'accès */
+.lock-btn{background:none;border:1px solid rgb(255 255 255 / .22);color:var(--band-muted);border-radius:8px;padding:4px 9px;font-size:13px}
+.lock-btn:hover{color:var(--band-ink)}
+#lock{position:fixed;inset:0;z-index:200;background:var(--band);color:var(--band-ink);display:grid;place-items:center;padding:20px}
+#lock[hidden]{display:none}
+body.locked #view,body.locked #banner,body.locked #modal-root,body.locked .tabs{visibility:hidden}
+.lock-box{display:grid;justify-items:center;gap:16px;width:min(320px,100%);text-align:center}
+.lock-box .brand-title{font-size:24px}
+#lock-msg{color:var(--band-muted);max-width:300px;margin:0}
+.lock-dots{display:flex;gap:16px;margin:4px 0}
+.lock-dots i{width:16px;height:16px;border-radius:50%;border:2px solid var(--band-accent)}
+.lock-dots i.on{background:var(--band-accent)}
+.lock-dots.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.keypad{display:grid;grid-template-columns:repeat(3,74px);gap:14px}
+.keypad button{height:74px;border-radius:50%;border:1px solid rgb(255 255 255 / .18);background:var(--band-2);color:var(--band-ink);font-family:var(--font-display);font-weight:600;font-size:30px}
+.keypad button:active{background:var(--band-accent);color:var(--band)}
+@media (max-width:980px){.tools-grid{grid-template-columns:1fr}}
+@media (max-width:860px){.edt{grid-template-columns:1fr}.edt-col{border-right:0;border-bottom:1px solid var(--line-2);min-height:0}}
+@media (max-width:760px){.resp{grid-template-columns:1fr 1fr}}
+
+
 /* Bandeaux, info-bulles, notifications */
 .banner{border-bottom:1px solid var(--line)}
 .banner.demo{background:color-mix(in srgb,var(--c-ponct) 10%,var(--surface))}
@@ -531,15 +666,18 @@ body{-webkit-tap-highlight-color:transparent}
         <div class="brand-sub" id="brand-sub"></div>
       </div>
     </div>
-    <div class="save-state" id="save-state" aria-live="polite"></div>
+    <div class="row-gap"><div class="save-state" id="save-state" aria-live="polite"></div><button type="button" class="lock-btn" id="lock-btn" data-act="lock-now" hidden>Verrouiller</button></div>
   </div>
   <nav class="tabs" id="tabs" aria-label="Sections">
     <a href="#tableau" data-route="tableau">Tableau de bord</a>
-    <a href="#appel" data-route="appel">Appel du jour</a>
-    <a href="#dispenses" data-route="dispenses">Dispenses</a>
+    <a href="#appel" data-route="appel">Appel</a>
+    <a href="#journal" data-route="journal">Journal</a>
+    <a href="#notes" data-route="notes">Notes</a>
     <a href="#bilan" data-route="bilan">Bilan</a>
-    <a href="#classes" data-route="classes">Classes &amp; élèves</a>
-    <a href="#donnees" data-route="donnees">Réglages &amp; données</a>
+    <a href="#dispenses" data-route="dispenses">Dispenses</a>
+    <a href="#outils" data-route="outils">Outils</a>
+    <a href="#classes" data-route="classes">Classes</a>
+    <a href="#donnees" data-route="donnees">Réglages</a>
   </nav>
 </header>
 <div id="banner"></div>
@@ -548,6 +686,7 @@ body{-webkit-tap-highlight-color:transparent}
 <div id="tip" role="tooltip" hidden></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <div id="print-area" aria-hidden="true"></div>
+<div id="lock" hidden role="dialog" aria-modal="true" aria-label="Code d’accès"></div>
 
 <script>
 (() => {
@@ -607,7 +746,7 @@ const EVAL = { normale: 'Évaluation normale', adaptee: 'Évaluation adaptée', 
 const INV = [null, 'Faible', 'Moyen', 'Bon', 'Très bon'];
 const NOTE_CHIPS = ['Bavardages', 'Refus de pratiquer', 'Téléphone', 'Retard au vestiaire', 'Manque de respect', 'Très bon état d’esprit', 'Aide ses camarades', 'Progrès visibles', 'Bon arbitrage'];
 const JOURS_EPS = [[1, 'Lu'], [2, 'Ma'], [3, 'Me'], [4, 'Je'], [5, 'Ve'], [6, 'Sa']];
-const ROUTES = ['tableau', 'appel', 'dispenses', 'bilan', 'classes', 'donnees'];
+const ROUTES = ['tableau', 'appel', 'journal', 'notes', 'bilan', 'dispenses', 'outils', 'classes', 'donnees'];
 const LS_KEY = 'dispenses-eps-v1';
 const LS_DEMO_OFF = 'dispenses-eps-demo-off';
 
@@ -621,6 +760,10 @@ const DEFAULT_SETTINGS = {
   seuilAbsences: 3,
   seuilOublis: 3,
   seuilComportement: 3,
+  semAB: false,
+  semRef: '2026-08-17',
+  semVacCompte: false,
+  semForce: {},
   periodes: [
     { nom: 'Trimestre 1', debut: '2026-08-18', fin: '2026-12-18' },
     { nom: 'Trimestre 2', debut: '2027-02-01', fin: '2027-04-09' },
@@ -642,7 +785,7 @@ const ICON = {
 };
 
 /* ============ État ============ */
-const S = { settings: clone(DEFAULT_SETTINGS), classes: [], dispenses: [], eleves: new Map(), byEleve: new Map(), seances: new Map(), seancesByClasse: new Map(), seancesByEleve: new Map(), acks: {} };
+const S = { settings: clone(DEFAULT_SETTINGS), classes: [], dispenses: [], eleves: new Map(), byEleve: new Map(), seances: new Map(), seancesByClasse: new Map(), seancesByEleve: new Map(), acks: {}, journal: new Map(), sequences: [], evals: [], groupes: [], profils: new Map() };
 const MEMO = new Map();
 const UI = {
   route: 'tableau',
@@ -716,8 +859,9 @@ function pump() {
       .finally(() => { WQ.inflight.delete(id); WQ.active--; pump(); renderSaveState(); });
   }
 }
-function saveLocal() {
+function saveLocal(id, body) {
   if (Store.mode !== 'local') return;
+  if (IDB.db) { idbWrite(id, body).catch(() => { toast('Enregistrement impossible sur cet appareil. Télécharge une sauvegarde.'); }); return; }
   try { localStorage.setItem(LS_KEY, JSON.stringify(Object.fromEntries(Store.real))); }
   catch (e) { Store.mode = 'memory'; toast('Impossible d’enregistrer dans ce navigateur. Télécharge une sauvegarde.'); }
 }
@@ -726,7 +870,7 @@ function putDoc(id, body, silent) {
   if (Store.demo) Store.demoDocs.set(id, body);
   else {
     Store.real.set(id, body);
-    if (Store.mode === 'cloud') queueWrite(id, body); else saveLocal();
+    if (Store.mode === 'cloud') queueWrite(id, body); else saveLocal(id, body);
   }
   if (!silent) refresh();
 }
@@ -734,7 +878,7 @@ function delDoc(id, silent) {
   if (Store.demo) Store.demoDocs.delete(id);
   else {
     Store.real.delete(id);
-    if (Store.mode === 'cloud') queueWrite(id, null); else saveLocal();
+    if (Store.mode === 'cloud') queueWrite(id, null); else saveLocal(id, null);
   }
   if (!silent) refresh();
 }
@@ -795,14 +939,28 @@ function applyRemote(m) {
   }
   refresh();
 }
-function startLocal() {
+async function startLocal() {
   Store.mode = 'local';
-  let obj = {};
-  try { const raw = localStorage.getItem(LS_KEY); obj = raw ? JSON.parse(raw) : {}; }
-  catch (e) { Store.mode = 'memory'; obj = {}; }
-  Store.real = new Map(Object.entries(obj || {}));
+  let m = null;
+  if (window.indexedDB) {
+    try {
+      IDB.db = await idbOpen();
+      m = await idbAll(IDB.db);
+      let legacy = null;
+      try { const raw = localStorage.getItem(LS_KEY); legacy = raw ? JSON.parse(raw) : null; } catch (e) { legacy = null; }
+      if (!m.size && legacy && Object.keys(legacy).length) {
+        for (const [id, b] of Object.entries(legacy)) { await idbWrite(id, b); m.set(id, b); }
+        try { localStorage.removeItem(LS_KEY); } catch (e) { /* rien */ }
+      }
+    } catch (e) { IDB.db = null; m = null; }
+  }
+  if (!m) {
+    try { const raw = localStorage.getItem(LS_KEY); m = new Map(Object.entries(raw ? JSON.parse(raw) : {})); }
+    catch (e) { Store.mode = 'memory'; m = new Map(); }
+  }
+  Store.real = m;
   Store.phase = 'ready';
-  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) { /* rien */ }
   if (!Store.real.size && !demoDismissed()) enterDemo();
   refresh();
 }
@@ -827,15 +985,24 @@ function rebuild() {
   S.settings.seuil = Number(S.settings.seuil) > 0 ? Number(S.settings.seuil) : 90;
   S.settings.finProche = Number(S.settings.finProche) >= 0 ? Number(S.settings.finProche) : 7;
   ['seuilAbsences', 'seuilOublis', 'seuilComportement'].forEach(k => { S.settings[k] = Number(S.settings[k]) > 0 ? Number(S.settings[k]) : DEFAULT_SETTINGS[k]; });
+  S.settings.semAB = !!S.settings.semAB; S.settings.semVacCompte = !!S.settings.semVacCompte;
+  if (!S.settings.semForce || typeof S.settings.semForce !== 'object' || Array.isArray(S.settings.semForce)) S.settings.semForce = {};
+  if (!isIso(S.settings.semRef)) S.settings.semRef = mondayOf(S.settings.debut);
   S.classes = [];
-  const disp = [], ses = [];
+  const disp = [], ses = [], jr = [], sq = [], ev = [], gr = [];
+  const prof = new Map();
   let acks = {};
   for (const [id, b] of docs) {
     if (!b || typeof b !== 'object') continue;
-    if (id.startsWith('c_')) S.classes.push(Object.assign({}, b, { id, eleves: Array.isArray(b.eleves) ? b.eleves.slice() : [], jours: Array.isArray(b.jours) ? b.jours.slice() : [] }));
+    if (id.startsWith('c_')) S.classes.push(Object.assign({}, b, { id, eleves: Array.isArray(b.eleves) ? b.eleves.slice() : [], creneaux: normCreneaux(b), jours: [...new Set(normCreneaux(b).map(k => k.j))] }));
     else if (id.startsWith('d_')) disp.push(Object.assign({}, b, { id }));
     else if (id.startsWith('s_') && isIso(b.date)) ses.push(Object.assign({}, b, { id }));
     else if (id === 'acks' && b.v && typeof b.v === 'object') acks = b.v;
+    else if (id.startsWith('j_') && isIso(b.date)) jr.push(Object.assign({}, b, { id }));
+    else if (id.startsWith('q_') && isIso(b.debut) && isIso(b.fin)) sq.push(Object.assign({}, b, { id }));
+    else if (id.startsWith('v_') && isIso(b.date)) ev.push(Object.assign({}, b, { id }));
+    else if (id.startsWith('g_')) gr.push(Object.assign({}, b, { id }));
+    else if (id.startsWith('p_')) prof.set(id.slice(2), b);
   }
   S.classes.sort(cmpClasse);
   S.eleves = new Map();
@@ -845,6 +1012,11 @@ function rebuild() {
   for (const d of S.dispenses) { if (!S.byEleve.has(d.eleveId)) S.byEleve.set(d.eleveId, []); S.byEleve.get(d.eleveId).push(d); }
   for (const l of S.byEleve.values()) l.sort((a, b) => (a.debut < b.debut ? -1 : a.debut > b.debut ? 1 : 0));
   S.acks = acks;
+  S.journal = new Map(jr.map(x => [x.id, x]));
+  S.sequences = sq.sort((a, b) => (a.debut < b.debut ? -1 : a.debut > b.debut ? 1 : 0));
+  S.evals = ev.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : collator.compare(a.titre || '', b.titre || '')));
+  S.groupes = gr.sort((a, b) => ((a.date || '') < (b.date || '') ? 1 : -1));
+  S.profils = prof;
   S.seances = new Map(); S.seancesByClasse = new Map(); S.seancesByEleve = new Map();
   for (const x of ses) {
     S.seances.set(x.id, x);
@@ -886,20 +1058,20 @@ function cumul(eid) {
   return MEMO.get(k);
 }
 function seances(c, a, b) {
-  if (!c || !c.jours || !c.jours.length || !isIso(a) || !isIso(b)) return null;
+  if (!c || !c.creneaux || !c.creneaux.length || !isIso(a) || !isIso(b)) return null;
   const x = maxIso(a, S.settings.debut), y = minIso(b, S.settings.fin);
   if (x > y) return 0;
-  const k = `se|${c.jours.join('')}|${x}|${y}`;
+  const k = `se|${c.id}|${x}|${y}`;
   if (MEMO.has(k)) return MEMO.get(k);
   let n = 0;
   const d = parse(x), end = parse(y);
-  while (d <= end) { const s = iso(d); if (c.jours.includes(d.getDay()) && !inVac(s)) n++; d.setDate(d.getDate() + 1); }
+  while (d <= end) { if (epsOn(c, iso(d))) n++; d.setDate(d.getDate() + 1); }
   MEMO.set(k, n);
   return n;
 }
 function seancesEleve(eid) {
   const x = S.eleves.get(eid); if (!x) return null;
-  if (!x.c.jours.length) return null;
+  if (!x.c.creneaux.length) return null;
   return mergeIntervals(S.byEleve.get(eid) || []).reduce((n, [a, b]) => n + seances(x.c, a, b), 0);
 }
 
@@ -1080,7 +1252,7 @@ function viewTableau() {
   const nM = alerts.filter(a => a.kind === 'medecin').length;
   const nJ = alerts.filter(a => a.kind === 'justif').length;
   const nF = alerts.filter(a => a.kind === 'fin').length;
-  const meta = [per && per.nom, semaine && `semaine ${semaine} depuis la rentrée`, vac && vac.nom].filter(Boolean);
+  const meta = [per && per.nom, weekAB(T) && 'semaine ' + weekAB(T), semaine && `semaine ${semaine} depuis la rentrée`, vac && vac.nom].filter(Boolean);
   const hero = `<section class="hero" aria-label="Aujourd’hui">
     <div class="hero-inner">
       <div>
@@ -1100,19 +1272,19 @@ function viewTableau() {
 
   const alertsHtml = alerts.length ? alerts.map(alertItem).join('') : `<div class="empty-sm">${ICON.check}Rien à traiter pour le moment.</div>`;
   const wd = d0.getDay();
-  const groups = S.classes.map(c => ({ c, eps: !vac && c.jours.includes(wd), list: inaptes.filter(x => x.c.id === c.id) }))
+  const groups = S.classes.map(c => ({ c, eps: epsOn(c, T), list: inaptes.filter(x => x.c.id === c.id) }))
     .filter(g => g.eps || g.list.length)
-    .sort((a, b) => (b.eps - a.eps) || cmpClasse(a.c, b.c));
-  const noJours = S.classes.every(c => !c.jours.length);
+    .sort((a, b) => (b.eps - a.eps) || ((creneauxOn(a.c, T)[0] || {}).h1 || '99').localeCompare((creneauxOn(b.c, T)[0] || {}).h1 || '99') || cmpClasse(a.c, b.c));
+  const noJours = S.classes.every(c => !c.creneaux.length);
   const todayHtml = groups.length ? groups.map(g => `
     <div class="cl-today">
-      <div class="cl-today-h"><button class="link" data-act="go-appel" data-id="${g.c.id}">${esc(g.c.nom)}</button>${g.eps ? (seanceOf(g.c.id, T) ? '<span class="tag ok">Appel fait</span>' : `<button class="btn sm" data-act="go-appel" data-id="${g.c.id}">Faire l’appel</button>`) : ''}<span class="muted sm">${g.list.length ? plural(g.list.length, 'inapte') : 'tous aptes'}</span></div>
+      <div class="cl-today-h"><button class="link" data-act="go-appel" data-id="${g.c.id}">${esc(g.c.nom)}</button>${g.eps ? (seanceOf(g.c.id, T) ? '<span class="tag ok">Appel fait</span>' : `<button class="btn sm" data-act="go-appel" data-id="${g.c.id}">Faire l’appel</button>`) : ''}<span class="muted sm">${g.list.length ? plural(g.list.length, 'inapte') : 'tous aptes'}</span></div>${g.eps ? todayInfo(g.c, T) : ''}
       ${g.list.map(x => `<div class="mini-row"><button class="link" data-act="eleve" data-id="${x.e.id}">${esc(nomComplet(x.e))}</button>${pill(x.d.nature)}<span class="muted sm">${esc(finTxt(x.d))}</span></div>`).join('')}
     </div>`).join('') : `<div class="empty-sm">Aucun élève inapte aujourd’hui${vac ? ' (vacances)' : ''}.</div>`;
   return hero + `<div class="wrap"><div class="dash-grid">
     <section class="card"><div class="card-h"><div><h2>À traiter</h2><span class="count">${alerts.length}</span></div></div><div class="alerts">${alertsHtml}</div></section>
     <section class="card"><div class="card-h"><h2>Aujourd’hui en EPS</h2><button class="btn sm primary" data-act="new-disp">+ Nouvelle dispense</button></div>${todayHtml}
-      ${noJours ? '<p class="hint" style="margin-top:10px">Indique les jours d’EPS de chaque classe (onglet Classes) pour voir ici celles qui ont cours et compter les séances manquées.</p>' : ''}
+      ${noJours ? '<p class="hint" style="margin-top:10px">Indique les créneaux d’EPS de chaque classe (onglet Classes) pour voir ici celles qui ont cours et compter les séances manquées.</p>' : ''}
     </section>
   </div></div>`;
 }
@@ -1134,7 +1306,7 @@ function alertItem(a) {
 function currentAppelClasse(day) {
   const wd = parse(day).getDay();
   let c = S.classes.find(x => x.id === UI.appelClasse);
-  if (!c) { c = S.classes.find(x => x.jours.includes(wd)) || S.classes[0]; UI.appelClasse = c ? c.id : null; }
+  if (!c) { c = S.classes.find(x => epsOn(x, day)) || S.classes[0]; UI.appelClasse = c ? c.id : null; }
   return c;
 }
 function viewAppel() {
@@ -1149,11 +1321,12 @@ function viewAppel() {
   const nAbs = cnt(r => r.en.p === 'A'), nRet = cnt(r => r.en.p === 'R'), nOub = cnt(r => r.en.t), nInap = cnt(r => r.list.length);
   const picker = S.classes.map(k => {
     const n = k.eleves.filter(e => activeOn(e.id, day)).length;
-    const eps = k.jours.includes(wd) && !vac, done = !!seanceOf(k.id, day);
+    const eps = epsOn(k, day), done = !!seanceOf(k.id, day);
     return `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-appel" data-id="${k.id}"><span>${esc(k.nom)}</span>${done ? '<i class="done" aria-hidden="true">✓</i><span class="sr">appel fait</span>' : eps ? '<i class="eps-dot" aria-hidden="true"></i><span class="sr">cours d’EPS ce jour</span>' : ''}${n ? `<b>${n}</b><span class="sr">inaptes</span>` : ''}</button>`;
   }).join('');
   const sub = [cap(fmtLong(day))];
-  if (vac) sub.push(vac.nom); else if (c.jours.includes(wd)) sub.push('cours d’EPS');
+  if (vac) sub.push(vac.nom); else { const k0 = creneauxOn(c, day)[0]; if (k0) sub.push('cours d’EPS' + (k0.h1 ? ' ' + hTxt(k0) : '') + (k0.lieu ? ' · ' + k0.lieu : '')); }
+  if (weekAB(day)) sub.push('semaine ' + weekAB(day));
   const chip = (n, l, cls) => `<span class="sumchip ${n ? cls : ''}"><b>${n}</b>${l}</span>`;
   const pres = c.eleves.length - nAbs;
   return `<div class="wrap">
@@ -1163,7 +1336,7 @@ function viewAppel() {
     </div>
     <section class="card pad0">
       <div class="appel-h">
-        <div><h2>${esc(c.nom)}</h2><div class="muted">${esc(sub.join(' · '))}</div></div>
+        <div><h2>${esc(c.nom)}</h2><div class="muted">${esc(sub.join(' · '))}</div>${appelSeanceLine(c, day)}</div>
         <div class="appel-count"><span class="big">${pres}</span><span>présent${pres > 1 ? 's' : ''} sur ${c.eleves.length}</span></div>
         <div class="appel-break">${chip(nAbs, nAbs > 1 ? 'absents' : 'absent', 'abs')}${chip(nRet, nRet > 1 ? 'retards' : 'retard', 'ret')}${chip(nOub, nOub > 1 ? 'oublis de tenue' : 'oubli de tenue', 'oub')}${chip(nInap, nInap > 1 ? 'inaptes' : 'inapte', '')}</div>
         <div class="appel-actions">${se ? `<span class="ok-t">${ICON.check}Appel enregistré</span>` : '<button class="btn sm primary" data-act="valider-appel">Valider l’appel</button>'}<button class="btn sm" data-act="copy-appel">Copier le bilan</button><button class="btn sm" data-act="fiche-classe">Fiche des dispenses</button></div>
@@ -1183,7 +1356,7 @@ function rowAppel(r, i) {
   const tipInap = b ? `${NATURES[b.nature].label}, ${finTxt(b)}${(b.limitations || []).length ? '\n' + b.limitations.join(', ') : ''}${(b.apsa || []).length ? '\nPas de : ' + b.apsa.join(', ') : ''}${b.notes ? '\n' + b.notes : ''}` : '';
   return `<div class="arow ${b ? 'is-inapte n-' + b.nature : ''} ${abs ? 'is-abs' : ''}">
     <span class="lane-n">${pad(i + 1)}</span>
-    <div class="a-name"><button class="link strong" data-act="eleve" data-id="${id}">${esc(r.e.nom)}</button> <span>${esc(r.e.prenom)}</span>
+    <div class="a-name">${photoOf(id) ? avatar(id, 's') : ''}<button class="link strong" data-act="eleve" data-id="${id}">${esc(r.e.nom)}</button> <span>${esc(r.e.prenom)}</span>${dispTags(id)}
       ${b ? `<div class="a-inap" data-tip="${esc(tipInap)}" tabindex="0"><span class="muted sm">${esc(cap(finTxt(b)))}${(b.roles || []).length ? ' · ' + esc(b.roles.join(', ').toLowerCase()) : ''}</span>${b.justifRecu ? '' : `<span class="flag">${ICON.warn}${esc(JUSTIF_S[b.justificatif] || 'justificatif')} à récupérer</span>`}</div>` : ''}
       ${en.n ? `<div class="a-note sm">« ${esc(trunc(en.n, 90))} »</div>` : ''}
     </div>
@@ -1301,19 +1474,19 @@ function drowHTML(d, T, flagged) {
 }
 
 /* ============ Vue : bilan ============ */
-const BILAN_HEAD = ['Classe', 'Nom', 'Prénom', 'Séances', 'Présences', 'Absences', 'Retards', 'Oublis de tenue', 'Investissement moyen (/4)', 'Séances notées', 'Comportement +', 'Comportement −', 'Jours d’inaptitude', 'Notes'];
+const BILAN_HEAD = ['Classe', 'Nom', 'Prénom', 'Séances', 'Présences', 'Absences', 'Retards', 'Oublis de tenue', 'Investissement moyen (/4)', 'Séances notées', 'Comportement +', 'Comportement −', 'Jours d’inaptitude', 'Moyenne /20', 'Notes'];
 function bilanCtx() { const c = S.classes.find(x => x.id === UI.bilanClasse) || S.classes[0]; const [a, b, pnom] = periodRange(UI.bilanPer); return { c, a, b, pnom }; }
 function bilanRows(c, a, b) {
   const nSe = seancesClasse(c.id, a, b);
-  const rows = c.eleves.map(e => ({ e, st: statsEleve(e.id, a, b), inap: cumulRange(e.id, a, b) }));
+  const rows = c.eleves.map(e => ({ e, st: statsEleve(e.id, a, b), inap: cumulRange(e.id, a, b), moy: moyenne(e, evalsFor(e.id, c.id, a, b)) }));
   const k = UI.bilanSort.k, d = UI.bilanSort.dir;
-  const val = r => (k === 'abs' ? r.st.abs : k === 'pres' ? nSe - r.st.abs : k === 'ret' ? r.st.ret : k === 'oub' ? r.st.oub : k === 'inv' ? (r.st.inv == null ? -1 : r.st.inv) : k === 'plus' ? r.st.plus : k === 'moins' ? r.st.moins : k === 'inap' ? r.inap : 0);
+  const val = r => (k === 'abs' ? r.st.abs : k === 'pres' ? nSe - r.st.abs : k === 'ret' ? r.st.ret : k === 'oub' ? r.st.oub : k === 'inv' ? (r.st.inv == null ? -1 : r.st.inv) : k === 'plus' ? r.st.plus : k === 'moins' ? r.st.moins : k === 'inap' ? r.inap : k === 'moy' ? (r.moy == null ? -1 : r.moy) : 0);
   rows.sort((x, y) => (k === 'nom' ? cmpEleve(x.e, y.e) * d : ((val(x) - val(y)) * d) || cmpEleve(x.e, y.e)));
   return rows;
 }
 function bilanCSVRows(c, a, b) {
   const nSe = seancesClasse(c.id, a, b);
-  return bilanRows(c, a, b).map(r => [c.nom, r.e.nom, r.e.prenom, nSe, Math.max(0, nSe - r.st.abs), r.st.abs, r.st.ret, r.st.oub, r.st.inv == null ? '' : invFmt(r.st.inv), r.st.invN, r.st.plus, r.st.moins, r.inap, r.st.notes.map(x => fmtNum(x.date) + ' : ' + x.n).join(' | ')]);
+  return bilanRows(c, a, b).map(r => [c.nom, r.e.nom, r.e.prenom, nSe, Math.max(0, nSe - r.st.abs), r.st.abs, r.st.ret, r.st.oub, r.st.inv == null ? '' : invFmt(r.st.inv), r.st.invN, r.st.plus, r.st.moins, r.inap, r.moy == null ? '' : invFmt(r.moy), r.st.notes.map(x => fmtNum(x.date) + ' : ' + x.n).join(' | ')]);
 }
 function csvFrom(head, rows) {
   const cell = v => { v = v == null ? '' : String(v); return /[;"\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
@@ -1347,6 +1520,7 @@ function viewBilan() {
     <td class="n">${r.st.plus ? '+' + r.st.plus : ''}</td>
     <td class="n${hot(r.st.moins, st.seuilComportement)}">${r.st.moins ? '−' + r.st.moins : ''}</td>
     <td class="n">${r.inap ? r.inap + ' j' : ''}</td>
+    <td class="n strong">${r.moy == null ? '' : invFmt(r.moy)}</td>
     <td class="bnote">${last ? esc(trunc(last.n, 70)) + `<span class="muted sm"> · ${fmt(last.date)}</span>` : ''}</td>
   </tr>`;
   }).join('');
@@ -1356,7 +1530,7 @@ function viewBilan() {
     <section class="card pad0">
       <div class="appel-h"><div><h2>Bilan ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div>
         <div class="appel-count"><span class="big">${nSe}</span><span>séance${nSe > 1 ? 's' : ''} enregistrée${nSe > 1 ? 's' : ''}</span></div></div>
-      ${c.eleves.length ? `<div class="btable-wrap"><table class="btable"><thead><tr><th><span class="sr">N°</span></th>${th('nom', 'Élève')}${th('pres', 'Présence', 'n')}${th('abs', 'Abs.', 'n')}${th('ret', 'Ret.', 'n')}${th('oub', 'Oublis', 'n')}${th('inv', 'Investissement')}${th('plus', 'Comp. +', 'n')}${th('moins', 'Comp. −', 'n')}${th('inap', 'Inaptitude', 'n')}<th>Dernière note</th></tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty-sm pad">Aucun élève dans cette classe.</div>'}
+      ${c.eleves.length ? `<div class="btable-wrap"><table class="btable"><thead><tr><th><span class="sr">N°</span></th>${th('nom', 'Élève')}${th('pres', 'Présence', 'n')}${th('abs', 'Abs.', 'n')}${th('ret', 'Ret.', 'n')}${th('oub', 'Oublis', 'n')}${th('inv', 'Investissement')}${th('plus', 'Comp. +', 'n')}${th('moins', 'Comp. −', 'n')}${th('inap', 'Inaptitude', 'n')}${th('moy', 'Moy.', 'n')}<th>Dernière note</th></tr></thead><tbody>${body}</tbody></table></div>` : '<div class="empty-sm pad">Aucun élève dans cette classe.</div>'}
       ${nSe ? '' : '<div class="list-foot">Aucune séance enregistrée sur cette période : fais l’appel depuis l’onglet Appel du jour pour alimenter le bilan.</div>'}
     </section>
     <p class="hint" style="margin:8px 2px 0">Les cases surlignées atteignent les seuils d’alerte (Réglages &amp; données). Investissement : moyenne sur 4, avec entre parenthèses le nombre de séances notées. Touche un titre de colonne pour trier.</p>
@@ -1380,7 +1554,7 @@ function viewClasses() {
   }).join('');
   const srows = c.eleves.map((e, i) => {
     const d = activeOn(e.id, T), cum = cumul(e.id);
-    return `<div class="srow"><span class="lane-n">${pad(i + 1)}</span><button class="link strong s-name" data-act="eleve" data-id="${e.id}" title="${esc(nomComplet(e))}">${esc(e.nom)} <span class="fw4">${esc(e.prenom)}</span></button><span class="muted sm">${esc(e.sexe || '')}</span>${pill(d && d.nature)}<span class="muted sm s-cum" title="Jours d’inaptitude cumulés">${cum ? cum + ' j' : ''}</span><button class="icon-btn" data-act="del-eleve" data-id="${e.id}" aria-label="Retirer ${esc(nomComplet(e))}">×</button></div>`;
+    return `<div class="srow"><span class="lane-n">${pad(i + 1)}</span><button class="link strong s-name" data-act="eleve" data-id="${e.id}" title="${esc(nomComplet(e))}">${esc(e.nom)} <span class="fw4">${esc(e.prenom)}</span>${dispTags(e.id)}</button><span class="muted sm">${esc(e.sexe || '')}</span>${pill(d && d.nature)}<span class="muted sm s-cum" title="Jours d’inaptitude cumulés">${cum ? cum + ' j' : ''}</span><button class="icon-btn" data-act="del-eleve" data-id="${e.id}" aria-label="Retirer ${esc(nomComplet(e))}">×</button></div>`;
   }).join('');
   return `<div class="wrap"><div class="classes-layout">
     <aside class="card cl-side">
@@ -1393,13 +1567,16 @@ function viewClasses() {
         <div class="cl-head"><h2>${esc(c.nom)}</h2><span class="muted">${plural(c.eleves.length, 'élève')}</span><span class="spacer"></span><button class="btn sm ghost" data-act="rename-classe">Renommer</button><button class="btn sm ghost danger-t" data-act="del-classe">Supprimer la classe</button></div>
         <div class="cl-settings">
           <div class="field"><label class="label" for="cl-niveau">Niveau</label><select id="cl-niveau" data-ch="niveau-classe">${NIVEAUX.map(n => `<option value="${n}" ${c.niveau === n ? 'selected' : ''}>${n}</option>`).join('')}<option value="" ${NIVEAUX.includes(c.niveau) ? '' : 'selected'}>Autre</option></select></div>
-          <div class="field"><span class="label" id="jours-l">Jours d’EPS</span><div class="days" role="group" aria-labelledby="jours-l">${JOURS_EPS.map(([j, l]) => `<button class="day" aria-pressed="${c.jours.includes(j)}" data-act="toggle-jour" data-j="${j}">${l}</button>`).join('')}</div><p class="hint">Sert à compter les séances manquées et à repérer les classes du jour.</p></div>
+          <div class="field cr-field"><span class="label">Créneaux d’EPS</span>
+            ${c.creneaux.length ? `<div class="crlist">${c.creneaux.map((k, i) => crRow(k, i)).join('')}</div>` : '<p class="hint">Aucun créneau : ajoute les heures d’EPS de la classe.</p>'}
+            <div class="row-gap" style="margin-top:6px"><button class="btn sm" data-act="cr-add">+ Un créneau</button></div>
+            <p class="hint">Sert à l’emploi du temps, au cahier journal, au comptage des séances et à repérer les classes du jour.${S.settings.semAB ? '' : ' Pour une alternance semaine A et semaine B, active-la dans Réglages.'}</p></div>
         </div>
       </div>
       <div class="cl-grid">
         <div class="card">
-          <div class="card-h"><h3>Élèves</h3></div>
-          ${srows || '<div class="empty-sm">Aucun élève. Colle la liste à droite ou ajoute-les un par un.</div>'}
+          <div class="card-h"><h3>Élèves</h3>${c.eleves.length ? `<button class="btn sm ghost" data-act="trombi">${UI.trombi ? 'Liste' : 'Trombinoscope'}</button>` : ''}</div>
+          ${UI.trombi && c.eleves.length ? `<div class="trombi">${c.eleves.map(e => `<button class="tcard" data-act="eleve" data-id="${e.id}">${avatar(e.id, 'l')}<span class="strong">${esc(e.nom)}</span><span>${esc(e.prenom)}</span></button>`).join('')}</div>` : (srows || '<div class="empty-sm">Aucun élève. Colle la liste à droite ou ajoute-les un par un.</div>')}
           <form class="add-eleve" data-form="add-eleve">
             <input type="text" id="add-nom" data-in="add-nom" placeholder="NOM" value="${esc(UI.addEleve.nom)}" aria-label="Nom" autocomplete="off">
             <input type="text" id="add-prenom" data-in="add-prenom" placeholder="Prénom" value="${esc(UI.addEleve.prenom)}" aria-label="Prénom" autocomplete="off">
@@ -1501,6 +1678,16 @@ function viewDonnees() {
         <hr class="sep">
         ${plist('periodes', 'Périodes (trimestres ou semestres)', '+ Une période')}
         ${plist('vacances', 'Vacances', '+ Des vacances')}
+        <hr class="sep">
+        <div class="field"><span class="label">Semaines A et B</span>
+          <label class="check"><input type="checkbox" id="s-ab" data-ch="set-ab" ${D.semAB ? 'checked' : ''}> Mon établissement alterne semaine A et semaine B</label>
+          ${D.semAB ? `<div class="grid-2" style="margin-top:6px">
+            <div class="field"><label class="sm" for="s-abref">Une date en semaine A</label><input type="date" id="s-abref" data-ch="set-abref" value="${esc(D.semRef)}"></div>
+            <div class="field"><span class="sm">Vacances</span><label class="check"><input type="checkbox" id="s-abvac" data-ch="set-abvac" ${D.semVacCompte ? 'checked' : ''}> Les semaines de vacances comptent dans l’alternance</label></div>
+          </div>
+          <div class="abweeks" role="group" aria-label="Semaines de l’année">${abWeeks(D)}</div>
+          <p class="hint">Touche une semaine pour inverser A et B à partir de celle-ci, si le calendrier de l’établissement se décale.${Object.keys(D.semForce || {}).length ? ' <button class="link" data-act="ab-reset">Annuler les ajustements</button>' : ''}</p>` : ''}
+        </div>
         <div class="set-actions">
           <button class="btn primary" data-act="set-save" id="set-save" ${dirty ? '' : 'disabled'}>Enregistrer les réglages</button>
           <button class="btn ghost" data-act="set-reset" id="set-reset" ${dirty ? '' : 'disabled'}>Annuler les modifications</button>
@@ -1521,6 +1708,10 @@ function viewDonnees() {
         </div>
       </section>
       <section class="card">
+        <div class="card-h"><h2>Code d’accès</h2></div>
+        ${pinSection()}
+      </section>
+      <section class="card">
         <div class="card-h"><h2>Tes données</h2></div>
         <div class="note"><p>${esc(modeTxt)}</p>
         ${pwaStatus()}<p>Note les incapacités fonctionnelles et les adaptations, pas le diagnostic : le certificat respecte le secret médical, ton suivi aussi.</p></div>
@@ -1537,7 +1728,7 @@ function viewDonnees() {
       <section class="card danger-zone">
         <div class="card-h"><h2>Nouvelle année</h2></div>
         <div class="row-gap" style="flex-direction:column;align-items:stretch">
-          <button class="btn ghost danger-t" data-act="wipe-disp">Effacer dispenses et suivi des séances (garder les classes)</button>
+          <button class="btn ghost danger-t" data-act="wipe-disp">Effacer les données de l’année (garder classes et élèves)</button>
           <button class="btn ghost danger-t" data-act="wipe-all">Tout effacer</button>
         </div>
       </section>
@@ -1571,6 +1762,9 @@ function render() {
   if (UI.route === 'appel') html = viewAppel();
   else if (UI.route === 'dispenses') html = viewDispenses();
   else if (UI.route === 'bilan') html = viewBilan();
+  else if (UI.route === 'journal') html = viewJournal();
+  else if (UI.route === 'notes') html = viewNotes();
+  else if (UI.route === 'outils') html = viewOutils();
   else if (UI.route === 'classes') html = viewClasses();
   else if (UI.route === 'donnees') html = viewDonnees();
   else html = viewTableau();
@@ -1584,6 +1778,7 @@ function render() {
 function renderChrome() {
   document.querySelectorAll('#tabs a').forEach(a => { if (a.dataset.route === UI.route) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
   $('#brand-sub').textContent = `${S.settings.etab || 'Mon établissement'} · ${S.settings.annee || ''}`;
+  const lb = $('#lock-btn'); if (lb) lb.hidden = !pinGet();
   renderBanner();
   renderSaveState();
 }
@@ -1657,10 +1852,11 @@ function refreshModals() {
     const html = m.refresh();
     if (html === null) { closeModal(m); return; }
     const box = m.wrap.firstElementChild;
-    const st = m.wrap.scrollTop;
+    const st = m.wrap.scrollTop, ae = document.activeElement, fid = ae && ae.id && m.wrap.contains(ae) ? ae.id : null;
     box.innerHTML = html;
     if (m.onMount) m.onMount(box, m);
     m.wrap.scrollTop = st;
+    if (fid) { const el = box.querySelector('#' + CSS.escape(fid)); if (el) el.focus({ preventScroll: true }); }
   });
 }
 function confirmDialog({ title, html, ok = 'Confirmer', danger = false, type = null }) {
@@ -1695,19 +1891,19 @@ function openTextModal(title, text, hint) {
 }
 
 /* ============ Fiche élève ============ */
-function openEleve(eid) {
+function openEleve(eid, tab) {
   if (!S.eleves.has(eid)) return;
-  openModal({
-    wide: true, label: 'Fiche élève',
-    html: eleveSheet(eid),
-    refresh: () => (S.eleves.has(eid) ? eleveSheet(eid) : null),
-    onMount(box) {
-      const chk = box.querySelector('#med-chk');
-      if (chk) chk.onchange = () => setSuiviMedecin(eid, chk.checked);
-    },
-  });
+  const st = { tab: tab || 'suivi' };
+  const mount = (box, m) => {
+    const chk = box.querySelector('#med-chk');
+    if (chk) chk.onchange = () => setSuiviMedecin(eid, chk.checked);
+    box.querySelectorAll('[data-stab]').forEach(b => { b.onclick = () => { st.tab = b.dataset.stab; box.innerHTML = eleveSheet(eid, st.tab); mount(box, m); const nb = box.querySelector(`[data-stab="${st.tab}"]`); if (nb) nb.focus(); }; });
+    if (st.tab === 'profil') bindProfil(box, eid);
+  };
+  openModal({ wide: true, label: 'Fiche élève', html: eleveSheet(eid, st.tab), refresh: () => (S.eleves.has(eid) ? eleveSheet(eid, st.tab) : null), onMount: mount });
 }
-function eleveSheet(eid) {
+function eleveSheet(eid, tab) {
+  tab = tab || 'suivi';
   const { e, c } = S.eleves.get(eid);
   const T = todayIso(), list = S.byEleve.get(eid) || [], d = activeOn(eid, T);
   const cum = cumul(eid), seuil = S.settings.seuil, over = cum > seuil;
@@ -1719,12 +1915,13 @@ function eleveSheet(eid) {
       ${dispSummary(x)}
     </div>`;
   }).join('');
-  return `<div class="modal-head"><div><div class="eyebrow">${esc(c.nom)}${e.sexe ? ' · ' + esc(e.sexe) : ''}</div><h3>${esc(e.nom)} ${esc(e.prenom)}</h3></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer" data-autofocus>×</button></div>
-  <div class="modal-body">
+  return `<div class="modal-head"><div class="sheet-head">${avatar(eid, 'm')}<div><div class="eyebrow">${esc(c.nom)}${e.sexe ? ' · ' + esc(e.sexe) : ''}</div><h3>${esc(e.nom)} ${esc(e.prenom)}</h3>${dispTags(eid)}</div></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer" data-autofocus>×</button></div>
+  <div class="stabs" role="tablist">${[['suivi', 'Suivi'], ['resultats', 'Résultats'], ['profil', 'Profil']].map(([k, l]) => `<button type="button" class="stab" role="tab" aria-selected="${tab === k}" data-stab="${k}">${l}</button>`).join('')}</div>
+  <div class="modal-body">${tab === 'resultats' ? resultatsHTML(eid) : tab === 'profil' ? profilHTML(eid) : `
     <div class="sheet-stats">
       <div><span class="label">Aujourd’hui</span><div>${pill(d && d.nature)}</div>${d ? `<span class="muted sm">${esc(finTxt(d))}</span>` : ''}</div>
       <div><span class="label">Inaptitude cumulée</span><span class="stat ${over ? 'over' : ''}">${cum} j</span><div class="meter ${over ? 'over' : ''}"><i style="width:${Math.min(100, (cum / seuil) * 100)}%"></i></div><span class="muted sm">seuil de suivi : ${seuil} j</span></div>
-      <div><span class="label">Séances d’EPS concernées</span><span class="stat">${sean == null ? '—' : sean}</span><span class="muted sm">${sean == null ? 'jours d’EPS de la classe non renseignés' : 'hors vacances, sur l’année'}</span></div>
+      <div><span class="label">Séances d’EPS concernées</span><span class="stat">${sean == null ? '—' : sean}</span><span class="muted sm">${sean == null ? 'créneaux d’EPS de la classe non renseignés' : 'hors vacances, sur l’année'}</span></div>
     </div>
     <div class="medecin ${over && !e.suiviMedecin ? 'need' : ''}">
       <label class="check"><input type="checkbox" id="med-chk" ${e.suiviMedecin ? 'checked' : ''}> Certificat transmis au médecin scolaire</label>
@@ -1733,7 +1930,7 @@ function eleveSheet(eid) {
     </div>
     ${suiviEleveHTML(eid)}
     ${list.length ? `<div class="card-h" style="margin-bottom:6px"><span class="label">Frise de l’année</span>${friseLegend()}</div>` + frise([{ id: eid, label: nomComplet(e), list }], { compact: true }) : ''}
-    <div class="sheet-list">${cards || '<div class="empty-sm">Aucune dispense cette année.</div>'}</div>
+    <div class="sheet-list">${cards || '<div class="empty-sm">Aucune dispense cette année.</div>'}</div>`}
   </div>
   <div class="modal-foot spread">
     <div class="row-gap"><button type="button" class="btn sm ghost" data-act="edit-eleve" data-id="${eid}">Modifier l’élève</button><button type="button" class="btn sm ghost danger-t" data-act="del-eleve" data-id="${eid}">Retirer</button></div>
@@ -1757,11 +1954,11 @@ function suiviEleveHTML(eid) {
 }
 function getClasse(id) {
   const c = S.classes.find(k => k.id === id);
-  return c ? Object.assign({}, c, { eleves: c.eleves.map(e => Object.assign({}, e)), jours: c.jours.slice() }) : null;
+  return c ? Object.assign({}, c, { eleves: c.eleves.map(e => Object.assign({}, e)), jours: c.jours.slice(), creneaux: c.creneaux.map(k => Object.assign({}, k)) }) : null;
 }
 function saveClasse(c, silent) {
   putDoc(c.id, {
-    kind: 'classe', nom: c.nom, niveau: c.niveau || '', jours: (c.jours || []).slice().sort((a, b) => a - b),
+    kind: 'classe', nom: c.nom, niveau: c.niveau || '', jours: [...new Set((c.creneaux || []).map(k => k.j))].sort((a, b) => a - b), creneaux: (c.creneaux || []).map(k => ({ j: Number(k.j), h1: k.h1 || '', h2: k.h2 || '', sem: k.sem || '', lieu: k.lieu || '' })),
     eleves: (c.eleves || []).map(e => ({ id: e.id, nom: e.nom || '', prenom: e.prenom || '', sexe: e.sexe || '', suiviMedecin: e.suiviMedecin || '' })),
   }, silent);
 }
@@ -2205,7 +2402,7 @@ async function handleImportFile(input) {
   let obj;
   try { obj = JSON.parse(await file.text()); } catch (e) { toast('Ce fichier n’est pas une sauvegarde lisible.'); return; }
   if (!obj || obj.app !== 'dispenses-eps' || !obj.docs || typeof obj.docs !== 'object') { toast('Ce fichier n’est pas une sauvegarde de cette application.'); return; }
-  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cds]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
+  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cdsjqvgp]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
   const nc = entries.filter(([id]) => id.startsWith('c_')).length;
   const ne = entries.filter(([id]) => id.startsWith('c_')).reduce((n, [, b]) => n + (Array.isArray(b.eleves) ? b.eleves.length : 0), 0);
   const nd = entries.filter(([id]) => id.startsWith('d_')).length;
@@ -2315,8 +2512,8 @@ const ACT = {
   'del-classe': async () => {
     const c = S.classes.find(k => k.id === UI.classeSel); if (!c) return;
     const dids = S.dispenses.filter(d => S.eleves.get(d.eleveId).c.id === c.id).map(d => d.id);
-    const sids = [...Store.docs().keys()].filter(k => k.startsWith('s_' + c.id + '_'));
-    const ok = await confirmDialog({ title: `Supprimer ${c.nom} ?`, html: `${esc(plural(c.eleves.length, 'élève'))}, ${esc(plural(dids.length, 'dispense'))} et ${esc(plural(sids.length, 'séance'))} seront supprimés avec la classe.`, ok: 'Supprimer la classe', danger: true });
+    const sids = [...Store.docs()].filter(([k, b]) => k.startsWith('s_' + c.id + '_') || k.startsWith('j_' + c.id + '_') || (/^[qvg]_/.test(k) && b && b.classeId === c.id) || (k.startsWith('p_') && c.eleves.some(e => 'p_' + e.id === k))).map(([k]) => k);
+    const ok = await confirmDialog({ title: `Supprimer ${c.nom} ?`, html: `${esc(plural(c.eleves.length, 'élève'))}, ${esc(plural(dids.length, 'dispense'))} et ${esc(plural(sids.length, 'élément'))} de suivi (appels, journal, notes, profils) seront supprimés avec la classe.`, ok: 'Supprimer la classe', danger: true });
     if (!ok) return;
     const before = snapshotIds([c.id].concat(dids, sids));
     dids.concat(sids).forEach(id => delDoc(id, true)); delDoc(c.id, true);
@@ -2334,10 +2531,11 @@ const ACT = {
     const dids = (S.byEleve.get(ds.id) || []).map(d => d.id);
     const ok = await confirmDialog({ title: `Retirer ${nomComplet(x.e)} ?`, html: `L’élève est retiré de ${esc(x.c.nom)}${dids.length ? ` avec ${esc(plural(dids.length, 'dispense'))}` : ''}. Pour un changement de classe, utilise plutôt « Modifier l’élève ».`, ok: 'Retirer', danger: true });
     if (!ok) return;
-    const before = snapshotIds([x.c.id].concat(dids));
+    const extra = Store.docs().has('p_' + ds.id) ? ['p_' + ds.id] : [];
+    const before = snapshotIds([x.c.id].concat(dids, extra));
     const c = getClasse(x.c.id);
     c.eleves = c.eleves.filter(e => e.id !== ds.id);
-    dids.forEach(id => delDoc(id, true)); saveClasse(c, true); refresh();
+    dids.concat(extra).forEach(id => delDoc(id, true)); saveClasse(c, true); refresh();
     toast(`${nomComplet(x.e)} retiré.`, [{ label: 'Annuler', run: () => restoreSnap(before) }]);
   },
   'edit-eleve': ds => openEleveForm(ds.id),
@@ -2368,13 +2566,13 @@ const ACT = {
   'hide-install': () => { UI.hideInstall = true; renderBanner(); },
   'hide-backup': () => { UI.hideBackup = true; renderBanner(); },
   'wipe-disp': async () => {
-    const ids = [...Store.docs().keys()].filter(k => k.startsWith('d_') || k.startsWith('s_') || k === 'acks');
+    const ids = [...Store.docs().keys()].filter(k => /^[dsjqvg]_/.test(k) || k === 'acks');
     if (!ids.length) { toast('Rien à effacer.'); return; }
     const nd = ids.filter(k => k.startsWith('d_')).length, ns = ids.filter(k => k.startsWith('s_')).length;
-    if (!(await confirmDialog({ title: 'Effacer dispenses et suivi des séances ?', html: `${esc(plural(nd, 'dispense'))} et ${esc(plural(ns, 'séance'))} seront effacées. Les classes et les élèves sont conservés. Télécharge une sauvegarde avant si tu veux garder une trace.`, ok: 'Effacer', danger: true, type: 'EFFACER' }))) return;
+    if (!(await confirmDialog({ title: 'Effacer les données de l’année ?', html: `Dispenses (${nd}), appels (${ns}), cahier journal, séquences, notes et équipes seront effacés. Les classes, les élèves et leurs profils sont conservés. Télécharge une sauvegarde avant si tu veux garder une trace.`, ok: 'Effacer', danger: true, type: 'EFFACER' }))) return;
     ids.forEach(id => delDoc(id, true));
     S.classes.forEach(c => { if (c.eleves.some(e => e.suiviMedecin)) { const k = getClasse(c.id); k.eleves.forEach(e => { e.suiviMedecin = ''; }); saveClasse(k, true); } });
-    refresh(); toast('Dispenses et suivi des séances effacés.');
+    refresh(); toast('Données de l’année effacées.');
   },
   'wipe-all': async () => {
     if (!(await confirmDialog({ title: 'Tout effacer ?', html: 'Classes, élèves, dispenses et réglages seront effacés. Télécharge une sauvegarde avant si tu veux garder une trace.', ok: 'Tout effacer', danger: true, type: 'EFFACER' }))) return;
@@ -2449,11 +2647,902 @@ document.addEventListener('input', e => { const t = e.target.closest && e.target
 document.addEventListener('change', e => { const t = e.target.closest && e.target.closest('[data-ch]'); if (t && CH[t.dataset.ch]) CH[t.dataset.ch](t, e); });
 document.addEventListener('submit', e => { const f = e.target.closest && e.target.closest('[data-form]'); if (f && FORMS[f.dataset.form]) { e.preventDefault(); FORMS[f.dataset.form](f); } });
 document.addEventListener('keydown', e => {
+  if (LOCK.on) return;
   if (e.key === 'Escape' && modalStack.length) { e.preventDefault(); closeModal(); return; }
   if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[role=button][data-act]')) { e.preventDefault(); e.target.click(); }
 });
 window.addEventListener('hashchange', () => { routeFromHash(); render(); window.scrollTo(0, 0); });
 window.addEventListener('beforeunload', e => { if (Store.mode === 'cloud' && (WQ.active || WQ.pending.size)) { e.preventDefault(); e.returnValue = ''; } });
+
+/* ============ Référentiel complémentaire ============ */
+const APSA_CA = { 'Demi-fond': 'CA1', 'Vitesse / relais': 'CA1', 'Sauts': 'CA1', 'Lancers': 'CA1', 'Natation': 'CA1', 'Course d’orientation': 'CA2', 'Escalade': 'CA2', 'Gymnastique': 'CA3', 'Acrosport': 'CA3', 'Danse': 'CA3', 'Arts du cirque': 'CA3', 'Badminton': 'CA4', 'Tennis de table': 'CA4', 'Handball': 'CA4', 'Football': 'CA4', 'Basket-ball': 'CA4', 'Volley-ball': 'CA4', 'Rugby': 'CA4', 'Ultimate': 'CA4', 'Lutte': 'CA4' };
+const CA = { CA1: 'Produire une performance optimale, mesurable à une échéance donnée', CA2: 'Adapter ses déplacements à des environnements variés', CA3: 'S’exprimer devant les autres par une prestation artistique et/ou acrobatique', CA4: 'Conduire et maîtriser un affrontement collectif ou interindividuel' };
+const NIV_COMP = ['MI', 'MF', 'MS', 'TBM'];
+const NIV_PTS = { MI: 5, MF: 10, MS: 15, TBM: 20 };
+const SPECIAL = { abs: 'Abs', disp: 'Disp', nn: 'NN' };
+const UNITES = { temps: 'Temps (min:s)', m: 'Distance (m)', kmh: 'Vitesse (km/h)', pts: 'Points', rep: 'Répétitions', autre: 'Autre' };
+const UNIT_SHORT = { temps: 'temps', m: 'm', kmh: 'km/h', pts: 'pts', rep: 'rép.', autre: '' };
+const CHASUBLES = [['Rouges', '#d64541'], ['Bleus', '#2f6fd6'], ['Verts', '#2e9d5b'], ['Jaunes', '#e6b800'], ['Oranges', '#e8792e'], ['Violets', '#8a55c9'], ['Blancs', '#eef2f3'], ['Noirs', '#2b3135']];
+const DISPOSITIFS = ['PAP', 'PAI', 'PPS', 'ULIS', 'AESH', 'UPE2A', 'Section sportive', 'AS', 'Délégué'];
+Object.assign(UI, {
+  jWeek: null, nClasse: null, nPer: null, oClasse: null, trombi: false,
+  draw: { cid: null, last: null, tires: [], norep: true, flash: false },
+  grp: { cid: null, n: 4, mode: 'hasard', sansInaptes: true, cur: null, sel: null },
+});
+
+/* ============ Semaines A/B et créneaux ============ */
+function normCreneaux(b) {
+  if (Array.isArray(b.creneaux)) return b.creneaux.filter(k => k && Number(k.j) >= 0 && Number(k.j) <= 6).map(k => ({ j: Number(k.j), h1: k.h1 || '', h2: k.h2 || '', sem: k.sem === 'A' || k.sem === 'B' ? k.sem : '', lieu: k.lieu || '' }));
+  return (Array.isArray(b.jours) ? b.jours : []).map(j => ({ j: Number(j), h1: '', h2: '', sem: '', lieu: '' }));
+}
+function mondayOf(s) { const d = parse(s); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return iso(d); }
+function weekIsVac(mon, st) {
+  for (let i = 0; i < 5; i++) { const s = addDays(mon, i); if (!(st.vacances || []).some(v => v.debut <= s && s <= v.fin)) return false; }
+  return true;
+}
+function weekAB(s, st) {
+  st = st || S.settings;
+  if (!st.semAB || !isIso(s)) return '';
+  const mon = mondayOf(s), useMemo = st === S.settings, mk = 'ab|' + mon;
+  if (useMemo && MEMO.has(mk)) return MEMO.get(mk);
+  const anchors = [[mondayOf(isIso(st.semRef) ? st.semRef : st.debut), 'A']]
+    .concat(Object.entries(st.semForce || {}).filter(([k, v]) => isIso(k) && (v === 'A' || v === 'B')).map(([k, v]) => [mondayOf(k), v]))
+    .sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+  let an = anchors[0];
+  for (const a of anchors) if (a[0] <= mon) an = a;
+  let n = 0;
+  if (st.semVacCompte) n = Math.round(diffDays(an[0], mon) / 7);
+  else {
+    const step = mon >= an[0] ? 7 : -7;
+    let w = an[0], guard = 0;
+    while (w !== mon && guard++ < 400) { w = addDays(w, step); if (!weekIsVac(w, st)) n += step > 0 ? 1 : -1; }
+  }
+  const v = ((n % 2) + 2) % 2 === 0 ? an[1] : (an[1] === 'A' ? 'B' : 'A');
+  if (useMemo) MEMO.set(mk, v);
+  return v;
+}
+function creneauxOn(c, day) {
+  if (!c || !c.creneaux || !isIso(day) || inVac(day)) return [];
+  const wd = parse(day).getDay(), ab = weekAB(day);
+  return c.creneaux.filter(k => k.j === wd && (!k.sem || !ab || k.sem === ab)).sort((a, b) => (a.h1 || '99').localeCompare(b.h1 || '99'));
+}
+function epsOn(c, day) { return creneauxOn(c, day).length > 0; }
+const hTxt = k => (k && k.h1 ? k.h1.replace(':', 'h') + (k.h2 ? '–' + k.h2.replace(':', 'h') : '') : '');
+function crRow(k, i) {
+  return `<div class="crrow">
+    <select id="cr-${i}-j" data-ch="cr-f" data-i="${i}" data-k="j" aria-label="Jour">${JOURS_EPS.map(([j]) => `<option value="${j}" ${k.j === j ? 'selected' : ''}>${cap(JOURS_L[j])}</option>`).join('')}</select>
+    <input type="time" id="cr-${i}-h1" data-ch="cr-f" data-i="${i}" data-k="h1" value="${esc(k.h1)}" aria-label="Heure de début">
+    <input type="time" id="cr-${i}-h2" data-ch="cr-f" data-i="${i}" data-k="h2" value="${esc(k.h2)}" aria-label="Heure de fin">
+    ${S.settings.semAB ? `<select id="cr-${i}-sem" data-ch="cr-f" data-i="${i}" data-k="sem" aria-label="Semaine"><option value="">Chaque semaine</option><option value="A" ${k.sem === 'A' ? 'selected' : ''}>Semaine A</option><option value="B" ${k.sem === 'B' ? 'selected' : ''}>Semaine B</option></select>` : ''}
+    <input type="text" id="cr-${i}-lieu" data-ch="cr-f" data-i="${i}" data-k="lieu" value="${esc(k.lieu)}" placeholder="Lieu (gymnase, stade…)" aria-label="Lieu">
+    <button type="button" class="icon-btn" data-act="cr-del" data-i="${i}" aria-label="Retirer ce créneau">×</button>
+  </div>`;
+}
+function abWeeks(D) {
+  const T = todayIso(), out = [];
+  let w = mondayOf(D.debut), guard = 0;
+  while (w <= D.fin && guard++ < 60) {
+    const vac = !D.semVacCompte && weekIsVac(w, D);
+    const v = weekAB(w, D), anc = !!(D.semForce || {})[w], d = parse(w);
+    out.push(`<button type="button" class="abw v${v} ${vac ? 'vac' : ''} ${anc ? 'anc' : ''} ${w === mondayOf(T) ? 'cur' : ''}" data-act="ab-flip" data-w="${w}" ${vac ? 'disabled' : ''} aria-label="Semaine du ${fmt(w)} : ${vac ? 'vacances' : 'semaine ' + v}">${pad(d.getDate())}/${pad(d.getMonth() + 1)}<b>${vac ? '–' : v}</b></button>`);
+    w = addDays(w, 7);
+  }
+  return out.join('');
+}
+
+/* ============ Cahier journal et séquences ============ */
+const journalId = (cid, d) => `j_${cid}_${d}`;
+function sequenceOn(cid, day) { return S.sequences.find(q => q.classeId === cid && q.debut <= day && day <= q.fin) || null; }
+function countEps(c, a, b) { let n = 0, d = a, guard = 0; while (d <= b && guard++ < 400) { if (epsOn(c, d)) n++; d = addDays(d, 1); } return n; }
+function seanceNum(q, day) {
+  const c = S.classes.find(k => k.id === q.classeId);
+  if (!c || !c.creneaux.length) return null;
+  const key = `sn|${q.id}|${day}`;
+  if (MEMO.has(key)) return MEMO.get(key);
+  const n = day < q.debut ? 0 : countEps(c, q.debut, minIso(day, q.fin));
+  const total = Number(q.nb) > 0 ? Number(q.nb) : countEps(c, q.debut, q.fin);
+  const r = { n, total };
+  MEMO.set(key, r);
+  return r;
+}
+function viewJournal() {
+  if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
+  const T = todayIso();
+  const mon = isIso(UI.jWeek) ? UI.jWeek : mondayOf(T);
+  const hasSat = S.classes.some(c => c.creneaux.some(k => k.j === 6));
+  const days = [0, 1, 2, 3, 4, 5].slice(0, hasSat ? 6 : 5).map(i => addDays(mon, i));
+  const ab = weekAB(mon);
+  const noCr = S.classes.every(c => !c.creneaux.length);
+  const cols = days.map(day => {
+    const vac = vacOf(day), d = parse(day), slots = [];
+    S.classes.forEach(c => creneauxOn(c, day).forEach(k => slots.push({ c, k })));
+    slots.sort((a, b) => (a.k.h1 || '99').localeCompare(b.k.h1 || '99'));
+    return `<div class="edt-col ${day === T ? 'today' : ''}">
+      <div class="edt-day"><span>${JOURS_C[d.getDay()]}</span><b>${d.getDate()}</b><span>${MOIS[d.getMonth()]}</span></div>
+      ${vac ? `<div class="edt-vac">${esc(vac.nom)}</div>` : slots.length ? slots.map(x => slotCard(x.c, x.k, day)).join('') : '<div class="edt-empty">Pas d’EPS</div>'}
+    </div>`;
+  }).join('');
+  return `<div class="wrap">
+    <div class="appel-top">
+      <div class="date-nav"><button class="btn sm ghost" data-act="wk-prev" aria-label="Semaine précédente">‹</button><strong class="wk-lab">Semaine du ${fmt(mon)} au ${fmt(days[days.length - 1])}</strong>${ab ? `<span class="abtag">Semaine ${ab}</span>` : ''}<button class="btn sm ghost" data-act="wk-next" aria-label="Semaine suivante">›</button>${mon !== mondayOf(T) ? '<button class="btn sm" data-act="wk-today">Cette semaine</button>' : ''}</div>
+      <button class="btn primary" data-act="new-seq">+ Séquence</button>
+    </div>
+    ${noCr ? `<section class="card onboard"><h2>Emploi du temps vide</h2><p class="muted">Ajoute les créneaux d’EPS de chaque classe (jour, heures, lieu${S.settings.semAB ? ', semaine A ou B' : ''}) dans l’onglet Classes : ils apparaîtront ici chaque semaine.</p><button class="btn primary" data-act="go-classes">Ajouter des créneaux</button></section>` : `<section class="card pad0"><div class="edt" style="--cols:${days.length}">${cols}</div></section>`}
+    <section class="card" style="margin-top:16px"><div class="card-h"><h2>Séquences</h2><span class="muted sm">Cycles d’APSA par classe</span></div>${sequencesHTML(T)}</section>
+  </div>`;
+}
+function slotCard(c, k, day) {
+  const q = sequenceOn(c.id, day), j = S.journal.get(journalId(c.id, day)), done = !!seanceOf(c.id, day);
+  const num = q ? seanceNum(q, day) : null;
+  return `<button class="slot" data-act="open-jseance" data-c="${c.id}" data-d="${day}">
+    <span class="slot-h">${esc(hTxt(k) || 'Horaire à préciser')}${k.sem ? ' · sem. ' + k.sem : ''}${done ? `<span class="ok-t" title="Appel fait">${ICON.check}</span>` : ''}</span>
+    <span class="slot-c">${esc(c.nom)}</span>
+    ${q ? `<span class="slot-q">${esc(q.apsa || q.titre || 'Séquence')}${num && num.n ? ` · ${num.n}${num.total ? '/' + num.total : ''}` : ''}</span>` : ''}
+    <span class="slot-t ${j && j.titre ? '' : 'muted'}">${esc(j && j.titre ? j.titre : 'Préparer la séance')}</span>
+    ${k.lieu ? `<span class="slot-l muted">${esc(k.lieu)}</span>` : ''}
+  </button>`;
+}
+function sequencesHTML(T) {
+  if (!S.sequences.length) return '<div class="empty-sm">Aucune séquence. Crée un cycle d’APSA par classe pour numéroter les séances et suivre la progression.</div>';
+  return `<div class="seqs">${S.classes.map(c => {
+    const l = S.sequences.filter(q => q.classeId === c.id);
+    if (!l.length) return '';
+    return `<div class="seq-cl"><h3>${esc(c.nom)}</h3>${l.map(q => {
+      const cur = q.debut <= T && T <= q.fin, num = seanceNum(q, T);
+      const pct = num && num.total ? Math.min(100, (num.n / num.total) * 100) : 0;
+      const prog = num ? (T < q.debut ? plural(num.total, 'séance prévue', 'séances prévues') : T > q.fin ? plural(num.total, 'séance') : `séance ${num.n} sur ${num.total}`) : '';
+      return `<div class="seq ${cur ? 'cur' : ''}"><div><div class="seq-t">${esc(q.apsa || 'Séquence')}${q.titre ? ' · ' + esc(q.titre) : ''}</div><div class="seq-m">${q.ca ? esc(q.ca) + ' · ' : ''}du ${fmt(q.debut)} au ${fmt(q.fin)}${prog ? ' · ' + prog : ''}</div>${num && T >= q.debut ? `<div class="prog"><i style="width:${pct}%"></i></div>` : ''}</div><button class="btn sm ghost" data-act="edit-seq" data-id="${q.id}">Modifier</button></div>`;
+    }).join('')}</div>`;
+  }).join('')}</div>`;
+}
+function openSequence(id, cid) {
+  const ex = id ? Store.docs().get(id) : null;
+  if (id && !ex) return;
+  const T = todayIso();
+  const f = ex ? clone(ex) : { kind: 'sequence', classeId: cid || UI.appelClasse || S.classes[0].id, apsa: '', ca: '', titre: '', debut: T, fin: addDays(T, 41), nb: '', objectifs: '', evaluation: '' };
+  if (!S.classes.some(c => c.id === f.classeId)) f.classeId = S.classes[0].id;
+  openModal({
+    wide: true, label: ex ? 'Modifier la séquence' : 'Nouvelle séquence',
+    html: `<form novalidate><div class="modal-head"><h3>${ex ? 'Modifier la séquence' : 'Nouvelle séquence'}</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div class="field"><label class="label" for="sq-c">Classe</label><select id="sq-c">${S.classes.map(k => `<option value="${k.id}" ${k.id === f.classeId ? 'selected' : ''}>${esc(k.nom)}</option>`).join('')}</select></div>
+        <div class="field"><label class="label" for="sq-a">APSA</label><select id="sq-a" data-autofocus><option value=""></option>${APSA.map(x => `<option ${f.apsa === x ? 'selected' : ''}>${esc(x)}</option>`).join('')}<option value="Autre" ${f.apsa && !APSA.includes(f.apsa) ? 'selected' : ''}>Autre</option></select></div>
+      </div>
+      <div class="field"><label class="label" for="sq-ca">Champ d’apprentissage</label><select id="sq-ca"><option value=""></option>${Object.entries(CA).map(([k, l]) => `<option value="${k}" ${f.ca === k ? 'selected' : ''}>${k} · ${esc(l)}</option>`).join('')}</select></div>
+      <div class="field"><label class="label" for="sq-t">Titre ou thème</label><input type="text" id="sq-t" value="${esc(f.titre)}" placeholder="Ex. : Courir à allure régulière"></div>
+      <div class="grid-3">
+        <div class="field"><label class="label" for="sq-d">Du</label><input type="date" id="sq-d" value="${esc(f.debut)}"></div>
+        <div class="field"><label class="label" for="sq-f">Au</label><input type="date" id="sq-f" value="${esc(f.fin)}"></div>
+        <div class="field"><label class="label" for="sq-n">Séances prévues</label><input type="number" id="sq-n" min="1" max="60" value="${esc(f.nb)}" placeholder="auto"></div>
+      </div>
+      <p class="hint" id="sq-h" style="margin:-6px 0 14px"></p>
+      <div class="field"><label class="label" for="sq-o">Objectifs et attendus</label><textarea id="sq-o" rows="3">${esc(f.objectifs)}</textarea></div>
+      <div class="field"><label class="label" for="sq-e">Évaluation prévue</label><input type="text" id="sq-e" value="${esc(f.evaluation)}" placeholder="Ex. : course de 3 × 500 m à allure annoncée"></div>
+      <p class="form-err" id="sq-err" role="alert"></p>
+    </div>
+    <div class="modal-foot spread"><div>${ex ? '<button type="button" class="btn ghost danger-t" id="sq-del">Supprimer</button>' : ''}</div><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></div></form>`,
+    onMount(box, m) {
+      const g = s => box.querySelector(s);
+      const hint = () => {
+        const c = S.classes.find(k => k.id === g('#sq-c').value), a = g('#sq-d').value, b = g('#sq-f').value;
+        g('#sq-h').textContent = c && isIso(a) && isIso(b) && a <= b ? (c.creneaux.length ? `Selon l’emploi du temps de ${c.nom} : ${plural(countEps(c, a, b), 'séance')} entre ces dates.` : `Ajoute les créneaux de ${c.nom} pour compter les séances automatiquement.`) : '';
+      };
+      g('#sq-a').onchange = () => { const v = g('#sq-a').value; if (APSA_CA[v]) g('#sq-ca').value = APSA_CA[v]; };
+      ['#sq-c', '#sq-d', '#sq-f'].forEach(s => { g(s).onchange = hint; });
+      hint();
+      const del = g('#sq-del');
+      if (del) del.onclick = async () => {
+        if (!(await confirmDialog({ title: 'Supprimer cette séquence ?', html: 'Les fiches de séance restent enregistrées.', ok: 'Supprimer', danger: true }))) return;
+        const before = snapshotIds([id]); closeModal(m); delDoc(id);
+        toast('Séquence supprimée.', [{ label: 'Annuler', run: () => restoreSnap(before) }]);
+      };
+      g('form').onsubmit = ev => {
+        ev.preventDefault();
+        const debut = g('#sq-d').value, fin = g('#sq-f').value;
+        if (!isIso(debut) || !isIso(fin) || fin < debut) { g('#sq-err').textContent = 'Vérifie les dates de la séquence.'; return; }
+        const apsa = g('#sq-a').value;
+        const body = { kind: 'sequence', classeId: g('#sq-c').value, apsa: apsa === 'Autre' ? (g('#sq-t').value.trim() || 'Autre') : apsa, ca: g('#sq-ca').value, titre: g('#sq-t').value.trim(), debut, fin, nb: g('#sq-n').value ? Number(g('#sq-n').value) : '', objectifs: g('#sq-o').value.trim(), evaluation: g('#sq-e').value.trim(), majLe: new Date().toISOString() };
+        if (!body.apsa && !body.titre) { g('#sq-err').textContent = 'Choisis une APSA ou donne un titre.'; return; }
+        putDoc(id || newId('q_'), body);
+        closeModal(m);
+        toast(ex ? 'Séquence modifiée.' : 'Séquence créée.');
+      };
+    },
+  });
+}
+function openJSeance(cid, day) {
+  const c = S.classes.find(k => k.id === cid);
+  if (!c || !isIso(day)) return;
+  const jid = journalId(cid, day), ex = Store.docs().get(jid) || {};
+  const k = creneauxOn(c, day)[0], q = sequenceOn(cid, day), num = q ? seanceNum(q, day) : null;
+  const eyebrow = [c.nom, fmtJ(day), k && hTxt(k), k && k.lieu, weekAB(day) && 'semaine ' + weekAB(day)].filter(Boolean).join(' · ');
+  openModal({
+    wide: true, label: 'Fiche de séance',
+    html: `<form novalidate><div class="modal-head"><div><div class="eyebrow">${esc(eyebrow)}</div><h3>${esc(ex.titre || 'Fiche de séance')}</h3>${q ? `<div class="muted sm">${esc(q.apsa || q.titre || 'Séquence')}${q.ca ? ' · ' + esc(q.ca) : ''}${num && num.n ? ` · séance ${num.n} sur ${num.total}` : ''}</div>` : '<div class="muted sm">Aucune séquence en cours. <button type="button" class="link" id="js-newseq">Créer une séquence</button></div>'}</div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">
+      <div class="field"><label class="label" for="js-t">Titre</label><input type="text" id="js-t" value="${esc(ex.titre || '')}" placeholder="Ex. : Courir à allure régulière" data-autofocus></div>
+      <div class="field"><label class="label" for="js-o">Objectifs</label><textarea id="js-o" rows="2">${esc(ex.objectifs || '')}</textarea></div>
+      <div class="field"><label class="label" for="js-d">Déroulement</label><textarea id="js-d" rows="7" placeholder="Échauffement…&#10;Situation 1…&#10;Situation 2…&#10;Retour au calme…">${esc(ex.deroulement || '')}</textarea></div>
+      <div class="field"><label class="label" for="js-m">Matériel</label><input type="text" id="js-m" value="${esc(ex.materiel || '')}"></div>
+      <div class="field"><label class="label" for="js-b">Bilan de la séance</label><textarea id="js-b" rows="3" placeholder="Ce qui a marché, ce qui est à reprendre…">${esc(ex.bilan || '')}</textarea></div>
+    </div>
+    <div class="modal-foot spread"><div class="row-gap"><button type="button" class="btn sm" id="js-appel">Faire l’appel</button><button type="button" class="btn sm ghost" id="js-prev">Reprendre la séance précédente</button></div><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></div></form>`,
+    onMount(box, m) {
+      const g = s => box.querySelector(s);
+      const ns = g('#js-newseq');
+      if (ns) ns.onclick = () => { closeModal(m); openSequence(null, cid); };
+      g('#js-appel').onclick = () => { closeModal(m); UI.appelClasse = cid; UI.appelDate = day === todayIso() ? null : day; go('appel'); };
+      g('#js-prev').onclick = () => {
+        const prev = [...S.journal.values()].filter(x => x.classeId === cid && x.date < day).sort((a, b) => (a.date < b.date ? 1 : -1))[0];
+        if (!prev) { toast('Aucune séance précédente pour cette classe.'); return; }
+        if (!g('#js-t').value.trim()) g('#js-t').value = prev.titre || '';
+        g('#js-o').value = prev.objectifs || ''; g('#js-d').value = prev.deroulement || ''; g('#js-m').value = prev.materiel || '';
+        toast(`Contenu repris de la séance du ${fmtJ(prev.date)}.`);
+      };
+      g('form').onsubmit = ev => {
+        ev.preventDefault();
+        const body = { kind: 'journal', classeId: cid, date: day, titre: g('#js-t').value.trim(), objectifs: g('#js-o').value.trim(), deroulement: g('#js-d').value.trim(), materiel: g('#js-m').value.trim(), bilan: g('#js-b').value.trim(), majLe: new Date().toISOString() };
+        const empty = !body.titre && !body.objectifs && !body.deroulement && !body.materiel && !body.bilan;
+        closeModal(m);
+        if (empty) { if (Store.docs().has(jid)) delDoc(jid); return; }
+        putDoc(jid, body);
+        toast('Fiche de séance enregistrée.');
+      };
+    },
+  });
+}
+function appelSeanceLine(c, day) {
+  const q = sequenceOn(c.id, day), j = S.journal.get(journalId(c.id, day)), num = q ? seanceNum(q, day) : null;
+  const bits = [q && (q.apsa || q.titre || 'Séquence') + (num && num.n ? ` · séance ${num.n}${num.total ? '/' + num.total : ''}` : ''), j && j.titre].filter(Boolean);
+  return `<div class="sm" style="margin-top:4px">${bits.length ? `<span class="strong">${esc(bits.join(' · '))}</span> · ` : ''}<button class="link" data-act="open-jseance" data-c="${c.id}" data-d="${day}">${j ? 'Fiche de séance' : 'Préparer la séance'}</button></div>`;
+}
+function todayInfo(c, T) {
+  const k0 = creneauxOn(c, T)[0], q = sequenceOn(c.id, T), j = S.journal.get(journalId(c.id, T)), num = q ? seanceNum(q, T) : null;
+  const info = [k0 && hTxt(k0), k0 && k0.lieu, q && (q.apsa || q.titre) + (num && num.n ? ' · séance ' + num.n : ''), j && j.titre].filter(Boolean).join(' · ');
+  return info ? `<div class="muted sm" style="margin:-2px 0 4px">${esc(info)}</div>` : '';
+}
+
+/* ============ Cahier de notes ============ */
+function parseTemps(t) {
+  t = String(t).replace(/''|"/g, '').replace(/[’']/g, ':').replace(/\s+/g, '').replace(',', '.');
+  if (/^\d+(\.\d+)?$/.test(t)) return Number(t);
+  let m = /^(\d+):(\d{1,2}(?:\.\d+)?)$/.exec(t);
+  if (m) return Number(m[1]) * 60 + Number(m[2]);
+  m = /^(\d+):(\d{1,2}):(\d{1,2}(?:\.\d+)?)$/.exec(t);
+  if (m) return Number(m[1]) * 3600 + Number(m[2]) * 60 + Number(m[3]);
+  return undefined;
+}
+function fmtTemps(sec) {
+  sec = Number(sec);
+  if (!isFinite(sec)) return '';
+  sec = Math.round(sec * 10) / 10;
+  const m = Math.floor(sec / 60), s = Math.round((sec - m * 60) * 10) / 10;
+  const ss = s % 1 ? s.toFixed(1).padStart(4, '0') : String(s).padStart(2, '0');
+  return m ? `${m}:${ss}`.replace('.', ',') : String(s).replace('.', ',');
+}
+const fmtN = x => String(Math.round(Number(x) * 100) / 100).replace('.', ',');
+function parseCell(v, txt) {
+  const t = String(txt == null ? '' : txt).trim().toLowerCase();
+  if (!t) return null;
+  if (/^(a|abs|absent|absente)$/.test(t)) return 'abs';
+  if (/^(d|disp|dispensé|dispensée|dispense)$/.test(t)) return 'disp';
+  if (/^(nn|non noté|non note)$/.test(t)) return 'nn';
+  if (v.type === 'niveau') { const u = t.toUpperCase(); return NIV_COMP.includes(u) ? u : undefined; }
+  if (v.type === 'perf' && v.unite === 'temps') return parseTemps(t);
+  const x = Number(t.replace(',', '.'));
+  return isFinite(x) ? x : undefined;
+}
+function note20(v, e, raw) {
+  if (raw == null || raw === '' || SPECIAL[raw]) return null;
+  if (v.type === 'niveau') return NIV_PTS[raw] != null ? NIV_PTS[raw] : null;
+  const x = Number(raw);
+  if (!isFinite(x)) return null;
+  if (v.type === 'note') { const max = Number(v.max) > 0 ? Number(v.max) : 20; return Math.max(0, Math.min(20, (x / max) * 20)); }
+  if (v.type === 'perf') {
+    const bm = v.bareme || {};
+    if (!bm.mode || bm.mode === 'aucun') return null;
+    const pair = bm.mode === 'sexe' ? (e && e.sexe === 'F' ? bm.f : bm.g) : bm.u;
+    if (!pair || !isFinite(pair[0]) || !isFinite(pair[1]) || pair[0] === pair[1] || pair[0] == null || pair[1] == null) return null;
+    const n = (20 * (x - pair[0])) / (pair[1] - pair[0]);
+    return Math.round(Math.max(0, Math.min(20, n)) * 2) / 2;
+  }
+  return null;
+}
+function valueTxt(v, raw) {
+  if (raw == null || raw === '') return '';
+  if (SPECIAL[raw]) return SPECIAL[raw];
+  if (v.type === 'niveau') return String(raw);
+  if (v.type === 'perf' && v.unite === 'temps') return fmtTemps(raw);
+  return fmtN(raw);
+}
+function typeShort(v) {
+  if (v.type === 'niveau') return 'niveaux';
+  if (v.type === 'perf') return 'perf.' + (UNIT_SHORT[v.unite] ? ' ' + UNIT_SHORT[v.unite] : '');
+  return '/' + fmtN(Number(v.max) > 0 ? v.max : 20);
+}
+function evalsOf(cid, a, b) { return S.evals.filter(v => v.classeId === cid && v.date >= a && v.date <= b); }
+function evalsFor(eid, cid, a, b) { return S.evals.filter(v => v.date >= a && v.date <= b && (v.classeId === cid || (v.notes || {})[eid] != null)); }
+function moyenne(e, list) {
+  let s = 0, w = 0;
+  for (const v of list) {
+    if (v.horsMoy) continue;
+    const n = note20(v, e, (v.notes || {})[e.id]);
+    if (n == null) continue;
+    const k = Number(v.coef) > 0 ? Number(v.coef) : 1;
+    s += n * k; w += k;
+  }
+  return w ? s / w : null;
+}
+function gCell(v, e) {
+  const raw = (v.notes || {})[e.id], id = `g-${v.id}-${e.id}`;
+  const dsp = raw == null ? activeOn(e.id, v.date) : null;
+  const lab = `${esc(nomComplet(e))}, ${esc(v.titre || 'évaluation')}`;
+  if (v.type === 'niveau') {
+    return `<td class="gc"><select class="gcell niv-${raw || 'x'}" id="${id}" data-ch="g-cell" data-ev="${v.id}" data-e="${e.id}" aria-label="${lab}"><option value="">${dsp ? 'disp ?' : ''}</option>${NIV_COMP.map(n => `<option value="${n}" ${raw === n ? 'selected' : ''}>${n}</option>`).join('')}${Object.entries(SPECIAL).map(([k, l]) => `<option value="${k}" ${raw === k ? 'selected' : ''}>${l}</option>`).join('')}</select></td>`;
+  }
+  const n20 = v.type === 'perf' ? note20(v, e, raw) : null;
+  return `<td class="gc"><input type="text" class="gcell" id="${id}" data-ch="g-cell" data-ev="${v.id}" data-e="${e.id}" value="${esc(valueTxt(v, raw))}" placeholder="${dsp ? 'disp ?' : ''}" inputmode="${v.type === 'perf' && v.unite === 'temps' ? 'text' : 'decimal'}" autocomplete="off" aria-label="${lab}">${n20 != null ? `<span class="g20">${fmtN(n20)}</span>` : ''}</td>`;
+}
+function colStat(v, c) {
+  if (v.type === 'niveau') {
+    const cnt = {}; c.eleves.forEach(e => { const r = (v.notes || {})[e.id]; if (NIV_COMP.includes(r)) cnt[r] = (cnt[r] || 0) + 1; });
+    return NIV_COMP.filter(k => cnt[k]).map(k => `${k} ${cnt[k]}`).join(' · ') || '—';
+  }
+  const ns = c.eleves.map(e => note20(v, e, (v.notes || {})[e.id])).filter(x => x != null);
+  if (ns.length) return invFmt(ns.reduce((s, x) => s + x, 0) / ns.length);
+  const raws = c.eleves.map(e => (v.notes || {})[e.id]).filter(x => typeof x === 'number');
+  if (!raws.length) return '—';
+  const avg = raws.reduce((s, x) => s + x, 0) / raws.length;
+  return v.unite === 'temps' ? fmtTemps(avg) : fmtN(Math.round(avg * 10) / 10);
+}
+function notesCtx() { const c = S.classes.find(x => x.id === UI.nClasse) || S.classes[0]; const [a, b, pnom] = periodRange(UI.nPer); return { c, a, b, pnom }; }
+function notesTable(c, a, b) {
+  const evs = evalsOf(c.id, a, b);
+  const head = ['Nom', 'Prénom'].concat(evs.map(v => `${v.titre || 'Évaluation'} (${fmtNum(v.date)})`), ['Moyenne /20']);
+  const rows = c.eleves.map(e => [e.nom, e.prenom].concat(evs.map(v => { const raw = (v.notes || {})[e.id], t = valueTxt(v, raw), n = v.type === 'perf' ? note20(v, e, raw) : null; return n != null ? `${t} (${fmtN(n)}/20)` : t; }), [(m => (m == null ? '' : invFmt(m)))(moyenne(e, evalsFor(e.id, c.id, a, b)))]));
+  return { head, rows };
+}
+function viewNotes() {
+  if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
+  const T = todayIso(), st = S.settings;
+  const c = S.classes.find(x => x.id === UI.nClasse) || currentAppelClasse(T);
+  UI.nClasse = c.id;
+  if (UI.nPer == null) UI.nPer = currentPeriodKey(T);
+  const [a, b, pnom] = periodRange(UI.nPer);
+  const evs = evalsOf(c.id, a, b);
+  const picker = S.classes.map(k => `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-notes" data-id="${k.id}"><span>${esc(k.nom)}</span></button>`).join('');
+  const perOpts = [['annee', 'Année entière']].concat(st.periodes.map((p, i) => [String(i), p.nom])).map(([v, l]) => `<option value="${v}" ${String(UI.nPer) === v ? 'selected' : ''}>${esc(l)}</option>`).join('');
+  const head = evs.map(v => `<th><button type="button" class="gh-b" data-act="edit-eval" data-id="${v.id}"><span class="gh-t">${esc(v.titre || 'Évaluation')}</span><span class="gh-s">${fmt(v.date)} · ${esc(typeShort(v))}${Number(v.coef) !== 1 ? ' · coef ' + fmtN(v.coef) : ''}${v.horsMoy ? ' · hors moyenne' : ''}</span></button></th>`).join('');
+  const moys = [];
+  const body = c.eleves.map((e, i) => {
+    const m = moyenne(e, evalsFor(e.id, c.id, a, b));
+    if (m != null) moys.push(m);
+    return `<tr><td class="lane-n">${pad(i + 1)}</td><td class="sticky"><button class="link strong" data-act="eleve" data-id="${e.id}">${esc(e.nom)}</button> ${esc(e.prenom)}</td>${evs.map(v => gCell(v, e)).join('')}<td class="gmoy">${m == null ? '<span class="muted">—</span>' : invFmt(m)}</td></tr>`;
+  }).join('');
+  const foot = evs.map(v => `<td class="gstat">${colStat(v, c)}</td>`).join('');
+  const cm = moys.length ? invFmt(moys.reduce((s, x) => s + x, 0) / moys.length) : '—';
+  return `<div class="wrap">
+    <div class="appel-top"><div class="cpicker" role="group" aria-label="Classe">${picker}</div>
+      <div class="row-gap"><label class="sr" for="notes-per">Période</label><select id="notes-per" data-ch="notes-per" style="width:auto">${perOpts}</select><button class="btn" data-act="notes-copy">Copier pour un tableur</button><button class="btn" data-act="notes-csv">Exporter (.csv)</button><button class="btn primary" data-act="new-eval">+ Évaluation</button></div></div>
+    <section class="card pad0">
+      <div class="appel-h"><div><h2>Notes ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div><div class="appel-count"><span class="big">${evs.length}</span><span>évaluation${evs.length > 1 ? 's' : ''}</span></div></div>
+      ${!c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : !evs.length ? '<div class="empty-sm pad">Aucune évaluation sur cette période. <button class="link strong" data-act="new-eval">Créer une évaluation</button></div>' : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${head}<th class="gmoy">Moy. /20</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${foot}<td class="gmoy">${cm}</td></tr></tfoot></table></div>`}
+    </section>
+    <p class="hint" style="margin:8px 2px 0">Saisis un nombre, ou <b>abs</b>, <b>disp</b>, <b>nn</b> (non noté) ; la touche Entrée passe à l’élève suivant. Pour un temps : 3:25 ou 205 (secondes). Niveaux de compétence : MI, MF, MS, TBM comptent 5, 10, 15 et 20 points dans la moyenne. Touche le titre d’une évaluation pour la modifier.</p>
+  </div>`;
+}
+function openEval(id) {
+  const T = todayIso();
+  const ex = id ? Store.docs().get(id) : null;
+  if (id && !ex) return;
+  const cid0 = ex ? ex.classeId : (S.classes.some(k => k.id === UI.nClasse) ? UI.nClasse : S.classes[0].id);
+  const q = sequenceOn(cid0, T);
+  const f = ex ? clone(ex) : { kind: 'eval', classeId: cid0, titre: '', date: T, apsa: q ? q.apsa || '' : '', type: 'note', max: 20, coef: 1, unite: 'temps', horsMoy: false, notes: {} };
+  f.bareme = Object.assign({ mode: 'aucun', u: [null, null], f: [null, null], g: [null, null] }, f.bareme || {});
+  ['u', 'f', 'g'].forEach(k => { if (!Array.isArray(f.bareme[k])) f.bareme[k] = [null, null]; });
+  const locked = !!ex && Object.keys(ex.notes || {}).length > 0;
+  const bv = x => (x == null || x === '' ? '' : typeof x === 'string' ? x : f.unite === 'temps' ? fmtTemps(x) : fmtN(x));
+  let m = null;
+  const html = () => `<form novalidate>
+    <div class="modal-head"><h3>${ex ? 'Modifier l’évaluation' : 'Nouvelle évaluation'}</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">
+      <div class="grid-2">
+        <div class="field"><label class="label" for="ev-t">Titre</label><input type="text" id="ev-t" value="${esc(f.titre)}" placeholder="Ex. : Demi-fond, VMA" data-autofocus></div>
+        <div class="field"><label class="label" for="ev-c">Classe</label><select id="ev-c" ${ex ? 'disabled' : ''}>${S.classes.map(k => `<option value="${k.id}" ${k.id === f.classeId ? 'selected' : ''}>${esc(k.nom)}</option>`).join('')}</select></div>
+        <div class="field"><label class="label" for="ev-d">Date</label><input type="date" id="ev-d" value="${esc(f.date)}"></div>
+        <div class="field"><label class="label" for="ev-a">APSA</label><select id="ev-a"><option value=""></option>${APSA.map(x => `<option ${f.apsa === x ? 'selected' : ''}>${esc(x)}</option>`).join('')}</select></div>
+      </div>
+      <div class="field"><span class="label" id="ev-ty-l">Type</span><div class="seg" role="group" aria-labelledby="ev-ty-l">${[['note', 'Note'], ['niveau', 'Niveau de compétence'], ['perf', 'Performance']].map(([k, l]) => `<button type="button" data-ty="${k}" aria-pressed="${f.type === k}" ${locked && f.type !== k ? 'disabled' : ''}>${l}</button>`).join('')}</div>${locked ? '<p class="hint">Type verrouillé : des résultats sont déjà saisis.</p>' : ''}</div>
+      ${f.type === 'note' ? `<div class="grid-2"><div class="field"><label class="label" for="ev-max">Noté sur</label><input type="number" id="ev-max" min="1" step="any" value="${esc(f.max)}"></div></div>` : ''}
+      ${f.type === 'niveau' ? '<p class="hint" style="margin:-6px 0 14px">MI maîtrise insuffisante, MF maîtrise fragile, MS maîtrise satisfaisante, TBM très bonne maîtrise. Dans la moyenne : 5, 10, 15 et 20 points.</p>' : ''}
+      ${f.type === 'perf' ? `<div class="grid-2">
+          <div class="field"><label class="label" for="ev-u">Unité</label><select id="ev-u" ${locked ? 'disabled' : ''}>${Object.entries(UNITES).map(([k, l]) => `<option value="${k}" ${f.unite === k ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+          <div class="field"><label class="label" for="ev-bm">Barème</label><select id="ev-bm"><option value="aucun" ${f.bareme.mode === 'aucun' ? 'selected' : ''}>Aucun (performance seule)</option><option value="unique" ${f.bareme.mode === 'unique' ? 'selected' : ''}>Le même pour tous</option><option value="sexe" ${f.bareme.mode === 'sexe' ? 'selected' : ''}>Filles et garçons</option></select></div></div>
+        ${f.bareme.mode === 'aucun' ? '' : `<div class="bm-grid">${(f.bareme.mode === 'sexe' ? [['f', 'Filles'], ['g', 'Garçons']] : [['u', 'Tous']]).map(([k, l]) => `<div class="bm-row"><span class="strong">${l}</span><label class="sm">0/20 pour <input type="text" id="ev-${k}0" value="${esc(bv(f.bareme[k][0]))}" inputmode="decimal"></label><label class="sm">20/20 pour <input type="text" id="ev-${k}1" value="${esc(bv(f.bareme[k][1]))}" inputmode="decimal"></label></div>`).join('')}<p class="hint" style="margin-bottom:14px">Conversion linéaire entre les deux valeurs, arrondie au demi-point.${f.unite === 'temps' ? ' Pour un temps, mets le temps le plus lent pour 0/20 (ex. 10,5) et le plus rapide pour 20/20.' : ''}${f.bareme.mode === 'sexe' ? ' Sans sexe renseigné, le barème garçons s’applique.' : ''}</p></div>`}` : ''}
+      <div class="grid-2"><div class="field"><label class="label" for="ev-k">Coefficient</label><input type="number" id="ev-k" min="0.25" step="0.25" value="${esc(f.coef)}"></div>
+        <div class="field"><span class="label">Moyenne</span><label class="check"><input type="checkbox" id="ev-hm" ${f.horsMoy ? 'checked' : ''}> Ne pas compter dans la moyenne</label></div></div>
+      <p class="form-err" id="ev-err" role="alert"></p>
+    </div>
+    <div class="modal-foot spread"><div>${ex ? '<button type="button" class="btn ghost danger-t" id="ev-del">Supprimer</button>' : ''}</div><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></div>
+  </form>`;
+  const read = box => {
+    const g = s => box.querySelector(s);
+    f.titre = g('#ev-t').value.trim();
+    if (!ex) f.classeId = g('#ev-c').value;
+    f.date = g('#ev-d').value; f.apsa = g('#ev-a').value;
+    if (g('#ev-max')) f.max = g('#ev-max').value;
+    if (g('#ev-u') && !g('#ev-u').disabled) f.unite = g('#ev-u').value;
+    if (g('#ev-bm')) f.bareme.mode = g('#ev-bm').value;
+    ['u', 'f', 'g'].forEach(k => { const a0 = g(`#ev-${k}0`), a1 = g(`#ev-${k}1`); if (a0 && a1) f.bareme[k] = [a0.value, a1.value]; });
+    f.coef = g('#ev-k').value; f.horsMoy = g('#ev-hm').checked;
+  };
+  const parseBm = x => { if (typeof x === 'number') return x; const s = String(x == null ? '' : x).trim(); if (!s) return NaN; const r = f.unite === 'temps' ? parseTemps(s) : Number(s.replace(',', '.')); return r === undefined ? NaN : r; };
+  const draw = box => { box.innerHTML = html(); bind(box); };
+  const bind = box => {
+    const g = s => box.querySelector(s);
+    box.querySelectorAll('[data-ty]').forEach(b => { b.onclick = () => { read(box); f.type = b.dataset.ty; draw(box); }; });
+    if (g('#ev-u')) g('#ev-u').onchange = () => { read(box); ['u', 'f', 'g'].forEach(k => { f.bareme[k] = ['', '']; }); draw(box); };
+    if (g('#ev-bm')) g('#ev-bm').onchange = () => { read(box); draw(box); };
+    g('#ev-a').onchange = () => { if (!g('#ev-t').value.trim()) g('#ev-t').value = g('#ev-a').value; };
+    const del = g('#ev-del');
+    if (del) del.onclick = async () => {
+      if (!(await confirmDialog({ title: 'Supprimer cette évaluation ?', html: 'Les résultats saisis seront supprimés avec elle.', ok: 'Supprimer', danger: true }))) return;
+      const before = snapshotIds([id]); closeModal(m); delDoc(id);
+      toast('Évaluation supprimée.', [{ label: 'Annuler', run: () => restoreSnap(before) }]);
+    };
+    g('form').onsubmit = ev => {
+      ev.preventDefault();
+      read(box);
+      const err = t => { g('#ev-err').textContent = t; };
+      if (!isIso(f.date)) return err('Indique la date.');
+      const coef = Number(String(f.coef).replace(',', '.'));
+      if (!(coef > 0)) return err('Le coefficient doit être positif.');
+      const max = Number(String(f.max).replace(',', '.'));
+      if (f.type === 'note' && !(max > 0)) return err('Indique sur combien la note est donnée.');
+      const bareme = { mode: f.type === 'perf' ? f.bareme.mode : 'aucun', u: [null, null], f: [null, null], g: [null, null] };
+      if (bareme.mode !== 'aucun') {
+        for (const k of bareme.mode === 'sexe' ? ['f', 'g'] : ['u']) {
+          const p = f.bareme[k].map(parseBm);
+          if (!p.every(x => isFinite(x)) || p[0] === p[1]) return err('Complète le barème avec deux valeurs différentes.');
+          bareme[k] = p;
+        }
+      }
+      const cur = ex ? Store.docs().get(id) : null;
+      const body = { kind: 'eval', classeId: f.classeId, titre: f.titre || f.apsa || 'Évaluation', date: f.date, apsa: f.apsa, type: f.type, max: f.type === 'note' ? max : 20, coef, unite: f.type === 'perf' ? f.unite : '', bareme, horsMoy: !!f.horsMoy, notes: cur && cur.notes ? clone(cur.notes) : {}, majLe: new Date().toISOString() };
+      putDoc(id || newId('v_'), body);
+      closeModal(m);
+      UI.nClasse = body.classeId;
+      if (UI.nPer !== 'annee') UI.nPer = currentPeriodKey(body.date);
+      if (UI.route !== 'notes') go('notes'); else render();
+      toast(ex ? 'Évaluation modifiée.' : 'Évaluation créée : saisis les résultats dans la colonne.');
+    };
+  };
+  m = openModal({ wide: true, label: ex ? 'Modifier l’évaluation' : 'Nouvelle évaluation', html: '', onMount: box => draw(box) });
+  const af = m.wrap.querySelector('[data-autofocus]'); if (af) af.focus();
+}
+function resultatsHTML(eid) {
+  const x = S.eleves.get(eid), st = S.settings;
+  const pers = [['annee', 'Année']].concat(st.periodes.map((p, i) => [String(i), p.nom]));
+  const tiles = pers.map(([k, l]) => { const [a, b] = periodRange(k); const mo = moyenne(x.e, evalsFor(eid, x.c.id, a, b)); return `<div><span class="stat s">${mo == null ? '—' : invFmt(mo)}</span><span class="muted sm">${esc(l)}</span></div>`; }).join('');
+  const evs = evalsFor(eid, x.c.id, st.debut, st.fin).slice().reverse();
+  return `<div class="card-h" style="margin:2px 0 6px"><span class="label">Moyennes sur 20</span></div>
+    <div class="suivi-stats" style="grid-template-columns:repeat(${pers.length},minmax(0,1fr))">${tiles}</div>
+    ${evs.length ? `<div class="btable-wrap"><table class="btable"><thead><tr><th style="padding:8px 10px">Date</th><th style="padding:8px 10px">Évaluation</th><th class="n" style="padding:8px 10px">Résultat</th><th class="n" style="padding:8px 10px">/20</th><th class="n" style="padding:8px 10px">Coef.</th></tr></thead><tbody>${evs.map(v => { const raw = (v.notes || {})[eid], n = note20(v, x.e, raw); return `<tr><td>${fmt(v.date)}</td><td>${esc(v.titre || 'Évaluation')}${v.horsMoy ? ' <span class="muted sm">(hors moyenne)</span>' : ''}</td><td class="n">${esc(valueTxt(v, raw)) || '<span class="muted">—</span>'}${v.type === 'perf' && raw != null && !SPECIAL[raw] && UNIT_SHORT[v.unite] && v.unite !== 'temps' ? ' ' + UNIT_SHORT[v.unite] : ''}</td><td class="n">${n == null ? '' : fmtN(n)}</td><td class="n">${fmtN(v.coef || 1)}</td></tr>`; }).join('')}</tbody></table></div>` : '<div class="empty-sm">Aucune évaluation cette année.</div>'}`;
+}
+
+/* ============ Outils : tirage, équipes, chrono, minuteur ============ */
+const CHR = { start: 0, acc: 0, running: false, laps: [], raf: 0 };
+const TMR = { dur: 300000, left: 300000, end: 0, running: false, done: false, raf: 0, to: 0, ctx: null };
+function chrNow() { return CHR.acc + (CHR.running ? performance.now() - CHR.start : 0); }
+function fmtChrono(ms) { const t = Math.floor(ms / 100), ds = t % 10, s = Math.floor(t / 10) % 60, mn = Math.floor(t / 600); return `${pad(mn)}:${pad(s)},${ds}`; }
+function chrTick() { const el = document.getElementById('ch-time'); if (el) el.textContent = fmtChrono(chrNow()); if (CHR.running) CHR.raf = requestAnimationFrame(chrTick); }
+function tmrLeft() { return TMR.running ? Math.max(0, TMR.end - performance.now()) : TMR.left; }
+function fmtTimer(ms) { const s = Math.ceil(ms / 1000); return `${pad(Math.floor(s / 60))}:${pad(s % 60)}`; }
+function tmrTick() {
+  const l = tmrLeft(), el = document.getElementById('tm-time');
+  if (el) el.textContent = fmtTimer(l);
+  if (!TMR.running) return;
+  if (l <= 0) { tmrEnd(); return; }
+  TMR.raf = requestAnimationFrame(tmrTick);
+}
+function beep() {
+  try {
+    const ctx = TMR.ctx || (TMR.ctx = new (window.AudioContext || window.webkitAudioContext)());
+    [0, 0.35, 0.7].forEach(t => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+      g.gain.setValueAtTime(0.0001, ctx.currentTime + t);
+      g.gain.exponentialRampToValueAtTime(0.4, ctx.currentTime + t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + t + 0.28);
+      o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.3);
+    });
+  } catch (e) { /* son indisponible */ }
+  try { if (navigator.vibrate) navigator.vibrate([200, 100, 200]); } catch (e) { /* vibration indisponible */ }
+}
+function tmrEnd() {
+  if (!TMR.running) return;
+  TMR.running = false; TMR.left = 0; TMR.done = true;
+  clearTimeout(TMR.to); cancelAnimationFrame(TMR.raf);
+  beep(); toast('Temps écoulé !');
+  if (UI.route === 'outils') render();
+}
+function presentsOf(c, day) { const se = seanceOf(c.id, day); return c.eleves.filter(e => entryOf(se, e.id).p !== 'A'); }
+function teamName(i) { return CHASUBLES[i] ? CHASUBLES[i][0] : `Équipe ${i + 1}`; }
+function makeTeams(c, day) {
+  const o = UI.grp, apart = [];
+  let pool = presentsOf(c, day);
+  if (o.sansInaptes) pool = pool.filter(e => { const d = activeOn(e.id, day); if (d && d.nature === 'totale') { apart.push(e.id); return false; } return true; });
+  const n = Math.max(2, Math.min(12, Number(o.n) || 2));
+  const teams = Array.from({ length: n }, () => []);
+  const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const st = S.settings;
+  const score = e => { const mo = moyenne(e, evalsFor(e.id, c.id, st.debut, st.fin)); if (mo != null) return mo; const s = statsEleve(e.id, st.debut, st.fin); return s.inv != null ? s.inv * 5 : 10; };
+  const bySkill = l => { const sc = new Map(l.map(e => [e.id, score(e)])); return shuffle(l).sort((a, b) => sc.get(b.id) - sc.get(a.id)); };
+  let k = Math.floor(Math.random() * n);
+  const deal = l => l.forEach(e => { teams[k % n].push(e.id); k++; });
+  const snake = (l, rev) => { let i = 0, dir = 1; l.forEach(e => { teams[rev ? n - 1 - i : i].push(e.id); if ((dir > 0 && i === n - 1) || (dir < 0 && i === 0)) dir = -dir; else i += dir; }); };
+  const F = pool.filter(e => e.sexe === 'F'), G = pool.filter(e => e.sexe === 'G'), X = pool.filter(e => e.sexe !== 'F' && e.sexe !== 'G');
+  if (o.mode === 'mixte') { deal(shuffle(F)); deal(shuffle(G)); deal(shuffle(X)); }
+  else if (o.mode === 'niveau') snake(bySkill(pool));
+  else if (o.mode === 'niveau-mixte') { snake(bySkill(F)); snake(bySkill(G), true); snake(bySkill(X)); }
+  else deal(shuffle(pool));
+  teams.forEach(t => t.sort((a, b) => cmpEleve(S.eleves.get(a).e, S.eleves.get(b).e)));
+  return { teams, apart };
+}
+function teamsText() {
+  const g = UI.grp.cur; if (!g) return '';
+  const nm = id => (S.eleves.has(id) ? nomComplet(S.eleves.get(id).e) : '');
+  return g.teams.map((t, i) => `${teamName(i)} (${t.length}) : ${t.map(nm).filter(Boolean).join(', ')}`).join('\n') + (g.apart.length ? `\nÀ part : ${g.apart.map(nm).filter(Boolean).join(', ')}` : '');
+}
+function outilsClasse() { const T = todayIso(); return S.classes.find(x => x.id === UI.oClasse) || currentAppelClasse(T); }
+function viewOutils() {
+  if (!S.classes.length) return `<div class="wrap">${noClasses()}</div>`;
+  const T = todayIso(), c = outilsClasse();
+  UI.oClasse = c.id;
+  if (UI.draw.cid !== c.id) Object.assign(UI.draw, { cid: c.id, last: null, tires: [] });
+  if (UI.grp.cid !== c.id) Object.assign(UI.grp, { cid: c.id, cur: null, sel: null });
+  const pool = presentsOf(c, T);
+  const left = UI.draw.norep ? pool.filter(e => !UI.draw.tires.includes(e.id)).length : pool.length;
+  const lastE = UI.draw.last && S.eleves.get(UI.draw.last);
+  const picker = S.classes.map(k => `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-outils" data-id="${k.id}"><span>${esc(k.nom)}</span></button>`).join('');
+  const g = UI.grp.cur, saved = S.groupes.filter(x => x.classeId === c.id);
+  const elapsed = chrNow();
+  const teamsHTML = g ? `<div class="teams">${g.teams.map((t, i) => {
+    const tgt = UI.grp.sel && !t.includes(UI.grp.sel);
+    return `<div class="team ${tgt ? 'target' : ''}" ${tgt ? `data-act="gq-move" data-t="${i}" role="button" tabindex="0" aria-label="Déplacer chez les ${esc(teamName(i))}"` : ''}><div class="team-h"><i class="chas" style="background:${CHASUBLES[i] ? CHASUBLES[i][1] : 'var(--muted)'}"></i><b>${esc(teamName(i))}</b><span class="muted sm">${t.length}</span></div>${t.map(eid => { const x = S.eleves.get(eid); return x ? `<button type="button" class="tm ${UI.grp.sel === eid ? 'sel' : ''}" data-act="gq-sel" data-id="${eid}">${esc(x.e.prenom || '')} ${esc((x.e.nom || '').charAt(0))}.</button>` : ''; }).join('')}</div>`;
+  }).join('')}</div>${g.apart.length ? `<p class="muted sm" style="margin-top:8px">À part (inaptes totaux) : ${esc(g.apart.map(id => (S.eleves.has(id) ? nomComplet(S.eleves.get(id).e) : '')).filter(Boolean).join(', '))}</p>` : ''}` : '';
+  return `<div class="wrap">
+    <div class="appel-top"><div class="cpicker" role="group" aria-label="Classe">${picker}</div><span class="muted sm">${plural(pool.length, 'élève présent', 'élèves présents')} sur ${c.eleves.length} aujourd’hui</span></div>
+    <div class="tools-grid"><div>
+      <section class="card"><div class="card-h"><h2>Tirage au sort</h2><span class="muted sm">${plural(left, 'élève restant', 'élèves restants')}</span></div>
+        <div class="draw-name ${UI.draw.flash ? 'final' : ''}" id="draw-name" aria-live="polite">${lastE ? esc(nomComplet(lastE.e)) : '?'}</div>
+        <div class="row-gap"><button class="btn primary" data-act="draw">Tirer au sort</button><label class="check"><input type="checkbox" id="draw-norep" data-ch="draw-norep" ${UI.draw.norep ? 'checked' : ''}> Sans remise</label>${UI.draw.tires.length ? '<button class="btn sm ghost" data-act="draw-reset">Remettre tout le monde</button>' : ''}</div>
+        <p class="hint" style="margin-top:8px">Les élèves notés absents à l’appel du jour sont exclus.</p></section>
+      <section class="card"><div class="card-h"><h2>Chronomètre</h2></div>
+        <div class="big-time" id="ch-time">${fmtChrono(elapsed)}</div>
+        <div class="row-gap" style="justify-content:center"><button class="btn primary" data-act="ch-start">${CHR.running ? 'Pause' : elapsed ? 'Reprendre' : 'Démarrer'}</button><button class="btn" data-act="ch-lap" ${CHR.running ? '' : 'disabled'}>Tour</button><button class="btn ghost" data-act="ch-reset" ${elapsed || CHR.laps.length ? '' : 'disabled'}>Remise à zéro</button></div>
+        ${CHR.laps.length ? `<ol class="laps">${CHR.laps.map((t, i) => `<li><span>Tour ${i + 1}</span><span class="strong">${fmtChrono(t - (i ? CHR.laps[i - 1] : 0))}</span><span class="muted">${fmtChrono(t)}</span></li>`).reverse().join('')}</ol>` : ''}
+      </section>
+      <section class="card"><div class="card-h"><h2>Minuteur</h2></div>
+        <div class="big-time ${TMR.done ? 'done' : ''}" id="tm-time">${fmtTimer(tmrLeft())}</div>
+        <div class="presets">${[[30, '30 s'], [60, '1 min'], [120, '2 min'], [180, '3 min'], [300, '5 min'], [600, '10 min'], [720, '12 min']].map(([s, l]) => `<button class="chip" data-act="tm-set" data-s="${s}" aria-pressed="${!TMR.running && TMR.dur === s * 1000}" ${TMR.running ? 'disabled' : ''}>${l}</button>`).join('')}</div>
+        <div class="row-gap" style="justify-content:center"><button class="btn sm ghost" data-act="tm-add" data-s="-30">−30 s</button><button class="btn primary" data-act="tm-start">${TMR.running ? 'Pause' : 'Démarrer'}</button><button class="btn sm ghost" data-act="tm-add" data-s="30">+30 s</button><button class="btn ghost" data-act="tm-reset">Réinitialiser</button></div>
+      </section>
+    </div><div>
+      <section class="card"><div class="card-h"><h2>Équipes</h2></div>
+        <div class="grid-3">
+          <div class="field"><label class="label" for="gq-n">Équipes</label><input type="number" id="gq-n" min="2" max="12" value="${esc(UI.grp.n)}" data-ch="gq-n"></div>
+          <div class="field"><label class="label" for="gq-mode">Composition</label><select id="gq-mode" data-ch="gq-mode">${[['hasard', 'Au hasard'], ['mixte', 'Mixité filles-garçons'], ['niveau', 'Niveaux équilibrés'], ['niveau-mixte', 'Niveaux et mixité']].map(([k, l]) => `<option value="${k}" ${UI.grp.mode === k ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+          <div class="field"><span class="label">Inaptes</span><label class="check"><input type="checkbox" id="gq-inap" data-ch="gq-inap" ${UI.grp.sansInaptes ? 'checked' : ''}> Inaptes totaux à part</label></div>
+        </div>
+        <div class="row-gap"><button class="btn primary" data-act="gq-make">${g ? 'Mélanger à nouveau' : 'Former les équipes'}</button>${g ? '<button class="btn" data-act="gq-copy">Copier</button><button class="btn" data-act="gq-save">Enregistrer</button>' : ''}</div>
+        <p class="hint" style="margin-top:8px">Niveaux : selon la moyenne du cahier de notes, sinon l’investissement moyen. Absents du jour exclus. Pour modifier les équipes, touche un élève puis un élève d’une autre équipe pour les échanger, ou le nom d’une autre équipe pour l’y déplacer.</p>
+        ${teamsHTML}
+        ${saved.length ? `<div style="margin-top:16px"><span class="label">Équipes enregistrées</span>${saved.map(x => `<div class="saved-g"><span style="flex:1">${esc(x.nom)} <span class="muted sm">· ${fmt(x.date)}</span></span><button class="btn sm ghost" data-act="gq-load" data-id="${x.id}">Afficher</button><button class="icon-btn" data-act="gq-del" data-id="${x.id}" aria-label="Supprimer ces équipes">×</button></div>`).join('')}</div>` : ''}
+      </section>
+    </div></div>
+  </div>`;
+}
+
+/* ============ Fiche élève enrichie ============ */
+function photoOf(eid) {
+  const p = S.profils.get(eid);
+  return p && typeof p.photo === 'string' && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(p.photo) ? p.photo : '';
+}
+function avatar(eid, size) {
+  const ph = photoOf(eid);
+  if (ph) return `<img class="av av-${size}" src="${ph}" alt="">`;
+  const x = S.eleves.get(eid);
+  const ini = x ? ((x.e.prenom || '').charAt(0) + (x.e.nom || '').charAt(0)).toUpperCase() : '?';
+  return `<span class="av av-${size} av-ini" aria-hidden="true">${esc(ini)}</span>`;
+}
+function dispTags(eid) {
+  const p = S.profils.get(eid), l = p && Array.isArray(p.dispositifs) ? p.dispositifs : [];
+  return l.length ? `<span class="dtags">${l.map(t => `<span class="dtag">${esc(t)}</span>`).join('')}</span>` : '';
+}
+function resizeImage(file, size) {
+  return new Promise((res, rej) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => {
+      const s = Math.min(img.naturalWidth, img.naturalHeight);
+      const cv = document.createElement('canvas'); cv.width = cv.height = size;
+      cv.getContext('2d').drawImage(img, (img.naturalWidth - s) / 2, (img.naturalHeight - s) / 2, s, s, 0, 0, size, size);
+      URL.revokeObjectURL(url);
+      res(cv.toDataURL('image/jpeg', 0.72));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); rej(new Error('image')); };
+    img.src = url;
+  });
+}
+function profilHTML(eid) {
+  const p = S.profils.get(eid) || {}, resp = Array.isArray(p.resp) ? p.resp : [];
+  return `<div class="prof-top">${avatar(eid, 'l')}<div class="row-gap"><label class="btn sm file-btn">${photoOf(eid) ? 'Changer la photo' : 'Ajouter une photo'}<input type="file" accept="image/*" id="pf-photo" aria-label="Choisir une photo"></label>${photoOf(eid) ? '<button type="button" class="btn sm ghost" id="pf-photo-del">Retirer la photo</button>' : ''}</div></div>
+  <div class="field"><span class="label">Dispositifs et repères</span><div class="chips" id="pf-disp">${chips(DISPOSITIFS, p.dispositifs || [])}</div></div>
+  <div class="field"><span class="label">Responsables légaux</span>${[0, 1].map(i => { const r = resp[i] || {}; return `<div class="resp"><input type="text" id="pf-r${i}-lien" class="pf-in" value="${esc(r.lien || '')}" placeholder="Lien (mère, père…)" aria-label="Lien"><input type="text" id="pf-r${i}-nom" class="pf-in" value="${esc(r.nom || '')}" placeholder="Nom" aria-label="Nom"><input type="tel" id="pf-r${i}-tel" class="pf-in" value="${esc(r.tel || '')}" placeholder="Téléphone" aria-label="Téléphone"><input type="email" id="pf-r${i}-mail" class="pf-in" value="${esc(r.email || '')}" placeholder="E-mail" aria-label="E-mail"></div>`; }).join('')}</div>
+  <div class="field"><label class="label" for="pf-infos">Informations utiles</label><textarea id="pf-infos" class="pf-in" rows="3" placeholder="Aménagements, points de vigilance…">${esc(p.infos || '')}</textarea><p class="hint">Enregistré automatiquement. Note les besoins et les aménagements, pas les diagnostics.</p></div>
+  <div class="field"><span class="label">Annotations datées</span>
+    <div class="row-gap" style="align-items:stretch"><textarea id="pf-note" rows="2" placeholder="Nouvelle annotation…" style="flex:1 1 240px;width:auto"></textarea><button type="button" class="btn sm" id="pf-note-add">Ajouter</button></div>
+    <div class="annots">${(p.annotations || []).slice().reverse().map(a => `<div class="annot"><span class="muted sm">${esc(fmtNum(a.date))}</span><span>${esc(a.texte)}</span><button type="button" class="icon-btn" data-annot="${esc(a.id)}" aria-label="Supprimer l’annotation">×</button></div>`).join('') || '<div class="muted sm">Aucune annotation.</div>'}</div>
+  </div>`;
+}
+function bindProfil(box, eid) {
+  const cur = () => clone(Store.docs().get('p_' + eid) || { kind: 'profil' });
+  const val = s => { const el = box.querySelector(s); return el ? el.value : ''; };
+  const collect = b => {
+    b.kind = 'profil';
+    b.resp = [0, 1].map(i => ({ lien: val(`#pf-r${i}-lien`).trim(), nom: val(`#pf-r${i}-nom`).trim(), tel: val(`#pf-r${i}-tel`).trim(), email: val(`#pf-r${i}-mail`).trim() })).filter(r => r.lien || r.nom || r.tel || r.email);
+    b.infos = val('#pf-infos');
+    b.majLe = new Date().toISOString();
+    return b;
+  };
+  const save = patch => { const b = collect(cur()); Object.assign(b, patch || {}); putDoc('p_' + eid, b); };
+  box.querySelectorAll('.pf-in').forEach(i => { i.onchange = () => save(); });
+  box.querySelectorAll('#pf-disp .chip').forEach(ch => { ch.onclick = () => { const l = (cur().dispositifs || []).slice(), v = ch.dataset.val, i = l.indexOf(v); if (i >= 0) l.splice(i, 1); else l.push(v); save({ dispositifs: l }); }; });
+  const ph = box.querySelector('#pf-photo');
+  if (ph) ph.onchange = async () => { const fl = ph.files && ph.files[0]; if (!fl) return; try { save({ photo: await resizeImage(fl, 160) }); } catch (e) { toast('Impossible de lire cette image.'); } };
+  const phd = box.querySelector('#pf-photo-del');
+  if (phd) phd.onclick = () => save({ photo: '' });
+  const add = box.querySelector('#pf-note-add');
+  if (add) add.onclick = () => { const t = val('#pf-note').trim(); if (!t) return; const l = (cur().annotations || []).slice(); l.push({ id: newId('a'), date: todayIso(), texte: t }); save({ annotations: l }); };
+  box.querySelectorAll('[data-annot]').forEach(b => { b.onclick = () => save({ annotations: (cur().annotations || []).filter(a => a.id !== b.dataset.annot) }); });
+}
+
+/* ============ Code d'accès ============ */
+const LS_PIN = 'dispenses-eps-pin';
+const LOCK = { on: false, entry: '' };
+function pinGet() { try { return localStorage.getItem(LS_PIN) || ''; } catch (e) { return ''; } }
+function pinSet(h) { try { if (h) localStorage.setItem(LS_PIN, h); else localStorage.removeItem(LS_PIN); } catch (e) { toast('Impossible d’enregistrer le code sur cet appareil.'); } }
+function pinAvailable() { try { localStorage.setItem('__eps', '1'); localStorage.removeItem('__eps'); return true; } catch (e) { return false; } }
+async function pinHash(pin) {
+  try {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('eps|' + pin));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+  } catch (e) {
+    let h = 2166136261;
+    for (const ch of 'eps|' + pin) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); }
+    return 'f' + (h >>> 0).toString(16);
+  }
+}
+function drawLock(err) {
+  $('#lock').innerHTML = `<div class="lock-box"><span class="brand-mark" aria-hidden="true">EPS</span><div class="brand-title">Code d’accès</div>
+    <div class="lock-dots ${err ? 'shake' : ''}" aria-live="polite" aria-label="${LOCK.entry.length} chiffre${LOCK.entry.length > 1 ? 's' : ''} sur 4">${[0, 1, 2, 3].map(i => `<i class="${i < LOCK.entry.length ? 'on' : ''}"></i>`).join('')}</div>
+    <div class="keypad">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button type="button" data-k="${n}">${n}</button>`).join('')}<span></span><button type="button" data-k="0">0</button><button type="button" data-k="del" aria-label="Effacer">⌫</button></div>
+    <button type="button" class="lock-btn" data-k="forgot">Code oublié ?</button><p class="sm" id="lock-msg"></p></div>`;
+}
+function showLock() { if (!pinGet()) return; LOCK.on = true; LOCK.entry = ''; document.body.classList.add('locked'); $('#lock').hidden = false; drawLock(); tip.hidden = true; }
+async function tryUnlock() {
+  const h = await pinHash(LOCK.entry);
+  if (h === pinGet()) { LOCK.on = false; LOCK.entry = ''; document.body.classList.remove('locked'); $('#lock').hidden = true; }
+  else { LOCK.entry = ''; drawLock(true); }
+}
+function lockKey(k) {
+  if (k === 'forgot') { const msg = $('#lock-msg'); if (msg) msg.textContent = 'Le code est enregistré sur cet appareil uniquement. Pour le retirer, supprime les données de l’application sur l’appareil (ou l’app de l’écran d’accueil), réinstalle-la puis restaure ta dernière sauvegarde.'; return; }
+  if (k === 'del') LOCK.entry = LOCK.entry.slice(0, -1);
+  else if (/^\d$/.test(k) && LOCK.entry.length < 4) LOCK.entry += k;
+  drawLock();
+  if (LOCK.entry.length === 4) tryUnlock();
+}
+$('#lock').addEventListener('click', e => { const b = e.target.closest('[data-k]'); if (b) lockKey(b.dataset.k); });
+let hiddenAt = 0;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) hiddenAt = Date.now();
+  else if (pinGet() && !LOCK.on && hiddenAt && Date.now() - hiddenAt > 5 * 60000) showLock();
+});
+function pinSection() {
+  if (!pinAvailable()) return '<p class="muted sm">Le code d’accès n’est pas disponible dans cette vue.</p>';
+  const has = !!pinGet();
+  return `<div class="note"><p>${has ? 'Un code protège l’application sur cet appareil : elle se verrouille à l’ouverture et après 5 minutes en arrière-plan.' : 'Protège l’ouverture de l’application sur cet appareil avec un code à 4 chiffres.'}</p><p class="muted sm">Le code évite un regard rapide sur l’écran ; il ne chiffre pas les données.</p></div>
+  <div class="row-gap">${has ? '<button class="btn" data-act="pin-set">Changer le code</button><button class="btn ghost danger-t" data-act="pin-del">Supprimer le code</button><button class="btn ghost" data-act="lock-now">Verrouiller</button>' : '<button class="btn primary" data-act="pin-set">Définir un code</button>'}</div>`;
+}
+function openPinForm(mode) {
+  const has = !!pinGet();
+  openModal({
+    label: 'Code d’accès',
+    html: `<form novalidate><div class="modal-head"><h3>${mode === 'del' ? 'Supprimer le code' : has ? 'Changer le code' : 'Définir un code'}</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div><div class="modal-body">
+      ${has ? '<div class="field"><label class="label" for="pin-old">Code actuel</label><input type="password" id="pin-old" inputmode="numeric" maxlength="4" autocomplete="off" data-autofocus></div>' : ''}
+      ${mode === 'del' ? '' : `<div class="grid-2"><div class="field"><label class="label" for="pin-new">Nouveau code (4 chiffres)</label><input type="password" id="pin-new" inputmode="numeric" maxlength="4" autocomplete="off" ${has ? '' : 'data-autofocus'}></div><div class="field"><label class="label" for="pin-new2">Confirmer</label><input type="password" id="pin-new2" inputmode="numeric" maxlength="4" autocomplete="off"></div></div>`}
+      <p class="hint">Le code reste sur cet appareil. S’il est oublié, il faudra effacer les données de l’application sur l’appareil puis restaurer une sauvegarde.</p><p class="form-err" id="pin-err" role="alert"></p></div>
+      <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn ${mode === 'del' ? 'danger' : 'primary'}">${mode === 'del' ? 'Supprimer' : 'Enregistrer'}</button></div></form>`,
+    onMount(box, m) {
+      box.querySelector('form').onsubmit = async ev => {
+        ev.preventDefault();
+        const err = box.querySelector('#pin-err');
+        if (has && (await pinHash(box.querySelector('#pin-old').value)) !== pinGet()) { err.textContent = 'Code actuel incorrect.'; return; }
+        if (mode === 'del') { pinSet(''); closeModal(m); toast('Code supprimé.'); render(); return; }
+        const a = box.querySelector('#pin-new').value, b = box.querySelector('#pin-new2').value;
+        if (!/^\d{4}$/.test(a)) { err.textContent = 'Le code doit comporter 4 chiffres.'; return; }
+        if (a !== b) { err.textContent = 'Les deux codes ne correspondent pas.'; return; }
+        pinSet(await pinHash(a)); closeModal(m);
+        toast('Code enregistré : l’application se verrouillera à l’ouverture.'); render();
+      };
+    },
+  });
+}
+
+/* ============ Stockage local (IndexedDB) ============ */
+const IDB = { db: null };
+function idbOpen() {
+  return new Promise((res, rej) => {
+    try {
+      const r = indexedDB.open('dispenses-eps', 1);
+      r.onupgradeneeded = () => r.result.createObjectStore('docs');
+      r.onsuccess = () => res(r.result);
+      r.onerror = () => rej(r.error);
+      r.onblocked = () => rej(new Error('blocked'));
+    } catch (e) { rej(e); }
+  });
+}
+function idbAll(db) {
+  return new Promise((res, rej) => {
+    const m = new Map(), tx = db.transaction('docs', 'readonly'), cur = tx.objectStore('docs').openCursor();
+    cur.onsuccess = () => { const c = cur.result; if (c) { m.set(c.key, c.value); c.continue(); } else res(m); };
+    cur.onerror = () => rej(cur.error);
+  });
+}
+function idbWrite(id, body) {
+  return new Promise((res, rej) => {
+    const tx = IDB.db.transaction('docs', 'readwrite'), st = tx.objectStore('docs');
+    if (body === null) st.delete(id); else st.put(body, id);
+    tx.oncomplete = () => res();
+    tx.onerror = () => rej(tx.error);
+    tx.onabort = () => rej(tx.error);
+  });
+}
+
+/* ============ Actions des nouveaux modules ============ */
+Object.assign(ACT, {
+  'cr-add': () => { const c = getClasse(UI.classeSel); if (!c) return; const used = new Set(c.creneaux.map(k => k.j)); const j = [1, 2, 3, 4, 5].find(x => !used.has(x)) || 1; c.creneaux.push({ j, h1: '', h2: '', sem: '', lieu: '' }); saveClasse(c); },
+  'cr-del': ds => { const c = getClasse(UI.classeSel); if (!c) return; c.creneaux.splice(Number(ds.i), 1); saveClasse(c); },
+  'ab-flip': ds => {
+    const D = UI.settingsDraft; if (!D) return;
+    const cur = weekAB(ds.w, D), nv = cur === 'A' ? 'B' : 'A';
+    D.semForce = Object.assign({}, D.semForce || {});
+    const tmp = clone(D); delete tmp.semForce[ds.w];
+    if (D.semForce[ds.w] && weekAB(ds.w, tmp) === nv) delete D.semForce[ds.w]; else D.semForce[ds.w] = nv;
+    render();
+  },
+  'ab-reset': () => { const D = UI.settingsDraft; if (!D) return; D.semForce = {}; render(); },
+  'wk-prev': () => { UI.jWeek = addDays(isIso(UI.jWeek) ? UI.jWeek : mondayOf(todayIso()), -7); render(); },
+  'wk-next': () => { UI.jWeek = addDays(isIso(UI.jWeek) ? UI.jWeek : mondayOf(todayIso()), 7); render(); },
+  'wk-today': () => { UI.jWeek = null; render(); },
+  'new-seq': () => { if (!S.classes.length) return; openSequence(null, null); },
+  'edit-seq': ds => openSequence(ds.id),
+  'open-jseance': ds => openJSeance(ds.c, ds.d),
+  'go-classes': () => go('classes'),
+  'pick-notes': ds => { UI.nClasse = ds.id; render(); },
+  'new-eval': () => { if (!S.classes.length) return; openEval(null); },
+  'edit-eval': ds => openEval(ds.id),
+  'notes-csv': () => { const x = notesCtx(), t = notesTable(x.c, x.a, x.b); download(`notes-eps-${slug(x.c.nom)}-${slug(x.pnom)}.csv`, csvFrom(t.head, t.rows), tsvFrom(t.head, t.rows)); },
+  'notes-copy': async () => { const x = notesCtx(), t = notesTable(x.c, x.a, x.b), txt = tsvFrom(t.head, t.rows); try { await navigator.clipboard.writeText(txt); toast('Notes copiées : colle-les dans un tableur.'); } catch (e) { openTextModal('Notes pour un tableur', txt); } },
+  'pick-outils': ds => { UI.oClasse = ds.id; render(); },
+  'draw': () => {
+    const c = outilsClasse(), T = todayIso();
+    const pool = presentsOf(c, T).filter(e => !UI.draw.norep || !UI.draw.tires.includes(e.id));
+    if (!pool.length) { toast(UI.draw.tires.length ? 'Tout le monde a été tiré : remets tout le monde.' : 'Aucun élève présent.'); return; }
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    const finish = () => { UI.draw.last = pick.id; if (UI.draw.norep) UI.draw.tires.push(pick.id); UI.draw.flash = true; render(); UI.draw.flash = false; };
+    if (pool.length < 2 || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { finish(); return; }
+    let t = 0, delay = 45;
+    const step = () => {
+      const el = document.getElementById('draw-name');
+      if (el) { el.textContent = nomComplet(pool[Math.floor(Math.random() * pool.length)]); el.classList.add('rolling'); }
+      t += delay; delay *= 1.13;
+      if (t < 1600) setTimeout(step, delay); else finish();
+    };
+    step();
+  },
+  'draw-reset': () => { UI.draw.tires = []; UI.draw.last = null; render(); },
+  'ch-start': () => { if (CHR.running) { CHR.acc = chrNow(); CHR.running = false; cancelAnimationFrame(CHR.raf); } else { CHR.start = performance.now(); CHR.running = true; chrTick(); } render(); },
+  'ch-lap': () => { if (CHR.running) { CHR.laps.push(chrNow()); render(); } },
+  'ch-reset': () => { CHR.running = false; cancelAnimationFrame(CHR.raf); CHR.acc = 0; CHR.laps = []; render(); },
+  'tm-set': ds => { if (TMR.running) return; TMR.dur = TMR.left = Number(ds.s) * 1000; TMR.done = false; render(); },
+  'tm-add': ds => {
+    const d = Number(ds.s) * 1000;
+    if (TMR.running) { TMR.end = Math.max(performance.now() + 1000, TMR.end + d); clearTimeout(TMR.to); TMR.to = setTimeout(tmrEnd, TMR.end - performance.now() + 50); }
+    else { TMR.left = Math.max(1000, (TMR.left || TMR.dur) + d); TMR.dur = TMR.left; TMR.done = false; }
+    render();
+  },
+  'tm-start': () => {
+    if (TMR.running) { TMR.left = tmrLeft(); TMR.running = false; clearTimeout(TMR.to); cancelAnimationFrame(TMR.raf); }
+    else {
+      if (TMR.left <= 0) TMR.left = TMR.dur;
+      try { TMR.ctx = TMR.ctx || new (window.AudioContext || window.webkitAudioContext)(); if (TMR.ctx.resume) TMR.ctx.resume(); } catch (e) { /* son indisponible */ }
+      TMR.done = false; TMR.end = performance.now() + TMR.left; TMR.running = true;
+      TMR.to = setTimeout(tmrEnd, TMR.left + 50); tmrTick();
+    }
+    render();
+  },
+  'tm-reset': () => { TMR.running = false; clearTimeout(TMR.to); cancelAnimationFrame(TMR.raf); TMR.left = TMR.dur; TMR.done = false; render(); },
+  'gq-make': () => { UI.grp.cur = makeTeams(outilsClasse(), todayIso()); UI.grp.sel = null; render(); },
+  'gq-sel': ds => {
+    const g = UI.grp.cur, a = UI.grp.sel, b = ds.id;
+    if (g && a && a !== b) {
+      const ta = g.teams.findIndex(t => t.includes(a)), tb = g.teams.findIndex(t => t.includes(b));
+      if (ta >= 0 && tb >= 0 && ta !== tb) { g.teams[ta][g.teams[ta].indexOf(a)] = b; g.teams[tb][g.teams[tb].indexOf(b)] = a; UI.grp.sel = null; render(); return; }
+    }
+    UI.grp.sel = a === b ? null : b; render();
+  },
+  'gq-move': ds => { const g = UI.grp.cur; if (!g || !UI.grp.sel) return; g.teams.forEach(t => { const i = t.indexOf(UI.grp.sel); if (i >= 0) t.splice(i, 1); }); g.teams[Number(ds.t)].push(UI.grp.sel); UI.grp.sel = null; render(); },
+  'gq-copy': async () => { const txt = teamsText(); try { await navigator.clipboard.writeText(txt); toast('Équipes copiées.'); } catch (e) { openTextModal('Équipes', txt); } },
+  'gq-save': () => {
+    const g = UI.grp.cur; if (!g) return;
+    const c = outilsClasse(), T = todayIso(), q = sequenceOn(c.id, T);
+    putDoc(newId('g_'), { kind: 'groupes', classeId: c.id, nom: `${q && q.apsa ? q.apsa : 'Équipes'} · ${plural(g.teams.length, 'équipe')}`, date: T, teams: g.teams, apart: g.apart });
+    toast('Équipes enregistrées.');
+  },
+  'gq-load': ds => { const x = S.groupes.find(y => y.id === ds.id); if (!x) return; UI.grp.cur = { teams: (x.teams || []).map(t => t.filter(id => S.eleves.has(id))), apart: (x.apart || []).filter(id => S.eleves.has(id)) }; UI.grp.sel = null; render(); },
+  'gq-del': ds => { const before = snapshotIds([ds.id]); delDoc(ds.id); toast('Équipes supprimées.', [{ label: 'Annuler', run: () => restoreSnap(before) }]); },
+  'trombi': () => { UI.trombi = !UI.trombi; render(); },
+  'lock-now': () => showLock(),
+  'pin-set': () => openPinForm('set'),
+  'pin-del': () => openPinForm('del'),
+});
+Object.assign(CH, {
+  'cr-f': el => {
+    const c = getClasse(UI.classeSel); if (!c) return;
+    const k = c.creneaux[Number(el.dataset.i)]; if (!k) return;
+    k[el.dataset.k] = el.dataset.k === 'j' ? Number(el.value) : el.value;
+    saveClasse(c);
+  },
+  'set-ab': el => { const D = UI.settingsDraft; if (!D) return; D.semAB = el.checked; if (!isIso(D.semRef)) D.semRef = mondayOf(D.debut); render(); },
+  'set-abvac': el => { const D = UI.settingsDraft; if (!D) return; D.semVacCompte = el.checked; render(); },
+  'set-abref': el => { const D = UI.settingsDraft; if (!D || !isIso(el.value)) return; D.semRef = el.value; render(); },
+  'notes-per': el => { UI.nPer = el.value; render(); },
+  'g-cell': el => {
+    const v = S.evals.find(x => x.id === el.dataset.ev); if (!v) return;
+    const val = parseCell(v, el.value);
+    if (val === undefined) { el.classList.add('bad'); toast(v.type === 'perf' && v.unite === 'temps' ? 'Temps non reconnu : écris par exemple 3:25 ou 205.' : 'Valeur non reconnue : un nombre, abs, disp ou nn.'); return; }
+    el.classList.remove('bad');
+    const eid = el.dataset.e, cur = (v.notes || {})[eid];
+    if ((cur == null ? null : cur) === val) return;
+    const body = clone(Store.docs().get(v.id) || {});
+    body.notes = body.notes || {};
+    if (val === null) delete body.notes[eid]; else body.notes[eid] = val;
+    body.majLe = new Date().toISOString();
+    putDoc(v.id, body);
+  },
+  'draw-norep': el => { UI.draw.norep = el.checked; if (!el.checked) UI.draw.tires = []; render(); },
+  'gq-n': el => { UI.grp.n = Math.max(2, Math.min(12, Number(el.value) || 2)); },
+  'gq-mode': el => { UI.grp.mode = el.value; },
+  'gq-inap': el => { UI.grp.sansInaptes = el.checked; },
+});
+document.addEventListener('keydown', e => {
+  if (LOCK.on) {
+    if (/^\d$/.test(e.key)) { e.preventDefault(); lockKey(e.key); }
+    else if (e.key === 'Backspace') { e.preventDefault(); lockKey('del'); }
+    return;
+  }
+  const t = e.target;
+  if (e.key === 'Enter' && t && t.classList && t.classList.contains('gcell') && t.tagName === 'INPUT') {
+    e.preventDefault();
+    const ev = t.dataset.ev, eid = t.dataset.e;
+    const c = S.classes.find(x => x.id === UI.nClasse), ids = c ? c.eleves.map(x => x.id) : [];
+    const next = ids[ids.indexOf(eid) + (e.shiftKey ? -1 : 1)];
+    CH['g-cell'](t);
+    if (next) { const n = document.getElementById(`g-${ev}-${next}`); if (n) { n.focus(); if (n.select) n.select(); } }
+  }
+});
 
 /* ============ Exemple fictif ============ */
 function buildDemo() {
@@ -2466,6 +3555,8 @@ function buildDemo() {
   const docs = new Map();
   const st = clone(DEFAULT_SETTINGS);
   st.etab = 'Collège (exemple)';
+  st.semAB = true;
+  st.semRef = '2026-08-17';
   docs.set('reglages', Object.assign({ kind: 'reglages' }, st));
   const T = todayIso(), wd = new Date().getDay();
   const defs = [['6e', 'A', [1, 4]], ['6e', 'B', [2, 5]], ['5e', 'A', [1, 3]], ['5e', 'B', [2, 4]], ['4e', 'A', [3, 5]], ['4e', 'B', [1, 4]], ['3e', 'A', [2, 5]], ['3e', 'B', [3, 5]]];
@@ -2536,12 +3627,57 @@ function buildDemo() {
     delete en.p;
     se.el[target] = en; nOub++;
   }
-  classes.forEach(c => docs.set(c.id, { kind: 'classe', nom: c.nom, niveau: c.niveau, jours: c.jours, eleves: c.eleves }));
+  const LIEUX = ['Gymnase', 'Plateau sportif', 'Stade'];
+  classes.forEach((c, ci) => {
+    c.creneaux = c.jours.map((j, i) => (i === 0
+      ? { j, h1: ['08:00', '10:05', '13:30', '15:25'][ci % 4], h2: ['10:00', '12:00', '15:25', '17:20'][ci % 4], sem: '', lieu: LIEUX[ci % 3] }
+      : { j, h1: ['14:30', '09:00', '11:00', '08:00'][ci % 4], h2: ['15:25', '10:00', '12:00', '09:00'][ci % 4], sem: '', lieu: LIEUX[(ci + 1) % 3] }));
+  });
+  classes[7].creneaux.push({ j: 1, h1: '16:30', h2: '17:25', sem: 'A', lieu: 'Stade' });
+  const CUR = ['Demi-fond', 'Badminton', 'Acrosport', 'Handball', 'Escalade', 'Tennis de table', 'Demi-fond', 'Volley-ball'];
+  const PREV = ['Vitesse / relais', 'Gymnastique', 'Course d’orientation', 'Basket-ball', 'Lancers', 'Danse', 'Sauts', 'Football'];
+  const v1 = st.vacances[0], v2 = st.vacances[1];
+  classes.forEach((c, ci) => {
+    docs.set(`q_demo${ci}a`, { kind: 'sequence', classeId: c.id, apsa: PREV[ci], ca: APSA_CA[PREV[ci]] || '', titre: '', debut: st.debut, fin: addDays(v1.debut, -1), nb: '', objectifs: '', evaluation: '' });
+    docs.set(`q_demo${ci}b`, { kind: 'sequence', classeId: c.id, apsa: CUR[ci], ca: APSA_CA[CUR[ci]] || '', titre: ci === 0 ? 'Courir à allure régulière' : '', debut: addDays(v1.fin, 1), fin: addDays(v2.debut, -1), nb: '', objectifs: ci === 0 ? 'Construire et respecter un projet d’allure ; utiliser ses sensations et le chronomètre pour réguler sa vitesse.' : '', evaluation: ci === 0 ? 'Course de 3 × 500 m à allure annoncée' : '' });
+  });
+  const PLANS = [
+    ['Trouver son allure', 'Courir 3 minutes à allure régulière', 'Échauffement : footing et gammes (10 min)\nSituation 1 : 3 × 3 min à allure choisie, récupération 1 min 30\nSituation 2 : annoncer son allure et la tenir, observation en binôme\nRetour au calme et bilan', 'Plots tous les 25 m, chronomètres, fiches de binôme'],
+    ['Tenir son allure annoncée', 'Annoncer un temps au 500 m et le respecter à 5 s près', 'Échauffement en musique (10 min)\nSituation 1 : 2 × 500 m à allure annoncée, coup de sifflet tous les 100 m\nSituation 2 : rôle de coach, relevé des temps intermédiaires\nÉtirements et bilan', 'Plots, sifflet, chronomètres, fiches d’allure'],
+  ];
+  const monT = mondayOf(T);
+  let pi = 0;
+  for (let i = -7; i <= 5; i++) {
+    const d = addDays(monT, i);
+    if (d < st.debut || !classes[0].jours.includes(parse(d).getDay()) || inV(d)) continue;
+    const pl = PLANS[pi++ % 2];
+    docs.set(`j_${classes[0].id}_${d}`, { kind: 'journal', classeId: classes[0].id, date: d, titre: pl[0], objectifs: pl[1], deroulement: pl[2], materiel: pl[3], bilan: d < T ? 'Bonne implication ; la moitié du groupe part encore trop vite.' : '', majLe: '' });
+  }
+  const cA = classes[0], cB = classes[2];
+  const mk = (cl, o2) => Object.assign({ kind: 'eval', classeId: cl.id, apsa: '', max: 20, coef: 1, unite: '', horsMoy: false, bareme: { mode: 'aucun', u: [null, null], f: [null, null], g: [null, null] }, notes: {} }, o2);
+  const ev1 = mk(cA, { titre: 'Vitesse : 50 m', date: clip('2026-09-25'), apsa: 'Vitesse / relais', type: 'perf', unite: 'temps', bareme: { mode: 'sexe', f: [10.6, 7.9], g: [10.2, 7.3], u: [null, null] } });
+  const ev2 = mk(cA, { titre: 'Demi-fond : VMA', date: clip(o(-8)), apsa: 'Demi-fond', type: 'perf', unite: 'kmh', bareme: { mode: 'sexe', f: [8, 13.5], g: [9, 15.5], u: [null, null] } });
+  const ev3 = mk(cA, { titre: 'Demi-fond : projet d’allure', date: clip(o(-1)), apsa: 'Demi-fond', type: 'niveau', coef: 2 });
+  const ev4 = mk(cB, { titre: 'Acrosport : enchaînement', date: clip(o(-6)), apsa: 'Acrosport', type: 'note' });
+  cA.eleves.forEach(e => {
+    ev1.notes[e.id] = Math.round(((e.sexe === 'F' ? 8.4 : 7.8) + rnd() * 2) * 10) / 10;
+    ev2.notes[e.id] = Math.round(((e.sexe === 'F' ? 9 : 10) + rnd() * 5) * 2) / 2;
+    const q = rnd(); ev3.notes[e.id] = q < 0.1 ? 'MI' : q < 0.35 ? 'MF' : q < 0.8 ? 'MS' : 'TBM';
+  });
+  ev1.notes[cA.eleves[3].id] = 'abs';
+  cB.eleves.forEach(e => { ev4.notes[e.id] = Math.round((8 + rnd() * 11) * 2) / 2; });
+  ev4.notes[cB.eleves[5].id] = 'disp';
+  [ev1, ev2, ev3, ev4].forEach((v, i) => { if (v.date <= T) docs.set('v_demo' + i, v); });
+  docs.set('p_' + cA.eleves[2].id, { kind: 'profil', dispositifs: ['PAP'], resp: [], infos: 'Consignes courtes et reformulées ; le placer près de l’enseignant pendant les explications.', annotations: [{ id: 'a1', date: clip(o(-12)), texte: 'Échange avec la famille : bons progrès en endurance.' }] });
+  docs.set('p_' + cA.eleves[9].id, { kind: 'profil', dispositifs: ['Section sportive', 'AS'], resp: [], infos: '', annotations: [] });
+  docs.set('p_' + cB.eleves[1].id, { kind: 'profil', dispositifs: ['Délégué'], resp: [], infos: '', annotations: [] });
+  classes.forEach(c => docs.set(c.id, { kind: 'classe', nom: c.nom, niveau: c.niveau, jours: c.jours, creneaux: c.creneaux, eleves: c.eleves }));
   return docs;
 }
 
 /* ============ Démarrage ============ */
 routeFromHash();
+if (pinGet()) showLock();
 render();
 boot();
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
