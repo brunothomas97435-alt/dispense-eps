@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dispenses EPS</title>
+<title>Gymnote</title>
 <meta name="theme-color" content="#0f232b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Dispenses EPS">
+<meta name="apple-mobile-web-app-title" content="Gymnote">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icon-192.png">
@@ -846,7 +846,7 @@ body{-webkit-tap-highlight-color:transparent}
     <div class="brand">
       <span class="brand-mark" aria-hidden="true">EPS</span>
       <div>
-        <div class="brand-title">Dispenses &amp; inaptitudes</div>
+        <div class="brand-title" title="Gymnote, le carnet de bord du prof d’EPS">Gymnote</div>
         <div class="brand-sub" id="brand-sub"></div>
       </div>
     </div>
@@ -2545,7 +2545,7 @@ function printHTML(html) {
 }
 function exportJSON() {
   const obj = { app: 'dispenses-eps', version: 1, exporte: new Date().toISOString(), docs: Object.fromEntries(Store.docs()) };
-  download(`dispenses-eps-sauvegarde-${todayIso()}.json`, JSON.stringify(obj, null, 1)).then(ok => {
+  download(`gymnote-sauvegarde-${todayIso()}.json`, JSON.stringify(obj, null, 1)).then(ok => {
     if (!ok) return;
     try { localStorage.setItem(LS_BACKUP, new Date().toISOString()); } catch (e) {}
     toast('Sauvegarde enregistrée.');
