@@ -616,6 +616,139 @@ body.locked #view,body.locked #banner,body.locked #modal-root,body.locked .tabs{
 @media (max-width:860px){.j-grid{grid-template-columns:1fr}.trow{grid-template-columns:1fr 36px 36px 36px}.trow .tty{grid-column:1 / -1}.cls-title h1{font-size:30px}}
 
 
+/* Grilles de compétences */
+.modal.xl{max-width:1220px}
+.modal.xl .modal-foot{z-index:6}
+.cp{border-top:1px solid var(--line);margin:2px 0 16px;padding-top:14px;display:grid;gap:10px}
+.cp-h{display:flex;align-items:baseline;gap:4px 12px;flex-wrap:wrap}
+.cp-h h4{font-family:var(--font-display);font-size:22px;font-weight:700;margin:0;letter-spacing:.01em}
+.cp-warn{border-left:3px solid var(--warn);padding:4px 0 4px 10px;color:var(--ink-2)}
+.cp-model{display:grid;gap:6px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));border-radius:10px;padding:10px 12px}
+.cp-model-row{display:flex;gap:8px;flex-wrap:wrap}
+.cp-model-row select{flex:1 1 260px;width:auto}
+.cp-sub{display:flex;justify-content:space-between;align-items:center;gap:8px 12px;flex-wrap:wrap;margin-top:6px}
+.cp-lvs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(var(--rows,2),auto);grid-auto-flow:column;gap:6px 10px}
+@media (max-width:900px){.cp-lvs{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}
+.cp-lv{--lc:var(--muted);display:grid;grid-template-columns:7px minmax(0,1fr) 70px 70px auto;gap:6px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:3px 3px 3px 0;overflow:hidden;background:var(--surface)}
+.cp-sw{align-self:stretch;background:var(--lc);margin:-3px 0}
+.cp-lv input[type=text]{min-height:34px;padding:5px 7px}
+.cp-pct{display:flex;align-items:center;gap:3px;font-size:13px;color:var(--muted)}
+.cp-pct input[type=text]{text-align:right;padding:5px 5px}
+.cp-acts{display:inline-flex;align-items:center}
+.cp .icon-btn{width:30px;height:30px;font-size:17px}
+.cp .icon-btn:disabled{opacity:.3}
+.cp-tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
+table.cp-t{border-collapse:separate;border-spacing:0;min-width:100%}
+.cp-t th,.cp-t td{border-bottom:1px solid var(--line-2);border-right:1px solid var(--line-2);padding:5px;vertical-align:top;background:var(--surface)}
+.cp-t tr:last-child td{border-bottom:0}
+.cp-t thead th{background:var(--surface-2);text-align:left;box-shadow:inset 0 4px 0 var(--lc,transparent);padding:9px 7px 6px;min-width:150px;font-weight:400}
+.cp-t .cp-c{position:sticky;left:0;z-index:1;min-width:220px;width:220px;background:var(--surface-2)}
+.cp-t thead .cp-c{z-index:2;box-shadow:none;font-weight:700}
+.cp-cc{display:grid;gap:4px}
+.cp-cc input[type=text]{min-height:32px;padding:5px 7px;font-size:14px}
+.cp-ti{font-weight:700}
+.cp-lh{display:block;font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.1}
+.cp-t textarea{min-width:150px;min-height:72px;font-size:13px;line-height:1.3;padding:5px 6px}
+.cp-cf{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.cp-pts{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--muted)}
+.cp-pts input[type=text]{width:58px;text-align:right}
+.cp-foot{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap}
+.cp-foot .hint{flex:1 1 300px}
+.cp-total{flex:1 1 auto;font-size:14px}
+.cp-arr{display:flex;align-items:center;gap:6px;color:var(--ink-2)}
+.cp-arr select{width:auto;min-height:32px;padding:4px 8px}
+.cp-also-d{margin:-4px 0 14px}
+.cp-also-d summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--accent);padding:4px 0}
+.cp-also{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.cp-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 11px 4px 8px;font-weight:700;font-size:14px;background:var(--surface);cursor:pointer}
+.cp-chip input{width:17px;height:17px;margin:0;accent-color:var(--accent)}
+.cp-chip:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.cmod{list-style:none;margin:0;padding:0}
+.cmod li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line-2)}
+.cmod li:first-child{border-top:0}
+.cmod li div{display:grid;gap:2px}
+
+/* Saisie élève par élève */
+.cg-bar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding:10px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2);position:sticky;top:0;z-index:4}
+.cg-nav.icon-btn{width:42px;height:42px;font-size:30px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.cg-nav.icon-btn:disabled{opacity:.3}
+.cg-who{display:flex;align-items:center;gap:6px 10px;flex:1;min-width:200px;flex-wrap:wrap}
+.cg-name{font-size:19px;line-height:1.2}
+.cg-name .link{text-decoration-color:transparent}
+.cg-name .link:hover{text-decoration-color:var(--line)}
+.cg-score{--lc:var(--line);display:grid;justify-items:end;gap:2px;line-height:1;padding:7px 12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--lc) 55%,var(--line));background:color-mix(in srgb,var(--lc) 15%,var(--surface));min-width:112px;font-weight:700}
+.cg-score .big{font-family:var(--font-display);font-weight:700;font-size:34px;letter-spacing:.01em}
+.cg-score small{font-size:12px;font-weight:400;color:var(--ink-2)}
+.cg-disp{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:8px;border:1px solid var(--line);border-left:4px solid var(--c-partial);background:var(--surface);font-size:14px;margin:6px 0 10px;color:var(--ink-2)}
+.cg-sp{margin:6px 0 10px;font-size:14px;color:var(--ink-2)}
+.cg-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;margin-top:6px}
+table.cg{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;min-width:calc(210px + var(--nl,4) * 120px)}
+.cg th,.cg td{border-bottom:1px solid var(--line-2);border-right:1px solid var(--line-2);padding:4px;vertical-align:top;background:var(--surface);height:1px}
+.cg td:last-child,.cg th:last-child{border-right:0}
+.cg tbody tr:last-child > *{border-bottom:0}
+.cg thead th{background:var(--surface-2);text-align:center;font-weight:700;padding:9px 4px 6px;box-shadow:inset 0 5px 0 var(--lc,transparent);vertical-align:bottom}
+.cg thead th.cg-c{box-shadow:none;text-align:left;padding-left:10px}
+.cg tr.cg-g th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);padding:8px 4px 4px}
+.cg tr.cg-g + tr th{box-shadow:none;border-top:3px solid var(--lc,transparent);padding-top:6px}
+.cg-lc{display:block;font-family:var(--font-display);font-size:18px;line-height:1}
+.cg-ln{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:3px;line-height:1.2}
+.cg .cg-c{width:210px;text-align:left;position:sticky;left:0;z-index:1;background:var(--surface-2);padding:8px 10px}
+.cg-t{display:block;font-weight:700;font-size:15px;line-height:1.25}
+.cg-s{display:block;font-size:12.5px;color:var(--muted);font-weight:400;line-height:1.3;margin-top:2px}
+.cg-p{display:block;font-size:12.5px;color:var(--ink-2);margin-top:5px;font-weight:400}
+.cg-x{margin-top:7px;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:12px;padding:3px 10px;font-weight:700;color:var(--muted)}
+.cg-x[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.cg-cell{--lc:var(--muted);display:block;width:100%;height:100%;min-height:66px;text-align:left;border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:7px 8px;font:inherit;font-size:13px;line-height:1.32;color:var(--ink);white-space:pre-line;position:relative;cursor:pointer}
+.cg-cell:hover{border-color:color-mix(in srgb,var(--lc) 65%,var(--line));background:color-mix(in srgb,var(--lc) 6%,var(--surface))}
+.cg-cell[aria-pressed="true"]{background:color-mix(in srgb,var(--lc) 20%,var(--surface));border:2px solid var(--lc);padding:6px 24px 6px 7px;font-weight:700}
+.cg-cell[aria-pressed="true"]::after{content:'✓';position:absolute;top:5px;right:5px;width:18px;height:18px;border-radius:50%;background:var(--ink);color:var(--surface);font-size:11px;font-weight:700;display:grid;place-items:center;line-height:1}
+.cg-e{color:var(--muted);font-weight:600}
+.cg tr.nx td .cg-cell{opacity:.35}
+.cg.compact .cg-cell{min-height:44px;text-align:center;font-family:var(--font-display);font-size:18px;display:grid;place-items:center}
+.cg.compact .cg-cell[aria-pressed="true"]{padding:6px 7px}
+.cg.compact{min-width:calc(210px + var(--nl,4) * 70px)}
+
+/* Saisie pour toute la classe */
+.cm-sum{display:flex;gap:6px 18px;flex-wrap:wrap;font-size:14px;color:var(--ink-2);margin:0 0 10px}
+.cm-warn{color:var(--ink)}
+.cm-wrap{overflow:auto;max-height:min(62vh,660px);border:1px solid var(--line);border-radius:10px;-webkit-overflow-scrolling:touch}
+table.cm{border-collapse:separate;border-spacing:0;font-size:14px;min-width:100%;font-variant-numeric:tabular-nums}
+.cm th,.cm td{border-bottom:1px solid var(--line-2);padding:4px 6px;background:var(--surface);white-space:nowrap}
+.cm thead th{position:sticky;top:0;z-index:2;background:var(--surface-2);vertical-align:bottom;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+.cm .sticky{position:sticky;left:0;z-index:1;min-width:190px}
+.cm thead .sticky,.cm tfoot .sticky{z-index:3}
+.cm-ch{min-width:100px;max-width:150px;white-space:normal!important}
+.cm-t{display:block;font-weight:700;font-size:13px;line-height:1.2}
+.cm-s{display:block;font-size:11px;color:var(--muted);font-weight:400;line-height:1.25;margin-top:1px}
+select.cm-sel{--lc:transparent;width:96px;min-height:34px;padding:4px;text-align-last:center;font-weight:700}
+select.cm-sel.on{background:color-mix(in srgb,var(--lc) 20%,var(--surface));border-color:color-mix(in srgb,var(--lc) 65%,var(--line))}
+select.cm-sel.nx{color:var(--muted);font-weight:400;background:var(--surface-2)}
+select.cm-st{width:118px;min-height:34px;padding:4px 6px}
+.cm tr.sp td{background:var(--surface-2)}
+.cm .n{text-align:right}
+.cm-20 b{font-size:16px}
+.cm-part{color:var(--warn);font-weight:700;margin-left:2px}
+.cm tfoot td{position:sticky;bottom:0;z-index:2;background:var(--surface-2);font-weight:700;font-size:12.5px;border-top:1px solid var(--line);border-bottom:0}
+.cm-f{color:var(--ink-2);font-weight:600!important}
+
+/* Colonne du cahier de notes */
+.gcomp{--lc:transparent;width:100%;min-width:86px;min-height:34px;border:1px solid color-mix(in srgb,var(--lc) 60%,var(--line));background:color-mix(in srgb,var(--lc) 16%,var(--surface));border-radius:8px;font:inherit;font-weight:700;font-size:14px;color:var(--ink);padding:4px;cursor:pointer}
+.gcomp:hover{border-color:var(--ink-2)}
+.gcomp.vide{border-style:dashed;color:var(--accent);font-weight:700;font-size:12px;background:var(--surface)}
+.gcomp.vide.dsp{color:var(--warn)}
+.gcomp.part::after{content:'*';color:var(--warn);margin-left:1px}
+.gcomp.spc{color:var(--ink-2);background:var(--surface-2)}
+@media (max-width:900px){
+  .cg .cg-c{width:180px}
+  table.cg{min-width:calc(180px + var(--nl,4) * 110px)}
+}
+@media (max-width:640px){
+  .cg-bar{padding:8px 12px}
+  .cg-score .big{font-size:28px}
+  .cp-lv{grid-template-columns:7px minmax(0,1fr) 62px 66px}
+  .cp-lv .cp-acts{grid-column:2/-1;justify-content:flex-end}
+}
+
 /* Bandeaux, info-bulles, notifications */
 .banner{border-bottom:1px solid var(--line)}
 .banner.demo{background:color-mix(in srgb,var(--c-ponct) 10%,var(--surface))}
@@ -1037,7 +1170,7 @@ function rebuild() {
   if (!S.settings.semForce || typeof S.settings.semForce !== 'object' || Array.isArray(S.settings.semForce)) S.settings.semForce = {};
   if (!isIso(S.settings.semRef)) S.settings.semRef = mondayOf(S.settings.debut);
   S.classes = [];
-  const disp = [], ses = [], jr = [], sq = [], ev = [], gr = [];
+  const disp = [], ses = [], jr = [], sq = [], ev = [], gr = [], md = [];
   const prof = new Map();
   let acks = {};
   for (const [id, b] of docs) {
@@ -1050,6 +1183,7 @@ function rebuild() {
     else if (id.startsWith('q_') && isIso(b.debut) && isIso(b.fin)) sq.push(Object.assign({}, b, { id }));
     else if (id.startsWith('v_') && isIso(b.date)) ev.push(Object.assign({}, b, { id }));
     else if (id.startsWith('g_')) gr.push(Object.assign({}, b, { id }));
+    else if (id.startsWith('m_') && b.comp && typeof b.comp === 'object') md.push(Object.assign({}, b, { id, nom: String(b.nom || 'Modèle') }));
     else if (id.startsWith('p_')) prof.set(id.slice(2), b);
   }
   S.classes.sort(cmpClasse);
@@ -1065,6 +1199,7 @@ function rebuild() {
   S.evals = ev.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : collator.compare(a.titre || '', b.titre || '')));
   S.groupes = gr.sort((a, b) => ((a.date || '') < (b.date || '') ? 1 : -1));
   S.profils = prof;
+  S.modeles = md.sort((a, b) => collator.compare(a.nom, b.nom));
   S.seances = new Map(); S.seancesByClasse = new Map(); S.seancesByEleve = new Map();
   for (const x of ses) {
     S.seances.set(x.id, x);
@@ -2454,7 +2589,7 @@ async function handleImportFile(input) {
   let obj;
   try { obj = JSON.parse(await file.text()); } catch (e) { toast('Ce fichier n’est pas une sauvegarde lisible.'); return; }
   if (!obj || obj.app !== 'dispenses-eps' || !obj.docs || typeof obj.docs !== 'object') { toast('Ce fichier n’est pas une sauvegarde de cette application.'); return; }
-  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cdsjqvgpt]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
+  const entries = Object.entries(obj.docs).filter(([id, b]) => /^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) && (id === 'reglages' || id === 'acks' || /^[cdsjqvgptm]_/.test(id)) && b && typeof b === 'object' && !Array.isArray(b));
   const nc = entries.filter(([id]) => id.startsWith('c_')).length;
   const ne = entries.filter(([id]) => id.startsWith('c_')).reduce((n, [, b]) => n + (Array.isArray(b.eleves) ? b.eleves.length : 0), 0);
   const nd = entries.filter(([id]) => id.startsWith('d_')).length;
@@ -2989,6 +3124,7 @@ function parseCell(v, txt) {
 function note20(v, e, raw) {
   if (raw == null || raw === '' || SPECIAL[raw]) return null;
   if (v.type === 'niveau') return NIV_PTS[raw] != null ? NIV_PTS[raw] : null;
+  if (v.type === 'comp') { const sc = compScore(v, raw); return sc ? sc.n20 : null; }
   const x = Number(raw);
   if (!isFinite(x)) return null;
   if (v.type === 'note') { const max = Number(v.max) > 0 ? Number(v.max) : 20; return Math.max(0, Math.min(20, (x / max) * 20)); }
@@ -3005,11 +3141,13 @@ function note20(v, e, raw) {
 function valueTxt(v, raw) {
   if (raw == null || raw === '') return '';
   if (SPECIAL[raw]) return SPECIAL[raw];
+  if (v.type === 'comp') { const sc = compScore(v, raw); return sc ? `${fmtN(sc.pts)}/${fmtN(sc.max)}${sc.complete ? '' : ' (partiel)'}` : ''; }
   if (v.type === 'niveau') return String(raw);
   if (v.type === 'perf' && v.unite === 'temps') return fmtTemps(raw);
   return fmtN(raw);
 }
 function typeShort(v) {
+  if (v.type === 'comp') { const n = compOf(v).criteres.length; return `grille · ${n} critère${n > 1 ? 's' : ''}`; }
   if (v.type === 'niveau') return 'niveaux';
   if (v.type === 'perf') return 'perf.' + (UNIT_SHORT[v.unite] ? ' ' + UNIT_SHORT[v.unite] : '');
   return '/' + fmtN(Number(v.max) > 0 ? v.max : 20);
@@ -3031,6 +3169,10 @@ function gCell(v, e) {
   const raw = (v.notes || {})[e.id], id = `g-${v.id}-${e.id}`;
   const dsp = raw == null ? activeOn(e.id, v.date) : null;
   const lab = `${esc(nomComplet(e))}, ${esc(v.titre || 'évaluation')}`;
+  if (v.type === 'comp') {
+    const sc = compScore(v, raw), sp = typeof raw === 'string' && SPECIAL[raw] ? raw : '', col = sc ? compScoreColor(v, sc) : '';
+    return `<td class="gc"><button type="button" class="gcell gcomp${sc ? (sc.complete ? '' : ' part') : sp ? ' spc' : ' vide' + (dsp ? ' dsp' : '')}" id="${id}" data-act="comp-eleve" data-ev="${v.id}" data-e="${e.id}" ${col ? `style="--lc:${col}"` : ''} aria-label="${lab}${sc && !sc.complete ? ', évaluation incomplète' : ''}">${sp ? SPECIAL[sp] : sc ? fmtN(sc.n20) : dsp ? 'disp ?' : 'Évaluer'}</button></td>`;
+  }
   if (v.type === 'niveau') {
     return `<td class="gc"><select class="gcell niv-${raw || 'x'}" id="${id}" data-ch="g-cell" data-ev="${v.id}" data-e="${e.id}" aria-label="${lab}"><option value="">${dsp ? 'disp ?' : ''}</option>${NIV_COMP.map(n => `<option value="${n}" ${raw === n ? 'selected' : ''}>${n}</option>`).join('')}${Object.entries(SPECIAL).map(([k, l]) => `<option value="${k}" ${raw === k ? 'selected' : ''}>${l}</option>`).join('')}</select></td>`;
   }
@@ -3053,7 +3195,7 @@ function notesCtx() { const c = S.classes.find(x => x.id === UI.nClasse) || S.cl
 function notesTable(c, a, b, tab) {
   const evs = evalsOf(c.id, a, b, tab);
   const head = ['Nom', 'Prénom'].concat(evs.map(v => `${v.titre || 'Évaluation'} (${fmtNum(v.date)})`), ['Moyenne /20']);
-  const rows = c.eleves.map(e => [e.nom, e.prenom].concat(evs.map(v => { const raw = (v.notes || {})[e.id], t = valueTxt(v, raw), n = v.type === 'perf' ? note20(v, e, raw) : null; return n != null ? `${t} (${fmtN(n)}/20)` : t; }), [(m => (m == null ? '' : invFmt(m)))(moyenne(e, tab ? evs : evalsFor(e.id, c.id, a, b)))]));
+  const rows = c.eleves.map(e => [e.nom, e.prenom].concat(evs.map(v => { const raw = (v.notes || {})[e.id], t = valueTxt(v, raw), n = v.type === 'perf' || v.type === 'comp' ? note20(v, e, raw) : null; return n != null ? `${t} (${fmtN(n)}/20)` : t; }), [(m => (m == null ? '' : invFmt(m)))(moyenne(e, tab ? evs : evalsFor(e.id, c.id, a, b)))]));
   return { head, rows };
 }
 function viewNotes(tab) {
@@ -3066,7 +3208,7 @@ function viewNotes(tab) {
   const evs = evalsOf(c.id, a, b, tab);
   const picker = S.classes.map(k => `<button class="cpick" aria-pressed="${k.id === c.id}" data-act="pick-notes" data-id="${k.id}"><span>${esc(k.nom)}</span></button>`).join('');
   const perOpts = [['annee', 'Année entière']].concat(st.periodes.map((p, i) => [String(i), p.nom])).map(([v, l]) => `<option value="${v}" ${String(UI.nPer) === v ? 'selected' : ''}>${esc(l)}</option>`).join('');
-  const head = evs.map(v => `<th><button type="button" class="gh-b" data-act="edit-eval" data-id="${v.id}"><span class="gh-t">${esc(v.titre || 'Évaluation')}</span><span class="gh-s">${fmt(v.date)} · ${esc(typeShort(v))}${Number(v.coef) !== 1 ? ' · coef ' + fmtN(v.coef) : ''}${v.horsMoy ? ' · hors moyenne' : ''}</span></button></th>`).join('');
+  const head = evs.map(v => `<th><button type="button" class="gh-b" data-act="${v.type === 'comp' ? 'comp-classe' : 'edit-eval'}" data-id="${v.id}"><span class="gh-t">${esc(v.titre || 'Évaluation')}</span><span class="gh-s">${fmt(v.date)} · ${esc(typeShort(v))}${Number(v.coef) !== 1 ? ' · coef ' + fmtN(v.coef) : ''}${v.horsMoy ? ' · hors moyenne' : ''}</span></button></th>`).join('');
   const moys = [];
   const body = c.eleves.map((e, i) => {
     const m = moyenne(e, tab ? evs : evalsFor(e.id, c.id, a, b));
@@ -3082,7 +3224,7 @@ function viewNotes(tab) {
       <div class="appel-h"><div><h2>${esc(tab ? tab.nom : 'Notes')} · ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div><div class="appel-count"><span class="big">${evs.length}</span><span>évaluation${evs.length > 1 ? 's' : ''}</span></div></div>
       ${!c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : !evs.length ? `<div class="empty-sm pad">Aucune évaluation sur cette période. <button class="link strong" data-act="new-eval" data-tab="${tab ? tab.id : ''}">Créer une évaluation</button></div>` : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${head}<th class="gmoy">Moy. /20</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${foot}<td class="gmoy">${cm}</td></tr></tfoot></table></div>`}
     </section>
-    <p class="hint" style="margin:8px 2px 0">Saisis un nombre, ou <b>abs</b>, <b>disp</b>, <b>nn</b> (non noté) ; la touche Entrée passe à l’élève suivant. Pour un temps : 3:25 ou 205 (secondes). Niveaux de compétence : MI, MF, MS, TBM comptent 5, 10, 15 et 20 points dans la moyenne. Touche le titre d’une évaluation pour la modifier.</p>
+    <p class="hint" style="margin:8px 2px 0">Saisis un nombre, ou <b>abs</b>, <b>disp</b>, <b>nn</b> (non noté) ; la touche Entrée passe à l’élève suivant. Pour un temps : 3:25 ou 205 (secondes). Niveaux de compétence : MI, MF, MS, TBM comptent 5, 10, 15 et 20 points dans la moyenne. Touche le titre d’une évaluation pour la modifier. Grille de compétences : touche une case pour évaluer l’élève critère par critère, ou le titre pour toute la classe.</p>
   </div>`;
 }
 function openEval(id, tabId) {
@@ -3092,6 +3234,7 @@ function openEval(id, tabId) {
   const cid0 = ex ? ex.classeId : (S.classes.some(k => k.id === UI.nClasse) ? UI.nClasse : S.classes[0].id);
   const q = sequenceOn(cid0, T);
   const f = ex ? clone(ex) : { kind: 'eval', classeId: cid0, titre: '', date: T, apsa: q ? q.apsa || '' : '', type: 'note', max: 20, coef: 1, unite: 'temps', horsMoy: false, notes: {}, ongletId: tabId || '' };
+  f.comp = clone(compNorm(f.comp && Array.isArray(f.comp.niveaux) ? f.comp : compDefault())); f.also = [];
   f.bareme = Object.assign({ mode: 'aucun', u: [null, null], f: [null, null], g: [null, null] }, f.bareme || {});
   ['u', 'f', 'g'].forEach(k => { if (!Array.isArray(f.bareme[k])) f.bareme[k] = [null, null]; });
   const locked = !!ex && Object.keys(ex.notes || {}).length > 0;
@@ -3106,13 +3249,15 @@ function openEval(id, tabId) {
         <div class="field"><label class="label" for="ev-d">Date</label><input type="date" id="ev-d" value="${esc(f.date)}"></div>
         <div class="field"><label class="label" for="ev-a">APSA</label><select id="ev-a"><option value=""></option>${APSA.map(x => `<option ${f.apsa === x ? 'selected' : ''}>${esc(x)}</option>`).join('')}</select></div>
       </div>
-      <div class="field"><span class="label" id="ev-ty-l">Type</span><div class="seg" role="group" aria-labelledby="ev-ty-l">${[['note', 'Note'], ['niveau', 'Niveau de compétence'], ['perf', 'Performance']].map(([k, l]) => `<button type="button" data-ty="${k}" aria-pressed="${f.type === k}" ${locked && f.type !== k ? 'disabled' : ''}>${l}</button>`).join('')}</div>${locked ? '<p class="hint">Type verrouillé : des résultats sont déjà saisis.</p>' : ''}</div>
+      ${!ex ? compAlsoHTML(f) : ''}
+      <div class="field"><span class="label" id="ev-ty-l">Type</span><div class="seg" role="group" aria-labelledby="ev-ty-l">${[['note', 'Note'], ['niveau', 'Niveau de compétence'], ['perf', 'Performance'], ['comp', 'Grille de compétences']].map(([k, l]) => `<button type="button" data-ty="${k}" aria-pressed="${f.type === k}" ${locked && f.type !== k ? 'disabled' : ''}>${l}</button>`).join('')}</div>${locked ? '<p class="hint">Type verrouillé : des résultats sont déjà saisis.</p>' : ''}</div>
       ${f.type === 'note' ? `<div class="grid-2"><div class="field"><label class="label" for="ev-max">Noté sur</label><input type="number" id="ev-max" min="1" step="any" value="${esc(f.max)}"></div></div>` : ''}
       ${f.type === 'niveau' ? '<p class="hint" style="margin:-6px 0 14px">MI maîtrise insuffisante, MF maîtrise fragile, MS maîtrise satisfaisante, TBM très bonne maîtrise. Dans la moyenne : 5, 10, 15 et 20 points.</p>' : ''}
       ${f.type === 'perf' ? `<div class="grid-2">
           <div class="field"><label class="label" for="ev-u">Unité</label><select id="ev-u" ${locked ? 'disabled' : ''}>${Object.entries(UNITES).map(([k, l]) => `<option value="${k}" ${f.unite === k ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
           <div class="field"><label class="label" for="ev-bm">Barème</label><select id="ev-bm"><option value="aucun" ${f.bareme.mode === 'aucun' ? 'selected' : ''}>Aucun (performance seule)</option><option value="unique" ${f.bareme.mode === 'unique' ? 'selected' : ''}>Le même pour tous</option><option value="sexe" ${f.bareme.mode === 'sexe' ? 'selected' : ''}>Filles et garçons</option></select></div></div>
         ${f.bareme.mode === 'aucun' ? '' : `<div class="bm-grid">${(f.bareme.mode === 'sexe' ? [['f', 'Filles'], ['g', 'Garçons']] : [['u', 'Tous']]).map(([k, l]) => `<div class="bm-row"><span class="strong">${l}</span><label class="sm">0/20 pour <input type="text" id="ev-${k}0" value="${esc(bv(f.bareme[k][0]))}" inputmode="decimal"></label><label class="sm">20/20 pour <input type="text" id="ev-${k}1" value="${esc(bv(f.bareme[k][1]))}" inputmode="decimal"></label></div>`).join('')}<p class="hint" style="margin-bottom:14px">Conversion linéaire entre les deux valeurs, arrondie au demi-point.${f.unite === 'temps' ? ' Pour un temps, mets le temps le plus lent pour 0/20 (ex. 10,5) et le plus rapide pour 20/20.' : ''}${f.bareme.mode === 'sexe' ? ' Sans sexe renseigné, le barème garçons s’applique.' : ''}</p></div>`}` : ''}
+      ${f.type === 'comp' ? compEditorHTML(f, locked, id) : ''}
       <div class="grid-2"><div class="field"><label class="label" for="ev-k">Coefficient</label><input type="number" id="ev-k" min="0.25" step="0.25" value="${esc(f.coef)}"></div>
         <div class="field"><span class="label">Moyenne</span><label class="check"><input type="checkbox" id="ev-hm" ${f.horsMoy ? 'checked' : ''}> Ne pas compter dans la moyenne</label></div></div>
       <p class="form-err" id="ev-err" role="alert"></p>
@@ -3129,15 +3274,19 @@ function openEval(id, tabId) {
     if (g('#ev-bm')) f.bareme.mode = g('#ev-bm').value;
     ['u', 'f', 'g'].forEach(k => { const a0 = g(`#ev-${k}0`), a1 = g(`#ev-${k}1`); if (a0 && a1) f.bareme[k] = [a0.value, a1.value]; });
     f.coef = g('#ev-k').value; f.horsMoy = g('#ev-hm').checked;
+    if (f.type === 'comp') readComp(box, f);
+    if (!ex) f.also = [...box.querySelectorAll('[data-also]:checked')].map(x => x.value);
   };
   const parseBm = x => { if (typeof x === 'number') return x; const s = String(x == null ? '' : x).trim(); if (!s) return NaN; const r = f.unite === 'temps' ? parseTemps(s) : Number(s.replace(',', '.')); return r === undefined ? NaN : r; };
-  const draw = box => { box.innerHTML = html(); bind(box); };
+  const draw = box => { const tw = box.querySelector('#cp-tw'), sl = tw ? tw.scrollLeft : 0; box.innerHTML = html(); box.classList.toggle('xl', f.type === 'comp'); const tw2 = box.querySelector('#cp-tw'); if (tw2) tw2.scrollLeft = sl; bind(box); };
   const bind = box => {
     const g = s => box.querySelector(s);
     box.querySelectorAll('[data-ty]').forEach(b => { b.onclick = () => { read(box); f.type = b.dataset.ty; draw(box); }; });
     if (g('#ev-u')) g('#ev-u').onchange = () => { read(box); ['u', 'f', 'g'].forEach(k => { f.bareme[k] = ['', '']; }); draw(box); };
     if (g('#ev-bm')) g('#ev-bm').onchange = () => { read(box); draw(box); };
     g('#ev-a').onchange = () => { if (!g('#ev-t').value.trim()) g('#ev-t').value = g('#ev-a').value; };
+    if (!ex && g('#ev-c')) g('#ev-c').onchange = () => { read(box); f.also = f.also.filter(k => k !== f.classeId); draw(box); };
+    if (f.type === 'comp') bindCompEditor(box, f, () => read(box), () => draw(box), locked, id);
     const del = g('#ev-del');
     if (del) del.onclick = async () => {
       if (!(await confirmDialog({ title: 'Supprimer cette évaluation ?', html: 'Les résultats saisis seront supprimés avec elle.', ok: 'Supprimer', danger: true }))) return;
@@ -3163,13 +3312,17 @@ function openEval(id, tabId) {
       }
       const cur = ex ? Store.docs().get(id) : null;
       const body = { kind: 'eval', classeId: f.classeId, titre: f.titre || f.apsa || 'Évaluation', date: f.date, apsa: f.apsa, type: f.type, max: f.type === 'note' ? max : 20, coef, unite: f.type === 'perf' ? f.unite : '', bareme, horsMoy: !!f.horsMoy, notes: cur && cur.notes ? clone(cur.notes) : {}, ongletId: f.ongletId || '', majLe: new Date().toISOString() };
+      if (cur && cur.comms) body.comms = clone(cur.comms);
+      if (f.type === 'comp') { const ce = compFinish(f, body); if (ce) return err(ce); }
+      const others = ex ? [] : f.also.filter(k => k !== body.classeId && S.classes.some(c => c.id === k));
+      others.forEach(k => putDoc(newId('v_'), Object.assign(clone(body), { classeId: k, notes: {}, comms: {}, ongletId: '' }), true));
       putDoc(id || newId('v_'), body);
       closeModal(m);
       UI.nClasse = body.classeId;
       if (UI.nPer !== 'annee') UI.nPer = currentPeriodKey(body.date);
       if (UI.route === 'classe' && UI.cls === body.classeId) { const tt = classTabs(S.classes.find(k => k.id === body.classeId)).find(x => x.id === body.ongletId && x.type === 'notes'); if (tt) UI.ctab = tt.id; render(); }
       else openClass(body.classeId, 'notes', body.ongletId, true);
-      toast(ex ? 'Évaluation modifiée.' : 'Évaluation créée : saisis les résultats dans la colonne.');
+      toast(ex ? 'Évaluation modifiée.' : others.length ? `Évaluation créée pour ${others.length + 1} classes.` : body.type === 'comp' ? 'Grille créée : touche une case de la colonne pour évaluer un élève.' : 'Évaluation créée : saisis les résultats dans la colonne.');
     };
   };
   m = openModal({ wide: true, label: ex ? 'Modifier l’évaluation' : 'Nouvelle évaluation', html: '', onMount: box => draw(box) });
@@ -3182,7 +3335,7 @@ function resultatsHTML(eid) {
   const evs = evalsFor(eid, x.c.id, st.debut, st.fin).slice().reverse();
   return `<div class="card-h" style="margin:2px 0 6px"><span class="label">Moyennes sur 20</span></div>
     <div class="suivi-stats" style="grid-template-columns:repeat(${pers.length},minmax(0,1fr))">${tiles}</div>
-    ${evs.length ? `<div class="btable-wrap"><table class="btable"><thead><tr><th style="padding:8px 10px">Date</th><th style="padding:8px 10px">Évaluation</th><th class="n" style="padding:8px 10px">Résultat</th><th class="n" style="padding:8px 10px">/20</th><th class="n" style="padding:8px 10px">Coef.</th></tr></thead><tbody>${evs.map(v => { const raw = (v.notes || {})[eid], n = note20(v, x.e, raw); return `<tr><td>${fmt(v.date)}</td><td>${esc(v.titre || 'Évaluation')}${v.horsMoy ? ' <span class="muted sm">(hors moyenne)</span>' : ''}</td><td class="n">${esc(valueTxt(v, raw)) || '<span class="muted">—</span>'}${v.type === 'perf' && raw != null && !SPECIAL[raw] && UNIT_SHORT[v.unite] && v.unite !== 'temps' ? ' ' + UNIT_SHORT[v.unite] : ''}</td><td class="n">${n == null ? '' : fmtN(n)}</td><td class="n">${fmtN(v.coef || 1)}</td></tr>`; }).join('')}</tbody></table></div>` : '<div class="empty-sm">Aucune évaluation cette année.</div>'}`;
+    ${evs.length ? `<div class="btable-wrap"><table class="btable"><thead><tr><th style="padding:8px 10px">Date</th><th style="padding:8px 10px">Évaluation</th><th class="n" style="padding:8px 10px">Résultat</th><th class="n" style="padding:8px 10px">/20</th><th class="n" style="padding:8px 10px">Coef.</th></tr></thead><tbody>${evs.map(v => { const raw = (v.notes || {})[eid], n = note20(v, x.e, raw); return `<tr><td>${fmt(v.date)}</td><td>${v.type === 'comp' ? `<button type="button" class="link" data-act="comp-eleve" data-ev="${v.id}" data-e="${eid}">${esc(v.titre || 'Évaluation')}</button>` : esc(v.titre || 'Évaluation')}${v.horsMoy ? ' <span class="muted sm">(hors moyenne)</span>' : ''}</td><td class="n">${esc(valueTxt(v, raw)) || '<span class="muted">—</span>'}${v.type === 'perf' && raw != null && !SPECIAL[raw] && UNIT_SHORT[v.unite] && v.unite !== 'temps' ? ' ' + UNIT_SHORT[v.unite] : ''}</td><td class="n">${n == null ? '' : fmtN(n)}</td><td class="n">${fmtN(v.coef || 1)}</td></tr>`; }).join('')}</tbody></table></div>` : '<div class="empty-sm">Aucune évaluation cette année.</div>'}`;
 }
 
 /* ============ Outils : tirage, équipes, chrono, minuteur ============ */
@@ -3928,6 +4081,496 @@ Object.assign(CH, {
   },
 });
 
+/* ============ Grilles de compétences (évaluation critériée) ============ */
+const COMP_N4 = [['Maîtrise insuffisante', 'MI', 25], ['Maîtrise fragile', 'MF', 50], ['Maîtrise satisfaisante', 'MS', 75], ['Très bonne maîtrise', 'TBM', 100]];
+const COMP_N7 = [['Maîtrise insuffisante', 'MI', 20], ['Maîtrise fragile', 'MF−', 35], ['Maîtrise fragile', 'MF+', 45], ['Maîtrise satisfaisante', 'MS−', 60], ['Maîtrise satisfaisante', 'MS+', 70], ['Très bonne maîtrise', 'TBM−', 85], ['Très bonne maîtrise', 'TBM+', 100]];
+const COMP_ARR = [[0.5, 'au demi-point'], [0.25, 'au quart de point'], [0.1, 'au dixième'], [1, 'au point'], [0, 'sans arrondi']];
+const SP_LONG = { abs: 'Absent', disp: 'Dispensé', nn: 'Non noté' };
+const compUid = p => p + Math.random().toString(36).slice(2, 8);
+function compLevels(def) { return def.map(([nom, court, pct], i) => ({ id: 'n' + (i + 1), nom, court, pct })); }
+function compModel(nom, apsa, def, crits) {
+  const niveaux = compLevels(def);
+  return { nom, apsa, comp: { niveaux, arrondi: 0.5, criteres: crits.map(([titre, sous, pts, d], i) => ({ id: 'k' + (i + 1), titre, sous, pts, desc: Object.fromEntries((d || []).map((t, j) => [niveaux[j] ? niveaux[j].id : '', t]).filter(([k, t]) => k && t)) })) } };
+}
+const COMP_FOURNIS = {
+  'f-relais': compModel('Relais-vitesse 4e/5e (7 niveaux)', 'Vitesse / relais', COMP_N7, [
+    ['S’échauffer seul', 'Préparer son corps à un effort de vitesse', 2, ['Ne s’échauffe pas, ou imite les autres sans intention.', 'Quelques exercices décousus, durée trop courte.', 'Footing et mobilisations, sans montée en intensité.', 'Échauffement complet, ordre encore approximatif.', 'Échauffement progressif : footing, mobilisations, gammes.', 'Progressif, avec gammes et accélérations.', 'Autonome, progressif et adapté à l’épreuve, jusqu’aux départs rapides.']],
+    ['Efficacité de la transmission', 'Donneur', 3, ['Ralentit fortement ou s’arrête pour transmettre.', 'Ralentit à l’approche, transmission hésitante.', 'Allure moyenne, témoin tendu trop tard.', 'Court jusqu’au receveur, signal parfois oublié.', 'Donne le signal et transmet sans ralentir.', 'Transmission à pleine vitesse, geste précis.', 'Pleine vitesse, au moment idéal dans la zone, geste sûr.']],
+    ['Efficacité de la transmission', 'Receveur', 3, ['Attend à l’arrêt ou se retourne pour prendre le témoin.', 'Part trop tard, se fait rattraper presque à l’arrêt.', 'Départ irrégulier, regarde en arrière.', 'Part sur la marque, main tendue mais instable.', 'Part sur la marque sans se retourner, main bien placée.', 'Départ franc, accélère avec le témoin.', 'Marque réglée au plus juste, reçoit sans regarder à pleine vitesse.']],
+    ['Performance individuelle', 'Course de 30 m', 4, ['F : plus de 6,4 s\nG : plus de 6,0 s', 'F : 6,4 à 6,1 s\nG : 6,0 à 5,7 s', 'F : 6,0 à 5,8 s\nG : 5,6 à 5,4 s', 'F : 5,7 à 5,5 s\nG : 5,3 à 5,1 s', 'F : 5,4 à 5,3 s\nG : 5,0 à 4,9 s', 'F : 5,2 à 5,1 s\nG : 4,8 à 4,7 s', 'F : moins de 5,1 s\nG : moins de 4,7 s']],
+    ['Performance en binôme', 'Écart entre le relais 2 × 30 m et la somme des deux temps individuels', 4, ['Plus de +0,6 s', '+0,6 à +0,4 s', '+0,3 à +0,1 s', '0 à −0,1 s', '−0,2 à −0,3 s', '−0,4 à −0,6 s', '−0,7 s ou mieux']],
+    ['Dimension sociale', 'Starter, chronométreur, juge de zone', 2, ['Refuse ou néglige les rôles.', 'Tient un rôle s’il est guidé, erreurs fréquentes.', 'Tient un rôle avec quelques oublis.', 'Tient correctement les rôles demandés.', 'Fiable : mesures et décisions justes.', 'Fiable dans tous les rôles, conseille son binôme.', 'Fiable et moteur : organise, conseille, fait progresser le groupe.']],
+    ['Dimension culturelle', 'Règlement, zone de transmission, marque d’élan', 2, ['Ne connaît pas les règles de la zone.', '', 'Connaît la zone mais pas l’usage de la marque.', '', 'Explique le rôle de la zone et de la marque.', '', 'Analyse un relais et propose un réglage de marque.']],
+  ]),
+  'f-demifond': compModel('Demi-fond cycle 4 (4 niveaux)', 'Demi-fond', COMP_N4, [
+    ['Respect du projet', 'Écart entre le temps annoncé et le temps réalisé', 6, ['Plus de 30 s d’écart', '15 à 30 s', '5 à 14 s', 'Moins de 5 s']],
+    ['Vitesse de course', 'Part de la VMA tenue sur 3 × 500 m', 6, ['Moins de 70 %', '70 à 79 %', '80 à 89 %', '90 % et plus']],
+    ['Régularité', 'Écart entre les fractions', 4, ['Part trop vite, l’allure s’effondre.', 'Allure irrégulière, plus de 10 s d’écart.', '5 à 10 s d’écart.', 'Moins de 5 s, finit en accélérant.']],
+    ['Coach et observateur', 'Relevé des temps, conseils', 2, ['Relevés absents ou faux.', 'Relevés incomplets.', 'Relevés justes.', 'Relevés justes et conseils utiles.']],
+    ['Connaissances', 'Échauffement, récupération, sensations', 2, ['Ne sait pas expliquer.', 'Connaît quelques repères.', 'Explique échauffement et récupération.', 'Relie ses sensations à son allure.']],
+  ]),
+  'f-sco': compModel('Sports collectifs cycle 4 (4 niveaux)', '', COMP_N4, [
+    ['Porteur de balle', 'Choisir entre conserver, passer ou tirer', 6, ['Perd souvent la balle, jeu au hasard.', 'Conserve, mais avance peu vers la cible.', 'Fait progresser la balle, tire en position favorable.', 'Choisit vite la meilleure solution, crée le décalage.']],
+    ['Non porteur', 'Se démarquer, occuper l’espace', 4, ['Reste immobile ou suit la balle.', 'Se rend disponible de temps en temps.', 'Se démarque et propose une solution.', 'Anticipe et crée des espaces pour les partenaires.']],
+    ['Défense', 'Gêner, récupérer la balle', 4, ['Ne défend pas.', 'Suit son adversaire sans le gêner.', 'Gêne la progression et récupère des balles.', 'Défend en équipe, intercepte, organise le repli.']],
+    ['Efficacité collective', 'Bilan des rencontres', 2, ['Équipe rarement efficace.', 'Quelques actions abouties.', 'Équipe souvent efficace.', 'Équipe efficace et stable.']],
+    ['Rôles sociaux', 'Arbitre, observateur, coach', 2, ['Refuse ou subit le rôle.', 'Tient le rôle avec aide.', 'Tient le rôle correctement.', 'Tient le rôle avec autorité et justesse.']],
+    ['Connaissances', 'Règles, vocabulaire tactique', 2, ['Règles mal connues.', 'Règles de base connues.', 'Règles et principes connus.', 'Explique et adapte la tactique.']],
+  ]),
+};
+function compDefault() { return compModel('', '', COMP_N4, [['', '', 4, []], ['', '', 4, []], ['', '', 4, []]]).comp; }
+function compNorm(x) {
+  const src = x && typeof x === 'object' ? x : {};
+  const niveaux = (Array.isArray(src.niveaux) ? src.niveaux : []).filter(l => l && l.id).map(l => ({ id: String(l.id), nom: String(l.nom || ''), court: String(l.court || ''), pct: Math.max(0, Math.min(100, Number(l.pct) || 0)) }));
+  const criteres = (Array.isArray(src.criteres) ? src.criteres : []).filter(c => c && c.id).map(c => ({ id: String(c.id), titre: String(c.titre || ''), sous: String(c.sous || ''), pts: Math.max(0, Number(c.pts) || 0), desc: c.desc && typeof c.desc === 'object' ? Object.fromEntries(Object.entries(c.desc).filter(([, t]) => typeof t === 'string' && t)) : {} }));
+  const a = Number(src.arrondi);
+  return { niveaux, criteres, arrondi: COMP_ARR.some(([k]) => k === a) && src.arrondi != null ? a : 0.5 };
+}
+const COMP_CACHE = new WeakMap();
+function compOf(v) {
+  const k = v && v.comp && typeof v.comp === 'object' ? v.comp : null;
+  if (!k) return compNorm(null);
+  let r = COMP_CACHE.get(k);
+  if (!r) { r = compNorm(k); COMP_CACHE.set(k, r); }
+  return r;
+}
+function compScore(v, raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const cp = compOf(v);
+  let pts = 0, max = 0, n = 0, todo = 0;
+  for (const c of cp.criteres) {
+    if (!(c.pts > 0)) continue;
+    const r = raw[c.id];
+    if (r === 'x') continue;
+    const l = cp.niveaux.find(z => z.id === r);
+    if (!l) { todo++; continue; }
+    pts += (c.pts * l.pct) / 100; max += c.pts; n++;
+  }
+  if (!n) return null;
+  const a = cp.arrondi, x20 = (pts / max) * 20, n20 = a ? Math.round(x20 / a) * a : x20;
+  return { pts, max, n20: Math.max(0, Math.min(20, n20)), pct: (pts / max) * 100, complete: !todo, todo, n };
+}
+function compHue(t) { return Math.round(4 + Math.max(0, Math.min(1, t)) * 136); }
+function lvT(i, n) { return n > 1 ? i / (n - 1) : 1; }
+function lvColor(i, n) { return `hsl(${compHue(lvT(i, n))} 62% 42%)`; }
+function compNearest(cp, pct) {
+  let bi = -1, bd = Infinity;
+  cp.niveaux.forEach((l, i) => { const d = Math.abs(l.pct - pct); if (d <= bd) { bd = d; bi = i; } });
+  return bi;
+}
+function compScoreColor(v, sc) { const cp = compOf(v); const i = compNearest(cp, sc.pct); return i < 0 ? '' : lvColor(i, cp.niveaux.length); }
+function compGroups(cp) {
+  const g = [];
+  cp.niveaux.forEach((l, i) => { const k = l.nom.trim().toLowerCase(); const last = g[g.length - 1]; if (last && k && last.k === k) last.n++; else g.push({ k, nom: l.nom, n: 1, i }); });
+  return g.length < cp.niveaux.length ? g : null;
+}
+const lvLab = (l, i) => l.court || l.nom || 'Niveau ' + (i + 1);
+function compMax(cp) { return cp.criteres.reduce((s, c) => s + (c.pts > 0 ? c.pts : 0), 0); }
+function compSet(vid, eid, fn) {
+  const cur = Store.docs().get(vid); if (!cur) return;
+  const body = clone(cur); body.notes = body.notes || {};
+  const nv = fn(body.notes[eid]);
+  if (nv == null || nv === '' || (typeof nv === 'object' && !Object.keys(nv).length)) delete body.notes[eid]; else body.notes[eid] = nv;
+  body.majLe = new Date().toISOString();
+  putDoc(vid, body);
+}
+function compSetLevel(vid, eid, cid, lid) {
+  compSet(vid, eid, raw => { const o = raw && typeof raw === 'object' ? raw : {}; if (lid) o[cid] = lid; else delete o[cid]; return o; });
+}
+function compComment(vid, eid, txt) {
+  const cur = Store.docs().get(vid); if (!cur) return;
+  const t = String(txt || '').trim(), old = (cur.comms || {})[eid] || '';
+  if (t === old) return;
+  const body = clone(cur); body.comms = body.comms || {};
+  if (t) body.comms[eid] = t; else delete body.comms[eid];
+  body.majLe = new Date().toISOString();
+  putDoc(vid, body, true);
+  rebuild();
+}
+function compHasLevels(raw) { return !!raw && typeof raw === 'object' && Object.keys(raw).length > 0; }
+
+/* Éditeur de grille, dans la fenêtre de l’évaluation */
+function compSources(exceptId) {
+  const out = [];
+  Object.entries(COMP_FOURNIS).forEach(([k, m]) => out.push({ key: k, grp: 'Modèles fournis', nom: m.nom, apsa: m.apsa, comp: m.comp }));
+  (S.modeles || []).forEach(m => out.push({ key: m.id, grp: 'Mes modèles', nom: m.nom, apsa: m.apsa || '', comp: m.comp }));
+  S.evals.filter(v => v.type === 'comp' && v.id !== exceptId).slice().reverse().forEach(v => {
+    const c = S.classes.find(k => k.id === v.classeId);
+    out.push({ key: v.id, grp: 'Grilles de mes évaluations', nom: `${v.titre || 'Évaluation'} · ${c ? c.nom : ''} · ${fmtNum(v.date)}`, apsa: v.apsa || '', comp: v.comp, titre: v.titre });
+  });
+  return out;
+}
+function compEditorHTML(f, locked, exceptId) {
+  const cp = f.comp, n = cp.niveaux.length, src = compSources(exceptId), tot = compMax(cp);
+  const grps = [...new Set(src.map(s => s.grp))].map(gp => `<optgroup label="${esc(gp)}">${src.filter(s => s.grp === gp).map(s => `<option value="${esc(s.key)}">${esc(s.nom)}</option>`).join('')}</optgroup>`).join('');
+  const ib = (act, i, lab, sym, dis) => `<button type="button" class="icon-btn" data-cp="${act}" data-i="${i}" aria-label="${lab}" title="${lab}" ${dis ? 'disabled' : ''}>${sym}</button>`;
+  return `<section class="cp" aria-label="Grille de compétences">
+    <div class="cp-h"><h4>Grille de compétences</h4><span class="muted sm">Critères en lignes, niveaux de maîtrise en colonnes, un descripteur par case.</span></div>
+    ${locked ? '<p class="hint cp-warn">Des résultats sont déjà saisis : tu peux corriger les textes, les points et les pourcentages. Supprimer un critère ou un niveau efface les résultats correspondants.</p>' : `<div class="cp-model"><label class="label" for="cp-mod">Partir d’un modèle</label><div class="cp-model-row"><select id="cp-mod"><option value="">Choisir un modèle…</option>${grps}</select><button type="button" class="btn" data-cp="mod-apply">Utiliser ce modèle</button></div></div>`}
+    <div class="cp-sub"><span class="label">Niveaux de maîtrise, du plus faible au plus élevé</span><span class="row-gap"><button type="button" class="btn sm ghost" data-cp="n4">4 niveaux</button><button type="button" class="btn sm ghost" data-cp="n7">7 niveaux</button></span></div>
+    <div class="cp-lvs" style="--rows:${Math.ceil(n / 2)}">${cp.niveaux.map((l, i) => `<div class="cp-lv" style="--lc:${lvColor(i, n)}"><span class="cp-sw" aria-hidden="true"></span><input type="text" id="cp-ln-${i}" value="${esc(l.nom)}" placeholder="Nom du niveau" aria-label="Nom du niveau ${i + 1}"><input type="text" id="cp-lc-${i}" class="cp-short" value="${esc(l.court)}" placeholder="Abrév." aria-label="Abréviation du niveau ${i + 1}"><span class="cp-pct"><input type="text" inputmode="decimal" id="cp-lp-${i}" value="${esc(fmtN(l.pct))}" aria-label="Part des points du critère au niveau ${i + 1}, en pourcentage">%</span><span class="cp-acts">${ib('lv-up', i, 'Placer plus bas', '←', !i)}${ib('lv-down', i, 'Placer plus haut', '→', i === n - 1)}${ib('lv-del', i, 'Supprimer ce niveau', '×', n <= 2)}</span></div>`).join('')}</div>
+    <div class="cp-foot"><button type="button" class="btn sm" data-cp="lv-add">+ Niveau</button><span class="hint">Le pourcentage est la part des points du critère obtenue à ce niveau : à 75 %, un critère sur 4 points en rapporte 3.</span></div>
+    <div class="cp-sub"><span class="label">Critères et descripteurs</span></div>
+    <div class="cp-tw" id="cp-tw"><table class="cp-t">
+      <thead><tr><th class="cp-c" scope="col">Critère</th>${cp.niveaux.map((l, j) => `<th scope="col" style="--lc:${lvColor(j, n)}"><span class="cp-lh">${esc(lvLab(l, j))}</span><span class="muted sm">${l.court && l.nom ? esc(l.nom) + ' · ' : ''}${fmtN(l.pct)} %</span></th>`).join('')}</tr></thead>
+      <tbody>${cp.criteres.map((cr, i) => `<tr><td class="cp-c"><div class="cp-cc">
+        <input type="text" id="cp-ct-${i}" class="cp-ti" value="${esc(cr.titre)}" placeholder="Compétence ou critère" aria-label="Critère ${i + 1}">
+        <input type="text" id="cp-cs-${i}" value="${esc(cr.sous)}" placeholder="Précision (facultatif)" aria-label="Précision du critère ${i + 1}">
+        <div class="cp-cf"><span class="cp-pts"><input type="text" inputmode="decimal" id="cp-cp-${i}" value="${esc(fmtN(cr.pts))}" aria-label="Points du critère ${i + 1}"> pts</span><span class="cp-acts">${ib('cr-up', i, 'Monter ce critère', '↑', !i)}${ib('cr-down', i, 'Descendre ce critère', '↓', i === cp.criteres.length - 1)}${ib('cr-del', i, 'Supprimer ce critère', '×', cp.criteres.length <= 1)}</span></div>
+      </div></td>${cp.niveaux.map((l, j) => `<td><textarea id="cp-d-${i}-${j}" rows="3" placeholder="${esc(lvLab(l, j))}" aria-label="${esc(cr.titre || 'Critère ' + (i + 1))}, ${esc(l.nom || l.court)}">${esc(cr.desc[l.id] || '')}</textarea></td>`).join('')}</tr>`).join('')}</tbody>
+    </table></div>
+    <div class="cp-foot"><button type="button" class="btn sm" data-cp="cr-add">+ Critère</button><span class="cp-total" id="cp-total">${compTotalTxt(tot)}</span><label class="cp-arr sm" for="cp-arr">Arrondi de la note <select id="cp-arr">${COMP_ARR.map(([k, l]) => `<option value="${k}" ${cp.arrondi === k ? 'selected' : ''}>${l}</option>`).join('')}</select></label></div>
+    <div class="cp-foot"><button type="button" class="btn sm ghost" data-cp="mod-save">Enregistrer comme modèle</button>${(S.modeles || []).length ? `<button type="button" class="link sm" data-cp="mod-manage">Gérer mes modèles (${S.modeles.length})</button>` : ''}</div>
+  </section>`;
+}
+function compTotalTxt(tot) { return `Total : <b>${fmtN(tot)} point${tot > 1 ? 's' : ''}</b>${tot && tot !== 20 ? ', note ramenée sur 20' : ''}`; }
+function compAlsoHTML(f) {
+  const cur = S.classes.find(k => k.id === f.classeId);
+  const others = S.classes.filter(k => k.id !== f.classeId).sort((a, b) => ((b.niveau === (cur && cur.niveau)) - (a.niveau === (cur && cur.niveau))) || cmpClasse(a, b));
+  if (!others.length) return '';
+  return `<details class="cp-also-d" ${f.also.length ? 'open' : ''}><summary>Créer aussi pour d’autres classes${f.also.length ? ` (${f.also.length})` : ''}</summary><div class="cp-also">${others.map(k => `<label class="cp-chip"><input type="checkbox" data-also value="${k.id}" ${f.also.includes(k.id) ? 'checked' : ''}><span>${esc(k.nom)}</span></label>`).join('')}</div><p class="hint">Même évaluation, avec ses propres résultats dans chaque classe.</p></details>`;
+}
+function readComp(box, f) {
+  const cp = f.comp, g = s => box.querySelector(s);
+  const num = (el, d) => { const x = Number(String(el.value).replace(',', '.').trim()); return el.value.trim() === '' ? d : isFinite(x) ? x : d; };
+  cp.niveaux.forEach((l, i) => {
+    const a = g('#cp-ln-' + i), b = g('#cp-lc-' + i), c = g('#cp-lp-' + i);
+    if (a) l.nom = a.value; if (b) l.court = b.value; if (c) l.pct = Math.max(0, Math.min(100, num(c, l.pct)));
+  });
+  cp.criteres.forEach((cr, i) => {
+    const a = g('#cp-ct-' + i), b = g('#cp-cs-' + i), c = g('#cp-cp-' + i);
+    if (a) cr.titre = a.value; if (b) cr.sous = b.value; if (c) cr.pts = Math.max(0, num(c, 0));
+    cp.niveaux.forEach((l, j) => { const t = g(`#cp-d-${i}-${j}`); if (t) { if (t.value.trim()) cr.desc[l.id] = t.value; else delete cr.desc[l.id]; } });
+  });
+  const ar = g('#cp-arr'); if (ar) cp.arrondi = Number(ar.value);
+}
+function compClean(src) {
+  const cp = compNorm(src);
+  cp.niveaux.forEach(l => { l.nom = l.nom.trim(); l.court = l.court.trim(); });
+  if (cp.niveaux.length < 2) return { err: 'Il faut au moins deux niveaux de maîtrise.' };
+  if (cp.niveaux.some(l => !l.nom && !l.court)) return { err: 'Donne un nom à chaque niveau de maîtrise.' };
+  cp.criteres = cp.criteres.filter(c => c.titre.trim() || c.sous.trim() || Object.values(c.desc).some(t => t.trim()));
+  if (!cp.criteres.length) return { err: 'Ajoute au moins un critère avec son titre.' };
+  if (cp.criteres.some(c => !c.titre.trim())) return { err: 'Donne un titre à chaque critère.' };
+  if (!cp.criteres.some(c => c.pts > 0)) return { err: 'Donne des points à au moins un critère.' };
+  const lids = new Set(cp.niveaux.map(l => l.id));
+  cp.criteres.forEach(c => {
+    c.titre = c.titre.trim(); c.sous = c.sous.trim();
+    Object.keys(c.desc).forEach(k => { const t = c.desc[k].replace(/\s+$/g, '').replace(/^\s+/g, ''); if (!lids.has(k) || !t) delete c.desc[k]; else c.desc[k] = t; });
+  });
+  return { cp };
+}
+function compFinish(f, body) {
+  const r = compClean(f.comp);
+  if (r.err) return r.err;
+  const cp = r.cp, lids = new Set(cp.niveaux.map(l => l.id)), cids = new Set(cp.criteres.map(c => c.id));
+  body.comp = cp; body.max = compMax(cp) || 20; body.unite = '';
+  Object.keys(body.notes || {}).forEach(eid => {
+    const raw = body.notes[eid];
+    if (!raw || typeof raw !== 'object') return;
+    const o = {};
+    Object.entries(raw).forEach(([k, l]) => { if (cids.has(k) && (l === 'x' || lids.has(l))) o[k] = l; });
+    if (Object.keys(o).length) body.notes[eid] = o; else delete body.notes[eid];
+  });
+  return '';
+}
+function compSaveModel(f, after) {
+  const r = compClean(f.comp);
+  if (r.err) { toast(r.err); return; }
+  openModal({
+    label: 'Enregistrer comme modèle',
+    html: `<form novalidate><div class="modal-head"><h3>Enregistrer comme modèle</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+      <div class="modal-body"><div class="field"><label class="label" for="ms-n">Nom du modèle</label><input type="text" id="ms-n" value="${esc(f.titre || f.apsa || '')}" maxlength="80" data-autofocus></div>
+      <p class="hint">Le modèle garde les niveaux, les critères, les points et les descripteurs, sans aucun résultat d’élève. Tu le retrouves dans « Partir d’un modèle », pour toutes tes classes. Un modèle du même nom est remplacé.</p><p class="form-err" id="ms-err" role="alert"></p></div>
+      <div class="modal-foot"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></form>`,
+    onMount(box, m) {
+      box.querySelector('form').onsubmit = ev => {
+        ev.preventDefault();
+        const nom = box.querySelector('#ms-n').value.trim();
+        if (!nom) { box.querySelector('#ms-err').textContent = 'Donne un nom au modèle.'; return; }
+        const same = (S.modeles || []).find(x => x.nom.trim().toLowerCase() === nom.toLowerCase());
+        putDoc(same ? same.id : newId('m_'), { kind: 'modele', nom, apsa: f.apsa || '', comp: r.cp, majLe: new Date().toISOString() });
+        closeModal(m);
+        toast(same ? 'Modèle mis à jour.' : 'Modèle enregistré.');
+        if (after) after();
+      };
+    },
+  });
+}
+function openCompModeles(after) {
+  const html = () => `<div class="modal-head"><h3>Mes modèles de grilles</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body">${(S.modeles || []).length ? `<ul class="cmod">${S.modeles.map(m => { const cp = compNorm(m.comp); return `<li><div><b>${esc(m.nom)}</b><span class="muted sm">${plural(cp.criteres.length, 'critère')} · ${plural(cp.niveaux.length, 'niveau', 'niveaux')}${m.apsa ? ' · ' + esc(m.apsa) : ''}</span></div><button type="button" class="btn sm ghost danger-t" data-x="del" data-id="${m.id}">Supprimer</button></li>`; }).join('')}</ul>` : '<div class="empty-sm">Aucun modèle enregistré.</div>'}</div>
+    <div class="modal-foot"><button type="button" class="btn primary" data-act="close-modal">Fermer</button></div>`;
+  openModal({
+    label: 'Mes modèles de grilles', html: html(), refresh: html, onClose: after,
+    onMount(box) {
+      box.onclick = e => {
+        const t = e.target.closest('[data-x="del"]'); if (!t) return;
+        const before = snapshotIds([t.dataset.id]);
+        delDoc(t.dataset.id);
+        toast('Modèle supprimé.', [{ label: 'Annuler', run: () => restoreSnap(before) }]);
+      };
+    },
+  });
+}
+function bindCompEditor(box, f, read, draw, locked, exceptId) {
+  const cp = () => f.comp;
+  const redo = fn => { read(); fn(); draw(); };
+  const tot = () => { const el = box.querySelector('#cp-total'); if (!el) return; let s = 0; cp().criteres.forEach((c, i) => { const inp = box.querySelector('#cp-cp-' + i); const x = inp ? Number(String(inp.value).replace(',', '.')) : c.pts; if (x > 0) s += x; }); el.innerHTML = compTotalTxt(s); };
+  box.querySelectorAll('[id^="cp-cp-"]').forEach(inp => { inp.oninput = tot; });
+  box.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.matches && e.target.matches('.cp input')) e.preventDefault(); });
+  const preset = def => redo(() => {
+    const L = cp().niveaux;
+    def.forEach(([nom, court, pct], j) => { if (L[j]) Object.assign(L[j], { nom, court, pct }); else L.push({ id: compUid('n'), nom, court, pct }); });
+    L.length = def.length;
+  });
+  const swap = (a, i, j) => { if (j < 0 || j >= a.length) return; const t = a[i]; a[i] = a[j]; a[j] = t; };
+  box.querySelectorAll('[data-cp]').forEach(b => {
+    b.onclick = async () => {
+      const act = b.dataset.cp, i = Number(b.dataset.i);
+      if (act === 'n4') return preset(COMP_N4);
+      if (act === 'n7') return preset(COMP_N7);
+      if (act === 'lv-add') return redo(() => cp().niveaux.push({ id: compUid('n'), nom: '', court: '', pct: 100 }));
+      if (act === 'lv-up') return redo(() => swap(cp().niveaux, i, i - 1));
+      if (act === 'lv-down') return redo(() => swap(cp().niveaux, i, i + 1));
+      if (act === 'lv-del') return redo(() => { if (cp().niveaux.length > 2) cp().niveaux.splice(i, 1); });
+      if (act === 'cr-add') { redo(() => cp().criteres.push({ id: compUid('k'), titre: '', sous: '', pts: 2, desc: {} })); const t = box.querySelector('#cp-ct-' + (cp().criteres.length - 1)); if (t) t.focus(); return; }
+      if (act === 'cr-up') return redo(() => swap(cp().criteres, i, i - 1));
+      if (act === 'cr-down') return redo(() => swap(cp().criteres, i, i + 1));
+      if (act === 'cr-del') {
+        read();
+        const cr = cp().criteres[i];
+        if (cr && (cr.titre.trim() || Object.keys(cr.desc).length) && !(await confirmDialog({ title: 'Supprimer ce critère ?', html: `« ${esc(cr.titre || 'Sans titre')} » et ses descripteurs seront retirés de la grille.${locked ? ' Les résultats déjà saisis pour ce critère seront effacés à l’enregistrement.' : ''}`, ok: 'Supprimer', danger: true }))) return;
+        cp().criteres.splice(i, 1); draw(); return;
+      }
+      if (act === 'mod-apply') {
+        const key = box.querySelector('#cp-mod').value;
+        if (!key) { toast('Choisis d’abord un modèle dans la liste.'); return; }
+        const s = compSources(exceptId).find(x => x.key === key);
+        if (!s) { toast('Modèle introuvable.'); return; }
+        read();
+        const filled = cp().criteres.some(c => c.titre.trim() || Object.keys(c.desc).length);
+        if (filled && !(await confirmDialog({ title: 'Remplacer la grille ?', html: `Les critères et niveaux saisis seront remplacés par ceux de « ${esc(s.nom)} ».`, ok: 'Remplacer' }))) return;
+        f.comp = clone(compNorm(s.comp));
+        if (!f.titre) f.titre = s.titre || s.nom.replace(/\s*\(\d+ niveaux\)\s*$/, '');
+        if (!f.apsa && s.apsa) f.apsa = s.apsa;
+        draw(); toast('Modèle appliqué : adapte les textes et les points si besoin.');
+        return;
+      }
+      if (act === 'mod-save') { read(); compSaveModel(f, () => draw()); return; }
+      if (act === 'mod-manage') { read(); openCompModeles(() => { read(); draw(); }); }
+    };
+  });
+}
+
+/* Saisie élève par élève */
+function openCompEleve(vid, eid) {
+  const st = { vid, eid, sl: 0, top: false };
+  let mm = null;
+  const html = () => {
+    const v = S.evals.find(x => x.id === st.vid);
+    if (!v || v.type !== 'comp') return null;
+    const c = S.classes.find(k => k.id === v.classeId);
+    if (!c || !c.eleves.length) return null;
+    if (!c.eleves.some(e => e.id === st.eid)) st.eid = c.eleves[0].id;
+    const cp = compOf(v), n = cp.niveaux.length, ids = c.eleves.map(e => e.id), i = ids.indexOf(st.eid), e = c.eleves[i];
+    const raw = (v.notes || {})[e.id], obj = raw && typeof raw === 'object' ? raw : {}, sp = typeof raw === 'string' && SPECIAL[raw] ? raw : '';
+    const sc = compScore(v, raw), d = activeOn(e.id, v.date), com = (v.comms || {})[e.id] || '', desc = UI.compDesc !== false;
+    const prev = ids[i - 1], next = ids[i + 1], grp = compGroups(cp);
+    const head = (grp ? `<tr class="cg-g"><th class="cg-c" aria-hidden="true"></th>${grp.map(g => `<th colspan="${g.n}" style="--lc:${lvColor(g.i + (g.n - 1) / 2, n)}">${esc(g.nom)}</th>`).join('')}</tr>` : '')
+      + `<tr><th class="cg-c" scope="col">Critère</th>${cp.niveaux.map((l, j) => `<th scope="col" class="cg-lh" style="--lc:${lvColor(j, n)}"><span class="cg-lc">${esc(lvLab(l, j))}</span>${!grp && l.court && l.nom ? `<span class="cg-ln">${esc(l.nom)}</span>` : ''}</th>`).join('')}</tr>`;
+    const body = cp.criteres.map(cr => {
+      const r = obj[cr.id], l = cp.niveaux.find(z => z.id === r), got = l && cr.pts > 0 ? (cr.pts * l.pct) / 100 : null;
+      return `<tr class="${r === 'x' ? 'nx' : ''}"><th class="cg-c" scope="row"><span class="cg-t">${esc(cr.titre || 'Critère')}</span>${cr.sous ? `<span class="cg-s">${esc(cr.sous)}</span>` : ''}<span class="cg-p">${got != null ? `<b>${fmtN(got)}</b> / ` : ''}${fmtN(cr.pts)} pt${cr.pts > 1 ? 's' : ''}</span><button type="button" class="cg-x" id="cg-nx-${cr.id}" data-x="nx" data-c="${cr.id}" aria-pressed="${r === 'x'}">Non évalué</button></th>${cp.niveaux.map((lv, j) => `<td><button type="button" class="cg-cell" id="cg-${cr.id}-${lv.id}" data-x="lv" data-c="${cr.id}" data-l="${lv.id}" aria-pressed="${r === lv.id}" style="--lc:${lvColor(j, n)}" aria-label="${esc(cr.titre || 'Critère')} : ${esc(lv.nom || lv.court)}${lv.court && lv.nom ? ' (' + esc(lv.court) + ')' : ''}">${desc ? (cr.desc[lv.id] ? esc(cr.desc[lv.id]) : `<span class="cg-e">${esc(lvLab(lv, j))}</span>`) : `<span class="cg-e">${esc(lvLab(lv, j))}</span>`}</button></td>`).join('')}</tr>`;
+    }).join('');
+    const scoreCol = sc ? compScoreColor(v, sc) : '';
+    return `<div class="modal-head"><div><h3>${esc(v.titre || 'Évaluation')}</h3><div class="muted sm">${esc(c.nom)} · ${fmt(v.date)} · ${plural(cp.criteres.length, 'critère')} · sur ${fmtN(compMax(cp))} points</div></div><div class="row-gap"><button type="button" class="btn sm ghost" data-x="desc" aria-pressed="${desc}">${desc ? 'Masquer les descripteurs' : 'Afficher les descripteurs'}</button><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div></div>
+      <div class="cg-bar">
+        <button type="button" class="icon-btn cg-nav" data-x="go" data-e="${prev || ''}" ${prev ? '' : 'disabled'} aria-label="Élève précédent">‹</button>
+        <div class="cg-who">${avatar(e.id, 's')}<div><div class="cg-name"><button type="button" class="link" data-x="profil" data-e="${e.id}"><b>${esc(e.nom)}</b> ${esc(e.prenom)}</button></div><div class="muted sm">Élève ${i + 1} sur ${ids.length}${e.sexe ? ' · ' + (e.sexe === 'F' ? 'fille' : 'garçon') : ''}</div></div>${dispTags(e.id)}</div>
+        <div class="cg-score" ${scoreCol ? `style="--lc:${scoreCol}"` : ''} aria-live="polite">${sp ? `<span class="big">${SPECIAL[sp]}</span><small>${SP_LONG[sp]}</small>` : sc ? `<span><span class="big">${fmtN(sc.n20)}</span>/20</span><small>${fmtN(sc.pts)} / ${fmtN(sc.max)} pts${sc.complete ? '' : ` · ${plural(sc.todo, 'critère')} à évaluer`}</small>` : '<span class="big muted">—</span><small>non évalué</small>'}</div>
+        <button type="button" class="icon-btn cg-nav" data-x="go" data-e="${next || ''}" ${next ? '' : 'disabled'} aria-label="Élève suivant">›</button>
+      </div>
+      <div class="modal-body">
+        ${d ? `<div class="cg-disp">${pill(d.nature)}<span><b>${esc(NATURES[d.nature].label)}</b> ${esc(finTxt(d))}${d.evaluation ? ' · ' + esc(EVAL[d.evaluation] || '') : ''}${(d.limitations || []).length ? ' · ' + esc(d.limitations.join(', ').toLowerCase()) : ''}. Marque « Non évalué » les critères qu’il ne peut pas réaliser : la note est calculée sur les autres.</span></div>` : ''}
+        ${sp ? `<p class="cg-sp">Résultat enregistré : <b>${SP_LONG[sp]}</b>. Touche une case pour évaluer quand même.</p>` : ''}
+        <div class="cg-wrap" id="cg-wrap"><table class="cg${desc ? '' : ' compact'}" style="--nl:${n}"><thead>${head}</thead><tbody>${body}</tbody></table></div>
+        <div class="field" style="margin:12px 0 0"><label class="label" for="cg-com">Commentaire pour l’élève (facultatif)</label><textarea id="cg-com" rows="2" placeholder="Point fort, conseil pour progresser…">${esc(com)}</textarea></div>
+      </div>
+      <div class="modal-foot spread"><div class="row-gap">${Object.keys(SPECIAL).map(k => `<button type="button" class="btn sm ${sp === k ? 'primary' : ''}" data-x="sp" data-s="${k}" aria-pressed="${sp === k}">${SP_LONG[k]}</button>`).join('')}<button type="button" class="btn sm ghost" data-x="clear" ${raw == null ? 'disabled' : ''}>Effacer</button></div>
+        <div class="row-gap"><button type="button" class="btn" data-x="fiche">Fiche à imprimer</button>${next ? `<button type="button" class="btn primary" data-x="go" data-e="${next}">Élève suivant →</button>` : '<button type="button" class="btn primary" data-act="close-modal">Terminer</button>'}</div></div>`;
+  };
+  const mount = (box, m) => {
+    mm = m || mm;
+    box.classList.add('xl');
+    const w = box.querySelector('#cg-wrap');
+    if (w) w.scrollLeft = st.sl;
+    if (st.top) { st.top = false; mm.wrap.scrollTop = 0; }
+    const ta = box.querySelector('#cg-com');
+    if (ta) ta.onchange = () => compComment(st.vid, st.eid, ta.value);
+    box.onclick = async ev => {
+      const t = ev.target.closest('[data-x]'); if (!t || !box.contains(t)) return;
+      const x = t.dataset.x, v = S.evals.find(z => z.id === st.vid); if (!v) return;
+      const raw = (v.notes || {})[st.eid];
+      if (x === 'lv') compSetLevel(st.vid, st.eid, t.dataset.c, raw && typeof raw === 'object' && raw[t.dataset.c] === t.dataset.l ? '' : t.dataset.l);
+      else if (x === 'nx') compSetLevel(st.vid, st.eid, t.dataset.c, raw && typeof raw === 'object' && raw[t.dataset.c] === 'x' ? '' : 'x');
+      else if (x === 'sp') {
+        const s = t.dataset.s;
+        if (raw === s) { compSet(st.vid, st.eid, () => null); return; }
+        if (compHasLevels(raw) && !(await confirmDialog({ title: `Noter « ${SP_LONG[s]} » ?`, html: 'Les niveaux déjà choisis pour cet élève seront effacés.', ok: 'Confirmer' }))) return;
+        compSet(st.vid, st.eid, () => s);
+      } else if (x === 'clear') {
+        if (compHasLevels(raw) && !(await confirmDialog({ title: 'Effacer cette évaluation ?', html: 'Tous les niveaux choisis pour cet élève seront effacés. Le commentaire est conservé.', ok: 'Effacer', danger: true }))) return;
+        compSet(st.vid, st.eid, () => null);
+      } else if (x === 'go' && t.dataset.e) { const ta2 = box.querySelector('#cg-com'); if (ta2) compComment(st.vid, st.eid, ta2.value); st.eid = t.dataset.e; st.top = true; redraw(); }
+      else if (x === 'desc') { UI.compDesc = UI.compDesc === false; redraw(); }
+      else if (x === 'profil') openEleve(t.dataset.e);
+      else if (x === 'fiche') compSortie(v, [st.eid], false);
+    };
+  };
+  const redraw = () => { if (!mm) return; const box = mm.wrap.firstElementChild; const h = refresh(); if (h === null) { closeModal(mm); return; } box.innerHTML = h; mount(box); };
+  const refresh = () => { const w = mm && mm.wrap.querySelector('#cg-wrap'); if (w) st.sl = w.scrollLeft; return html(); };
+  const h0 = html(); if (h0 === null) return;
+  openModal({ wide: true, label: 'Évaluation par grille', html: h0, refresh, onMount: mount });
+}
+
+/* Saisie pour toute la classe */
+function openCompClasse(vid) {
+  const st = { sl: 0, st: 0 };
+  let mm = null;
+  const html = () => {
+    const v = S.evals.find(x => x.id === vid);
+    if (!v || v.type !== 'comp') return null;
+    const c = S.classes.find(k => k.id === v.classeId);
+    if (!c) return null;
+    const cp = compOf(v), n = cp.niveaux.length;
+    const scs = c.eleves.map(e => compScore(v, (v.notes || {})[e.id]));
+    const done = scs.filter(Boolean), avg = done.length ? done.reduce((s, x) => s + x.n20, 0) / done.length : null;
+    const part = done.filter(x => !x.complete).length;
+    const nsp = c.eleves.filter(e => SPECIAL[(v.notes || {})[e.id]]).length;
+    const rows = c.eleves.map((e, i) => {
+      const raw = (v.notes || {})[e.id], obj = raw && typeof raw === 'object' ? raw : {}, sp = typeof raw === 'string' && SPECIAL[raw] ? raw : '', sc = scs[i], d = activeOn(e.id, v.date);
+      return `<tr class="${sp ? 'sp' : ''}"><td class="sticky"><button type="button" class="link strong" data-x="eleve" data-e="${e.id}">${esc(e.nom)}</button> ${esc(e.prenom)}${d ? ' ' + pill(d.nature) : ''}</td>${cp.criteres.map(cr => {
+        const r = obj[cr.id], j = cp.niveaux.findIndex(l => l.id === r);
+        return `<td><select class="cm-sel${j >= 0 ? ' on' : r === 'x' ? ' nx' : ''}" id="cm-${e.id}-${cr.id}" data-e="${e.id}" data-c="${cr.id}" ${j >= 0 ? `style="--lc:${lvColor(j, n)}"` : ''} aria-label="${esc(nomComplet(e))}, ${esc(cr.titre)}" ${sp ? 'disabled' : ''}><option value=""></option>${cp.niveaux.map((l, k) => `<option value="${l.id}" ${r === l.id ? 'selected' : ''}>${esc(lvLab(l, k))}</option>`).join('')}<option value="x" ${r === 'x' ? 'selected' : ''}>Non évalué</option></select></td>`;
+      }).join('')}<td><select class="cm-st" id="cm-st-${e.id}" data-e="${e.id}" aria-label="Statut de ${esc(nomComplet(e))}"><option value="">Évalué</option>${Object.keys(SPECIAL).map(k => `<option value="${k}" ${sp === k ? 'selected' : ''}>${SP_LONG[k]}</option>`).join('')}</select></td><td class="n">${sc ? `${fmtN(sc.pts)}<span class="muted"> / ${fmtN(sc.max)}</span>` : ''}</td><td class="n cm-20">${sp ? `<span class="muted">${SPECIAL[sp]}</span>` : sc ? `<b>${fmtN(sc.n20)}</b>${sc.complete ? '' : '<span class="cm-part" title="Évaluation incomplète">*</span>'}` : '<span class="muted">—</span>'}</td></tr>`;
+    }).join('');
+    const foot = cp.criteres.map(cr => {
+      const got = c.eleves.map(e => { const raw = (v.notes || {})[e.id]; const l = raw && typeof raw === 'object' ? cp.niveaux.find(z => z.id === raw[cr.id]) : null; return l ? (cr.pts * l.pct) / 100 : null; }).filter(x => x != null);
+      return `<td class="cm-f">${got.length ? `moy. ${fmtN(Math.round((got.reduce((s, x) => s + x, 0) / got.length) * 10) / 10)} / ${fmtN(cr.pts)}` : '—'}</td>`;
+    }).join('');
+    return `<div class="modal-head"><div><h3>${esc(v.titre || 'Évaluation')}</h3><div class="muted sm">${esc(c.nom)} · ${fmt(v.date)}${v.apsa ? ' · ' + esc(v.apsa) : ''} · ${plural(cp.criteres.length, 'critère')} · ${plural(n, 'niveau', 'niveaux')} · sur ${fmtN(compMax(cp))} points${Number(v.coef) !== 1 ? ' · coef ' + fmtN(v.coef) : ''}${v.horsMoy ? ' · hors moyenne' : ''}</div></div><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+      <div class="modal-body">
+        <div class="cm-sum"><span><b>${done.length}</b> élève${done.length > 1 ? 's' : ''} évalué${done.length > 1 ? 's' : ''} sur ${c.eleves.length}</span>${avg != null ? `<span>Moyenne de la classe : <b>${invFmt(avg)}</b>/20</span>` : ''}${part ? `<span class="cm-warn">${plural(part, 'évaluation')} incomplète${part > 1 ? 's' : ''} <span class="cm-part">*</span></span>` : ''}${nsp ? `<span>${plural(nsp, 'élève')} absent, dispensé ou non noté</span>` : ''}</div>
+        ${!c.eleves.length ? '<div class="empty-sm">Aucun élève dans cette classe.</div>' : `<div class="cm-wrap" id="cm-wrap"><table class="cm"><thead><tr><th class="sticky">Élève</th>${cp.criteres.map(cr => `<th class="cm-ch"><span class="cm-t">${esc(cr.titre || 'Critère')}</span><span class="cm-s">${cr.sous ? esc(cr.sous) + ' · ' : ''}${fmtN(cr.pts)} pts</span></th>`).join('')}<th>Statut</th><th class="n">Points</th><th class="n">/20</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td class="sticky">Classe</td>${foot}<td></td><td></td><td class="n">${avg != null ? invFmt(avg) : '—'}</td></tr></tfoot></table></div>`}
+        <p class="hint" style="margin-top:8px">Choisis un niveau dans chaque case, ou touche le nom d’un élève pour voir les descripteurs et ajouter un commentaire. « Non évalué » retire le critère du calcul, par exemple pour une inaptitude partielle.</p>
+      </div>
+      <div class="modal-foot spread"><div class="row-gap"><button type="button" class="btn" data-x="edit">Modifier la grille</button></div><div class="row-gap"><button type="button" class="btn ghost" data-x="blank">Grille vierge</button><button type="button" class="btn" data-x="fiches">Fiches élèves</button><button type="button" class="btn" data-x="csv">Exporter (.csv)</button><button type="button" class="btn primary" data-act="close-modal">Fermer</button></div></div>`;
+  };
+  const mount = (box, m) => {
+    mm = m || mm;
+    box.classList.add('xl');
+    const w = box.querySelector('#cm-wrap');
+    if (w) { w.scrollLeft = st.sl; w.scrollTop = st.st; }
+    box.onchange = async ev => {
+      const s = ev.target;
+      if (s.matches('select.cm-sel')) { compSetLevel(vid, s.dataset.e, s.dataset.c, s.value); return; }
+      if (s.matches('select.cm-st')) {
+        const v = S.evals.find(z => z.id === vid); if (!v) return;
+        const eid = s.dataset.e, raw = (v.notes || {})[eid], val = s.value;
+        if (!val) { if (SPECIAL[raw]) compSet(vid, eid, () => null); return; }
+        if (compHasLevels(raw) && !(await confirmDialog({ title: `Noter « ${SP_LONG[val]} » ?`, html: 'Les niveaux déjà choisis pour cet élève seront effacés.', ok: 'Confirmer' }))) { s.value = ''; return; }
+        compSet(vid, eid, () => val);
+      }
+    };
+    box.onclick = ev => {
+      const t = ev.target.closest('[data-x]'); if (!t || !box.contains(t)) return;
+      const x = t.dataset.x, v = S.evals.find(z => z.id === vid); if (!v) return;
+      if (x === 'eleve') openCompEleve(vid, t.dataset.e);
+      else if (x === 'edit') openEval(vid);
+      else if (x === 'blank') compSortie(v, [], true);
+      else if (x === 'fiches') { const c = S.classes.find(k => k.id === v.classeId); const withRes = c.eleves.filter(e => compHasLevels((v.notes || {})[e.id])).map(e => e.id); compSortie(v, withRes.length ? withRes : c.eleves.map(e => e.id), false); }
+      else if (x === 'csv') { const c = S.classes.find(k => k.id === v.classeId); const t2 = compTable(v); download(`grille-${slug(v.titre || 'evaluation')}-${slug(c ? c.nom : '')}.csv`, csvFrom(t2.head, t2.rows), tsvFrom(t2.head, t2.rows)); }
+    };
+  };
+  const refresh = () => { const w = mm && mm.wrap.querySelector('#cm-wrap'); if (w) { st.sl = w.scrollLeft; st.st = w.scrollTop; } return html(); };
+  const h0 = html(); if (h0 === null) return;
+  openModal({ wide: true, label: 'Grille de compétences', html: h0, refresh, onMount: mount });
+}
+function compTable(v) {
+  const c = S.classes.find(k => k.id === v.classeId), cp = compOf(v);
+  const head = ['Nom', 'Prénom'].concat(cp.criteres.map(cr => `${cr.titre}${cr.sous ? ' (' + cr.sous + ')' : ''} sur ${fmtN(cr.pts)}`), ['Points', 'Sur', 'Note /20', 'Commentaire']);
+  const rows = (c ? c.eleves : []).map(e => {
+    const raw = (v.notes || {})[e.id], obj = raw && typeof raw === 'object' ? raw : {}, sc = compScore(v, raw), sp = typeof raw === 'string' ? SPECIAL[raw] : '';
+    return [e.nom, e.prenom].concat(cp.criteres.map(cr => { if (sp) return sp; const r = obj[cr.id]; if (r === 'x') return 'non évalué'; const k = cp.niveaux.findIndex(z => z.id === r); return k >= 0 ? lvLab(cp.niveaux[k], k) : ''; }), [sc ? fmtN(sc.pts) : '', sc ? fmtN(sc.max) : '', sc ? fmtN(sc.n20) : sp || '', (v.comms || {})[e.id] || '']);
+  });
+  return { head, rows };
+}
+
+/* Fiches imprimables */
+function compFicheHTML(v, eids, blank) {
+  const c = S.classes.find(k => k.id === v.classeId), cp = compOf(v), n = cp.niveaux.length, grp = compGroups(cp);
+  const tint = j => `hsl(${compHue(lvT(j, n))} 78% 86%)`, strong = j => `hsl(${compHue(lvT(j, n))} 62% 40%)`;
+  const css = `@page{size:A4 landscape;margin:9mm}
+.cf-sheet{font-family:Arial,Helvetica,sans-serif;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact;margin:0 0 28px;page-break-after:always;break-after:page}
+.cf-sheet:last-child{page-break-after:auto;break-after:auto;margin-bottom:0}
+.cf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:2px solid #111;padding-bottom:6px;margin-bottom:8px}
+.cf-head h1{font-size:17pt!important;margin:0!important;line-height:1.1}
+.cf-head p{margin:3px 0 0!important;color:#444!important;font-size:10pt}
+.cf-who{flex:1;text-align:center;font-size:14pt}
+.cf-score{text-align:right;font-size:24pt;font-weight:700;line-height:1;white-space:nowrap}
+.cf-score small{font-size:11pt;font-weight:400}
+.cf-score span{display:block;font-size:9pt;font-weight:400;color:#444;margin-top:3px}
+table.cf-t{border-collapse:collapse!important;width:100%!important;table-layout:fixed}
+.cf-t th,.cf-t td{border:1px solid #8a8a8a!important;padding:4px 5px!important;font-size:8.5pt!important;line-height:1.25;vertical-align:top!important;text-align:left!important;background:#fff!important;white-space:pre-line;color:#111}
+.cf-t thead th{background:#f2f2f2!important;text-align:center!important;font-size:9pt!important}
+.cf-t thead tr.cf-g th{font-size:8pt!important;text-transform:uppercase;letter-spacing:.03em}
+.cf-t th.cf-c{width:${n > 5 ? 18 : 22}%;background:#fafafa!important;text-align:left!important}
+.cf-t th.cf-c b{font-size:9.5pt}
+.cf-t th.cf-c span{color:#444;font-weight:400}
+.cf-t th.cf-c em{color:#444;font-style:normal;font-weight:400}
+.cf-t td.on{font-weight:700;outline:2px solid #111;outline-offset:-2px}
+.cf-ck{float:right;font-weight:700}
+.cf-com{margin:8px 0 0!important;font-size:10pt;color:#111!important;min-height:2.6em;border-bottom:1px dotted #999;padding-bottom:4px}
+.cf-foot{margin:6px 0 0!important;font-size:8pt;color:#666!important}
+${cp.niveaux.map((l, j) => `.cf-t thead th.l${j}{border-top:5px solid ${strong(j)}!important}.cf-t td.on.l${j}{background:${tint(j)}!important}`).join('\n')}`;
+  const groupRow = grp ? `<tr class="cf-g"><th class="cf-c"></th>${grp.map(g => `<th colspan="${g.n}" class="l${Math.round(g.i + (g.n - 1) / 2)}">${esc(g.nom)}</th>`).join('')}</tr>` : '';
+  const sheet = e => {
+    const raw = e ? (v.notes || {})[e.id] : null, obj = raw && typeof raw === 'object' ? raw : {}, sp = typeof raw === 'string' && SPECIAL[raw] ? raw : '';
+    const sc = e ? compScore(v, raw) : null, com = e ? (v.comms || {})[e.id] || '' : '';
+    return `<section class="cf-sheet"><div class="cf-head"><div><h1>${esc(v.titre || 'Évaluation')}</h1><p>${esc(c ? c.nom : '')} · ${fmtNum(v.date)}${v.apsa ? ' · ' + esc(v.apsa) : ''}</p></div><div class="cf-who">${e ? `<b>${esc(e.nom)}</b> ${esc(e.prenom)}` : 'Nom, prénom : ………………………………………'}</div><div class="cf-score">${sp ? esc(SP_LONG[sp]) : sc ? `${fmtN(sc.n20)}<small> / 20</small><span>${fmtN(sc.pts)} sur ${fmtN(sc.max)} points</span>` : `……<small> / 20</small><span>sur ${fmtN(compMax(cp))} points</span>`}</div></div>
+      <table class="cf-t"><thead>${groupRow}<tr><th class="cf-c">Critères</th>${cp.niveaux.map((l, j) => `<th class="l${j}">${esc(lvLab(l, j))}${!grp && l.court && l.nom ? `<br><span style="font-weight:400">${esc(l.nom)}</span>` : ''}</th>`).join('')}</tr></thead>
+      <tbody>${cp.criteres.map(cr => { const r = obj[cr.id], l = cp.niveaux.find(z => z.id === r), got = l ? (cr.pts * l.pct) / 100 : null; return `<tr><th class="cf-c"><b>${esc(cr.titre)}</b>${cr.sous ? `<br><span>${esc(cr.sous)}</span>` : ''}<br><em>${got != null ? fmtN(got) + ' / ' : ''}${fmtN(cr.pts)} pt${cr.pts > 1 ? 's' : ''}${r === 'x' ? ' · non évalué' : ''}</em></th>${cp.niveaux.map((lv, j) => `<td class="l${j}${r === lv.id ? ' on' : ''}">${r === lv.id ? '<span class="cf-ck">✓</span>' : ''}${esc(cr.desc[lv.id] || '')}</td>`).join('')}</tr>`; }).join('')}</tbody></table>
+      ${com || blank || e ? `<p class="cf-com"><b>Commentaire :</b> ${esc(com)}</p>` : ''}
+      <p class="cf-foot">${esc(S.settings.etab || '')}${S.settings.etab ? ' · ' : ''}${esc(S.settings.annee || '')}</p></section>`;
+  };
+  const list = blank ? [null] : eids.map(id => S.eleves.get(id)).filter(Boolean).map(x => x.e);
+  return `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>${esc(v.titre || 'Évaluation')} - ${esc(c ? c.nom : '')}</title></head><body><style>${css}</style>${list.map(sheet).join('')}</body></html>`;
+}
+function compSortie(v, eids, blank) {
+  const c = S.classes.find(k => k.id === v.classeId);
+  const html = compFicheHTML(v, eids, blank);
+  const one = !blank && eids.length === 1 ? S.eleves.get(eids[0]) : null;
+  const fname = `grille-${slug(v.titre || 'evaluation')}-${slug(c ? c.nom : '')}${one ? '-' + slug(one.e.nom + ' ' + one.e.prenom) : blank ? '-vierge' : ''}.html`;
+  const what = blank ? 'Grille vierge, à distribuer ou à remplir à la main.' : one ? `Fiche de ${esc(nomComplet(one.e))}, avec les niveaux atteints et la note.` : `${plural(eids.length, 'fiche')}, une page par élève, avec les niveaux atteints et la note.`;
+  if (typeof printHTML !== 'function') {
+    download(fname, html).then(ok => { if (ok) toast('Fiche prête : ouvre-la puis imprime-la depuis ton navigateur (format paysage).'); });
+    return;
+  }
+  openModal({
+    label: 'Fiches à imprimer',
+    html: `<div class="modal-head"><h3>Imprimer</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div><div class="modal-body"><p class="note">${what} Choisis le format paysage à l’impression.</p></div><div class="modal-foot"><button type="button" class="btn" id="cs-share">Enregistrer ou partager</button><button type="button" class="btn primary" id="cs-print" data-autofocus>Imprimer</button></div>`,
+    onMount(box, m) {
+      box.querySelector('#cs-print').onclick = () => { closeModal(m); printHTML(html); };
+      box.querySelector('#cs-share').onclick = () => { closeModal(m); download(fname, html); };
+    },
+  });
+}
+Object.assign(ACT, {
+  'comp-eleve': ds => openCompEleve(ds.ev, ds.e),
+  'comp-classe': ds => openCompClasse(ds.id),
+});
+
 /* ============ Exemple fictif ============ */
 function buildDemo() {
   let seed = 20261118;
@@ -4057,6 +4700,19 @@ function buildDemo() {
   docs.set('p_' + cB.eleves[1].id, { kind: 'profil', dispositifs: ['Délégué'], resp: [], infos: '', annotations: [] });
   classes[0].onglets = [{ id: 'appel', type: 'appel', nom: 'Appel' }, { id: 'tvit', type: 'notes', nom: 'Vitesse' }, { id: 'notes', type: 'notes', nom: 'Demi-fond' }, { id: 'tobs', type: 'grille', nom: 'Observation', colonnes: [{ id: 'k1', titre: 'Licence AS', type: 'coche' }, { id: 'k2', titre: 'Rôle de chronométreur', type: 'pastille' }, { id: 'k3', titre: 'Palier test navette', type: 'nombre' }] }, { id: 'dispenses', type: 'dispenses', nom: 'Dispenses' }, { id: 'journal', type: 'journal', nom: 'Journal' }, { id: 'bilan', type: 'bilan', nom: 'Bilan' }, { id: 'eleves', type: 'eleves', nom: 'Élèves' }, { id: 'outils', type: 'outils', nom: 'Outils' }];
   ev1.ongletId = 'tvit'; ev2.ongletId = 'notes'; ev3.ongletId = 'notes';
+  const ev5 = mk(cA, { titre: 'Relais-vitesse', date: clip('2026-10-08'), apsa: 'Vitesse / relais', type: 'comp', comp: clone(COMP_FOURNIS['f-relais'].comp), max: 20, ongletId: 'tvit', comms: {} });
+  cA.eleves.forEach((e, i) => {
+    if (i === 3) { ev5.notes[e.id] = 'abs'; return; }
+    const base = 0.6 + rnd() * 4.8, o2 = {};
+    ev5.comp.criteres.forEach(cr => { const j = Math.max(0, Math.min(6, Math.round(base + (rnd() - 0.45) * 2.2))); o2[cr.id] = ev5.comp.niveaux[j].id; });
+    if (i === 5) { o2.k4 = 'x'; o2.k5 = 'x'; }
+    if (i >= cA.eleves.length - 2) { delete o2.k6; delete o2.k7; }
+    ev5.notes[e.id] = o2;
+  });
+  ev5.comms[cA.eleves[0].id] = 'Très bon départ du receveur. En donneur, pense au signal sonore avant de tendre le témoin.';
+  ev5.comms[cA.eleves[5].id] = 'Performances non évaluées (inaptitude partielle) : note calculée sur les autres critères.';
+  D(0, 5, { nature: 'partielle', debut: '2026-09-28', fin: '2026-10-09', limitations: ['Course rapide / sprint'], apsa: ['Vitesse / relais'], roles: ['Chronométreur', 'Juge'], evaluation: 'adaptee', notes: 'Pas de sprint. Peut travailler la transmission en marchant puis en trottinant.' });
+  if (ev5.date <= T) docs.set('v_demo5', ev5);
   const gv = { k1: {}, k2: {}, k3: {} };
   cA.eleves.forEach(e => { if (rnd() < 0.3) gv.k1[e.id] = true; const r = rnd(); if (r < 0.75) gv.k2[e.id] = r < 0.15 ? 'na' : r < 0.4 ? 'ec' : 'a'; gv.k3[e.id] = Math.round((4 + rnd() * 6) * 2) / 2; });
   docs.set('t_tobs', { kind: 'grille', classeId: cA.id, ongletId: 'tobs', valeurs: gv });
