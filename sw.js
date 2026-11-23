@@ -1,6 +1,6 @@
 /* Gymnote : fonctionnement hors connexion.
    Change le numéro de CACHE à chaque nouvelle version des fichiers. */
-const CACHE = 'dispenses-eps-v7';
+const CACHE = 'dispenses-eps-v8';
 const ASSETS = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', event => {

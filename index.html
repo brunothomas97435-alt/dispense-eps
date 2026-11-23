@@ -749,6 +749,76 @@ select.cm-st{width:118px;min-height:34px;padding:4px 6px}
   .cp-lv .cp-acts{grid-column:2/-1;justify-content:flex-end}
 }
 
+/* Pavé de saisie */
+.kp{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface-2);border-top:1px solid var(--line);box-shadow:0 -12px 32px rgb(0 0 0 / .16);padding-bottom:env(safe-area-inset-bottom)}
+.kp[hidden]{display:none}
+.kp-in{max-width:1080px;margin:0 auto;padding:10px 16px 12px}
+.kp-head{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px 14px;align-items:center;margin-bottom:10px}
+.kp-who{display:grid;min-width:0;gap:1px}
+.kp-n{font-size:19px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kp-s{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kp-disp{display:flex;align-items:baseline;justify-content:flex-end;gap:6px;min-width:230px;min-height:54px;padding:6px 14px;border-radius:10px;background:var(--surface);border:2px solid var(--line)}
+.kp-v{font-family:var(--font-display);font-size:36px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.kp-v.fresh{color:var(--ink-2)}
+.kp-ph{color:var(--muted);font-weight:400}
+.kp-u{font-size:15px;color:var(--muted);font-weight:700}
+.kp-i{font-size:13px;color:var(--ink-2);margin-left:6px;white-space:nowrap}
+.kp-disp.bad{border-color:var(--crit)}
+.kp-disp.bad .kp-i{color:var(--crit);font-weight:700;white-space:normal}
+.kp-disp.shake{animation:kpshake .26s}
+@keyframes kpshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.kp-tools{display:flex;gap:6px}
+.kp-body{display:grid;grid-template-columns:minmax(0,390px) 132px 150px;gap:10px;justify-content:center}
+.kp-body.lettres{grid-template-columns:minmax(0,520px) 132px 150px}
+.kp-num{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kp-num.temps{grid-template-columns:repeat(4,1fr)}
+.kp-num.temps .z{grid-column:span 3}
+.kp-k{min-height:50px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font:inherit;font-size:23px;font-weight:700;color:var(--ink);touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 6px;line-height:1}
+.kp-k:active{transform:scale(.97);background:var(--accent-soft)}
+.kp-k.op{background:var(--surface-2);color:var(--ink-2)}
+.kp-k small{font-size:12px;font-weight:600;color:var(--muted)}
+.kp-side{display:grid;grid-template-rows:repeat(4,1fr);gap:8px}
+.kp-side.one{grid-template-rows:1fr 3fr}
+.kp-k.sp{font-size:15px}
+.kp-k.sp.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.kp-k.clr{color:var(--crit);font-size:15px}
+.kp-nav{display:grid;grid-template-rows:1fr 3fr;gap:8px}
+.kp-k.nv{flex-direction:column;gap:3px;font-size:20px}
+.kp-k.nv span{font-size:13px;font-weight:600;color:var(--ink-2)}
+.kp-k.ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-size:28px}
+.kp-k.ok span{color:var(--accent-ink);font-size:14px}
+.kp-k.ok:active{background:var(--accent);filter:brightness(1.1)}
+.kp-k.tl{min-height:42px;font-size:20px;padding:0 12px}
+.kp-k.tl span{font-size:14px}
+.kp-k.x{width:44px;font-size:26px;font-weight:400}
+.kp-let{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px;align-content:stretch}
+.kp-k.kp-l{--lc:var(--muted);min-height:76px;font-family:var(--font-display);font-size:34px;border:2px solid color-mix(in srgb,var(--lc) 55%,var(--line));background:color-mix(in srgb,var(--lc) 14%,var(--surface))}
+.kp-k.kp-l.on{background:color-mix(in srgb,var(--lc) 34%,var(--surface));border-color:var(--lc);box-shadow:inset 0 0 0 2px var(--lc)}
+body.kp-open #view{padding-bottom:calc(var(--kp-h,320px) + 16px)}
+body.kp-open #toast{bottom:calc(var(--kp-h,320px) + 12px)}
+body.kp-open .gwrap{max-height:calc(100vh - var(--kp-h,320px) - 150px);max-height:calc(100dvh - var(--kp-h,320px) - 150px);min-height:220px}
+/* Cases à pavé */
+.gkp{width:100%;min-width:86px;min-height:34px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font:inherit;font-weight:700;font-size:15px;color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums;padding:4px 6px;-webkit-tap-highlight-color:transparent}
+.gkp:hover{border-color:var(--ink-2)}
+.gkp.glet,select.glv{background:color-mix(in srgb,var(--lc,transparent) 18%,var(--surface));border-color:color-mix(in srgb,var(--lc,var(--line)) 55%,var(--line))}
+.gkp.glet{font-family:var(--font-display);font-size:18px}
+.gkp.spc{color:var(--ink-2);background:var(--surface-2)}
+.gkp.kp-on{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.gkp .dsp{color:var(--warn);font-weight:600;font-size:12px}
+@media (max-width:700px){
+  .kp-in{padding:8px 10px 10px}
+  .kp-head{grid-template-columns:minmax(0,1fr) auto}
+  .kp-disp{grid-column:1/-1;grid-row:2;min-width:0}
+  .kp-body,.kp-body.lettres{grid-template-columns:1fr;gap:8px}
+  .kp-side,.kp-side.one{grid-template-rows:none;grid-template-columns:repeat(4,1fr)}
+  .kp-side.one{grid-template-columns:1fr}
+  .kp-nav{grid-template-rows:none;grid-template-columns:1fr 2fr}
+  .kp-k{min-height:44px}
+  .kp-k.kp-l{min-height:58px}
+  .kp-k.nv{flex-direction:row;gap:8px}
+  .kp-k.tl span{display:none}
+}
+
 /* Bandeaux, info-bulles, notifications */
 .banner{border-bottom:1px solid var(--line)}
 .banner.demo{background:color-mix(in srgb,var(--c-ponct) 10%,var(--surface))}
@@ -1952,12 +2022,16 @@ function render() {
   else if (UI.route === 'classe') html = viewClasse();
   else if (UI.route === 'donnees') html = viewDonnees();
   else html = viewTableau();
+  const sig = [UI.route, UI.cls, UI.ctab, UI.nClasse, UI.nPer].join('|'), keep = view.dataset.sig === sig ? [...view.querySelectorAll('.gwrap')].map(w => [w.scrollLeft, w.scrollTop]) : [];
   view.innerHTML = html;
+  view.dataset.sig = sig;
+  view.querySelectorAll('.gwrap').forEach((w, i) => { if (keep[i]) { w.scrollLeft = keep[i][0]; w.scrollTop = keep[i][1]; } });
   if (fid) {
     const el = document.getElementById(fid);
     if (el) { el.focus({ preventScroll: true }); if (sel && el.setSelectionRange) { try { el.setSelectionRange(sel[0], sel[1]); } catch (e) {} } }
   }
   refreshModals();
+  kpSync();
 }
 function renderChrome() {
   document.querySelectorAll('#tabs a').forEach(a => { if (a.dataset.route === UI.route || (UI.route === 'classe' && a.dataset.route === 'classes')) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
@@ -2144,7 +2218,7 @@ function getClasse(id) {
 function saveClasse(c, silent) {
   putDoc(c.id, {
     kind: 'classe', nom: c.nom, niveau: c.niveau || '', jours: [...new Set((c.creneaux || []).map(k => k.j))].sort((a, b) => a - b), creneaux: (c.creneaux || []).map(k => ({ j: Number(k.j), h1: k.h1 || '', h2: k.h2 || '', sem: k.sem || '', lieu: k.lieu || '' })),
-    onglets: (c.onglets || []).map(t => { const o = { id: t.id, type: t.type, nom: t.nom }; if (t.type === 'grille') o.colonnes = (t.colonnes || []).map(k => ({ id: k.id, titre: k.titre, type: k.type })); return o; }),
+    onglets: (c.onglets || []).map(t => { const o = { id: t.id, type: t.type, nom: t.nom }; if (t.type === 'grille') o.colonnes = (t.colonnes || []).map(k => Object.assign({ id: k.id, titre: k.titre, type: k.type }, colExtra(k))); return o; }),
     couleur: c.couleur || '',
     eleves: (c.eleves || []).map(e => ({ id: e.id, nom: e.nom || '', prenom: e.prenom || '', sexe: e.sexe || '', suiviMedecin: e.suiviMedecin || '' })),
   }, silent);
@@ -3104,26 +3178,28 @@ function parseTemps(t) {
 function fmtTemps(sec) {
   sec = Number(sec);
   if (!isFinite(sec)) return '';
-  sec = Math.round(sec * 10) / 10;
-  const m = Math.floor(sec / 60), s = Math.round((sec - m * 60) * 10) / 10;
-  const ss = s % 1 ? s.toFixed(1).padStart(4, '0') : String(s).padStart(2, '0');
-  return m ? `${m}:${ss}`.replace('.', ',') : String(s).replace('.', ',');
+  sec = Math.round(sec * 100) / 100;
+  const m = Math.floor(sec / 60), s = Math.round((sec - m * 60) * 100) / 100;
+  if (!m) return String(s).replace('.', ',');
+  const ip = Math.floor(s), fr = Math.round((s - ip) * 100);
+  return `${m}:${String(ip).padStart(2, '0')}${fr ? ',' + String(fr).padStart(2, '0').replace(/0$/, '') : ''}`;
 }
 const fmtN = x => String(Math.round(Number(x) * 100) / 100).replace('.', ',');
 function parseCell(v, txt) {
   const t = String(txt == null ? '' : txt).trim().toLowerCase();
   if (!t) return null;
+  if (v.type === 'niveau') { const it = echOf(v).find(x => x.c.toLowerCase() === t); if (it) return it.c; }
   if (/^(a|abs|absent|absente)$/.test(t)) return 'abs';
   if (/^(d|disp|dispensé|dispensée|dispense)$/.test(t)) return 'disp';
   if (/^(nn|non noté|non note)$/.test(t)) return 'nn';
-  if (v.type === 'niveau') { const u = t.toUpperCase(); return NIV_COMP.includes(u) ? u : undefined; }
+  if (v.type === 'niveau') return undefined;
   if (v.type === 'perf' && v.unite === 'temps') return parseTemps(t);
   const x = Number(t.replace(',', '.'));
   return isFinite(x) ? x : undefined;
 }
 function note20(v, e, raw) {
   if (raw == null || raw === '' || SPECIAL[raw]) return null;
-  if (v.type === 'niveau') return NIV_PTS[raw] != null ? NIV_PTS[raw] : null;
+  if (v.type === 'niveau') { const it = echOf(v).find(x => x.c === raw); return it ? it.p : null; }
   if (v.type === 'comp') { const sc = compScore(v, raw); return sc ? sc.n20 : null; }
   const x = Number(raw);
   if (!isFinite(x)) return null;
@@ -3148,7 +3224,7 @@ function valueTxt(v, raw) {
 }
 function typeShort(v) {
   if (v.type === 'comp') { const n = compOf(v).criteres.length; return `grille · ${n} critère${n > 1 ? 's' : ''}`; }
-  if (v.type === 'niveau') return 'niveaux';
+  if (v.type === 'niveau') { const E = echOf(v); return E.length <= 5 ? E.map(x => x.c).join(' ') : 'lettres'; }
   if (v.type === 'perf') return 'perf.' + (UNIT_SHORT[v.unite] ? ' ' + UNIT_SHORT[v.unite] : '');
   return '/' + fmtN(Number(v.max) > 0 ? v.max : 20);
 }
@@ -3173,16 +3249,19 @@ function gCell(v, e) {
     const sc = compScore(v, raw), sp = typeof raw === 'string' && SPECIAL[raw] ? raw : '', col = sc ? compScoreColor(v, sc) : '';
     return `<td class="gc"><button type="button" class="gcell gcomp${sc ? (sc.complete ? '' : ' part') : sp ? ' spc' : ' vide' + (dsp ? ' dsp' : '')}" id="${id}" data-act="comp-eleve" data-ev="${v.id}" data-e="${e.id}" ${col ? `style="--lc:${col}"` : ''} aria-label="${lab}${sc && !sc.complete ? ', évaluation incomplète' : ''}">${sp ? SPECIAL[sp] : sc ? fmtN(sc.n20) : dsp ? 'disp ?' : 'Évaluer'}</button></td>`;
   }
+  const km = evMode(v);
+  if (km) return kpEvCell(v, e, raw, id, lab, dsp, km);
   if (v.type === 'niveau') {
-    return `<td class="gc"><select class="gcell niv-${raw || 'x'}" id="${id}" data-ch="g-cell" data-ev="${v.id}" data-e="${e.id}" aria-label="${lab}"><option value="">${dsp ? 'disp ?' : ''}</option>${NIV_COMP.map(n => `<option value="${n}" ${raw === n ? 'selected' : ''}>${n}</option>`).join('')}${Object.entries(SPECIAL).map(([k, l]) => `<option value="${k}" ${raw === k ? 'selected' : ''}>${l}</option>`).join('')}</select></td>`;
+    const E = echOf(v), lc = E.some(x => x.c === raw) ? echColor(E, raw) : '';
+    return `<td class="gc"><select class="gcell glv" id="${id}" data-ch="g-cell" data-ev="${v.id}" data-e="${e.id}" ${lc ? `style="--lc:${lc}"` : ''} aria-label="${lab}"><option value="">${dsp ? 'disp ?' : ''}</option>${E.map(x => `<option value="${esc(x.c)}" ${raw === x.c ? 'selected' : ''}>${esc(x.c)}</option>`).join('')}${Object.entries(SPECIAL).map(([k, l]) => `<option value="${k}" ${raw === k ? 'selected' : ''}>${l}</option>`).join('')}</select></td>`;
   }
   const n20 = v.type === 'perf' ? note20(v, e, raw) : null;
   return `<td class="gc"><input type="text" class="gcell" id="${id}" data-ch="g-cell" data-ev="${v.id}" data-e="${e.id}" value="${esc(valueTxt(v, raw))}" placeholder="${dsp ? 'disp ?' : ''}" inputmode="${v.type === 'perf' && v.unite === 'temps' ? 'text' : 'decimal'}" autocomplete="off" aria-label="${lab}">${n20 != null ? `<span class="g20">${fmtN(n20)}</span>` : ''}</td>`;
 }
 function colStat(v, c) {
   if (v.type === 'niveau') {
-    const cnt = {}; c.eleves.forEach(e => { const r = (v.notes || {})[e.id]; if (NIV_COMP.includes(r)) cnt[r] = (cnt[r] || 0) + 1; });
-    return NIV_COMP.filter(k => cnt[k]).map(k => `${k} ${cnt[k]}`).join(' · ') || '—';
+    const E = echOf(v), cnt = {}; c.eleves.forEach(e => { const r = (v.notes || {})[e.id]; if (E.some(x => x.c === r)) cnt[r] = (cnt[r] || 0) + 1; });
+    return E.filter(x => cnt[x.c]).map(x => `${x.c} ${cnt[x.c]}`).join(' · ') || '—';
   }
   const ns = c.eleves.map(e => note20(v, e, (v.notes || {})[e.id])).filter(x => x != null);
   if (ns.length) return invFmt(ns.reduce((s, x) => s + x, 0) / ns.length);
@@ -3224,7 +3303,7 @@ function viewNotes(tab) {
       <div class="appel-h"><div><h2>${esc(tab ? tab.nom : 'Notes')} · ${esc(c.nom)}</h2><div class="muted">${esc(cap(pnom))} · du ${fmt(a)} au ${fmt(b)}</div></div><div class="appel-count"><span class="big">${evs.length}</span><span>évaluation${evs.length > 1 ? 's' : ''}</span></div></div>
       ${!c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : !evs.length ? `<div class="empty-sm pad">Aucune évaluation sur cette période. <button class="link strong" data-act="new-eval" data-tab="${tab ? tab.id : ''}">Créer une évaluation</button></div>` : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${head}<th class="gmoy">Moy. /20</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${foot}<td class="gmoy">${cm}</td></tr></tfoot></table></div>`}
     </section>
-    <p class="hint" style="margin:8px 2px 0">Saisis un nombre, ou <b>abs</b>, <b>disp</b>, <b>nn</b> (non noté) ; la touche Entrée passe à l’élève suivant. Pour un temps : 3:25 ou 205 (secondes). Niveaux de compétence : MI, MF, MS, TBM comptent 5, 10, 15 et 20 points dans la moyenne. Touche le titre d’une évaluation pour la modifier. Grille de compétences : touche une case pour évaluer l’élève critère par critère, ou le titre pour toute la classe.</p>
+    <p class="hint" style="margin:8px 2px 0">Touche une case : un pavé s’ouvre en bas de l’écran (chiffres, temps ou lettres selon la colonne) et « OK » passe à l’élève suivant. Pour un temps, tape 8,35 ou 1′23″4. Tu préfères le clavier ? Touche « Clavier » sur le pavé, ou choisis la saisie en touchant le titre de l’évaluation. Grille de compétences : touche une case pour évaluer l’élève critère par critère, ou le titre pour toute la classe.</p>
   </div>`;
 }
 function openEval(id, tabId) {
@@ -3235,6 +3314,8 @@ function openEval(id, tabId) {
   const q = sequenceOn(cid0, T);
   const f = ex ? clone(ex) : { kind: 'eval', classeId: cid0, titre: '', date: T, apsa: q ? q.apsa || '' : '', type: 'note', max: 20, coef: 1, unite: 'temps', horsMoy: false, notes: {}, ongletId: tabId || '' };
   f.comp = clone(compNorm(f.comp && Array.isArray(f.comp.niveaux) ? f.comp : compDefault())); f.also = [];
+  f.saisie = f.saisie === 'clavier' ? 'clavier' : 'pave';
+  { const e0 = echOf(f); f.echKey = echKey(e0); f.echTxt = e0.map(x => x.c).join(' '); }
   f.bareme = Object.assign({ mode: 'aucun', u: [null, null], f: [null, null], g: [null, null] }, f.bareme || {});
   ['u', 'f', 'g'].forEach(k => { if (!Array.isArray(f.bareme[k])) f.bareme[k] = [null, null]; });
   const locked = !!ex && Object.keys(ex.notes || {}).length > 0;
@@ -3250,13 +3331,14 @@ function openEval(id, tabId) {
         <div class="field"><label class="label" for="ev-a">APSA</label><select id="ev-a"><option value=""></option>${APSA.map(x => `<option ${f.apsa === x ? 'selected' : ''}>${esc(x)}</option>`).join('')}</select></div>
       </div>
       ${!ex ? compAlsoHTML(f) : ''}
-      <div class="field"><span class="label" id="ev-ty-l">Type</span><div class="seg" role="group" aria-labelledby="ev-ty-l">${[['note', 'Note'], ['niveau', 'Niveau de compétence'], ['perf', 'Performance'], ['comp', 'Grille de compétences']].map(([k, l]) => `<button type="button" data-ty="${k}" aria-pressed="${f.type === k}" ${locked && f.type !== k ? 'disabled' : ''}>${l}</button>`).join('')}</div>${locked ? '<p class="hint">Type verrouillé : des résultats sont déjà saisis.</p>' : ''}</div>
+      <div class="field"><span class="label" id="ev-ty-l">Type</span><div class="seg" role="group" aria-labelledby="ev-ty-l">${[['note', 'Note'], ['niveau', 'Lettres / niveaux'], ['perf', 'Performance'], ['comp', 'Grille de compétences']].map(([k, l]) => `<button type="button" data-ty="${k}" aria-pressed="${f.type === k}" ${locked && f.type !== k ? 'disabled' : ''}>${l}</button>`).join('')}</div>${locked ? '<p class="hint">Type verrouillé : des résultats sont déjà saisis.</p>' : ''}</div>
       ${f.type === 'note' ? `<div class="grid-2"><div class="field"><label class="label" for="ev-max">Noté sur</label><input type="number" id="ev-max" min="1" step="any" value="${esc(f.max)}"></div></div>` : ''}
-      ${f.type === 'niveau' ? '<p class="hint" style="margin:-6px 0 14px">MI maîtrise insuffisante, MF maîtrise fragile, MS maîtrise satisfaisante, TBM très bonne maîtrise. Dans la moyenne : 5, 10, 15 et 20 points.</p>' : ''}
+      ${f.type === 'niveau' ? echFieldHTML('ev', f, locked, true) : ''}
       ${f.type === 'perf' ? `<div class="grid-2">
           <div class="field"><label class="label" for="ev-u">Unité</label><select id="ev-u" ${locked ? 'disabled' : ''}>${Object.entries(UNITES).map(([k, l]) => `<option value="${k}" ${f.unite === k ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
           <div class="field"><label class="label" for="ev-bm">Barème</label><select id="ev-bm"><option value="aucun" ${f.bareme.mode === 'aucun' ? 'selected' : ''}>Aucun (performance seule)</option><option value="unique" ${f.bareme.mode === 'unique' ? 'selected' : ''}>Le même pour tous</option><option value="sexe" ${f.bareme.mode === 'sexe' ? 'selected' : ''}>Filles et garçons</option></select></div></div>
         ${f.bareme.mode === 'aucun' ? '' : `<div class="bm-grid">${(f.bareme.mode === 'sexe' ? [['f', 'Filles'], ['g', 'Garçons']] : [['u', 'Tous']]).map(([k, l]) => `<div class="bm-row"><span class="strong">${l}</span><label class="sm">0/20 pour <input type="text" id="ev-${k}0" value="${esc(bv(f.bareme[k][0]))}" inputmode="decimal"></label><label class="sm">20/20 pour <input type="text" id="ev-${k}1" value="${esc(bv(f.bareme[k][1]))}" inputmode="decimal"></label></div>`).join('')}<p class="hint" style="margin-bottom:14px">Conversion linéaire entre les deux valeurs, arrondie au demi-point.${f.unite === 'temps' ? ' Pour un temps, mets le temps le plus lent pour 0/20 (ex. 10,5) et le plus rapide pour 20/20.' : ''}${f.bareme.mode === 'sexe' ? ' Sans sexe renseigné, le barème garçons s’applique.' : ''}</p></div>`}` : ''}
+      ${['note', 'perf', 'niveau'].includes(f.type) ? saisieFieldHTML('ev', f.saisie, f.type === 'niveau' ? 'lettres' : f.type === 'perf' && f.unite === 'temps' ? 'temps' : 'num') : ''}
       ${f.type === 'comp' ? compEditorHTML(f, locked, id) : ''}
       <div class="grid-2"><div class="field"><label class="label" for="ev-k">Coefficient</label><input type="number" id="ev-k" min="0.25" step="0.25" value="${esc(f.coef)}"></div>
         <div class="field"><span class="label">Moyenne</span><label class="check"><input type="checkbox" id="ev-hm" ${f.horsMoy ? 'checked' : ''}> Ne pas compter dans la moyenne</label></div></div>
@@ -3275,6 +3357,8 @@ function openEval(id, tabId) {
     ['u', 'f', 'g'].forEach(k => { const a0 = g(`#ev-${k}0`), a1 = g(`#ev-${k}1`); if (a0 && a1) f.bareme[k] = [a0.value, a1.value]; });
     f.coef = g('#ev-k').value; f.horsMoy = g('#ev-hm').checked;
     if (f.type === 'comp') readComp(box, f);
+    const sk = g('#ev-sc'); if (sk && !sk.disabled) f.echKey = sk.value;
+    const st = g('#ev-scp'); if (st && !st.disabled) f.echTxt = st.value;
     if (!ex) f.also = [...box.querySelectorAll('[data-also]:checked')].map(x => x.value);
   };
   const parseBm = x => { if (typeof x === 'number') return x; const s = String(x == null ? '' : x).trim(); if (!s) return NaN; const r = f.unite === 'temps' ? parseTemps(s) : Number(s.replace(',', '.')); return r === undefined ? NaN : r; };
@@ -3287,6 +3371,9 @@ function openEval(id, tabId) {
     g('#ev-a').onchange = () => { if (!g('#ev-t').value.trim()) g('#ev-t').value = g('#ev-a').value; };
     if (!ex && g('#ev-c')) g('#ev-c').onchange = () => { read(box); f.also = f.also.filter(k => k !== f.classeId); draw(box); };
     if (f.type === 'comp') bindCompEditor(box, f, () => read(box), () => draw(box), locked, id);
+    box.querySelectorAll('[data-sa]').forEach(b => { b.onclick = () => { read(box); f.saisie = b.dataset.sa; draw(box); }; });
+    if (g('#ev-sc')) g('#ev-sc').onchange = () => { read(box); if (f.echKey !== 'perso') f.echTxt = echFrom(f.echKey).map(x => x.c).join(' '); draw(box); };
+    bindEchPerso(box, 'ev');
     const del = g('#ev-del');
     if (del) del.onclick = async () => {
       if (!(await confirmDialog({ title: 'Supprimer cette évaluation ?', html: 'Les résultats saisis seront supprimés avec elle.', ok: 'Supprimer', danger: true }))) return;
@@ -3313,6 +3400,12 @@ function openEval(id, tabId) {
       const cur = ex ? Store.docs().get(id) : null;
       const body = { kind: 'eval', classeId: f.classeId, titre: f.titre || f.apsa || 'Évaluation', date: f.date, apsa: f.apsa, type: f.type, max: f.type === 'note' ? max : 20, coef, unite: f.type === 'perf' ? f.unite : '', bareme, horsMoy: !!f.horsMoy, notes: cur && cur.notes ? clone(cur.notes) : {}, ongletId: f.ongletId || '', majLe: new Date().toISOString() };
       if (cur && cur.comms) body.comms = clone(cur.comms);
+      body.saisie = f.saisie === 'clavier' ? 'clavier' : 'pave';
+      if (f.type === 'niveau') {
+        if (locked && ex.type === 'niveau') body.echelle = echOf(ex);
+        else if (f.echKey === 'perso') { const r = echParse(f.echTxt); if (r.err) return err(r.err); body.echelle = r.arr; }
+        else body.echelle = echFrom(f.echKey);
+      }
       if (f.type === 'comp') { const ce = compFinish(f, body); if (ce) return err(ce); }
       const others = ex ? [] : f.also.filter(k => k !== body.classeId && S.classes.some(c => c.id === k));
       others.forEach(k => putDoc(newId('v_'), Object.assign(clone(body), { classeId: k, notes: {}, comms: {}, ongletId: '' }), true));
@@ -3763,8 +3856,8 @@ document.addEventListener('keydown', e => {
 const TAB_TYPES = { appel: 'Appel', notes: 'Notes', grille: 'Grille d’observation', dispenses: 'Dispenses', journal: 'Journal', bilan: 'Bilan', eleves: 'Élèves', outils: 'Outils' };
 const TAB_SINGLE = ['appel', 'dispenses', 'journal', 'bilan', 'eleves', 'outils'];
 const DEFAULT_TABS = [['appel', 'Appel'], ['notes', 'Notes'], ['dispenses', 'Dispenses'], ['journal', 'Journal'], ['bilan', 'Bilan'], ['eleves', 'Élèves'], ['outils', 'Outils']];
-const TAB_HINT = { notes: 'Un carnet de notes à part, par exemple un par APSA ou par cycle.', grille: 'Des colonnes libres : cases à cocher, acquis / en cours / non acquis, nombres, textes ou dates.', appel: 'Présence, tenue, investissement, comportement et dispenses du jour.', dispenses: 'Les dispenses et inaptitudes de la classe.', journal: 'Fiches de séance et séquences de la classe.', bilan: 'Synthèse par élève sur une période.', eleves: 'Liste, trombinoscope, créneaux et import des élèves.', outils: 'Tirage au sort, équipes, chronomètre et minuteur.' };
-const COL_TYPES = { coche: 'Case à cocher', pastille: 'Acquis / en cours / non acquis', nombre: 'Nombre', texte: 'Texte', date: 'Date' };
+const TAB_HINT = { notes: 'Un carnet de notes à part, par exemple un par APSA ou par cycle.', grille: 'Des colonnes libres : cases à cocher, acquis / en cours / non acquis, lettres, nombres, temps, textes ou dates.', appel: 'Présence, tenue, investissement, comportement et dispenses du jour.', dispenses: 'Les dispenses et inaptitudes de la classe.', journal: 'Fiches de séance et séquences de la classe.', bilan: 'Synthèse par élève sur une période.', eleves: 'Liste, trombinoscope, créneaux et import des élèves.', outils: 'Tirage au sort, équipes, chronomètre et minuteur.' };
+const COL_TYPES = { coche: 'Case à cocher', pastille: 'Acquis / en cours / non acquis', lettres: 'Lettres (A, B, C…)', nombre: 'Nombre', temps: 'Temps (chrono)', texte: 'Texte', date: 'Date' };
 const PASTILLES = { a: ['A', 'Acquis'], ec: ['EC', 'En cours'], na: ['NA', 'Non acquis'] };
 const CLASS_COLORS = ['#0a6767', '#2f6fd6', '#b5362a', '#b07a0c', '#7a4fc4', '#2e8b57', '#c2410c', '#0e7490', '#a3366f', '#4d5b66'];
 Object.assign(UI, { cls: null, ctab: null, lastTab: {}, pendingType: null });
@@ -3780,7 +3873,7 @@ function normOnglets(b) {
     if (seen.has(id)) id = id + 'x' + i;
     seen.add(id);
     const o = { id, type: t.type, nom: String(t.nom || TAB_TYPES[t.type]).slice(0, 40) };
-    if (t.type === 'grille') o.colonnes = (Array.isArray(t.colonnes) ? t.colonnes : []).filter(k => k && COL_TYPES[k.type] && safeId(k.id)).map(k => ({ id: safeId(k.id), titre: String(k.titre || 'Colonne').slice(0, 60), type: k.type }));
+    if (t.type === 'grille') o.colonnes = (Array.isArray(t.colonnes) ? t.colonnes : []).filter(k => k && COL_TYPES[k.type] && safeId(k.id)).map(k => Object.assign({ id: safeId(k.id), titre: String(k.titre || 'Colonne').slice(0, 60), type: k.type }, colExtra(k)));
     out.push(o);
   });
   if (!out.some(t => t.type === 'eleves')) out.push({ id: 'eleves', type: 'eleves', nom: 'Élèves' });
@@ -3887,7 +3980,10 @@ function viewGrille(c, t) {
     const v = (vals[col.id] || {})[e.id], id = `gr-${col.id}-${e.id}`, lab = `${esc(nomComplet(e))}, ${esc(col.titre)}`;
     if (col.type === 'coche') return `<td class="gc"><button type="button" class="gk" id="${id}" aria-pressed="${!!v}" aria-label="${lab}" data-act="gr-toggle" data-k="${col.id}" data-e="${e.id}">${v ? '✓' : ''}</button></td>`;
     if (col.type === 'pastille') return `<td class="gc"><button type="button" class="gp p-${PASTILLES[v] ? v : 'x'}" id="${id}" aria-label="${lab} : ${PASTILLES[v] ? PASTILLES[v][1] : 'non renseigné'}" data-act="gr-cycle" data-k="${col.id}" data-e="${e.id}">${PASTILLES[v] ? PASTILLES[v][0] : '·'}</button></td>`;
-    const shown = col.type === 'nombre' && v != null ? fmtN(v) : (v || '');
+    const km = colMode(col);
+    if (km) return kpGrCell(c, t, col, e, v, id, lab, km);
+    if (col.type === 'lettres') return grLettresSelect(col, e, v, id, lab);
+    const shown = col.type === 'nombre' && v != null ? fmtN(v) : col.type === 'temps' && v != null ? fmtTemps(v) : (v || '');
     return `<td class="gc"><input type="${col.type === 'date' ? 'date' : 'text'}" class="gcell grcell ${col.type === 'texte' ? 'wide' : ''}" id="${id}" value="${esc(shown)}" ${col.type === 'nombre' ? 'inputmode="decimal"' : ''} data-ch="gr-cell" data-k="${col.id}" data-e="${e.id}" aria-label="${lab}" autocomplete="off"></td>`;
   };
   const foot = col => {
@@ -3895,12 +3991,14 @@ function viewGrille(c, t) {
     if (col.type === 'coche') return `${l.length}/${c.eleves.length}`;
     if (col.type === 'pastille') return Object.entries(PASTILLES).map(([k, [s]]) => { const n = l.filter(v => v === k).length; return n ? `${s} ${n}` : ''; }).filter(Boolean).join(' · ') || '—';
     if (col.type === 'nombre') { const ns = l.map(Number).filter(x => isFinite(x)); return ns.length ? 'moy. ' + fmtN(Math.round((ns.reduce((s, x) => s + x, 0) / ns.length) * 10) / 10) : '—'; }
+    if (col.type === 'temps') { const ns = l.map(Number).filter(x => isFinite(x)); return ns.length ? 'moy. ' + fmtTemps(ns.reduce((s, x) => s + x, 0) / ns.length) : '—'; }
+    if (col.type === 'lettres') return colEch(col).map(x => { const n = l.filter(v => v === x.c).length; return n ? `${x.c} ${n}` : ''; }).filter(Boolean).join(' · ') || '—';
     return l.length ? plural(l.length, 'saisie') : '—';
   };
   return `<div class="wrap">
-    <div class="appel-top"><p class="muted sm" style="margin:0">Colonnes libres : cases à cocher, acquis / en cours / non acquis, nombres, textes ou dates. Touche le titre d’une colonne pour la modifier.</p><div class="row-gap">${cols.length ? '<button class="btn" data-act="gr-csv">Exporter (.csv)</button>' : ''}<button class="btn primary" data-act="col-add">+ Colonne</button></div></div>
+    <div class="appel-top"><p class="muted sm" style="margin:0">Colonnes libres : cases à cocher, acquis / en cours / non acquis, lettres, nombres, temps, textes ou dates. Touche le titre d’une colonne pour la modifier ou choisir la saisie (pavé ou clavier).</p><div class="row-gap">${cols.length ? '<button class="btn" data-act="gr-csv">Exporter (.csv)</button>' : ''}<button class="btn primary" data-act="col-add">+ Colonne</button></div></div>
     <section class="card pad0"><div class="appel-h"><div><h2>${esc(t.nom)} · ${esc(c.nom)}</h2><div class="muted">${plural(cols.length, 'colonne')}</div></div></div>
-    ${!cols.length ? '<div class="empty-sm pad">Aucune colonne. Exemples : licence AS, rôle d’arbitre, palier du test navette, autorisation de sortie. <button class="link strong" data-act="col-add">Ajouter une colonne</button></div>' : !c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${cols.map(col => `<th><button type="button" class="gh-b" data-act="col-edit" data-k="${col.id}"><span class="gh-t">${esc(col.titre)}</span><span class="gh-s">${esc(COL_TYPES[col.type])}</span></button></th>`).join('')}</tr></thead><tbody>${c.eleves.map((e, i) => `<tr><td class="lane-n">${pad(i + 1)}</td><td class="sticky"><button class="link strong" data-act="eleve" data-id="${e.id}">${esc(e.nom)}</button> ${esc(e.prenom)}</td>${cols.map(col => cell(col, e)).join('')}</tr>`).join('')}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${cols.map(col => `<td class="gstat">${foot(col)}</td>`).join('')}</tr></tfoot></table></div>`}
+    ${!cols.length ? '<div class="empty-sm pad">Aucune colonne. Exemples : licence AS, rôle d’arbitre, palier du test navette, autorisation de sortie. <button class="link strong" data-act="col-add">Ajouter une colonne</button></div>' : !c.eleves.length ? '<div class="empty-sm pad">Aucun élève dans cette classe.</div>' : `<div class="gwrap"><table class="gtable"><thead><tr><th class="lane-n"><span class="sr">N°</span></th><th class="sticky">Élève</th>${cols.map(col => `<th><button type="button" class="gh-b" data-act="col-edit" data-k="${col.id}"><span class="gh-t">${esc(col.titre)}</span><span class="gh-s">${esc(col.type === 'lettres' ? colEch(col).map(x => x.c).join(' ') : col.type === 'temps' ? 'temps' : COL_TYPES[col.type])}</span></button></th>`).join('')}</tr></thead><tbody>${c.eleves.map((e, i) => `<tr><td class="lane-n">${pad(i + 1)}</td><td class="sticky"><button class="link strong" data-act="eleve" data-id="${e.id}">${esc(e.nom)}</button> ${esc(e.prenom)}</td>${cols.map(col => cell(col, e)).join('')}</tr>`).join('')}</tbody><tfoot><tr><td></td><td class="sticky">Classe</td>${cols.map(col => `<td class="gstat">${foot(col)}</td>`).join('')}</tr></tfoot></table></div>`}
     </section>
     ${cols.some(k => k.type === 'pastille') ? '<p class="hint" style="margin:8px 2px 0">Pastilles : touche pour passer de vide à A (acquis), EC (en cours) puis NA (non acquis).</p>' : ''}
   </div>`;
@@ -3920,38 +4018,64 @@ function openColonne(colId) {
   const cid = g.c.id, tid = g.t.id;
   const col = colId ? (g.t.colonnes || []).find(x => x.id === colId) : null;
   const used = !!col && Object.keys(grilleVals(g.t)[col.id] || {}).length > 0;
-  openModal({
-    label: col ? 'Modifier la colonne' : 'Nouvelle colonne',
-    html: `<form novalidate><div class="modal-head"><h3>${col ? 'Modifier la colonne' : 'Nouvelle colonne'}</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
-    <div class="modal-body"><div class="field"><label class="label" for="co-t">Titre</label><input type="text" id="co-t" maxlength="60" value="${esc(col ? col.titre : '')}" placeholder="Ex. : Licence AS, Rôle d’arbitre, Palier test navette" data-autofocus></div>
-    <div class="field"><label class="label" for="co-ty">Type</label><select id="co-ty" ${used ? 'disabled' : ''}>${Object.entries(COL_TYPES).map(([k, l]) => `<option value="${k}" ${(col ? col.type : 'coche') === k ? 'selected' : ''}>${l}</option>`).join('')}</select>${used ? '<p class="hint">Type verrouillé : des valeurs sont déjà saisies.</p>' : ''}</div><p class="form-err" id="co-err" role="alert"></p></div>
-    <div class="modal-foot spread"><div>${col ? '<button type="button" class="btn ghost danger-t" id="co-del">Supprimer</button>' : ''}</div><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></div></form>`,
-    onMount(box, m) {
-      box.querySelector('form').onsubmit = ev => {
-        ev.preventDefault();
-        const titre = box.querySelector('#co-t').value.trim();
-        if (!titre) { box.querySelector('#co-err').textContent = 'Donne un titre à la colonne.'; return; }
-        const tabs = freshTabs(cid), tt = tabs.find(x => x.id === tid);
-        if (!tt) { closeModal(m); return; }
-        tt.colonnes = tt.colonnes || [];
-        if (col) { const x = tt.colonnes.find(y => y.id === col.id); if (x) { x.titre = titre; if (!used) x.type = box.querySelector('#co-ty').value; } }
-        else tt.colonnes.push({ id: newId('k'), titre, type: box.querySelector('#co-ty').value });
-        closeModal(m); saveTabs(cid, tabs);
-      };
-      const del = box.querySelector('#co-del');
-      if (del) del.onclick = async () => {
-        if (!(await confirmDialog({ title: `Supprimer « ${col.titre} » ?`, html: 'Les valeurs saisies dans cette colonne seront supprimées.', ok: 'Supprimer', danger: true }))) return;
-        const before = snapshotIds([cid, 't_' + tid]);
-        closeModal(m);
-        const tabs = freshTabs(cid), tt = tabs.find(x => x.id === tid);
-        if (tt) { tt.colonnes = (tt.colonnes || []).filter(y => y.id !== col.id); saveTabs(cid, tabs, true); }
-        const d = Store.docs().get('t_' + tid);
-        if (d && d.valeurs && d.valeurs[col.id]) { const n = clone(d); delete n.valeurs[col.id]; putDoc('t_' + tid, n, true); }
-        refresh();
-        toast('Colonne supprimée.', [{ label: 'Annuler', run: () => restoreSnap(before) }]);
-      };
-    },
-  });
+  const f = { titre: col ? col.titre : '', type: col ? col.type : 'coche', saisie: col && col.saisie === 'clavier' ? 'clavier' : 'pave' };
+  { const e0 = col && col.type === 'lettres' ? colEch(col) : echFrom('abcd'); f.echKey = echKey(e0); f.echTxt = e0.map(x => x.c).join(' '); }
+  const order = ['coche', 'pastille', 'lettres', 'nombre', 'temps', 'texte', 'date'];
+  const html = () => `<form novalidate><div class="modal-head"><h3>${col ? 'Modifier la colonne' : 'Nouvelle colonne'}</h3><button type="button" class="icon-btn" data-act="close-modal" aria-label="Fermer">×</button></div>
+    <div class="modal-body"><div class="field"><label class="label" for="co-t">Titre</label><input type="text" id="co-t" maxlength="60" value="${esc(f.titre)}" placeholder="Ex. : Licence AS, Test 30 m, Attitude" data-autofocus></div>
+    <div class="field"><label class="label" for="co-ty">Type</label><select id="co-ty" ${used ? 'disabled' : ''}>${order.map(k => `<option value="${k}" ${f.type === k ? 'selected' : ''}>${COL_TYPES[k]}</option>`).join('')}</select>${used ? '<p class="hint">Type verrouillé : des valeurs sont déjà saisies.</p>' : ''}</div>
+    ${f.type === 'lettres' ? echFieldHTML('co', f, used, false) : ''}
+    ${['nombre', 'temps', 'lettres'].includes(f.type) ? saisieFieldHTML('co', f.saisie, f.type === 'nombre' ? 'num' : f.type) : ''}
+    <p class="form-err" id="co-err" role="alert"></p></div>
+    <div class="modal-foot spread"><div>${col ? '<button type="button" class="btn ghost danger-t" id="co-del">Supprimer</button>' : ''}</div><div class="row-gap"><button type="button" class="btn ghost" data-act="close-modal">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></div></form>`;
+  const read = box => {
+    f.titre = box.querySelector('#co-t').value;
+    const ty = box.querySelector('#co-ty'); if (!ty.disabled) f.type = ty.value;
+    const sk = box.querySelector('#co-sc'); if (sk && !sk.disabled) f.echKey = sk.value;
+    const st = box.querySelector('#co-scp'); if (st && !st.disabled) f.echTxt = st.value;
+  };
+  const draw = (box, m) => { box.innerHTML = html(); bind(box, m); };
+  const bind = (box, m) => {
+    box.querySelector('#co-ty').onchange = () => { read(box); draw(box, m); };
+    const sk = box.querySelector('#co-sc'); if (sk) sk.onchange = () => { read(box); if (f.echKey !== 'perso') f.echTxt = echFrom(f.echKey).map(x => x.c).join(' '); draw(box, m); };
+    box.querySelectorAll('[data-sa]').forEach(b => { b.onclick = () => { read(box); f.saisie = b.dataset.sa; draw(box, m); }; });
+    box.querySelector('form').onsubmit = ev => {
+      ev.preventDefault();
+      read(box);
+      const titre = f.titre.trim(), err = t => { box.querySelector('#co-err').textContent = t; };
+      if (!titre) return err('Donne un titre à la colonne.');
+      let echelle = null;
+      if (f.type === 'lettres') {
+        if (used) echelle = colEch(col);
+        else if (f.echKey === 'perso') { const r = echParse(f.echTxt); if (r.err) return err(r.err); echelle = r.arr; }
+        else echelle = echFrom(f.echKey);
+      }
+      const tabs = freshTabs(cid), tt = tabs.find(x => x.id === tid);
+      if (!tt) { closeModal(m); return; }
+      tt.colonnes = tt.colonnes || [];
+      let x = col ? tt.colonnes.find(y => y.id === col.id) : null;
+      if (col && !x) { closeModal(m); return; }
+      if (!x) { x = { id: newId('k') }; tt.colonnes.push(x); }
+      x.titre = titre;
+      if (!used) x.type = f.type;
+      if (['nombre', 'temps', 'lettres'].includes(x.type) && f.saisie === 'clavier') x.saisie = 'clavier'; else delete x.saisie;
+      if (x.type === 'lettres') x.echelle = echelle; else delete x.echelle;
+      closeModal(m); saveTabs(cid, tabs);
+    };
+    const del = box.querySelector('#co-del');
+    if (del) del.onclick = async () => {
+      if (!(await confirmDialog({ title: `Supprimer « ${col.titre} » ?`, html: 'Les valeurs saisies dans cette colonne seront supprimées.', ok: 'Supprimer', danger: true }))) return;
+      const before = snapshotIds([cid, 't_' + tid]);
+      closeModal(m);
+      const tabs = freshTabs(cid), tt = tabs.find(x => x.id === tid);
+      if (tt) { tt.colonnes = (tt.colonnes || []).filter(y => y.id !== col.id); saveTabs(cid, tabs, true); }
+      const d = Store.docs().get('t_' + tid);
+      if (d && d.valeurs && d.valeurs[col.id]) { const n = clone(d); delete n.valeurs[col.id]; putDoc('t_' + tid, n, true); }
+      refresh();
+      toast('Colonne supprimée.', [{ label: 'Annuler', run: () => restoreSnap(before) }]);
+    };
+  };
+  openModal({ label: col ? 'Modifier la colonne' : 'Nouvelle colonne', html: '', onMount: (box, m) => draw(box, m) });
 }
 
 /* ---- Ajout et gestion des onglets ---- */
@@ -4060,7 +4184,7 @@ Object.assign(ACT, {
     const g = curGrille(); if (!g) return;
     const cols = g.t.colonnes || [], vals = grilleVals(g.t);
     const head = ['Nom', 'Prénom'].concat(cols.map(k => k.titre));
-    const rows = g.c.eleves.map(e => [e.nom, e.prenom].concat(cols.map(k => { const v = (vals[k.id] || {})[e.id]; return k.type === 'coche' ? (v ? 'oui' : '') : k.type === 'pastille' ? (PASTILLES[v] ? PASTILLES[v][1] : '') : k.type === 'nombre' && v != null ? fmtN(v) : k.type === 'date' ? fmtNum(v) : (v || ''); })));
+    const rows = g.c.eleves.map(e => [e.nom, e.prenom].concat(cols.map(k => { const v = (vals[k.id] || {})[e.id]; return k.type === 'coche' ? (v ? 'oui' : '') : k.type === 'pastille' ? (PASTILLES[v] ? PASTILLES[v][1] : '') : k.type === 'nombre' && v != null ? fmtN(v) : k.type === 'temps' && v != null ? fmtTemps(v) : k.type === 'date' ? fmtNum(v) : (v || ''); })));
     download(`${slug(g.t.nom)}-${slug(g.c.nom)}.csv`, csvFrom(head, rows), tsvFrom(head, rows));
   },
 });
@@ -4073,6 +4197,10 @@ Object.assign(CH, {
     if (col.type === 'nombre') {
       if (v === '') v = null;
       else { const x = Number(v.replace(',', '.')); if (!isFinite(x)) { el.classList.add('bad'); toast('Nombre non reconnu.'); return; } v = x; }
+    }
+    if (col.type === 'temps') {
+      if (v === '') v = null;
+      else { const x = parseTemps(v); if (x === undefined) { el.classList.add('bad'); toast('Temps non reconnu : écris par exemple 8,35 ou 1:23,4.'); return; } v = x; }
     }
     el.classList.remove('bad');
     const cur = (grilleVals(g.t)[col.id] || {})[el.dataset.e];
@@ -4571,6 +4699,327 @@ Object.assign(ACT, {
   'comp-classe': ds => openCompClasse(ds.id),
 });
 
+/* ============ Saisie : pavé numérique, pavé temps, lettres ============ */
+const ECHELLES = {
+  mi: ['MI · MF · MS · TBM', [['MI', 5], ['MF', 10], ['MS', 15], ['TBM', 20]]],
+  abcd: ['A · B · C · D', [['A', 20], ['B', 15], ['C', 10], ['D', 5]]],
+  abcde: ['A · B · C · D · E', [['A', 20], ['B', 16], ['C', 12], ['D', 8], ['E', 4]]],
+};
+const echFrom = key => (ECHELLES[key] || ECHELLES.abcd)[1].map(([c, p]) => ({ c, p }));
+function echNorm(x) {
+  if (!Array.isArray(x)) return null;
+  const seen = new Set(), out = [];
+  x.forEach(it => {
+    if (!it) return;
+    const c = String(it.c || '').trim().slice(0, 5), p = Number(it.p);
+    if (!c || seen.has(c.toUpperCase())) return;
+    seen.add(c.toUpperCase());
+    out.push({ c, p: isFinite(p) ? Math.max(0, Math.min(20, p)) : 0 });
+  });
+  return out.length >= 2 ? out.slice(0, 10) : null;
+}
+function echOf(v) { return echNorm(v && v.echelle) || echFrom('mi'); }
+function colEch(col) { return echNorm(col && col.echelle) || echFrom('abcd'); }
+const echSig = arr => arr.map(x => x.c + '=' + x.p).join('|');
+function echKey(arr) { const s = echSig(arr); return Object.keys(ECHELLES).find(k => echSig(echFrom(k)) === s) || 'perso'; }
+function echParse(txt) {
+  const uniq = [];
+  String(txt || '').split(/[\s,;·/]+/).map(s => s.trim()).filter(Boolean).forEach(c => { if (!uniq.some(u => u.toUpperCase() === c.toUpperCase())) uniq.push(c); });
+  if (uniq.length < 2) return { err: 'Indique au moins deux lettres ou codes, séparés par des espaces.' };
+  if (uniq.length > 8) return { err: 'Huit lettres ou codes au maximum.' };
+  if (uniq.some(c => c.length > 5)) return { err: 'Chaque code fait 5 caractères au maximum.' };
+  const n = uniq.length;
+  return { arr: uniq.map((c, i) => ({ c, p: Math.round(((20 * (n - i)) / n) * 2) / 2 })) };
+}
+function echColor(arr, code) {
+  const sorted = arr.slice().sort((a, b) => a.p - b.p), i = sorted.findIndex(x => x.c === code);
+  return i < 0 ? '' : lvColor(i, sorted.length);
+}
+const echPtsTxt = arr => arr.map(x => `${x.c} = ${fmtN(x.p)}`).join(' · ');
+function echFieldHTML(px, f, locked, withPts) {
+  const arr = f.echKey === 'perso' ? echParse(f.echTxt).arr || null : echFrom(f.echKey);
+  return `<div class="grid-2"><div class="field"><label class="label" for="${px}-sc">Échelle</label><select id="${px}-sc" ${locked ? 'disabled' : ''}>${Object.entries(ECHELLES).map(([k, [l]]) => `<option value="${k}" ${f.echKey === k ? 'selected' : ''}>${l}</option>`).join('')}<option value="perso" ${f.echKey === 'perso' ? 'selected' : ''}>Personnalisée…</option></select></div>
+    ${f.echKey === 'perso' ? `<div class="field"><label class="label" for="${px}-scp">Codes, du meilleur au moins bon</label><input type="text" id="${px}-scp" value="${esc(f.echTxt)}" placeholder="Ex. : A+ A B C D" autocomplete="off" ${locked ? 'disabled' : ''}></div>` : ''}</div>
+    ${locked ? '<p class="hint" style="margin:-6px 0 12px">Échelle verrouillée : des résultats sont déjà saisis.</p>' : ''}${withPts ? `<p class="hint" id="${px}-pts" style="margin:-6px 0 14px">${echPtsHint(arr)}</p>` : ''}`;
+}
+function echPtsHint(arr) { return arr ? `Dans la moyenne : ${esc(echPtsTxt(arr))} points.` : 'Indique au moins deux lettres ou codes, séparés par des espaces.'; }
+function bindEchPerso(box, px) {
+  const st = box.querySelector(`#${px}-scp`), h = box.querySelector(`#${px}-pts`);
+  if (st && h) st.oninput = () => { h.innerHTML = echPtsHint(echParse(st.value).arr || null); };
+}
+function saisieFieldHTML(px, cur, kind) {
+  const L = { num: ['Pavé numérique', 'Clavier'], temps: ['Pavé temps', 'Clavier'], lettres: ['Boutons', 'Menu déroulant'] }[kind];
+  const H = { num: 'Un pavé s’ouvre en bas de l’écran : tape la valeur, « OK » passe à l’élève suivant.', temps: 'Tape le temps comme sur ton chrono, par exemple 8,35 ou 1′23″4, puis « OK » pour l’élève suivant.', lettres: 'Une touche par lettre : l’élève suivant s’affiche aussitôt.' }[kind];
+  const K = kind === 'lettres' ? 'Un menu déroulant dans chaque case.' : 'Le clavier de l’iPad s’ouvre dans la case ; « Entrée » passe à l’élève suivant.';
+  return `<div class="field"><span class="label" id="${px}-sa-l">Saisie</span><div class="seg" role="group" aria-labelledby="${px}-sa-l"><button type="button" data-sa="pave" aria-pressed="${cur !== 'clavier'}">${L[0]}</button><button type="button" data-sa="clavier" aria-pressed="${cur === 'clavier'}">${L[1]}</button></div><p class="hint">${cur === 'clavier' ? K : H}</p></div>`;
+}
+function evMode(v) {
+  if (!v || v.saisie === 'clavier') return '';
+  if (v.type === 'note') return 'num';
+  if (v.type === 'perf') return v.unite === 'temps' ? 'temps' : 'num';
+  if (v.type === 'niveau') return 'lettres';
+  return '';
+}
+function colMode(col) {
+  if (!col || col.saisie === 'clavier') return '';
+  return { nombre: 'num', temps: 'temps', lettres: 'lettres' }[col.type] || '';
+}
+function colExtra(k) {
+  const o = {};
+  if (k && k.saisie === 'clavier' && ['nombre', 'temps', 'lettres'].includes(k.type)) o.saisie = 'clavier';
+  if (k && k.type === 'lettres') o.echelle = colEch(k);
+  return o;
+}
+function tempsLong(x) { const m = Math.floor(x / 60), s = Math.round((x - m * 60) * 100) / 100; return (m ? m + ' min ' : '') + fmtN(s) + ' s'; }
+
+/* Cases du tableau en mode pavé */
+function kpEvCell(v, e, raw, id, lab, dsp, mode) {
+  const sp = typeof raw === 'string' && SPECIAL[raw];
+  const txt = raw == null || raw === '' ? '' : valueTxt(v, raw);
+  const n20 = v.type === 'perf' && !sp ? note20(v, e, raw) : null;
+  const lc = mode === 'lettres' && !sp && txt ? echColor(echOf(v), raw) : '';
+  return `<td class="gc"><button type="button" class="gcell gkp${mode === 'lettres' ? ' glet' : ''}${sp ? ' spc' : ''}${kpIs('ev', v.id, '', e.id) ? ' kp-on' : ''}" id="${id}" data-act="kp-open" data-ev="${v.id}" data-e="${e.id}" ${lc ? `style="--lc:${lc}"` : ''} aria-label="${lab}${txt ? ' : ' + esc(txt) : ''}">${txt ? esc(txt) : dsp ? '<span class="dsp">disp ?</span>' : ''}</button>${n20 != null ? `<span class="g20">${fmtN(n20)}</span>` : ''}</td>`;
+}
+function kpGrCell(c, t, col, e, v, id, lab, mode) {
+  const txt = v == null || v === '' ? '' : mode === 'temps' ? fmtTemps(v) : mode === 'num' ? fmtN(v) : String(v);
+  const lc = mode === 'lettres' && txt ? echColor(colEch(col), v) : '';
+  return `<td class="gc"><button type="button" class="gcell gkp${mode === 'lettres' ? ' glet' : ''}${kpIs('gr', t.id, col.id, e.id) ? ' kp-on' : ''}" id="${id}" data-act="kp-open" data-t="${t.id}" data-k="${col.id}" data-c="${c.id}" data-e="${e.id}" ${lc ? `style="--lc:${lc}"` : ''} aria-label="${lab}${txt ? ' : ' + esc(txt) : ''}">${esc(txt)}</button></td>`;
+}
+function grLettresSelect(col, e, v, id, lab) {
+  const E = colEch(col), lc = v ? echColor(E, v) : '';
+  return `<td class="gc"><select class="gcell glv" id="${id}" data-ch="gr-cell" data-k="${col.id}" data-e="${e.id}" ${lc ? `style="--lc:${lc}"` : ''} aria-label="${lab}"><option value=""></option>${E.map(x => `<option value="${esc(x.c)}" ${v === x.c ? 'selected' : ''}>${esc(x.c)}</option>`).join('')}</select></td>`;
+}
+
+/* Le pavé */
+const KP = { on: false, k: '', id: '', col: '', cid: '', e: '', buf: '', fresh: true, err: '' };
+const kpCellId = () => (KP.k === 'ev' ? `g-${KP.id}-${KP.e}` : `gr-${KP.col}-${KP.e}`);
+function kpIs(k, id, col, eid) { return KP.on && KP.k === k && KP.id === id && (k === 'ev' || KP.col === col) && KP.e === eid; }
+function kpT() {
+  if (!KP.on) return null;
+  if (KP.k === 'ev') {
+    const v = S.evals.find(x => x.id === KP.id); if (!v) return null;
+    const mode = evMode(v); if (!mode) return null;
+    const c = S.classes.find(k => k.id === v.classeId); if (!c) return null;
+    const e = c.eleves.find(x => x.id === KP.e); if (!e) return null;
+    const max = v.type === 'note' ? (Number(v.max) > 0 ? Number(v.max) : 20) : null;
+    return {
+      mode, c, e, raw: (v.notes || {})[e.id], titre: v.titre || 'Évaluation', special: true, max,
+      ech: mode === 'lettres' ? echOf(v) : null, dsp: activeOn(e.id, v.date),
+      unit: v.type === 'note' ? '/ ' + fmtN(max) : v.type === 'perf' && v.unite !== 'temps' ? UNIT_SHORT[v.unite] || '' : '',
+      n20: val => (v.type === 'perf' || v.type === 'niveau' || (v.type === 'note' && max !== 20) ? note20(v, e, val) : null),
+      save: val => {
+        const cur = (v.notes || {})[e.id];
+        if ((cur == null ? null : cur) === (val == null ? null : val)) { kpRender(); return; }
+        const body = clone(Store.docs().get(v.id) || {}); body.notes = body.notes || {};
+        if (val == null) delete body.notes[e.id]; else body.notes[e.id] = val;
+        body.majLe = new Date().toISOString();
+        putDoc(v.id, body);
+      },
+    };
+  }
+  const c = S.classes.find(k => k.id === KP.cid); if (!c) return null;
+  const t = classTabs(c).find(x => x.id === KP.id && x.type === 'grille'); if (!t) return null;
+  const col = (t.colonnes || []).find(x => x.id === KP.col), mode = colMode(col); if (!mode) return null;
+  const e = c.eleves.find(x => x.id === KP.e); if (!e) return null;
+  const raw = (grilleVals(t)[col.id] || {})[e.id];
+  return {
+    mode, c, e, raw, titre: col.titre, special: false, max: null, ech: mode === 'lettres' ? colEch(col) : null, dsp: null, unit: '', n20: () => null,
+    save: val => { if ((raw == null ? null : raw) === (val == null ? null : val)) { kpRender(); return; } setGrille(c, t, col.id, e.id, val == null ? '' : val); },
+  };
+}
+function kpText(T, raw) {
+  if (raw == null || raw === '' || (typeof raw === 'string' && SPECIAL[raw] && T.special)) return '';
+  if (T.mode === 'temps') return fmtTemps(raw).replace(':', '′');
+  if (T.mode === 'num') return fmtN(raw);
+  return String(raw);
+}
+function kpParse(T, buf) {
+  const s = String(buf || '').trim();
+  if (!s) return null;
+  if (T.mode === 'temps') { if (/[′″,]$/.test(s)) return undefined; const x = parseTemps(s.replace('′', ':').replace(/[″,]/, '.')); return x === undefined ? undefined : x; }
+  const x = Number(s.replace(',', '.'));
+  return isFinite(x) ? x : undefined;
+}
+function kpAccept(mode, b, k) {
+  if (b.length >= 9) return false;
+  if (/^\d$/.test(k)) {
+    if (mode === 'temps') { const m = /′(\d*)$/.exec(b); if (m && m[1].length >= 2) return false; }
+    const d = /[″,](\d*)$/.exec(b); if (d && d[1].length >= (mode === 'temps' ? 2 : 3)) return false;
+    return true;
+  }
+  if (k === ',') return /\d$/.test(b) && !/[,″]/.test(b);
+  if (mode !== 'temps') return false;
+  if (k === '′') return /^\d+$/.test(b);
+  if (k === '″') return /\d$/.test(b) && !/[,″]/.test(b);
+  return false;
+}
+function kpEl() {
+  let el = document.getElementById('kp');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'kp'; el.className = 'kp'; el.hidden = true;
+    el.setAttribute('role', 'region'); el.setAttribute('aria-label', 'Pavé de saisie');
+    document.body.appendChild(el);
+    el.addEventListener('click', ev => { const b = ev.target.closest('[data-kp]'); if (b) kpKey(b.dataset.kp); });
+  }
+  return el;
+}
+function kpRender() {
+  const el = kpEl(), T = kpT();
+  if (!T) { el.hidden = true; return; }
+  el.hidden = false;
+  const ids = T.c.eleves.map(x => x.id), i = ids.indexOf(T.e.id), last = i === ids.length - 1;
+  const sp = T.special && typeof T.raw === 'string' && SPECIAL[T.raw] ? T.raw : '';
+  const shown = KP.fresh ? kpText(T, T.raw) : KP.buf;
+  let info = '';
+  if (!KP.err) {
+    const val = KP.fresh ? (sp ? null : T.raw) : kpParse(T, KP.buf);
+    if (val != null && val !== undefined) {
+      if (T.mode === 'temps') info = tempsLong(val);
+      const n = T.n20(val);
+      if (n != null && T.mode !== 'lettres') info += (info ? ' · ' : '') + fmtN(n) + '/20';
+      if (T.mode === 'lettres' && n != null) info = fmtN(n) + ' pts';
+    }
+  }
+  const key = (k, lab, cls, aria) => `<button type="button" class="kp-k${cls ? ' ' + cls : ''}" data-kp="${esc(k)}"${aria ? ` aria-label="${esc(aria)}"` : ''}>${lab}</button>`;
+  let keys;
+  if (T.mode === 'lettres') keys = `<div class="kp-let">${T.ech.map((x, j) => key('L:' + x.c, esc(x.c), 'kp-l' + (T.raw === x.c ? ' on' : ''), `${x.c}${j < 9 ? ', touche ' + (j + 1) : ''}`).replace('<button', `<button style="--lc:${echColor(T.ech, x.c)}"`)).join('')}</div>`;
+  else {
+    const seq = T.mode === 'temps' ? ['7', '8', '9', '′', '4', '5', '6', '″', '1', '2', '3', ',', '0', 'bk'] : ['7', '8', '9', '4', '5', '6', '1', '2', '3', ',', '0', 'bk'];
+    const lab = { '′': ['′<small>min</small>', 'op', 'minutes'], '″': ['″<small>s</small>', 'op', 'secondes'], ',': [',', 'op', 'virgule'], bk: ['⌫', 'op', 'Effacer le dernier chiffre'], 0: ['0', T.mode === 'temps' ? 'z' : '', ''] };
+    keys = `<div class="kp-num ${T.mode}">${seq.map(k => (lab[k] ? key(k, lab[k][0], lab[k][1], lab[k][2]) : key(k, k))).join('')}</div>`;
+  }
+  const side = `<div class="kp-side${T.special ? '' : ' one'}">${T.special ? Object.keys(SPECIAL).map(k => key('S:' + k, SP_LONG[k], 'sp' + (sp === k ? ' on' : ''))).join('') : ''}${key('clr', 'Effacer', 'sp clr', 'Effacer la valeur de cet élève')}</div>`;
+  const nav = `<div class="kp-nav">${key('prev', '↑<span>Précédent</span>', 'nv', 'Élève précédent')}${key('ok', T.mode === 'lettres' ? (last ? '✓<span>Terminer</span>' : '↓<span>Passer</span>') : last ? 'OK<span>Terminer</span>' : 'OK<span>↓ Suivant</span>', T.mode === 'lettres' ? 'nv' : 'nv ok')}</div>`;
+  el.innerHTML = `<div class="kp-in">
+    <div class="kp-head">
+      <div class="kp-who"><span class="kp-n"><b>${esc(T.e.nom)}</b> ${esc(T.e.prenom)}${T.dsp ? ' ' + pill(T.dsp.nature) : ''}</span><span class="kp-s">${esc(T.titre)} · élève ${i + 1} sur ${ids.length}</span></div>
+      <div class="kp-disp${KP.err ? ' bad' : ''}" id="kp-disp" aria-live="polite"><span class="kp-v${KP.fresh ? ' fresh' : ''}">${sp ? SP_LONG[sp] : shown ? esc(shown) : '<span class="kp-ph">—</span>'}</span>${T.unit && !sp ? `<span class="kp-u">${esc(T.unit)}</span>` : ''}${KP.err || info ? `<span class="kp-i">${esc(KP.err || info)}</span>` : ''}</div>
+      <div class="kp-tools">${key('kbd', '⌨<span>Clavier</span>', 'tl', 'Passer au clavier pour cette colonne')}${key('close', '×', 'tl x', 'Fermer le pavé')}</div>
+    </div>
+    <div class="kp-body ${T.mode}">${keys}${side}${nav}</div>
+  </div>`;
+  document.documentElement.style.setProperty('--kp-h', el.offsetHeight + 'px');
+}
+function kpMark() {
+  document.querySelectorAll('.gkp.kp-on').forEach(b => b.classList.remove('kp-on'));
+  if (!KP.on) return;
+  const el = document.getElementById(kpCellId());
+  if (el) el.classList.add('kp-on');
+}
+function kpReveal() {
+  const el = KP.on ? document.getElementById(kpCellId()) : null; if (!el) return;
+  const kh = kpEl().offsetHeight || 0, band = document.querySelector('.band'), bandB = band ? Math.max(0, band.getBoundingClientRect().bottom) : 0;
+  const limB = innerHeight - kh - 8, wrap = el.closest('.gwrap');
+  if (!wrap) { el.scrollIntoView({ block: 'center' }); return; }
+  let wr = wrap.getBoundingClientRect();
+  if (wr.top > limB - 140 || wr.top < bandB - 4) { window.scrollBy(0, wr.top - bandB - 8); wr = wrap.getBoundingClientRect(); }
+  const th = wrap.querySelector('thead'), tf = wrap.querySelector('tfoot');
+  const vTop = Math.max(wr.top + (th ? th.offsetHeight : 0), bandB) + 4, vBot = Math.min(wr.bottom - (tf ? tf.offsetHeight : 0), limB) - 4;
+  const r = el.getBoundingClientRect();
+  if (r.top < vTop || r.bottom > vBot) wrap.scrollTop += r.top + r.height / 2 - (vTop + vBot) / 2;
+  const st = el.closest('tr') && el.closest('tr').querySelector('.sticky'), left = st ? st.getBoundingClientRect().right : wr.left;
+  const r2 = el.getBoundingClientRect();
+  if (r2.left < left) wrap.scrollLeft -= left - r2.left + 8;
+  else if (r2.right > wr.right) wrap.scrollLeft += r2.right - wr.right + 8;
+}
+function kpOpen(k, id, col, cid, eid) {
+  if (KP.on && !kpCommit()) { kpRender(); return; }
+  Object.assign(KP, { on: true, k, id, col: col || '', cid: cid || '', e: eid, buf: '', fresh: true, err: '' });
+  if (!kpT()) { KP.on = false; return; }
+  document.body.classList.add('kp-open');
+  kpRender(); kpMark();
+  requestAnimationFrame(kpReveal);
+}
+function kpClose() {
+  KP.on = false; KP.err = '';
+  document.body.classList.remove('kp-open');
+  kpEl().hidden = true;
+  kpMark();
+}
+function kpSync() {
+  if (!KP.on) return;
+  if (!kpT() || !document.getElementById(kpCellId())) { kpClose(); return; }
+  kpRender(); kpMark();
+}
+function kpErr(t) {
+  KP.err = t; kpRender();
+  const d = document.getElementById('kp-disp');
+  if (d) { d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake'); }
+}
+function kpCommit() {
+  if (!KP.on || KP.fresh) return true;
+  const T = kpT(); if (!T) return true;
+  const val = kpParse(T, KP.buf);
+  if (val === undefined) { kpErr(T.mode === 'temps' ? 'Temps incomplet : par exemple 8,35 ou 1′23″4.' : 'Nombre non reconnu.'); return false; }
+  if (val != null && T.max != null && val > T.max) { kpErr(`Plus que le maximum (${fmtN(T.max)}).`); return false; }
+  KP.fresh = true; KP.buf = ''; KP.err = '';
+  T.save(val);
+  return true;
+}
+function kpMove(d) {
+  if (!kpCommit()) return;
+  const T = kpT(); if (!T) { kpClose(); return; }
+  const ids = T.c.eleves.map(x => x.id), nx = ids[ids.indexOf(KP.e) + d];
+  if (!nx) { if (d > 0) { kpClose(); toast('Dernier élève : saisie terminée pour cette colonne.'); } return; }
+  Object.assign(KP, { e: nx, fresh: true, buf: '', err: '' });
+  kpRender(); kpMark(); kpReveal();
+}
+function kpKeyboard() {
+  if (!kpCommit()) return;
+  const k = KP.k, id = KP.id, col = KP.col, cid = KP.cid, cell = kpCellId();
+  kpClose();
+  if (k === 'ev') { const d = Store.docs().get(id); if (!d) return; putDoc(id, Object.assign(clone(d), { saisie: 'clavier', majLe: new Date().toISOString() })); }
+  else { const tabs = freshTabs(cid), tt = tabs.find(x => x.id === id), x = tt && (tt.colonnes || []).find(y => y.id === col); if (!x) return; x.saisie = 'clavier'; saveTabs(cid, tabs); }
+  const el = document.getElementById(cell);
+  if (el) { el.focus(); if (el.select) el.select(); }
+  toast('Saisie au clavier pour cette colonne. Pour revenir au pavé, touche le titre de la colonne.');
+}
+function kpKey(k) {
+  const T = kpT(); if (!T) { kpClose(); return; }
+  if (k === 'close') { if (kpCommit()) kpClose(); return; }
+  if (k === 'ok') { kpMove(1); return; }
+  if (k === 'prev') { kpMove(-1); return; }
+  if (k === 'kbd') { kpKeyboard(); return; }
+  KP.err = '';
+  if (k === 'clr') { KP.buf = ''; KP.fresh = true; T.save(null); return; }
+  if (k.startsWith('S:')) { const s = k.slice(2); KP.buf = ''; KP.fresh = true; T.save(T.raw === s ? null : s); kpMove(1); return; }
+  if (k.startsWith('L:')) { KP.buf = ''; KP.fresh = true; T.save(k.slice(2)); kpMove(1); return; }
+  if (T.mode === 'lettres') return;
+  const b = KP.fresh ? '' : KP.buf;
+  if (k === 'bk') { KP.buf = b.slice(0, -1); KP.fresh = false; kpRender(); return; }
+  if (!kpAccept(T.mode, b, k)) { const d = document.getElementById('kp-disp'); if (d) { d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake'); } return; }
+  KP.buf = b + k; KP.fresh = false; kpRender();
+}
+document.addEventListener('keydown', e => {
+  if (!KP.on || LOCK.on || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (document.body.classList.contains('has-modal')) return;
+  const t = e.target;
+  if (t && t.tagName && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+  const T = kpT(); if (!T) return;
+  const key = e.key;
+  let k = null;
+  if (key === 'Escape') k = 'close';
+  else if (key === 'Enter' || key === 'ArrowDown' || (key === 'Tab' && !e.shiftKey)) k = 'ok';
+  else if (key === 'ArrowUp' || (key === 'Tab' && e.shiftKey)) k = 'prev';
+  else if (key === 'Backspace') k = T.mode === 'lettres' ? 'clr' : 'bk';
+  else if (key === 'Delete') k = 'clr';
+  else if (T.mode === 'lettres') {
+    const it = T.ech.find(x => x.c.toUpperCase() === key.toUpperCase());
+    if (it) k = 'L:' + it.c; else if (/^[1-9]$/.test(key) && T.ech[Number(key) - 1]) k = 'L:' + T.ech[Number(key) - 1].c;
+  } else if (/^\d$/.test(key)) k = key;
+  else if (key === ',' || key === '.') k = ',';
+  else if (T.mode === 'temps' && (key === "'" || key === '’' || key === ':')) k = '′';
+  else if (T.mode === 'temps' && key === '"') k = '″';
+  if (!k && T.special && T.mode !== 'lettres') k = { a: 'S:abs', d: 'S:disp', n: 'S:nn' }[key.toLowerCase()] || null;
+  if (!k) return;
+  e.preventDefault();
+  kpKey(k);
+});
+Object.assign(ACT, {
+  'kp-open': ds => { if (ds.ev) kpOpen('ev', ds.ev, '', '', ds.e); else kpOpen('gr', ds.t, ds.k, ds.c, ds.e); },
+});
+
 /* ============ Exemple fictif ============ */
 function buildDemo() {
   let seed = 20261118;
@@ -4698,7 +5147,7 @@ function buildDemo() {
   docs.set('p_' + cA.eleves[2].id, { kind: 'profil', dispositifs: ['PAP'], resp: [], infos: 'Consignes courtes et reformulées ; le placer près de l’enseignant pendant les explications.', annotations: [{ id: 'a1', date: clip(o(-12)), texte: 'Échange avec la famille : bons progrès en endurance.' }] });
   docs.set('p_' + cA.eleves[9].id, { kind: 'profil', dispositifs: ['Section sportive', 'AS'], resp: [], infos: '', annotations: [] });
   docs.set('p_' + cB.eleves[1].id, { kind: 'profil', dispositifs: ['Délégué'], resp: [], infos: '', annotations: [] });
-  classes[0].onglets = [{ id: 'appel', type: 'appel', nom: 'Appel' }, { id: 'tvit', type: 'notes', nom: 'Vitesse' }, { id: 'notes', type: 'notes', nom: 'Demi-fond' }, { id: 'tobs', type: 'grille', nom: 'Observation', colonnes: [{ id: 'k1', titre: 'Licence AS', type: 'coche' }, { id: 'k2', titre: 'Rôle de chronométreur', type: 'pastille' }, { id: 'k3', titre: 'Palier test navette', type: 'nombre' }] }, { id: 'dispenses', type: 'dispenses', nom: 'Dispenses' }, { id: 'journal', type: 'journal', nom: 'Journal' }, { id: 'bilan', type: 'bilan', nom: 'Bilan' }, { id: 'eleves', type: 'eleves', nom: 'Élèves' }, { id: 'outils', type: 'outils', nom: 'Outils' }];
+  classes[0].onglets = [{ id: 'appel', type: 'appel', nom: 'Appel' }, { id: 'tvit', type: 'notes', nom: 'Vitesse' }, { id: 'notes', type: 'notes', nom: 'Demi-fond' }, { id: 'tobs', type: 'grille', nom: 'Observation', colonnes: [{ id: 'k1', titre: 'Licence AS', type: 'coche' }, { id: 'k2', titre: 'Rôle de chronométreur', type: 'pastille' }, { id: 'k3', titre: 'Palier test navette', type: 'nombre' }, { id: 'k4', titre: 'Test 30 m', type: 'temps' }, { id: 'k5', titre: 'Attitude', type: 'lettres', echelle: [{ c: 'A', p: 20 }, { c: 'B', p: 15 }, { c: 'C', p: 10 }, { c: 'D', p: 5 }] }] }, { id: 'dispenses', type: 'dispenses', nom: 'Dispenses' }, { id: 'journal', type: 'journal', nom: 'Journal' }, { id: 'bilan', type: 'bilan', nom: 'Bilan' }, { id: 'eleves', type: 'eleves', nom: 'Élèves' }, { id: 'outils', type: 'outils', nom: 'Outils' }];
   ev1.ongletId = 'tvit'; ev2.ongletId = 'notes'; ev3.ongletId = 'notes';
   const ev5 = mk(cA, { titre: 'Relais-vitesse', date: clip('2026-10-08'), apsa: 'Vitesse / relais', type: 'comp', comp: clone(COMP_FOURNIS['f-relais'].comp), max: 20, ongletId: 'tvit', comms: {} });
   cA.eleves.forEach((e, i) => {
@@ -4713,8 +5162,8 @@ function buildDemo() {
   ev5.comms[cA.eleves[5].id] = 'Performances non évaluées (inaptitude partielle) : note calculée sur les autres critères.';
   D(0, 5, { nature: 'partielle', debut: '2026-09-28', fin: '2026-10-09', limitations: ['Course rapide / sprint'], apsa: ['Vitesse / relais'], roles: ['Chronométreur', 'Juge'], evaluation: 'adaptee', notes: 'Pas de sprint. Peut travailler la transmission en marchant puis en trottinant.' });
   if (ev5.date <= T) docs.set('v_demo5', ev5);
-  const gv = { k1: {}, k2: {}, k3: {} };
-  cA.eleves.forEach(e => { if (rnd() < 0.3) gv.k1[e.id] = true; const r = rnd(); if (r < 0.75) gv.k2[e.id] = r < 0.15 ? 'na' : r < 0.4 ? 'ec' : 'a'; gv.k3[e.id] = Math.round((4 + rnd() * 6) * 2) / 2; });
+  const gv = { k1: {}, k2: {}, k3: {}, k4: {}, k5: {} };
+  cA.eleves.forEach(e => { if (rnd() < 0.3) gv.k1[e.id] = true; const r = rnd(); if (r < 0.75) gv.k2[e.id] = r < 0.15 ? 'na' : r < 0.4 ? 'ec' : 'a'; gv.k3[e.id] = Math.round((4 + rnd() * 6) * 2) / 2; if (rnd() < 0.8) gv.k4[e.id] = Math.round((4.7 + rnd() * 1.5) * 100) / 100; const a = rnd(); if (a < 0.6) gv.k5[e.id] = a < 0.12 ? 'D' : a < 0.27 ? 'C' : a < 0.47 ? 'B' : 'A'; });
   docs.set('t_tobs', { kind: 'grille', classeId: cA.id, ongletId: 'tobs', valeurs: gv });
   classes.forEach(c => docs.set(c.id, { kind: 'classe', nom: c.nom, niveau: c.niveau, jours: c.jours, creneaux: c.creneaux, onglets: c.onglets, eleves: c.eleves }));
   return docs;
